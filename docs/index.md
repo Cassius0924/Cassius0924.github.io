@@ -1,4 +1,4 @@
-# Cassius 的个人博客
+# Cassius0924 的个人博客
 
 [![GitHub](https://img.shields.io/badge/GitHub-blue?style=flat-square&logo=Github&logoColor=white)](https://github.com/cassius0924)
 [![Bilibili](https://img.shields.io/badge/Bilibili-blue?style=flat-square&logo=bilibili&logoColor=white)](https://space.bilibili.com/12873865)
@@ -24,6 +24,8 @@
 - **[MultipleSearch](https://github.com/Cassius0924/MultipleSearch)**：*快捷切换搜索引擎的油猴脚本。*
 
 - **[ChaoxingAnswerToggler](https://github.com/Cassius0924/ChaoxingAnswerToggler)**：*隐藏或显示学习通作业选择题答案，复习专用。*
+
+## 我的技术栈
 
 ### Languages
 
@@ -51,9 +53,8 @@
 [![Open3D](https://img.shields.io/badge/open3d-black?style=for-the-badge&logo=open3d)](https://github.com/cassius0924)
 [![SQLAlchemy](https://img.shields.io/badge/sqlalchemy-black?style=for-the-badge&logo=sqlalchemy)](https://github.com/cassius0924)
 [![Protobuf](https://img.shields.io/badge/protobuf-black?style=for-the-badge&logo=protobuf)](https://github.com/cassius0924)
+[![MMDetection3D](https://img.shields.io/badge/mmdetection3d-black?style=for-the-badge&logo=)](https://github.com/cassius0924)
 
 ## 我的邮箱
 
-[![Email](https://img.shields.io/badge/Email-blue?style=flat-square&logo=gmail&logoColor=white)](mailto:cassius0924@qq.com)
-
-联系我：**<cassius0924@qq.com>**
+联系我：[cassius0924@qq.com](mailto:cassius0924@qq.com)
