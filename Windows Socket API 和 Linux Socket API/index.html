@@ -11,10 +11,10 @@
       
       
       
-        <link rel="prev" href="../Linux%20%E5%88%9D%E6%8E%A2%E4%B9%8B%E6%97%85%EF%BC%88%E4%B8%89%EF%BC%89%E2%80%94%E2%80%94%E9%87%8D%E5%AE%9A%E5%90%91%E3%80%81%E6%A0%87%E5%87%86%E8%BE%93%E5%85%A5%E8%BE%93%E5%87%BA%E5%92%8C%E7%AE%A1%E9%81%93/">
+        <link rel="prev" href="../VS%20Code%20%E8%AE%BE%E7%BD%AE%E7%BD%91%E7%BB%9C%E4%BB%A3%E7%90%86%E6%8C%87%E5%8D%97/">
       
       
-        <link rel="next" href="../Linux%20%E5%91%BD%E4%BB%A4%E8%A1%8C%E7%BD%91%E7%BB%9C%E8%BF%9E%E6%8E%A5%E6%8C%87%E5%8D%97/">
+        <link rel="next" href="../Windows%20VSCode%20%E4%BD%BF%E7%94%A8%20JetBrians%20Mono%20%E5%AD%97%E4%BD%93/">
       
       
       <link rel="icon" href="../assets/images/favicon.png">
@@ -22,7 +22,7 @@
     
     
       
-        <title>Linux 初探之旅（二）——文件与文件夹的读写 - Cassius0924's Blog</title>
+        <title>Windows Socket API 和 Linux Socket API 的区别 - Cassius0924's Blog</title>
       
     
     
@@ -73,7 +73,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#linux" class="md-skip">
+        <a href="#windows-socket-api-linux-socket-api" class="md-skip">
           跳转至
         </a>
       
@@ -109,7 +109,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Linux 初探之旅（二）——文件与文件夹的读写
+              Windows Socket API 和 Linux Socket API 的区别
             
           </span>
         </div>
@@ -578,29 +578,9 @@
       
   
   
-    
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  <span class="md-ellipsis">
-    Linux 初探之旅（二）——文件与文件夹的读写
-  </span>
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../Linux%20%E5%88%9D%E6%8E%A2%E4%B9%8B%E6%97%85%EF%BC%88%E4%BA%8C%EF%BC%89%E2%80%94%E2%80%94%E6%96%87%E4%BB%B6%E4%B8%8E%E6%96%87%E4%BB%B6%E5%A4%B9%E7%9A%84%E8%AF%BB%E5%86%99/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -609,121 +589,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="目录">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      目录
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#_1" class="md-nav__link">
-    读取文件
-  </a>
-  
-    <nav class="md-nav" aria-label="读取文件">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#cat" class="md-nav__link">
-    cat 命令：读取文件全部内容
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#head-tail" class="md-nav__link">
-    head 和 tail 命令：显示部分内容
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#less" class="md-nav__link">
-    less 命令：分页显示
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
-    写入文件
-  </a>
-  
-    <nav class="md-nav" aria-label="写入文件">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#echo" class="md-nav__link">
-    echo 命令：输出到文件
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#vim" class="md-nav__link">
-    文本编辑器：vim
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
-    删除文件和目录
-  </a>
-  
-    <nav class="md-nav" aria-label="删除文件和目录">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#rm" class="md-nav__link">
-    rm 命令：删除文件
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#rm-r" class="md-nav__link">
-    rm -r 命令：删除目录
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_4" class="md-nav__link">
-    复制和移动文件
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -1017,9 +882,29 @@
       
   
   
+    
   
-    <li class="md-nav__item">
-      <a href="../Windows%20Socket%20API%20%E5%92%8C%20Linux%20Socket%20API/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Windows Socket API 和 Linux Socket API 的区别
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   <span class="md-ellipsis">
@@ -1028,6 +913,68 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    头文件
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#socket" class="md-nav__link">
+    socket 套接字类型
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    函数返回值
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#close-closesocket" class="md-nav__link">
+    close 和 closesocket
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#getsockopt-setsockopt" class="md-nav__link">
+    getsockopt 和 setsockopt
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#fcntl-ioctlsocket" class="md-nav__link">
+    fcntl 和 ioctlsocket
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -1516,95 +1463,42 @@
       
         <li class="md-nav__item">
   <a href="#_1" class="md-nav__link">
-    读取文件
-  </a>
-  
-    <nav class="md-nav" aria-label="读取文件">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#cat" class="md-nav__link">
-    cat 命令：读取文件全部内容
+    头文件
   </a>
   
 </li>
-        
-          <li class="md-nav__item">
-  <a href="#head-tail" class="md-nav__link">
-    head 和 tail 命令：显示部分内容
+      
+        <li class="md-nav__item">
+  <a href="#socket" class="md-nav__link">
+    socket 套接字类型
   </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#less" class="md-nav__link">
-    less 命令：分页显示
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
         <li class="md-nav__item">
   <a href="#_2" class="md-nav__link">
-    写入文件
+    函数返回值
   </a>
-  
-    <nav class="md-nav" aria-label="写入文件">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#echo" class="md-nav__link">
-    echo 命令：输出到文件
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#vim" class="md-nav__link">
-    文本编辑器：vim
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
-    删除文件和目录
+  <a href="#close-closesocket" class="md-nav__link">
+    close 和 closesocket
   </a>
-  
-    <nav class="md-nav" aria-label="删除文件和目录">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#rm" class="md-nav__link">
-    rm 命令：删除文件
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#rm-r" class="md-nav__link">
-    rm -r 命令：删除目录
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#_4" class="md-nav__link">
-    复制和移动文件
+  <a href="#getsockopt-setsockopt" class="md-nav__link">
+    getsockopt 和 setsockopt
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#fcntl-ioctlsocket" class="md-nav__link">
+    fcntl 和 ioctlsocket
   </a>
   
 </li>
@@ -1624,78 +1518,230 @@
                   
 
 
-<h1 id="linux">Linux 初探之旅（二）——文件与文件夹的读写</h1>
-<p>在上一篇文章中，我们学习了Linux中的文件浏览，知道了如何在Linux文件系统中定位文件。本篇文章中，我们将继续深入学习Linux中的文件及目录的读写操作。</p>
-<h2 id="_1">读取文件</h2>
-<h3 id="cat">cat 命令：读取文件全部内容</h3>
-<p>要读取一个文件的内容，可以使用cat命令，语法为：</p>
-<div class="highlight"><pre><span></span><code>cat<span class="w"> </span>文件名
-</code></pre></div>
-<p>这会将文件的全部内容输出到终端。当文件比较大时，这样的输出会刷屏，不太方便查看。</p>
-<h3 id="head-tail">head 和 tail 命令：显示部分内容</h3>
-<p>Linux提供了head和tail命令来显示部分内容：</p>
+<h1 id="windows-socket-api-linux-socket-api">Windows Socket API 和 Linux Socket API 的区别</h1>
+<p>本文章主要介绍 Windows 下和 Linux 下的 Socket 编程区别，即 Windows Socket API 和 Linux Socket API 的区别。</p>
+<h2 id="_1">头文件</h2>
+<p>Windows 环境下的 Socket 编程需要以下头文件:</p>
 <ul>
-<li>head - 显示开头部分内容  </li>
-<li>tail - 显示结尾部分内容</li>
+<li><code>&lt;WinSock2.h&gt;</code></li>
+<li><code>&lt;WS2tcpip.h&gt;</code></li>
 </ul>
-<p>head和tail可以指定显示的行数，例如：</p>
-<div class="highlight"><pre><span></span><code>head<span class="w"> </span>-n<span class="w"> </span><span class="m">3</span><span class="w"> </span>文件名<span class="w"> </span><span class="c1"># 显示前3行 </span>
-tail<span class="w"> </span>-n<span class="w"> </span><span class="m">5</span><span class="w"> </span>文件名<span class="w"> </span><span class="c1"># 显示后5行</span>
-</code></pre></div>
-<h3 id="less">less 命令：分页显示</h3>
-<p>less命令可以分页方式显示文件内容，可以上下翻阅，是文件查看的首选工具。</p>
-<p>less可以用方向键上下翻页，也支持各种快捷键，推荐大家阅读less的帮助文档。</p>
-<h2 id="_2">写入文件</h2>
-<h3 id="echo">echo 命令：输出到文件</h3>
-<p>使用echo命令可以向文件写入内容，语法为：</p>
-<div class="highlight"><pre><span></span><code><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;要写入的内容&quot;</span><span class="w"> </span>&gt;<span class="w"> </span>文件名<span class="w"> </span>
-</code></pre></div>
-<p>这会覆盖文件原有内容。如果要附加内容，使用两个大于号：</p>
-<div class="highlight"><pre><span></span><code><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;新增内容&quot;</span><span class="w"> </span>&gt;&gt;<span class="w"> </span>文件名<span class="w"> </span>
-</code></pre></div>
-<h3 id="vim">文本编辑器：vim</h3>
-<p>对文件进行复杂编辑可以使用文本编辑器，Linux中的常用文本编辑器有vi、emacs、vim和nano等。这里简单介绍vim的使用。</p>
-<p>使用<code>vim 文件名</code>可以打开vim编辑器。vim有三种模式，分别是命令模式、插入模式和底线命令模式。</p>
+<blockquote>
+<p>[!NOTE]</p>
+<p>如果使用 MSVC 编译器，那么还需要使用预处理指令 <code>#pragma comment(lib, "Ws2_32.lib")</code> 来链接 <code>Ws2_32.lib</code> 库。</p>
+</blockquote>
+<p>而 Linux 环境下的 Socket 编程可能会用到以下头文件:</p>
 <ul>
-<li>命令模式：用于导航文件，可以进行复制、粘贴、删除等操作。</li>
-<li>插入模式：用于输入文本，可以使用键盘输入文本。</li>
-<li>底线命令模式：用于执行命令，例如保存文件、退出vim等。</li>
+<li><code>&lt;sys/socket.h&gt;</code></li>
+<li><code>&lt;netinet/in.h&gt;</code></li>
+<li><code>&lt;arpa/inet.h&gt;</code></li>
+<li><code>&lt;unistd.h&gt;</code></li>
+<li><code>&lt;fcntl.h&gt;</code></li>
 </ul>
-<p>初学者可以先了解以下几个快捷键：</p>
-<ul>
-<li><code>i</code> - 进入插入模式</li>
-<li><code>ESC</code> - 从插入模式回到命令模式</li>
-<li><code>:w</code> - 保存文件</li>
-<li><code>:q</code> - 退出vim</li>
-</ul>
-<p>vim非常强大，建议大家自己练习熟悉其操作。</p>
-<h2 id="_3">删除文件和目录</h2>
-<h3 id="rm">rm 命令：删除文件</h3>
-<p>删除文件使用rm命令：</p>
-<div class="highlight"><pre><span></span><code>rm<span class="w"> </span>文件名
-</code></pre></div>
-<h3 id="rm-r">rm -r 命令：删除目录</h3>
-<p>如果要删除目录，需要添加-r参数：</p>
-<div class="highlight"><pre><span></span><code>rm<span class="w"> </span>-r<span class="w"> </span>目录名
-</code></pre></div>
-<p>这会递归删除目录及其中的所有内容，需要小心使用。</p>
-<h2 id="_4">复制和移动文件</h2>
-<ul>
-<li>
-<p>复制使用cp命令，添加-r参数可以复制目录  </p>
-</li>
-<li>
-<p>移动使用mv命令，mv同时支持文件和目录的移动</p>
-</li>
-</ul>
-<div class="highlight"><pre><span></span><code>cp<span class="w"> </span>file1<span class="w"> </span>file2<span class="w">  </span><span class="c1"># 复制文件file1成为file2</span>
-cp<span class="w"> </span>-r<span class="w"> </span>dir1<span class="w"> </span>dir2<span class="w"> </span><span class="c1"># 复制目录dir1成为dir2</span>
+<div class="highlight"><pre><span></span><code><span class="cp">#indef __linux__</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;sys/socket.h&gt;</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;netinet/in.h&gt;</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;arpa/inet.h&gt;</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;unistd.h&gt;</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;fcntl.h&gt;</span>
 
-mv<span class="w"> </span>file1<span class="w"> </span>file2<span class="w">  </span><span class="c1"># 将文件file1移动并重命名为file2  </span>
-mv<span class="w"> </span>dir1<span class="w"> </span>dir2<span class="w">   </span><span class="c1"># 将目录dir1移动并重命名为dir2</span>
+<span class="cp">#elif defined(_WIN32)</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;winsock2.h&gt;</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;WS2tcpip.h&gt;</span>
 </code></pre></div>
-<p>今天学习的这些基础命令非常实用，建议大家练习熟练掌握。可以在home目录下创建文件夹，在里面练习这些命令。掌握后，文件操作会更加高效。</p>
-<p>如果觉得文章有帮助，请点个赞收藏支持一下。下期再见!</p>
+<h2 id="socket">socket 套接字类型</h2>
+<ul>
+<li>
+<p>Linux 环境下为 <code>int</code></p>
+</li>
+<li>
+<p>Windows 环境下为 <code>SOCKET</code></p>
+</li>
+</ul>
+<h2 id="_2">函数返回值</h2>
+<p>Windows 环境下有专门定义操作成功的宏 <code>NO_ERROR</code>，Linux 环境下则没有。</p>
+<h2 id="close-closesocket">close 和 closesocket</h2>
+<p>关闭一个套接字需要使用 <code>close</code> 或 <code>closesocket</code>，Linux 环境下需要使用 <code>close</code> 删除套接字描述符，Windows 环境下则使用 <code>closesocket</code>。</p>
+<ul>
+<li>Linux 环境</li>
+</ul>
+<div class="highlight"><pre><span></span><code><span class="n">close</span><span class="p">(</span><span class="n">fd</span><span class="p">);</span>
+</code></pre></div>
+<p>返回值：</p>
+<table>
+<thead>
+<tr>
+<th>返回值</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>EBADF</code></td>
+<td>fd 不是有效的文件描述符。</td>
+</tr>
+<tr>
+<td><code>EINTR</code></td>
+<td>执行被信号中断。</td>
+</tr>
+<tr>
+<td><code>EIO</code></td>
+<td>先前未提交的 write(2) 遇到输入/输出错误。</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>Windows 环境</li>
+</ul>
+<div class="highlight"><pre><span></span><code><span class="n">closesocket</span><span class="p">(</span><span class="n">fd</span><span class="p">);</span>
+</code></pre></div>
+<p>返回值：</p>
+<table>
+<thead>
+<tr>
+<th>返回值</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>WSANOTINITIALIZED</code></td>
+<td>在使用此函数之前，必须成功调用 WSAStartup。</td>
+</tr>
+<tr>
+<td><code>WSAENETDOWN</code></td>
+<td>网络子系统发生故障。</td>
+</tr>
+<tr>
+<td><code>WSAENOTSOCK</code></td>
+<td>描述符不是套接字。</td>
+</tr>
+<tr>
+<td><code>WSAEINPROGRESS</code></td>
+<td>阻止 Windows 套接字 1.1 调用正在进行，或者服务提供商仍在处理回调函数。</td>
+</tr>
+<tr>
+<td><code>WSAEINTR</code></td>
+<td>(阻止) Windows 套接字 1.1 调用已通过 WSACancelBlockingCall 取消。</td>
+</tr>
+<tr>
+<td><code>WSAEWOULDBLOCK</code></td>
+<td>套接字标记为非阻止，但 linger 结构的 l_onoff 成员设置为非零，而 linger 结构的 l_linger 成员设置为非零超时值。</td>
+</tr>
+</tbody>
+</table>
+<h2 id="getsockopt-setsockopt">getsockopt 和 setsockopt</h2>
+<ul>
+<li>Linux 环境下的函数原型</li>
+</ul>
+<div class="highlight"><pre><span></span><code><span class="kt">int</span><span class="w"> </span><span class="nf">getsockopt</span><span class="p">(</span>
+<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">sockfd</span><span class="p">,</span><span class="w"> </span>
+<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">level</span><span class="p">,</span>
+<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">optname</span><span class="p">,</span>
+<span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="n">optval</span><span class="p">[</span><span class="kr">restrict</span><span class="w"> </span><span class="o">*</span><span class="p">.</span><span class="n">optlen</span><span class="p">],</span><span class="w"> </span>
+<span class="w">    </span><span class="kt">socklen_t</span><span class="w"> </span><span class="o">*</span><span class="kr">restrict</span><span class="w"> </span><span class="n">optlen</span>
+<span class="p">);</span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">setsockopt</span><span class="p">(</span>
+<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">socket</span><span class="p">,</span><span class="w"> </span>
+<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">level</span><span class="p">,</span><span class="w"> </span>
+<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">option_name</span><span class="p">,</span><span class="w"> </span>
+<span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="o">*</span><span class="n">option_value</span><span class="p">,</span><span class="w"> </span>
+<span class="w">    </span><span class="kt">socklen_t</span><span class="w"> </span><span class="n">option_len</span>
+<span class="p">);</span>
+</code></pre></div>
+<ul>
+<li>Windows 环境下的函数原型</li>
+</ul>
+<div class="highlight"><pre><span></span><code><span class="kt">int</span><span class="w"> </span><span class="nf">getsockopt</span><span class="p">(</span>
+<span class="w">    </span><span class="p">[</span><span class="n">in</span><span class="p">]</span><span class="w">      </span><span class="n">SOCKET</span><span class="w"> </span><span class="n">s</span><span class="p">,</span>
+<span class="w">    </span><span class="p">[</span><span class="n">in</span><span class="p">]</span><span class="w">      </span><span class="kt">int</span><span class="w">    </span><span class="n">level</span><span class="p">,</span>
+<span class="w">    </span><span class="p">[</span><span class="n">in</span><span class="p">]</span><span class="w">      </span><span class="kt">int</span><span class="w">    </span><span class="n">optname</span><span class="p">,</span>
+<span class="w">    </span><span class="p">[</span><span class="n">out</span><span class="p">]</span><span class="w">     </span><span class="kt">char</span><span class="w">   </span><span class="o">*</span><span class="n">optval</span><span class="p">,</span>
+<span class="w">    </span><span class="p">[</span><span class="n">in</span><span class="p">,</span><span class="w"> </span><span class="n">out</span><span class="p">]</span><span class="w"> </span><span class="kt">int</span><span class="w">    </span><span class="o">*</span><span class="n">optlen</span>
+<span class="p">);</span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">setsockopt</span><span class="p">(</span>
+<span class="w">    </span><span class="p">[</span><span class="n">in</span><span class="p">]</span><span class="w"> </span><span class="n">SOCKET</span><span class="w">     </span><span class="n">s</span><span class="p">,</span>
+<span class="w">    </span><span class="p">[</span><span class="n">in</span><span class="p">]</span><span class="w"> </span><span class="kt">int</span><span class="w">        </span><span class="n">level</span><span class="p">,</span>
+<span class="w">    </span><span class="p">[</span><span class="n">in</span><span class="p">]</span><span class="w"> </span><span class="kt">int</span><span class="w">        </span><span class="n">optname</span><span class="p">,</span>
+<span class="w">    </span><span class="p">[</span><span class="n">in</span><span class="p">]</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">optval</span><span class="p">,</span>
+<span class="w">    </span><span class="p">[</span><span class="n">in</span><span class="p">]</span><span class="w"> </span><span class="kt">int</span><span class="w">        </span><span class="n">optlen</span>
+<span class="p">);</span>
+</code></pre></div>
+<p>二者区别在于 Windows 下的 <code>optval</code> 是 <code>char *</code> 类型，而 Linux 下的 <code>optval</code> 是 <code>void *</code> 类型。</p>
+<p>所以建议使用 <code>char *</code> 类型，这样可以在 Windows 和 Linux 下都能正常使用。</p>
+<h2 id="fcntl-ioctlsocket">fcntl 和 ioctlsocket</h2>
+<p>这两个函数都是用来设置套接字的属性，比如设置非阻塞模式等。</p>
+<ul>
+<li>Linux 环境下的函数原型</li>
+</ul>
+<div class="highlight"><pre><span></span><code><span class="kt">int</span><span class="w"> </span><span class="nf">fcntl</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">fd</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">cmd</span><span class="p">,</span><span class="w"> </span><span class="p">...</span><span class="w"> </span><span class="cm">/* arg */</span><span class="w"> </span><span class="p">);</span>
+</code></pre></div>
+<p>cmd 参数的取值：</p>
+<ul>
+<li><code>F_DUPFD</code>：复制文件描述符</li>
+<li><code>F_GETFL</code>：获取文件状态标志，返回值是文件状态标志的副本；</li>
+<li><code>F_SETFL</code>：设置文件状态标志，设置文件状态标志为 arg 参数的值；</li>
+<li><code>F_GETFD</code>：获取文件描述符标志，返回值是文件描述符标志的副本；</li>
+<li><code>F_SETFD</code>：设置文件描述符标志，设置文件描述符标志为 arg 参数的值；</li>
+</ul>
+<blockquote>
+<p>[!NOTE] FL 和 FD 的区别</p>
+<p>文件描述符标志（FD Flags）和文件状态标志（FL Flags）都是与文件描述符相关的属性，但它们的用途和含义有所不同。</p>
+<ul>
+<li>
+<p>文件描述符标志（FD Flags）：这些标志控制文件描述符的行为。目前，只有一个文件描述符标志，即 FD_CLOEXEC。</p>
+</li>
+<li>
+<p>文件状态标志（FL Flags）：这些标志描述了文件的状态，例如文件是以读模式、写模式还是读写模式打开的，文件是否支持非阻塞操作，等等。</p>
+</li>
+</ul>
+</blockquote>
+<ul>
+<li>Windows 环境下的函数原型</li>
+</ul>
+<div class="highlight"><pre><span></span><code><span class="kt">int</span><span class="w"> </span><span class="n">WSAAPI</span><span class="w"> </span><span class="nf">ioctlsocket</span><span class="p">(</span>
+<span class="w">  </span><span class="p">[</span><span class="n">in</span><span class="p">]</span><span class="w">      </span><span class="n">SOCKET</span><span class="w"> </span><span class="n">s</span><span class="p">,</span>
+<span class="w">  </span><span class="p">[</span><span class="n">in</span><span class="p">]</span><span class="w">      </span><span class="kt">long</span><span class="w">   </span><span class="n">cmd</span><span class="p">,</span>
+<span class="w">  </span><span class="p">[</span><span class="n">in</span><span class="p">,</span><span class="w"> </span><span class="n">out</span><span class="p">]</span><span class="w"> </span><span class="n">u_long</span><span class="w"> </span><span class="o">*</span><span class="n">argp</span>
+<span class="p">);</span>
+</code></pre></div>
+<p>cmd 参数的取值：</p>
+<ul>
+<li><code>FIONBIO</code>：设置非阻塞模式，如果设置为0，那么套接字是阻塞的，否则是非阻塞的；</li>
+<li><code>FIONREAD</code>：获取接收缓冲区中的字节数，如果是流式套接字（TCP），那么返回的是接收缓冲区中的字节数，如果是数据报套接字（UDP），那么返回的是下一个数据报的大小；</li>
+<li><code>SIOCATMARK</code>：确定是否已经读取了所有的Out-of-Band数据（带外数据），此命令只适用于设置了SO_OOBINLINE选项的流式套接字，如果没有OOB数据等待读取，那么返回TRUE，否则返回FALSE；</li>
+</ul>
+<p>返回值：</p>
+<table>
+<thead>
+<tr>
+<th>错误代码</th>
+<th>含义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>WSANOTINITIALIZED</code></td>
+<td>在使用此函数之前，必须成功调用 WSAStartup 。</td>
+</tr>
+<tr>
+<td><code>WSAENETDOWN</code></td>
+<td>网络子系统发生故障。</td>
+</tr>
+<tr>
+<td><code>WSAEINPROGRESS</code></td>
+<td>阻止 Windows 套接字 1.1 调用正在进行，或者服务提供商仍在处理回调函数。</td>
+</tr>
+<tr>
+<td><code>WSAENOTSOCK</code></td>
+<td>描述符 s 不是套接字。</td>
+</tr>
+<tr>
+<td><code>WSAEFAULT</code></td>
+<td>argp 参数不是用户地址空间的有效部分。</td>
+</tr>
+</tbody>
+</table>
 
 
 
