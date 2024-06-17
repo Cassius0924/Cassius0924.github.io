@@ -1313,6 +1313,25 @@
   
   
     <li class="md-nav__item">
+      <a href="../%E6%90%AD%E5%BB%BA%E8%87%AA%E5%8A%A8%E5%8C%96%E9%83%A8%E7%BD%B2%E7%9A%84%20GitHub.io%20%E5%8D%9A%E5%AE%A2%E6%8C%87%E5%8D%97/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    搭建自动化部署的 GitHub.io 个人静态博客指南
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../%E6%9E%84%E5%BB%BA%20Open3D%20%E5%AE%98%E6%96%B9%20Azure%20Kinect%20%E7%A4%BA%E4%BE%8B%E6%97%B6%E6%89%BE%E4%B8%8D%E5%88%B0%20AzureKinect%2A%2A%2A%20%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95/" class="md-nav__link">
         
   
@@ -1393,7 +1412,7 @@
         
   
   <span class="md-ellipsis">
-    解决VScode远程开发C++项目时无代码提示问题
+    解决 VScode 远程开发 C++ 项目时无代码提示问题
   </span>
   
 
@@ -1497,7 +1516,7 @@
 <p><img alt="YOLO-V1 mAP" src="https://s2.loli.net/2023/08/30/UHC9IP5gSdZfolr.png" /></p>
 <p>YOLO 相比于 Faster R-CNN 虽然在 mAP 值上略逊一筹，但其 FPS 值是远远高于 Faster R-CNN 的，因此2016年的时，YOLO爆火。</p>
 <h2 id="_1">核心思想</h2>
-<p><img alt="YOLO 核心思想" src="/Users/hochihchou/Library/Application Support/CleanShot/media/media_dUlEXaPknu/CleanShot 2023-08-30 at 15.10.39@2x.png" /></p>
+<p><img alt="YOLO 核心思想" src="" /></p>
 <ul>
 <li>将输入图像分割成 SxS 个网格（如7x7），每个网格负责检测本身区域是否含有物体。</li>
 <li>每个网格会预测 B 个边界框（在YOLO-V1中，B值等于2），边界框由四个变量表示 x、y、w、h，以及每个边界框的置信度，置信度用 c 表示。置信度表示边界框包含物体的概率。</li>
@@ -1509,7 +1528,7 @@
 </li>
 </ul>
 <h2 id="_2">网络架构</h2>
-<p><img alt="YOLO 网络架构" src="/Users/hochihchou/Library/Application Support/CleanShot/media/media_kXtLXKQOcq/CleanShot 2023-08-30 at 15.54.07@2x.png" /></p>
+<p><img alt="YOLO 网络架构" src="" /></p>
 <p>将输入图像（在YOLO-V1中限制了输入图像的大小）进行通过卷积神经网络进行特征提取，获得 7x7x1024 的特征图，再进入全连接层，得到 1470 个特征，随后 Reshape 成 7x7x30 的特征图。</p>
 <p>下面解释一下 7x7x30 的含义。</p>
 <ul>
