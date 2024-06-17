@@ -177,7 +177,7 @@ jobs:
 
 ![生成 GitHub Token](https://s2.loli.net/2024/06/17/DF6REOJjt7iH3Vv.png)
 
-按照上图的配置生成一个有 repo 和 workflow 权限的 token，然后将这个 token 添加到仓库的 Secrets 中。
+按照上图的配置生成一个有 repo 和 workflow 权限的 token，生成后复制这个这个 token，然后在仓库 Settings 的 Secrets 新建一个 Secret，并将这个 token 粘贴到下图箭头指向处。
 
 ![配置仓库 Secret](https://s2.loli.net/2024/06/17/Z4OI1lYcCiXRtmT.png)
 
