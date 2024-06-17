@@ -211,4 +211,4 @@ git push origin main
 
 ## 关于自动化
 
-完成上述步骤后，你的博客就可以实现自动化部署了。每次我们将新博客推送到 `main` 分支时，GitHub Actions 会自动构建 MkDocs 项目，并将生成的静态网页推送到 `gh-pages` 分支，你的博客也会自动更新。
+完成上述步骤后，GitHub.io 就可以实现自动化部署了。每次我们将新博客推送到 `main` 分支时，GitHub Actions 会自动构建 MkDocs 项目，并将生成的静态网页推送到 `gh-pages` 分支，网站也会自动更新。
