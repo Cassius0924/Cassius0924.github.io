@@ -12,7 +12,7 @@ YOLO 相比于 Faster R-CNN 虽然在 mAP 值上略逊一筹，但其 FPS 值是
 
 ## 核心思想
 
-![YOLO 核心思想](/Users/hochihchou/Library/Application Support/CleanShot/media/media_dUlEXaPknu/CleanShot 2023-08-30 at 15.10.39@2x.png)
+![YOLO 核心思想]()
 
 - 将输入图像分割成 SxS 个网格（如7x7），每个网格负责检测本身区域是否含有物体。
 - 每个网格会预测 B 个边界框（在YOLO-V1中，B值等于2），边界框由四个变量表示 x、y、w、h，以及每个边界框的置信度，置信度用 c 表示。置信度表示边界框包含物体的概率。
@@ -22,7 +22,7 @@ YOLO 相比于 Faster R-CNN 虽然在 mAP 值上略逊一筹，但其 FPS 值是
 
 ## 网络架构
 
-![YOLO 网络架构](/Users/hochihchou/Library/Application Support/CleanShot/media/media_kXtLXKQOcq/CleanShot 2023-08-30 at 15.54.07@2x.png)
+![YOLO 网络架构]()
 
 将输入图像（在YOLO-V1中限制了输入图像的大小）进行通过卷积神经网络进行特征提取，获得 7x7x1024 的特征图，再进入全连接层，得到 1470 个特征，随后 Reshape 成 7x7x30 的特征图。
 

@@ -82,7 +82,7 @@ IoU值越高表示预测值和真实值越吻合，即检测越准确。
 
 例如下面三图中，绿色框左上角的红色数字0.9、0.8和0.7都代表这个框内物体为人脸的概率。
 
-![检测任务中的精度和召回率](/Users/hochihchou/Library/Application Support/CleanShot/media/media_IktPRFVgrL/CleanShot 2023-08-29 at 13.43.01@2x.png)
+![检测任务中的精度和召回率]()
 
 ### 计算精度和召回率
 
