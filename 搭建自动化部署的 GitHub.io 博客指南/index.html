@@ -1830,7 +1830,7 @@
 或者依次点击 GitHub 的个人 Settings -&gt; Developer settings -&gt; Personal access tokens -&gt; Tokens (classic)。
 此页面用于生成 GitHub Access Token。</p>
 <p><img alt="生成 GitHub Token" src="https://s2.loli.net/2024/06/17/DF6REOJjt7iH3Vv.png" /></p>
-<p>按照上图的配置生成一个有 repo 和 workflow 权限的 token，然后将这个 token 添加到仓库的 Secrets 中。</p>
+<p>按照上图的配置生成一个有 repo 和 workflow 权限的 token，生成后复制这个这个 token，然后在仓库 Settings 的 Secrets 新建一个 Secret，并将这个 token 粘贴到下图箭头指向处。</p>
 <p><img alt="配置仓库 Secret" src="https://s2.loli.net/2024/06/17/Z4OI1lYcCiXRtmT.png" /></p>
 <h2 id="github-pages">部署到 GitHub Pages</h2>
 <p>当我们将代码推送到 GitHub 的 <code>main</code> 分支时，GitHub Actions 会自动触发工作流，构建 MkDocs 项目，并将生成的静态网页推送到 <code>gh-pages</code> 分支。</p>
