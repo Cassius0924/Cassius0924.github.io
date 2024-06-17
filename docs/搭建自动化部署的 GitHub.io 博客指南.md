@@ -1,7 +1,7 @@
 #  搭建自动化部署的 GitHub.io 个人静态博客指南
 
 
-本文章主要介绍如何使用 GitHub Actions 实现基于 MkDocs 的 GitHub.io 个人静态博客的自动化部署
+本文章主要介绍如何使用 GitHub Actions 实现基于 MkDocs 的 GitHub.io 个人静态博客的自动化部署。
 
 本指南主要分为以下几个部分：
 
