@@ -12,6 +12,9 @@ jobs:
         uses: actions/checkout@v2
         # with:
         #   submodules: true
+
+      - run: |
+            pip install github-callouts
           
       - name: Build
         uses: Tiryoh/actions-mkdocs@v0
