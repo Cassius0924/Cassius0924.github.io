@@ -1590,20 +1590,20 @@
 <ol>
 <li>首先在本地生成一对公私钥，可以使用以下命令：</li>
 </ol>
-<div class="highlight"><pre><span></span><code>ssh-keygen<span class="w"> </span>-t<span class="w"> </span>rsa
-</code></pre></div>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>ssh-keygen<span class="w"> </span>-t<span class="w"> </span>rsa
+</span></code></pre></div>
 <p>这个命令会在用户目录<code>~</code>下生成一个 <code>.ssh</code> 文件夹，里面包含私钥和公钥。</p>
 <ol>
 <li>将公钥上传到远程服务器，可以使用以下命令：</li>
 </ol>
-<div class="highlight"><pre><span></span><code>ssh-copy-id<span class="w"> </span>username@remote_host
-</code></pre></div>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>ssh-copy-id<span class="w"> </span>username@remote_host
+</span></code></pre></div>
 <p>其中，<code>username</code>为远程服务器的用户名，<code>remote_host</code>为远程服务器的IP地址或域名。</p>
 <ol>
 <li>登录远程服务器时，可以使用以下命令：</li>
 </ol>
-<div class="highlight"><pre><span></span><code>ssh<span class="w"> </span>username@remote_host
-</code></pre></div>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>ssh<span class="w"> </span>username@remote_host
+</span></code></pre></div>
 <h2 id="_4">写在最后</h2>
 <p>除了提高操作便捷性和登录安全性之外，SSH 免密登录还可以减少用户输入密码的次数。这对于需要频繁登录远程主机的用户来说尤为重要。此外，SSH 免密登录还可以实现自动化脚本（例如GitHub Actions）的编写和远程服务器的管理，从而提高工作效率。</p>
 <p>总之，了解 SSH 免密登录的原理可以帮助用户更好地使用该功能，保证登录的安全性和便捷性。同时，用户在使用 SSH 免密登录时，也应该注意保护自己的私钥，避免私钥泄露，以确保登录的安全性。</p>
@@ -1674,7 +1674,7 @@
       <div class="md-dialog__inner md-typeset"></div>
     </div>
     
-    <script id="__config" type="application/json">{"base": "..", "features": [], "search": "../assets/javascripts/workers/search.a264c092.min.js", "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}}</script>
+    <script id="__config" type="application/json">{"base": "..", "features": ["content.code.select", "content.code.copy", {"tabs": true}], "search": "../assets/javascripts/workers/search.a264c092.min.js", "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}}</script>
     
     
       <script src="../assets/javascripts/bundle.4e0fa4ba.min.js"></script>

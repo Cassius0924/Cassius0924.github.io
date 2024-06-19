@@ -1521,37 +1521,37 @@
 <h2 id="_2">输出重定向</h2>
 <p>理解了标准输入输出后，我们能弄懂重定向的原理了，实际上就是 Shell 执行完命令后不把输出结果存放在 stdout 或 stderr 。而是存放到另一个文件当中。</p>
 <p>下面说一下重定向的简单用法，即在命令后面加箭头（&gt;）：</p>
-<div class="highlight"><pre><span></span><code><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;Hello World&quot;</span><span class="w"> </span>&gt;<span class="w"> </span>test.txt<span class="w">   </span><span class="c1">#将 Hello World 覆盖式写入 test.txt 文件中</span>
-</code></pre></div>
+<div class="language-shell highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;Hello World&quot;</span><span class="w"> </span>&gt;<span class="w"> </span>test.txt<span class="w">   </span><span class="c1">#将 Hello World 覆盖式写入 test.txt 文件中</span>
+</span></code></pre></div>
 <p>重定向还有支持更高阶的操作，比如我们可以分别指定标准输出和标准错误的输出位置。</p>
 <p>在重定向的时候，<code>1</code>代表的就是 stdin，<code>2</code>代表的就是 stderr。例如：</p>
-<div class="highlight"><pre><span></span><code>cmd<span class="w"> </span><span class="m">1</span>&gt;outfile.txt<span class="w"> </span><span class="m">2</span>&gt;errfile.txt<span class="w">     </span><span class="c1">#cmd 为你想执行的命令</span>
-</code></pre></div>
+<div class="language-shell highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>cmd<span class="w"> </span><span class="m">1</span>&gt;outfile.txt<span class="w"> </span><span class="m">2</span>&gt;errfile.txt<span class="w">     </span><span class="c1">#cmd 为你想执行的命令</span>
+</span></code></pre></div>
 <p>我们还可以将一条通道重定向到另一条通道中：</p>
-<div class="highlight"><pre><span></span><code>cmd<span class="w"> </span><span class="m">2</span>&gt;<span class="p">&amp;</span><span class="m">1</span><span class="w">        </span><span class="c1">#将标准错误重定向到标准输出中</span>
-</code></pre></div>
+<div class="language-shell highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>cmd<span class="w"> </span><span class="m">2</span>&gt;<span class="p">&amp;</span><span class="m">1</span><span class="w">        </span><span class="c1">#将标准错误重定向到标准输出中</span>
+</span></code></pre></div>
 <p>当箭头后方是一条输出通道的时候，需要加上 &amp; 符号，表示指定的是 1 号通道，而不是一个名为“1”的文件。</p>
 <p>将标准错误和标准输出都存放到一个文件内：</p>
-<div class="highlight"><pre><span></span><code>cmd<span class="w"> </span><span class="m">1</span>&gt;outfile.txt<span class="w"> </span><span class="m">2</span>&gt;<span class="p">&amp;</span><span class="m">1</span>
-</code></pre></div>
+<div class="language-shell highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>cmd<span class="w"> </span><span class="m">1</span>&gt;outfile.txt<span class="w"> </span><span class="m">2</span>&gt;<span class="p">&amp;</span><span class="m">1</span>
+</span></code></pre></div>
 <p>注意这里的顺序，<code>2&gt;&amp;1</code>必须在后面，因为重定向并不是简单的将两个通道相连接，而是当箭头右侧为一条输出通道时，重定向会将箭头左侧的内容直接连接右侧通道的输出端。</p>
 <p>另外，我们可以把不希望输出的内容重定向到<code>/dev/null</code>中，这个文件相当于 Linux 的垃圾桶（黑洞）。</p>
 <h2 id="_3">输入重定向</h2>
 <p>将箭头反过来（&lt;）就表示输入重定向了。这里用 Linux 中十分常用的一条命令<code>grep</code>作为例子，<code>grep</code>的作用是在给定内容中寻找目标字符串所在的一行。</p>
-<div class="highlight"><pre><span></span><code>grep<span class="w"> </span><span class="s2">&quot;int main&quot;</span><span class="w"> </span>&lt;<span class="w"> </span>Hello.cpp
-</code></pre></div>
+<div class="language-shell highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>grep<span class="w"> </span><span class="s2">&quot;int main&quot;</span><span class="w"> </span>&lt;<span class="w"> </span>Hello.cpp
+</span></code></pre></div>
 <h2 id="_4">管道</h2>
 <p>实际上<code>grep</code>命令经与管道（pipe）一起用，管道符号为<code>|</code>，其作用也很简单，就是将管道左侧命令的标准输出与管道右侧命令的标准输入相连接。</p>
 <p>例如上面的<code>grep</code>命令的例子也能用管道实现：</p>
-<div class="highlight"><pre><span></span><code>cat<span class="w"> </span>Hello.cpp<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span><span class="s2">&quot;int main&quot;</span>
-</code></pre></div>
+<div class="language-shell highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>cat<span class="w"> </span>Hello.cpp<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span><span class="s2">&quot;int main&quot;</span>
+</span></code></pre></div>
 <p>下面再举几个<code>|</code>的例子：</p>
 <p>与<code>ifconfig</code>命令配合使用，查询局域网 ipv4 地址：</p>
-<div class="highlight"><pre><span></span><code>ifconfig<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span><span class="m">192</span>.168
-</code></pre></div>
+<div class="language-shell highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>ifconfig<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span><span class="m">192</span>.168
+</span></code></pre></div>
 <p>与<code>ps</code>命令配合使用，查询后台程序是否正在运行：
-<div class="highlight"><pre><span></span><code>ps aux | grep chrome
-</code></pre></div></p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>ps aux | grep chrome
+</span></code></pre></div></p>
 
 
 
@@ -1619,7 +1619,7 @@
       <div class="md-dialog__inner md-typeset"></div>
     </div>
     
-    <script id="__config" type="application/json">{"base": "..", "features": [], "search": "../assets/javascripts/workers/search.a264c092.min.js", "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}}</script>
+    <script id="__config" type="application/json">{"base": "..", "features": ["content.code.select", "content.code.copy", {"tabs": true}], "search": "../assets/javascripts/workers/search.a264c092.min.js", "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}}</script>
     
     
       <script src="../assets/javascripts/bundle.4e0fa4ba.min.js"></script>

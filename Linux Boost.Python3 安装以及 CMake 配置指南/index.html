@@ -1499,49 +1499,49 @@
 <h2 id="boost">下载Boost</h2>
 <p>前往<a href="https://www.boost.org/">Boost官网</a>下载源码压缩包。</p>
 <p>或通过 <code>wget</code> 下载 1.83 版本：</p>
-<div class="highlight"><pre><span></span><code>wget<span class="w"> </span>https://boostorg.jfrog.io/artifactory/main/release/1.83.0/source/boost_1_83_0.7z
-</code></pre></div>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>wget<span class="w"> </span>https://boostorg.jfrog.io/artifactory/main/release/1.83.0/source/boost_1_83_0.7z
+</span></code></pre></div>
 <p>下载完毕后，解压 7z 压缩包</p>
-<div class="highlight"><pre><span></span><code>7z<span class="w"> </span>x<span class="w"> </span>boost_1_83_0.7z
-</code></pre></div>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>7z<span class="w"> </span>x<span class="w"> </span>boost_1_83_0.7z
+</span></code></pre></div>
 <h2 id="_1">编译安装</h2>
-<div class="highlight"><pre><span></span><code><span class="nb">cd</span><span class="w"> </span>boost_1_83_0
-./bootstrap.sh<span class="w"> </span>--with-python<span class="o">=</span>/root/.virtualenvs/ETRS/bin/python3<span class="w"> </span>--with-python-version<span class="o">=</span><span class="m">3</span>.8<span class="w"> </span>--with-libraries<span class="o">=</span>all<span class="w"> </span>
-</code></pre></div>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="nb">cd</span><span class="w"> </span>boost_1_83_0
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>./bootstrap.sh<span class="w"> </span>--with-python<span class="o">=</span>/root/.virtualenvs/ETRS/bin/python3<span class="w"> </span>--with-python-version<span class="o">=</span><span class="m">3</span>.8<span class="w"> </span>--with-libraries<span class="o">=</span>all<span class="w"> </span>
+</span></code></pre></div>
 <p><code>--with-python</code> 的路径可以通过 <code>which python3</code> 查看。</p>
 <p><code>--with-python-version</code> 的版本号可以通过 <code>python3 --version</code> 查看，注意这里需要填成 <code>3.x</code> 格式 ，而不是 <code>3.y.z</code>，省略最后的版本号。</p>
 <p>运行完以上命令后，需要修改 <code>project-config</code> 配置文件。</p>
-<div class="highlight"><pre><span></span><code>vim<span class="w"> </span>project-config.jam
-</code></pre></div>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>vim<span class="w"> </span>project-config.jam
+</span></code></pre></div>
 <p>修改第 21行，在双引号里添加两个路径，分别是当前 Python 版本的 include 路径和 lib 路径。</p>
 <p><img alt="CleanShot 2023-11-11 at 20.44.10@2x" src="https://s2.loli.net/2023/11/11/gKp5WhZYdrC1XAN.png" /></p>
 <p>Python 的 include 路径和 lib 路径可以通过下面的 Python 代码查看：</p>
-<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">sysconfig</span>
-<span class="n">sysconfig</span><span class="o">.</span><span class="n">get_path</span><span class="p">(</span><span class="s1">&#39;include&#39;</span><span class="p">)</span>       <span class="c1"># 查看 include 路径</span>
-<span class="n">sysconfig</span><span class="o">.</span><span class="n">get_path</span><span class="p">(</span><span class="s1">&#39;stdlib&#39;</span><span class="p">)</span>        <span class="c1"># 查看 lib 路径</span>
-</code></pre></div>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="kn">import</span> <span class="nn">sysconfig</span>
+</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="n">sysconfig</span><span class="o">.</span><span class="n">get_path</span><span class="p">(</span><span class="s1">&#39;include&#39;</span><span class="p">)</span>       <span class="c1"># 查看 include 路径</span>
+</span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="n">sysconfig</span><span class="o">.</span><span class="n">get_path</span><span class="p">(</span><span class="s1">&#39;stdlib&#39;</span><span class="p">)</span>        <span class="c1"># 查看 lib 路径</span>
+</span></code></pre></div>
 <p>开始编译：</p>
-<div class="highlight"><pre><span></span><code>./b2<span class="w"> </span>
-</code></pre></div>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>./b2<span class="w"> </span>
+</span></code></pre></div>
 <p>开始安装：</p>
-<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>./b2<span class="w"> </span>install<span class="w"> </span>--with-python<span class="w"> </span><span class="nv">include</span><span class="o">=</span><span class="s2">&quot;/usr/include/python3.8&quot;</span>
-</code></pre></div>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>sudo<span class="w"> </span>./b2<span class="w"> </span>install<span class="w"> </span>--with-python<span class="w"> </span><span class="nv">include</span><span class="o">=</span><span class="s2">&quot;/usr/include/python3.8&quot;</span>
+</span></code></pre></div>
 <h2 id="cmakelist">CMakeList 配置</h2>
-<div class="highlight"><pre><span></span><code><span class="nb">find_package</span><span class="p">(</span><span class="s">Boost</span><span class="w"> </span><span class="s">1.83</span><span class="w"> </span><span class="s">REQUIRED</span><span class="w"> </span><span class="s">COMPONENTS</span><span class="w"> </span><span class="s">python38</span><span class="p">)</span>
-<span class="nb">include_directories</span><span class="p">(</span><span class="o">${</span><span class="nv">Boost_INCLUDE_DIRS</span><span class="o">}</span><span class="p">)</span>
-
-<span class="nb">set</span><span class="p">(</span><span class="s">PYTHON_DOT_VERSION</span><span class="w"> </span><span class="s">3.8</span><span class="p">)</span>
-<span class="nb">set</span><span class="p">(</span><span class="s">PYTHON_INCLUDE</span><span class="w"> </span><span class="s">/usr/include/python3.8</span><span class="p">)</span>
-<span class="nb">set</span><span class="p">(</span><span class="s">PYTHON_LIBRARY</span><span class="w"> </span><span class="s">/usr/lib/python3.8/config-aarch64-linux-gnu</span><span class="p">)</span>
-
-<span class="nb">add_executable</span><span class="p">(</span><span class="s">BoostTest</span><span class="w"> </span><span class="s">Boostt.cpp</span><span class="p">)</span>
-
-<span class="nb">target_link_libraries</span><span class="p">(</span><span class="s">BoostTest</span>
-<span class="w">        </span><span class="o">${</span><span class="nv">Boost_LIBRARIES</span><span class="o">}</span>
-<span class="w">        </span><span class="s">-lpython3.8</span>
-<span class="w">        </span><span class="s">-lpython2.7</span>
-<span class="w">        </span><span class="p">)</span>
-</code></pre></div>
+<div class="language-cmake highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="nb">find_package</span><span class="p">(</span><span class="s">Boost</span><span class="w"> </span><span class="s">1.83</span><span class="w"> </span><span class="s">REQUIRED</span><span class="w"> </span><span class="s">COMPONENTS</span><span class="w"> </span><span class="s">python38</span><span class="p">)</span>
+</span><span id="__span-7-2"><a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a><span class="nb">include_directories</span><span class="p">(</span><span class="o">${</span><span class="nv">Boost_INCLUDE_DIRS</span><span class="o">}</span><span class="p">)</span>
+</span><span id="__span-7-3"><a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a>
+</span><span id="__span-7-4"><a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a><span class="nb">set</span><span class="p">(</span><span class="s">PYTHON_DOT_VERSION</span><span class="w"> </span><span class="s">3.8</span><span class="p">)</span>
+</span><span id="__span-7-5"><a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a><span class="nb">set</span><span class="p">(</span><span class="s">PYTHON_INCLUDE</span><span class="w"> </span><span class="s">/usr/include/python3.8</span><span class="p">)</span>
+</span><span id="__span-7-6"><a id="__codelineno-7-6" name="__codelineno-7-6" href="#__codelineno-7-6"></a><span class="nb">set</span><span class="p">(</span><span class="s">PYTHON_LIBRARY</span><span class="w"> </span><span class="s">/usr/lib/python3.8/config-aarch64-linux-gnu</span><span class="p">)</span>
+</span><span id="__span-7-7"><a id="__codelineno-7-7" name="__codelineno-7-7" href="#__codelineno-7-7"></a>
+</span><span id="__span-7-8"><a id="__codelineno-7-8" name="__codelineno-7-8" href="#__codelineno-7-8"></a><span class="nb">add_executable</span><span class="p">(</span><span class="s">BoostTest</span><span class="w"> </span><span class="s">Boostt.cpp</span><span class="p">)</span>
+</span><span id="__span-7-9"><a id="__codelineno-7-9" name="__codelineno-7-9" href="#__codelineno-7-9"></a>
+</span><span id="__span-7-10"><a id="__codelineno-7-10" name="__codelineno-7-10" href="#__codelineno-7-10"></a><span class="nb">target_link_libraries</span><span class="p">(</span><span class="s">BoostTest</span>
+</span><span id="__span-7-11"><a id="__codelineno-7-11" name="__codelineno-7-11" href="#__codelineno-7-11"></a><span class="w">        </span><span class="o">${</span><span class="nv">Boost_LIBRARIES</span><span class="o">}</span>
+</span><span id="__span-7-12"><a id="__codelineno-7-12" name="__codelineno-7-12" href="#__codelineno-7-12"></a><span class="w">        </span><span class="s">-lpython3.8</span>
+</span><span id="__span-7-13"><a id="__codelineno-7-13" name="__codelineno-7-13" href="#__codelineno-7-13"></a><span class="w">        </span><span class="s">-lpython2.7</span>
+</span><span id="__span-7-14"><a id="__codelineno-7-14" name="__codelineno-7-14" href="#__codelineno-7-14"></a><span class="w">        </span><span class="p">)</span>
+</span></code></pre></div>
 <ul>
 <li><code>3.8</code>对应自己的 Python 的代码，例如<code>2.7</code>，<code>3.4</code>。</li>
 <li><code>/usr/lib/python3.8/config-aarch64-linux-gnu</code> 需要对应自己电脑的路径，<code>python3.8</code> 需要改成自己系统的 Python 环境版本，若为 ARM64 架构的系统则为<code>config-aarch64-linux-gnu</code>，若是64位的 x86 架构的系统则为<code>config-x86_64-linux-gnu</code>。</li>
@@ -1614,7 +1614,7 @@
       <div class="md-dialog__inner md-typeset"></div>
     </div>
     
-    <script id="__config" type="application/json">{"base": "..", "features": [], "search": "../assets/javascripts/workers/search.a264c092.min.js", "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}}</script>
+    <script id="__config" type="application/json">{"base": "..", "features": ["content.code.select", "content.code.copy", {"tabs": true}], "search": "../assets/javascripts/workers/search.a264c092.min.js", "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}}</script>
     
     
       <script src="../assets/javascripts/bundle.4e0fa4ba.min.js"></script>

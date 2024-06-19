@@ -1490,8 +1490,8 @@
 <ol>
 <li>
 <p>查看APT历史日志</p>
-<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>vim<span class="w"> </span>/var/log/apt/history.log
-</code></pre></div>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>sudo<span class="w"> </span>vim<span class="w"> </span>/var/log/apt/history.log
+</span></code></pre></div>
 <p>直接输入大写<code>G</code>，跳转到最后一行，找到相应时间的Remove内容。</p>
 <p><img alt="APT histroy log" src="https://s2.loli.net/2023/03/23/5tGMYikenKFyHhr.png" /></p>
 <p>若删除的包较少可以逐个<code>apt install</code>。若包较多可以使用正则表达式，具体操作如下。</p>
@@ -1502,19 +1502,19 @@
 </ol>
 <p>如果你的VIM开启了行号显示，请先临时禁用行号，目的是避免复制到多余的空格。</p>
 <p>禁用行号，在命令模式下输入以下命令：</p>
-<div class="highlight"><pre><span></span><code>:set<span class="w"> </span>nonumber
-</code></pre></div>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>:set<span class="w"> </span>nonumber
+</span></code></pre></div>
 <p>先复制你所有的删除的包，即Remove后的内容。</p>
 <p>开启行号：</p>
-<div class="highlight"><pre><span></span><code>:set<span class="w"> </span>number
-</code></pre></div>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>:set<span class="w"> </span>number
+</span></code></pre></div>
 <p>输入<code>:q</code>退出VIM。</p>
 <ol>
 <li>
 <p>利用正则表达式处理包名</p>
 <p>执行以下命令，用正则表达式删去版本信息和逗号：</p>
-<div class="highlight"><pre><span></span><code><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;粘贴在这&quot;</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>sed<span class="w"> </span><span class="s1">&#39;s/([^()]*)[,]*//g&#39;</span>
-</code></pre></div>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;粘贴在这&quot;</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>sed<span class="w"> </span><span class="s1">&#39;s/([^()]*)[,]*//g&#39;</span>
+</span></code></pre></div>
 <p>复制输出的内容。</p>
 </li>
 <li>
@@ -1522,21 +1522,21 @@
 </li>
 </ol>
 <p>一口气全安装即可：</p>
-<pre><code>```bash
-sudo apt install "粘贴在这"
+<div class="language-text highlight"><pre><span></span><code>```bash
+sudo apt install &quot;粘贴在这&quot;
 ```
-</code></pre>
+</code></pre></div>
 <h2 id="aptitude">方法二：使用 aptitude 进行恢复</h2>
 <p>aptitude 是一款强大的包管理器，它可以自动解决依赖关系，并且可以清晰地显示出哪些包被删除、哪些包被保留。因此，我们可以使用 aptitude 来恢复误删的依赖包。</p>
 <p>首先，我们需要安装 aptitude：</p>
-<div class="highlight"><pre><span></span><code>sudo apt-get install aptitude
-</code></pre></div>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>sudo apt-get install aptitude
+</span></code></pre></div>
 <p>然后，使用以下命令来查看被删除的软件包：</p>
-<div class="highlight"><pre><span></span><code>sudo aptitude search &#39;~c&#39;
-</code></pre></div>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>sudo aptitude search &#39;~c&#39;
+</span></code></pre></div>
 <p>接下来，使用以下命令来恢复被删除的软件包：</p>
-<div class="highlight"><pre><span></span><code>sudo aptitude install &lt;package-name&gt;
-</code></pre></div>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>sudo aptitude install &lt;package-name&gt;
+</span></code></pre></div>
 
 
 
@@ -1604,7 +1604,7 @@ sudo apt install "粘贴在这"
       <div class="md-dialog__inner md-typeset"></div>
     </div>
     
-    <script id="__config" type="application/json">{"base": "..", "features": [], "search": "../assets/javascripts/workers/search.a264c092.min.js", "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}}</script>
+    <script id="__config" type="application/json">{"base": "..", "features": ["content.code.select", "content.code.copy", {"tabs": true}], "search": "../assets/javascripts/workers/search.a264c092.min.js", "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}}</script>
     
     
       <script src="../assets/javascripts/bundle.4e0fa4ba.min.js"></script>

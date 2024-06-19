@@ -1739,134 +1739,134 @@
 <p>可以从我的 <a href="https://github.com/Cassius0924/JetsonPytorch/">GitHub 仓库</a> 直接下载我编译好的 PyTorch 轮子（torch-1.13.0-cuda-11.4-python-3.8-aarch64）。</p>
 <p>安装前先确保 python 版本为 PyTorch 轮子对应的 Python 3.8。</p>
 <p>下载完毕后使用<code>pip install</code>安装：</p>
-<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>-H<span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>torch-1.13.0a0+git7c98e70-cp38-cp38-linux_aarch64.whl
-</code></pre></div>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>sudo<span class="w"> </span>-H<span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>torch-1.13.0a0+git7c98e70-cp38-cp38-linux_aarch64.whl
+</span></code></pre></div>
 <p>如果你以前安装过 torch 的其他版本，则需要添加<code>--force-reinstall</code>覆盖安装。</p>
 <p>其他低于 CUDA 11 的 PyTorch 轮子可以在 <a href="https://github.com/Qengineering/PyTorch-Jetson-Nano">Qengineering 的 GitHub 仓库</a> 寻找。</p>
 <h2 id="_3">编译源码安装</h2>
 <p>接下来说一下重点，自己从源码构建轮子并安装。自行构建需要花费数个小时的时间。</p>
 <p>PyTroch 1.11.0 以及以上版本只能在 Ubuntu 20.04 上安装。</p>
 <h3 id="_4">安装依赖</h3>
-<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>apt-get<span class="w"> </span>update
-sudo<span class="w"> </span>apt-get<span class="w"> </span>upgrade
-</code></pre></div>
-<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>apt-get<span class="w"> </span>install<span class="w"> </span>ninja-build<span class="w"> </span>git<span class="w"> </span>cmake<span class="w"> </span>
-sudo<span class="w"> </span>apt-get<span class="w"> </span>install<span class="w"> </span>libjpeg-dev<span class="w"> </span>libopenmpi-dev<span class="w"> </span>libomp-dev<span class="w"> </span>ccache<span class="w"> </span>libopenblas-dev<span class="w"> </span>libblas-dev<span class="w"> </span>libeigen3-dev
-</code></pre></div>
-<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>pip3<span class="w"> </span>install<span class="w"> </span>-U<span class="w"> </span>--user<span class="w"> </span>wheel<span class="w"> </span>mock<span class="w"> </span>pillow
-</code></pre></div>
-<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>-H<span class="w"> </span>pip3<span class="w"> </span>install<span class="w"> </span>testresources<span class="w"> </span><span class="nv">setuptools</span><span class="o">==</span><span class="m">58</span>.3.0<span class="w"> </span>scikit-build
-</code></pre></div>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>sudo<span class="w"> </span>apt-get<span class="w"> </span>update
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>sudo<span class="w"> </span>apt-get<span class="w"> </span>upgrade
+</span></code></pre></div>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>sudo<span class="w"> </span>apt-get<span class="w"> </span>install<span class="w"> </span>ninja-build<span class="w"> </span>git<span class="w"> </span>cmake<span class="w"> </span>
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>sudo<span class="w"> </span>apt-get<span class="w"> </span>install<span class="w"> </span>libjpeg-dev<span class="w"> </span>libopenmpi-dev<span class="w"> </span>libomp-dev<span class="w"> </span>ccache<span class="w"> </span>libopenblas-dev<span class="w"> </span>libblas-dev<span class="w"> </span>libeigen3-dev
+</span></code></pre></div>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>sudo<span class="w"> </span>pip3<span class="w"> </span>install<span class="w"> </span>-U<span class="w"> </span>--user<span class="w"> </span>wheel<span class="w"> </span>mock<span class="w"> </span>pillow
+</span></code></pre></div>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>sudo<span class="w"> </span>-H<span class="w"> </span>pip3<span class="w"> </span>install<span class="w"> </span>testresources<span class="w"> </span><span class="nv">setuptools</span><span class="o">==</span><span class="m">58</span>.3.0<span class="w"> </span>scikit-build
+</span></code></pre></div>
 <h3 id="_5">下载源码</h3>
 <p>请克隆自己需要的 PyTorch 版本，修改<code>-b</code>后的版本参数。</p>
-<div class="highlight"><pre><span></span><code>git<span class="w"> </span>clone<span class="w"> </span>-b<span class="w"> </span>v1.13.0<span class="w"> </span>--depth<span class="o">=</span><span class="m">1</span><span class="w"> </span>--recursive<span class="w"> </span>https://github.com/pytorch/pytorch.git
-</code></pre></div>
-<div class="highlight"><pre><span></span><code><span class="nb">cd</span><span class="w"> </span>pytorch
-</code></pre></div>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>git<span class="w"> </span>clone<span class="w"> </span>-b<span class="w"> </span>v1.13.0<span class="w"> </span>--depth<span class="o">=</span><span class="m">1</span><span class="w"> </span>--recursive<span class="w"> </span>https://github.com/pytorch/pytorch.git
+</span></code></pre></div>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="nb">cd</span><span class="w"> </span>pytorch
+</span></code></pre></div>
 <h3 id="_6">扩大交换内存</h3>
 <p>构建 PyTorch 需要大于 4GB 的 RAM 和 2GB 的交换内存。</p>
 <p>先使用<code>free -m</code>查看当前的交换内存。</p>
 <p>安装<code>dphys-swapfiel</code>：</p>
-<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>apt-get<span class="w"> </span>install<span class="w"> </span>dphys-swapfile
-</code></pre></div>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>sudo<span class="w"> </span>apt-get<span class="w"> </span>install<span class="w"> </span>dphys-swapfile
+</span></code></pre></div>
 <p>需要修改两个文件<code>/sbin/dphys-swapfile</code>和<code>/etc/dphys-swapfile</code>。</p>
 <p>先修改<code>/sbin/dphys-swapfile</code>的第30行，将<code>CONF_MAXSWAP=2048</code>修改成<code>4096</code>：</p>
-<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>vim<span class="w"> </span>/sbin/dphys-swapfile
-</code></pre></div>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>sudo<span class="w"> </span>vim<span class="w"> </span>/sbin/dphys-swapfile
+</span></code></pre></div>
 <p><img alt="/sbin/dphys-swapfile" src="https://s2.loli.net/2023/10/13/omvFEQWBjHRyIKO.png" /></p>
 <p>再修改<code>/etc/dphys-swapfile</code>的第26行，将<code>#</code>去掉，后面加上<code>4096</code>：</p>
-<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>vim<span class="w"> </span>/etc/dphys-swapfile
-</code></pre></div>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>sudo<span class="w"> </span>vim<span class="w"> </span>/etc/dphys-swapfile
+</span></code></pre></div>
 <p><img alt="/etc/dphys-swapfile" src="https://s2.loli.net/2023/10/13/UVB2AKEsSbHTuWt.png" /></p>
 <p>保存修改后重启系统。</p>
-<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>reboot
-</code></pre></div>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>sudo<span class="w"> </span>reboot
+</span></code></pre></div>
 <p>重启完毕后可以使用 <code>free -m</code> 查看交换内存是否扩大成功。</p>
 <h2 id="gcc">使用 GCC</h2>
 <p>请使用 GCC 和 G++ 编译器，如果使用 GNU 编译器会导致浮点数出现错误的问题，使用 Clang 编译器在构建 CUDA 11.4 的 PyTorch 时候会报错。</p>
 <h2 id="cuda">设置 CUDA 版本</h2>
 <h3 id="_7">修改环境变量</h3>
 <p>修改系统环境变量，如果你使用的是 bash 则修改 <code>~/.bashrc</code>，如果使用 zsh 则修改 <code>~/.zshrc</code>。</p>
-<div class="highlight"><pre><span></span><code>vim<span class="w"> </span>~/.zshrc<span class="w"> </span><span class="c1">#或 ~/.bashrc</span>
-</code></pre></div>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a>vim<span class="w"> </span>~/.zshrc<span class="w"> </span><span class="c1">#或 ~/.bashrc</span>
+</span></code></pre></div>
 <p>在文件末尾添加三行：</p>
-<div class="highlight"><pre><span></span><code><span class="nb">export</span><span class="w"> </span><span class="nv">CUDA_HOME</span><span class="o">=</span>/usr/local/cuda
-<span class="nb">export</span><span class="w"> </span><span class="nv">LD_LIBRARY_PATH</span><span class="o">=</span><span class="nv">$LD_LIBRARY_PATH</span>:/usr/local/cuda/lib64:/usr/local/cuda/extras/CUPTI/lib64
-<span class="nb">export</span><span class="w"> </span><span class="nv">PATH</span><span class="o">=</span><span class="nv">$PATH</span>:<span class="nv">$CUDA_HOME</span>/bin
-</code></pre></div>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-12-1"><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a><span class="nb">export</span><span class="w"> </span><span class="nv">CUDA_HOME</span><span class="o">=</span>/usr/local/cuda
+</span><span id="__span-12-2"><a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a><span class="nb">export</span><span class="w"> </span><span class="nv">LD_LIBRARY_PATH</span><span class="o">=</span><span class="nv">$LD_LIBRARY_PATH</span>:/usr/local/cuda/lib64:/usr/local/cuda/extras/CUPTI/lib64
+</span><span id="__span-12-3"><a id="__codelineno-12-3" name="__codelineno-12-3" href="#__codelineno-12-3"></a><span class="nb">export</span><span class="w"> </span><span class="nv">PATH</span><span class="o">=</span><span class="nv">$PATH</span>:<span class="nv">$CUDA_HOME</span>/bin
+</span></code></pre></div>
 <p>如果你之前添加过 CUDA 的环境变量，则直接在对应行修改。</p>
 <p>保存并退出，应用修改：</p>
-<div class="highlight"><pre><span></span><code><span class="nb">source</span><span class="w"> </span>~/.zshrc<span class="w"> </span><span class="c1">#或 ~/.bashrc</span>
-</code></pre></div>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-13-1"><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a><span class="nb">source</span><span class="w"> </span>~/.zshrc<span class="w"> </span><span class="c1">#或 ~/.bashrc</span>
+</span></code></pre></div>
 <h3 id="cuda_1">切换 CUDA 版本</h3>
 <p>先切换系统 CUDA 版本到即将编译的 CUDA 版本，这里以 CUDA 11.4 为例。</p>
-<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>update-alternatives<span class="w"> </span>--config<span class="w"> </span>cuda
-</code></pre></div>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-14-1"><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a>sudo<span class="w"> </span>update-alternatives<span class="w"> </span>--config<span class="w"> </span>cuda
+</span></code></pre></div>
 <p>选择<code>2</code>，回车。</p>
 <p><img alt="update-alternatives cuda" src="https://s2.loli.net/2023/10/13/hqS3wJzZbT7GtKo.png" /></p>
 <h3 id="cmakeliststxt">修改 CMakeLists.txt</h3>
 <p>需要在 CMakeLists.txt 文件里指定 CUDA 编译器的路径。</p>
-<div class="highlight"><pre><span></span><code><span class="nb">cd</span><span class="w"> </span>pytorch
-vim<span class="w"> </span>CMakeLists.txt
-</code></pre></div>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-15-1"><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a><span class="nb">cd</span><span class="w"> </span>pytorch
+</span><span id="__span-15-2"><a id="__codelineno-15-2" name="__codelineno-15-2" href="#__codelineno-15-2"></a>vim<span class="w"> </span>CMakeLists.txt
+</span></code></pre></div>
 <p>在 <code>project(Torch CXX C)</code>上方添加一行 <code>set(CMAKE_CUDA_COMPILER /usr/local/cuda/bin/nvcc)</code></p>
 <p><img alt="CMAKE_CUDA_COMPILER" src="https://s2.loli.net/2023/10/13/4dqANWEFkuxYcei.png" /></p>
 <p>保存并退出。</p>
 <h2 id="pytorch">构建 PyTorch</h2>
 <h3 id="ninja">设置 Ninja 构建参数</h3>
 <p>需要添加一些环境变量。</p>
-<div class="highlight"><pre><span></span><code><span class="nb">export</span><span class="w"> </span><span class="nv">BUILD_CAFFE2_OPS</span><span class="o">=</span>OFF
-<span class="nb">export</span><span class="w"> </span><span class="nv">USE_FBGEMM</span><span class="o">=</span>OFF
-<span class="nb">export</span><span class="w"> </span><span class="nv">USE_FAKELOWP</span><span class="o">=</span>OFF
-<span class="nb">export</span><span class="w"> </span><span class="nv">BUILD_TEST</span><span class="o">=</span>OFF
-<span class="nb">export</span><span class="w"> </span><span class="nv">USE_MKLDNN</span><span class="o">=</span>OFF
-<span class="nb">export</span><span class="w"> </span><span class="nv">USE_NNPACK</span><span class="o">=</span>OFF
-<span class="nb">export</span><span class="w"> </span><span class="nv">USE_XNNPACK</span><span class="o">=</span>OFF
-<span class="nb">export</span><span class="w"> </span><span class="nv">USE_QNNPACK</span><span class="o">=</span>OFF
-<span class="nb">export</span><span class="w"> </span><span class="nv">USE_PYTORCH_QNNPACK</span><span class="o">=</span>OFF
-<span class="nb">export</span><span class="w"> </span><span class="nv">USE_CUDA</span><span class="o">=</span>ON
-<span class="nb">export</span><span class="w"> </span><span class="nv">USE_CUDNN</span><span class="o">=</span>ON
-<span class="nb">export</span><span class="w"> </span><span class="nv">TORCH_CUDA_ARCH_LIST</span><span class="o">=</span><span class="s2">&quot;5.3;6.2;7.2&quot;</span>
-<span class="nb">export</span><span class="w"> </span><span class="nv">USE_NCCL</span><span class="o">=</span>OFF
-<span class="nb">export</span><span class="w"> </span><span class="nv">USE_SYSTEM_NCCL</span><span class="o">=</span>OFF
-<span class="nb">export</span><span class="w"> </span><span class="nv">USE_OPENCV</span><span class="o">=</span>OFF
-<span class="nb">export</span><span class="w"> </span><span class="nv">MAX_JOBS</span><span class="o">=</span><span class="m">4</span>
-<span class="nb">export</span><span class="w"> </span><span class="nv">PATH</span><span class="o">=</span>/usr/lib/ccache:<span class="nv">$PATH</span>
-<span class="nb">export</span><span class="w"> </span><span class="nv">CC</span><span class="o">=</span>gcc
-<span class="nb">export</span><span class="w"> </span><span class="nv">CXX</span><span class="o">=</span>g++
-<span class="nb">export</span><span class="w"> </span><span class="nv">CUDACXX</span><span class="o">=</span>/usr/local/cuda/bin/nvcc
-<span class="nb">export</span><span class="w"> </span><span class="nv">CUDA_TOOLKIT_ROOT_DIR</span><span class="o">=</span>/usr/local/cuda
-
-sudo<span class="w"> </span>ln<span class="w"> </span>-s<span class="w"> </span>/usr/lib/aarch64-linux-gnu/libcublas.so<span class="w"> </span>/usr/local/cuda/lib64/libcublas.so
-</code></pre></div>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-16-1"><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a><span class="nb">export</span><span class="w"> </span><span class="nv">BUILD_CAFFE2_OPS</span><span class="o">=</span>OFF
+</span><span id="__span-16-2"><a id="__codelineno-16-2" name="__codelineno-16-2" href="#__codelineno-16-2"></a><span class="nb">export</span><span class="w"> </span><span class="nv">USE_FBGEMM</span><span class="o">=</span>OFF
+</span><span id="__span-16-3"><a id="__codelineno-16-3" name="__codelineno-16-3" href="#__codelineno-16-3"></a><span class="nb">export</span><span class="w"> </span><span class="nv">USE_FAKELOWP</span><span class="o">=</span>OFF
+</span><span id="__span-16-4"><a id="__codelineno-16-4" name="__codelineno-16-4" href="#__codelineno-16-4"></a><span class="nb">export</span><span class="w"> </span><span class="nv">BUILD_TEST</span><span class="o">=</span>OFF
+</span><span id="__span-16-5"><a id="__codelineno-16-5" name="__codelineno-16-5" href="#__codelineno-16-5"></a><span class="nb">export</span><span class="w"> </span><span class="nv">USE_MKLDNN</span><span class="o">=</span>OFF
+</span><span id="__span-16-6"><a id="__codelineno-16-6" name="__codelineno-16-6" href="#__codelineno-16-6"></a><span class="nb">export</span><span class="w"> </span><span class="nv">USE_NNPACK</span><span class="o">=</span>OFF
+</span><span id="__span-16-7"><a id="__codelineno-16-7" name="__codelineno-16-7" href="#__codelineno-16-7"></a><span class="nb">export</span><span class="w"> </span><span class="nv">USE_XNNPACK</span><span class="o">=</span>OFF
+</span><span id="__span-16-8"><a id="__codelineno-16-8" name="__codelineno-16-8" href="#__codelineno-16-8"></a><span class="nb">export</span><span class="w"> </span><span class="nv">USE_QNNPACK</span><span class="o">=</span>OFF
+</span><span id="__span-16-9"><a id="__codelineno-16-9" name="__codelineno-16-9" href="#__codelineno-16-9"></a><span class="nb">export</span><span class="w"> </span><span class="nv">USE_PYTORCH_QNNPACK</span><span class="o">=</span>OFF
+</span><span id="__span-16-10"><a id="__codelineno-16-10" name="__codelineno-16-10" href="#__codelineno-16-10"></a><span class="nb">export</span><span class="w"> </span><span class="nv">USE_CUDA</span><span class="o">=</span>ON
+</span><span id="__span-16-11"><a id="__codelineno-16-11" name="__codelineno-16-11" href="#__codelineno-16-11"></a><span class="nb">export</span><span class="w"> </span><span class="nv">USE_CUDNN</span><span class="o">=</span>ON
+</span><span id="__span-16-12"><a id="__codelineno-16-12" name="__codelineno-16-12" href="#__codelineno-16-12"></a><span class="nb">export</span><span class="w"> </span><span class="nv">TORCH_CUDA_ARCH_LIST</span><span class="o">=</span><span class="s2">&quot;5.3;6.2;7.2&quot;</span>
+</span><span id="__span-16-13"><a id="__codelineno-16-13" name="__codelineno-16-13" href="#__codelineno-16-13"></a><span class="nb">export</span><span class="w"> </span><span class="nv">USE_NCCL</span><span class="o">=</span>OFF
+</span><span id="__span-16-14"><a id="__codelineno-16-14" name="__codelineno-16-14" href="#__codelineno-16-14"></a><span class="nb">export</span><span class="w"> </span><span class="nv">USE_SYSTEM_NCCL</span><span class="o">=</span>OFF
+</span><span id="__span-16-15"><a id="__codelineno-16-15" name="__codelineno-16-15" href="#__codelineno-16-15"></a><span class="nb">export</span><span class="w"> </span><span class="nv">USE_OPENCV</span><span class="o">=</span>OFF
+</span><span id="__span-16-16"><a id="__codelineno-16-16" name="__codelineno-16-16" href="#__codelineno-16-16"></a><span class="nb">export</span><span class="w"> </span><span class="nv">MAX_JOBS</span><span class="o">=</span><span class="m">4</span>
+</span><span id="__span-16-17"><a id="__codelineno-16-17" name="__codelineno-16-17" href="#__codelineno-16-17"></a><span class="nb">export</span><span class="w"> </span><span class="nv">PATH</span><span class="o">=</span>/usr/lib/ccache:<span class="nv">$PATH</span>
+</span><span id="__span-16-18"><a id="__codelineno-16-18" name="__codelineno-16-18" href="#__codelineno-16-18"></a><span class="nb">export</span><span class="w"> </span><span class="nv">CC</span><span class="o">=</span>gcc
+</span><span id="__span-16-19"><a id="__codelineno-16-19" name="__codelineno-16-19" href="#__codelineno-16-19"></a><span class="nb">export</span><span class="w"> </span><span class="nv">CXX</span><span class="o">=</span>g++
+</span><span id="__span-16-20"><a id="__codelineno-16-20" name="__codelineno-16-20" href="#__codelineno-16-20"></a><span class="nb">export</span><span class="w"> </span><span class="nv">CUDACXX</span><span class="o">=</span>/usr/local/cuda/bin/nvcc
+</span><span id="__span-16-21"><a id="__codelineno-16-21" name="__codelineno-16-21" href="#__codelineno-16-21"></a><span class="nb">export</span><span class="w"> </span><span class="nv">CUDA_TOOLKIT_ROOT_DIR</span><span class="o">=</span>/usr/local/cuda
+</span><span id="__span-16-22"><a id="__codelineno-16-22" name="__codelineno-16-22" href="#__codelineno-16-22"></a>
+</span><span id="__span-16-23"><a id="__codelineno-16-23" name="__codelineno-16-23" href="#__codelineno-16-23"></a>sudo<span class="w"> </span>ln<span class="w"> </span>-s<span class="w"> </span>/usr/lib/aarch64-linux-gnu/libcublas.so<span class="w"> </span>/usr/local/cuda/lib64/libcublas.so
+</span></code></pre></div>
 <h3 id="pytorch_1">开始构建 PyTorch</h3>
-<div class="highlight"><pre><span></span><code>python3<span class="w"> </span>setup.py<span class="w"> </span>bdist_wheel
-</code></pre></div>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-17-1"><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a>python3<span class="w"> </span>setup.py<span class="w"> </span>bdist_wheel
+</span></code></pre></div>
 <p>如果构建过程中报错，需要重新构建，请先用<code>python3 setup.py clean</code>重置构建。</p>
 <h2 id="pytorch_2">安装 PyTorch</h2>
 <p>经过漫长的编译，编译好的<code>.whl</code>轮子文件会放在<code>dist</code>文件夹里。</p>
-<div class="highlight"><pre><span></span><code><span class="nb">cd</span><span class="w"> </span>dist
-sudo<span class="w"> </span>-H<span class="w"> </span>pip3<span class="w"> </span>install<span class="w"> </span>&lt;torch文件&gt;.whl
-</code></pre></div>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-18-1"><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a><span class="nb">cd</span><span class="w"> </span>dist
+</span><span id="__span-18-2"><a id="__codelineno-18-2" name="__codelineno-18-2" href="#__codelineno-18-2"></a>sudo<span class="w"> </span>-H<span class="w"> </span>pip3<span class="w"> </span>install<span class="w"> </span>&lt;torch文件&gt;.whl
+</span></code></pre></div>
 <p>如果你以前安装过 torch 的其他版本，则需要添加<code>--force-reinstall</code>覆盖安装：</p>
-<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>-H<span class="w"> </span>pip3<span class="w"> </span>install<span class="w"> </span>&lt;torch文件&gt;.whl<span class="w"> </span>--force-reinstall
-</code></pre></div>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-19-1"><a id="__codelineno-19-1" name="__codelineno-19-1" href="#__codelineno-19-1"></a>sudo<span class="w"> </span>-H<span class="w"> </span>pip3<span class="w"> </span>install<span class="w"> </span>&lt;torch文件&gt;.whl<span class="w"> </span>--force-reinstall
+</span></code></pre></div>
 <h2 id="_8">验证安装</h2>
 <p>导入验证 torch 不能在 PyTorch 源代码目录，否则会报错，先用<code>cd ../..</code>退出源代码文件夹。</p>
-<div class="highlight"><pre><span></span><code>python3<span class="w"> </span>-c<span class="w"> </span><span class="s2">&quot;import torch as t; print(t.__version__); print(t.version.cuda); print(t.cuda.is_available());&quot;</span>
-</code></pre></div>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-20-1"><a id="__codelineno-20-1" name="__codelineno-20-1" href="#__codelineno-20-1"></a>python3<span class="w"> </span>-c<span class="w"> </span><span class="s2">&quot;import torch as t; print(t.__version__); print(t.version.cuda); print(t.cuda.is_available());&quot;</span>
+</span></code></pre></div>
 <p><img alt="CleanShot 2023-10-13 at 11.05.01@2x" src="https://s2.loli.net/2023/10/13/FybLW9Ad5sVOfGR.png" /></p>
 <p>大功告成！</p>
 <h2 id="_9">清理空间</h2>
 <p>先停 dphys-swapfile：</p>
-<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>/etc/init.d/dphys-swapfile<span class="w"> </span>stop
-</code></pre></div>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-21-1"><a id="__codelineno-21-1" name="__codelineno-21-1" href="#__codelineno-21-1"></a>sudo<span class="w"> </span>/etc/init.d/dphys-swapfile<span class="w"> </span>stop
+</span></code></pre></div>
 <p>如果磁盘空间紧缺，可以将 PyTorch 源代码删除，不过删除前建议先将 Jetson 辛辛苦苦构建 PyTorch 轮子备份保存一下。</p>
-<div class="highlight"><pre><span></span><code>mv<span class="w"> </span>pytorch/dist/*.whl<span class="w"> </span>~
-</code></pre></div>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-22-1"><a id="__codelineno-22-1" name="__codelineno-22-1" href="#__codelineno-22-1"></a>mv<span class="w"> </span>pytorch/dist/*.whl<span class="w"> </span>~
+</span></code></pre></div>
 <p>删除源代码：</p>
-<div class="highlight"><pre><span></span><code>rm<span class="w"> </span>-r<span class="w"> </span>pytorch
-</code></pre></div>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-23-1"><a id="__codelineno-23-1" name="__codelineno-23-1" href="#__codelineno-23-1"></a>rm<span class="w"> </span>-r<span class="w"> </span>pytorch
+</span></code></pre></div>
 
 
 
@@ -1934,7 +1934,7 @@ sudo<span class="w"> </span>-H<span class="w"> </span>pip3<span class="w"> </spa
       <div class="md-dialog__inner md-typeset"></div>
     </div>
     
-    <script id="__config" type="application/json">{"base": "..", "features": [], "search": "../assets/javascripts/workers/search.a264c092.min.js", "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}}</script>
+    <script id="__config" type="application/json">{"base": "..", "features": ["content.code.select", "content.code.copy", {"tabs": true}], "search": "../assets/javascripts/workers/search.a264c092.min.js", "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}}</script>
     
     
       <script src="../assets/javascripts/bundle.4e0fa4ba.min.js"></script>

@@ -1545,10 +1545,10 @@
 <li><code>&lt;WinSock2.h&gt;</code></li>
 <li><code>&lt;WS2tcpip.h&gt;</code></li>
 </ul>
-<blockquote>
-<p>[!NOTE]</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
 <p>如果使用 MSVC 编译器，那么还需要使用预处理指令 <code>#pragma comment(lib, "Ws2_32.lib")</code> 来链接 <code>Ws2_32.lib</code> 库。</p>
-</blockquote>
+</div>
 <p>而 Linux 环境下的 Socket 编程可能会用到以下头文件:</p>
 <ul>
 <li><code>&lt;sys/socket.h&gt;</code></li>
@@ -1557,17 +1557,17 @@
 <li><code>&lt;unistd.h&gt;</code></li>
 <li><code>&lt;fcntl.h&gt;</code></li>
 </ul>
-<div class="highlight"><pre><span></span><code><span class="cp">#indef __linux__</span>
-<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;sys/socket.h&gt;</span>
-<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;netinet/in.h&gt;</span>
-<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;arpa/inet.h&gt;</span>
-<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;unistd.h&gt;</span>
-<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;fcntl.h&gt;</span>
-
-<span class="cp">#elif defined(_WIN32)</span>
-<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;winsock2.h&gt;</span>
-<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;WS2tcpip.h&gt;</span>
-</code></pre></div>
+<div class="language-c++ highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="cp">#indef __linux__</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;sys/socket.h&gt;</span>
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;netinet/in.h&gt;</span>
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;arpa/inet.h&gt;</span>
+</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;unistd.h&gt;</span>
+</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;fcntl.h&gt;</span>
+</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>
+</span><span id="__span-0-8"><a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="cp">#elif defined(_WIN32)</span>
+</span><span id="__span-0-9"><a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;winsock2.h&gt;</span>
+</span><span id="__span-0-10"><a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;WS2tcpip.h&gt;</span>
+</span></code></pre></div>
 <h2 id="socket">socket 套接字类型</h2>
 <ul>
 <li>
@@ -1584,8 +1584,8 @@
 <ul>
 <li>Linux 环境</li>
 </ul>
-<div class="highlight"><pre><span></span><code><span class="n">close</span><span class="p">(</span><span class="n">fd</span><span class="p">);</span>
-</code></pre></div>
+<div class="language-cpp highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="n">close</span><span class="p">(</span><span class="n">fd</span><span class="p">);</span>
+</span></code></pre></div>
 <p>返回值：</p>
 <table>
 <thead>
@@ -1612,8 +1612,8 @@
 <ul>
 <li>Windows 环境</li>
 </ul>
-<div class="highlight"><pre><span></span><code><span class="n">closesocket</span><span class="p">(</span><span class="n">fd</span><span class="p">);</span>
-</code></pre></div>
+<div class="language-cpp highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="n">closesocket</span><span class="p">(</span><span class="n">fd</span><span class="p">);</span>
+</span></code></pre></div>
 <p>返回值：</p>
 <table>
 <thead>
@@ -1653,39 +1653,39 @@
 <ul>
 <li>Linux 环境下的函数原型</li>
 </ul>
-<div class="highlight"><pre><span></span><code><span class="kt">int</span><span class="w"> </span><span class="nf">getsockopt</span><span class="p">(</span>
-<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">sockfd</span><span class="p">,</span><span class="w"> </span>
-<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">level</span><span class="p">,</span>
-<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">optname</span><span class="p">,</span>
-<span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="n">optval</span><span class="p">[</span><span class="kr">restrict</span><span class="w"> </span><span class="o">*</span><span class="p">.</span><span class="n">optlen</span><span class="p">],</span><span class="w"> </span>
-<span class="w">    </span><span class="kt">socklen_t</span><span class="w"> </span><span class="o">*</span><span class="kr">restrict</span><span class="w"> </span><span class="n">optlen</span>
-<span class="p">);</span>
-<span class="kt">int</span><span class="w"> </span><span class="nf">setsockopt</span><span class="p">(</span>
-<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">socket</span><span class="p">,</span><span class="w"> </span>
-<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">level</span><span class="p">,</span><span class="w"> </span>
-<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">option_name</span><span class="p">,</span><span class="w"> </span>
-<span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="o">*</span><span class="n">option_value</span><span class="p">,</span><span class="w"> </span>
-<span class="w">    </span><span class="kt">socklen_t</span><span class="w"> </span><span class="n">option_len</span>
-<span class="p">);</span>
-</code></pre></div>
+<div class="language-cpp highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="kt">int</span><span class="w"> </span><span class="nf">getsockopt</span><span class="p">(</span>
+</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">sockfd</span><span class="p">,</span><span class="w"> </span>
+</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">level</span><span class="p">,</span>
+</span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">optname</span><span class="p">,</span>
+</span><span id="__span-3-5"><a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a><span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="n">optval</span><span class="p">[</span><span class="kr">restrict</span><span class="w"> </span><span class="o">*</span><span class="p">.</span><span class="n">optlen</span><span class="p">],</span><span class="w"> </span>
+</span><span id="__span-3-6"><a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a><span class="w">    </span><span class="kt">socklen_t</span><span class="w"> </span><span class="o">*</span><span class="kr">restrict</span><span class="w"> </span><span class="n">optlen</span>
+</span><span id="__span-3-7"><a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a><span class="p">);</span>
+</span><span id="__span-3-8"><a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a><span class="kt">int</span><span class="w"> </span><span class="nf">setsockopt</span><span class="p">(</span>
+</span><span id="__span-3-9"><a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">socket</span><span class="p">,</span><span class="w"> </span>
+</span><span id="__span-3-10"><a id="__codelineno-3-10" name="__codelineno-3-10" href="#__codelineno-3-10"></a><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">level</span><span class="p">,</span><span class="w"> </span>
+</span><span id="__span-3-11"><a id="__codelineno-3-11" name="__codelineno-3-11" href="#__codelineno-3-11"></a><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">option_name</span><span class="p">,</span><span class="w"> </span>
+</span><span id="__span-3-12"><a id="__codelineno-3-12" name="__codelineno-3-12" href="#__codelineno-3-12"></a><span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="o">*</span><span class="n">option_value</span><span class="p">,</span><span class="w"> </span>
+</span><span id="__span-3-13"><a id="__codelineno-3-13" name="__codelineno-3-13" href="#__codelineno-3-13"></a><span class="w">    </span><span class="kt">socklen_t</span><span class="w"> </span><span class="n">option_len</span>
+</span><span id="__span-3-14"><a id="__codelineno-3-14" name="__codelineno-3-14" href="#__codelineno-3-14"></a><span class="p">);</span>
+</span></code></pre></div>
 <ul>
 <li>Windows 环境下的函数原型</li>
 </ul>
-<div class="highlight"><pre><span></span><code><span class="kt">int</span><span class="w"> </span><span class="nf">getsockopt</span><span class="p">(</span>
-<span class="w">    </span><span class="p">[</span><span class="n">in</span><span class="p">]</span><span class="w">      </span><span class="n">SOCKET</span><span class="w"> </span><span class="n">s</span><span class="p">,</span>
-<span class="w">    </span><span class="p">[</span><span class="n">in</span><span class="p">]</span><span class="w">      </span><span class="kt">int</span><span class="w">    </span><span class="n">level</span><span class="p">,</span>
-<span class="w">    </span><span class="p">[</span><span class="n">in</span><span class="p">]</span><span class="w">      </span><span class="kt">int</span><span class="w">    </span><span class="n">optname</span><span class="p">,</span>
-<span class="w">    </span><span class="p">[</span><span class="n">out</span><span class="p">]</span><span class="w">     </span><span class="kt">char</span><span class="w">   </span><span class="o">*</span><span class="n">optval</span><span class="p">,</span>
-<span class="w">    </span><span class="p">[</span><span class="n">in</span><span class="p">,</span><span class="w"> </span><span class="n">out</span><span class="p">]</span><span class="w"> </span><span class="kt">int</span><span class="w">    </span><span class="o">*</span><span class="n">optlen</span>
-<span class="p">);</span>
-<span class="kt">int</span><span class="w"> </span><span class="nf">setsockopt</span><span class="p">(</span>
-<span class="w">    </span><span class="p">[</span><span class="n">in</span><span class="p">]</span><span class="w"> </span><span class="n">SOCKET</span><span class="w">     </span><span class="n">s</span><span class="p">,</span>
-<span class="w">    </span><span class="p">[</span><span class="n">in</span><span class="p">]</span><span class="w"> </span><span class="kt">int</span><span class="w">        </span><span class="n">level</span><span class="p">,</span>
-<span class="w">    </span><span class="p">[</span><span class="n">in</span><span class="p">]</span><span class="w"> </span><span class="kt">int</span><span class="w">        </span><span class="n">optname</span><span class="p">,</span>
-<span class="w">    </span><span class="p">[</span><span class="n">in</span><span class="p">]</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">optval</span><span class="p">,</span>
-<span class="w">    </span><span class="p">[</span><span class="n">in</span><span class="p">]</span><span class="w"> </span><span class="kt">int</span><span class="w">        </span><span class="n">optlen</span>
-<span class="p">);</span>
-</code></pre></div>
+<div class="language-cpp highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="kt">int</span><span class="w"> </span><span class="nf">getsockopt</span><span class="p">(</span>
+</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="w">    </span><span class="p">[</span><span class="n">in</span><span class="p">]</span><span class="w">      </span><span class="n">SOCKET</span><span class="w"> </span><span class="n">s</span><span class="p">,</span>
+</span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="w">    </span><span class="p">[</span><span class="n">in</span><span class="p">]</span><span class="w">      </span><span class="kt">int</span><span class="w">    </span><span class="n">level</span><span class="p">,</span>
+</span><span id="__span-4-4"><a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a><span class="w">    </span><span class="p">[</span><span class="n">in</span><span class="p">]</span><span class="w">      </span><span class="kt">int</span><span class="w">    </span><span class="n">optname</span><span class="p">,</span>
+</span><span id="__span-4-5"><a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a><span class="w">    </span><span class="p">[</span><span class="n">out</span><span class="p">]</span><span class="w">     </span><span class="kt">char</span><span class="w">   </span><span class="o">*</span><span class="n">optval</span><span class="p">,</span>
+</span><span id="__span-4-6"><a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a><span class="w">    </span><span class="p">[</span><span class="n">in</span><span class="p">,</span><span class="w"> </span><span class="n">out</span><span class="p">]</span><span class="w"> </span><span class="kt">int</span><span class="w">    </span><span class="o">*</span><span class="n">optlen</span>
+</span><span id="__span-4-7"><a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a><span class="p">);</span>
+</span><span id="__span-4-8"><a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a><span class="kt">int</span><span class="w"> </span><span class="nf">setsockopt</span><span class="p">(</span>
+</span><span id="__span-4-9"><a id="__codelineno-4-9" name="__codelineno-4-9" href="#__codelineno-4-9"></a><span class="w">    </span><span class="p">[</span><span class="n">in</span><span class="p">]</span><span class="w"> </span><span class="n">SOCKET</span><span class="w">     </span><span class="n">s</span><span class="p">,</span>
+</span><span id="__span-4-10"><a id="__codelineno-4-10" name="__codelineno-4-10" href="#__codelineno-4-10"></a><span class="w">    </span><span class="p">[</span><span class="n">in</span><span class="p">]</span><span class="w"> </span><span class="kt">int</span><span class="w">        </span><span class="n">level</span><span class="p">,</span>
+</span><span id="__span-4-11"><a id="__codelineno-4-11" name="__codelineno-4-11" href="#__codelineno-4-11"></a><span class="w">    </span><span class="p">[</span><span class="n">in</span><span class="p">]</span><span class="w"> </span><span class="kt">int</span><span class="w">        </span><span class="n">optname</span><span class="p">,</span>
+</span><span id="__span-4-12"><a id="__codelineno-4-12" name="__codelineno-4-12" href="#__codelineno-4-12"></a><span class="w">    </span><span class="p">[</span><span class="n">in</span><span class="p">]</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">optval</span><span class="p">,</span>
+</span><span id="__span-4-13"><a id="__codelineno-4-13" name="__codelineno-4-13" href="#__codelineno-4-13"></a><span class="w">    </span><span class="p">[</span><span class="n">in</span><span class="p">]</span><span class="w"> </span><span class="kt">int</span><span class="w">        </span><span class="n">optlen</span>
+</span><span id="__span-4-14"><a id="__codelineno-4-14" name="__codelineno-4-14" href="#__codelineno-4-14"></a><span class="p">);</span>
+</span></code></pre></div>
 <p>二者区别在于 Windows 下的 <code>optval</code> 是 <code>char *</code> 类型，而 Linux 下的 <code>optval</code> 是 <code>void *</code> 类型。</p>
 <p>所以建议使用 <code>char *</code> 类型，这样可以在 Windows 和 Linux 下都能正常使用。</p>
 <h2 id="fcntl-ioctlsocket">fcntl 和 ioctlsocket</h2>
@@ -1693,8 +1693,8 @@
 <ul>
 <li>Linux 环境下的函数原型</li>
 </ul>
-<div class="highlight"><pre><span></span><code><span class="kt">int</span><span class="w"> </span><span class="nf">fcntl</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">fd</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">cmd</span><span class="p">,</span><span class="w"> </span><span class="p">...</span><span class="w"> </span><span class="cm">/* arg */</span><span class="w"> </span><span class="p">);</span>
-</code></pre></div>
+<div class="language-cpp highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="kt">int</span><span class="w"> </span><span class="nf">fcntl</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">fd</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">cmd</span><span class="p">,</span><span class="w"> </span><span class="p">...</span><span class="w"> </span><span class="cm">/* arg */</span><span class="w"> </span><span class="p">);</span>
+</span></code></pre></div>
 <p>cmd 参数的取值：</p>
 <ul>
 <li><code>F_DUPFD</code>：复制文件描述符</li>
@@ -1718,12 +1718,12 @@
 <ul>
 <li>Windows 环境下的函数原型</li>
 </ul>
-<div class="highlight"><pre><span></span><code><span class="kt">int</span><span class="w"> </span><span class="n">WSAAPI</span><span class="w"> </span><span class="nf">ioctlsocket</span><span class="p">(</span>
-<span class="w">  </span><span class="p">[</span><span class="n">in</span><span class="p">]</span><span class="w">      </span><span class="n">SOCKET</span><span class="w"> </span><span class="n">s</span><span class="p">,</span>
-<span class="w">  </span><span class="p">[</span><span class="n">in</span><span class="p">]</span><span class="w">      </span><span class="kt">long</span><span class="w">   </span><span class="n">cmd</span><span class="p">,</span>
-<span class="w">  </span><span class="p">[</span><span class="n">in</span><span class="p">,</span><span class="w"> </span><span class="n">out</span><span class="p">]</span><span class="w"> </span><span class="n">u_long</span><span class="w"> </span><span class="o">*</span><span class="n">argp</span>
-<span class="p">);</span>
-</code></pre></div>
+<div class="language-cpp highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="kt">int</span><span class="w"> </span><span class="n">WSAAPI</span><span class="w"> </span><span class="nf">ioctlsocket</span><span class="p">(</span>
+</span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="w">  </span><span class="p">[</span><span class="n">in</span><span class="p">]</span><span class="w">      </span><span class="n">SOCKET</span><span class="w"> </span><span class="n">s</span><span class="p">,</span>
+</span><span id="__span-6-3"><a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a><span class="w">  </span><span class="p">[</span><span class="n">in</span><span class="p">]</span><span class="w">      </span><span class="kt">long</span><span class="w">   </span><span class="n">cmd</span><span class="p">,</span>
+</span><span id="__span-6-4"><a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a><span class="w">  </span><span class="p">[</span><span class="n">in</span><span class="p">,</span><span class="w"> </span><span class="n">out</span><span class="p">]</span><span class="w"> </span><span class="n">u_long</span><span class="w"> </span><span class="o">*</span><span class="n">argp</span>
+</span><span id="__span-6-5"><a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a><span class="p">);</span>
+</span></code></pre></div>
 <p>cmd 参数的取值：</p>
 <ul>
 <li><code>FIONBIO</code>：设置非阻塞模式，如果设置为0，那么套接字是阻塞的，否则是非阻塞的；</li>
@@ -1828,7 +1828,7 @@
       <div class="md-dialog__inner md-typeset"></div>
     </div>
     
-    <script id="__config" type="application/json">{"base": "..", "features": [], "search": "../assets/javascripts/workers/search.a264c092.min.js", "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}}</script>
+    <script id="__config" type="application/json">{"base": "..", "features": ["content.code.select", "content.code.copy", {"tabs": true}], "search": "../assets/javascripts/workers/search.a264c092.min.js", "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}}</script>
     
     
       <script src="../assets/javascripts/bundle.4e0fa4ba.min.js"></script>

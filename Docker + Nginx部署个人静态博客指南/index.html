@@ -1604,11 +1604,11 @@
 </ul>
 <h2 id="_2">步骤</h2>
 <h3 id="docker">第一步：安装 Docker</h3>
-<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>docker
-</code></pre></div>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>docker
+</span></code></pre></div>
 <h3 id="nginx">第二步：拉取 Nginx 镜像</h3>
-<div class="highlight"><pre><span></span><code>docker<span class="w"> </span>pull<span class="w"> </span>nginx
-</code></pre></div>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>docker<span class="w"> </span>pull<span class="w"> </span>nginx
+</span></code></pre></div>
 <blockquote>
 <p>镜像名后不加版本号表示拉取最新版，若希望拉取指定版本则需在镜像名后加上tag，例如<code>docker pull nginx:1.16</code>。</p>
 </blockquote>
@@ -1616,8 +1616,8 @@
 <ul>
 <li>
 <p>先运行一个不挂载的 Nginx 容器</p>
-<div class="highlight"><pre><span></span><code>docker<span class="w"> </span>run<span class="w"> </span>-d<span class="w"> </span>--name<span class="w"> </span>my-nginx<span class="w"> </span>-p<span class="w"> </span><span class="m">80</span>:80<span class="w"> </span>nginx
-</code></pre></div>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>docker<span class="w"> </span>run<span class="w"> </span>-d<span class="w"> </span>--name<span class="w"> </span>my-nginx<span class="w"> </span>-p<span class="w"> </span><span class="m">80</span>:80<span class="w"> </span>nginx
+</span></code></pre></div>
 <blockquote>
 <p><code>-d</code>：使容器在后台以守护进程模式运行。</p>
 <p><code>--name</code>：为容器指定一个名称。</p>
@@ -1626,8 +1626,8 @@
 </li>
 <li>
 <p>进入这个 Nginx 容器内部</p>
-<div class="highlight"><pre><span></span><code>docker<span class="w"> </span><span class="nb">exec</span><span class="w"> </span>-it<span class="w"> </span>my-nginx<span class="w"> </span>bash
-</code></pre></div>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>docker<span class="w"> </span><span class="nb">exec</span><span class="w"> </span>-it<span class="w"> </span>my-nginx<span class="w"> </span>bash
+</span></code></pre></div>
 <blockquote>
 <p><code>-i</code>：表示以交互式模式运行容器。</p>
 <p><code>-t</code>：表示为容器分配一个伪终端。 因此<code>-it</code>表示使用交互式终端，允许在容器内交互式地运行命令。</p>
@@ -1639,24 +1639,24 @@
 </li>
 </ul>
 <p>Nginx 容器的部分目录结构如下图：</p>
-<div class="highlight"><pre><span></span><code>/
-├── etc/
-│   └── nginx/
-│       ├── nginx.conf
-│       └── conf.d/
-│           ├── default.conf
-│           └── other.conf
-├── var/
-│   └── log/
-│       └── nginx/
-│                     ├── access.log
-│                     └── error.log
-└── usr/
-    └── share/
-        └── nginx/
-            ├── html/
-            └── conf/
-</code></pre></div>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>/
+</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>├── etc/
+</span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>│   └── nginx/
+</span><span id="__span-4-4"><a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a>│       ├── nginx.conf
+</span><span id="__span-4-5"><a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a>│       └── conf.d/
+</span><span id="__span-4-6"><a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a>│           ├── default.conf
+</span><span id="__span-4-7"><a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a>│           └── other.conf
+</span><span id="__span-4-8"><a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a>├── var/
+</span><span id="__span-4-9"><a id="__codelineno-4-9" name="__codelineno-4-9" href="#__codelineno-4-9"></a>│   └── log/
+</span><span id="__span-4-10"><a id="__codelineno-4-10" name="__codelineno-4-10" href="#__codelineno-4-10"></a>│       └── nginx/
+</span><span id="__span-4-11"><a id="__codelineno-4-11" name="__codelineno-4-11" href="#__codelineno-4-11"></a>│                     ├── access.log
+</span><span id="__span-4-12"><a id="__codelineno-4-12" name="__codelineno-4-12" href="#__codelineno-4-12"></a>│                     └── error.log
+</span><span id="__span-4-13"><a id="__codelineno-4-13" name="__codelineno-4-13" href="#__codelineno-4-13"></a>└── usr/
+</span><span id="__span-4-14"><a id="__codelineno-4-14" name="__codelineno-4-14" href="#__codelineno-4-14"></a>    └── share/
+</span><span id="__span-4-15"><a id="__codelineno-4-15" name="__codelineno-4-15" href="#__codelineno-4-15"></a>        └── nginx/
+</span><span id="__span-4-16"><a id="__codelineno-4-16" name="__codelineno-4-16" href="#__codelineno-4-16"></a>            ├── html/
+</span><span id="__span-4-17"><a id="__codelineno-4-17" name="__codelineno-4-17" href="#__codelineno-4-17"></a>            └── conf/
+</span></code></pre></div>
 <blockquote>
 <p><code>nginx.conf</code>是 Nginx 主配置文件，用于设置全局的 Nginx 配置。</p>
 <p><code>default.conf</code>是 Nginx 的 server 的配置文件。这个文件中通常包含了 HTTP 或 HTTPS 服务器的基本配置信息，如监听端口、虚拟主机等。</p>
@@ -1671,144 +1671,144 @@
 <ul>
 <li>复制容器内部的配置文件到服务器</li>
 </ul>
-<div class="highlight"><pre><span></span><code>docker<span class="w"> </span>cp<span class="w"> </span>my-nginx:/etc/nginx/nginx.conf<span class="w"> </span>~/nginx/nginx.conf
-docker<span class="w"> </span>cp<span class="w"> </span>my-nginx:/etc/nginx/conf.d<span class="w"> </span>~/nginx/
-</code></pre></div>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>docker<span class="w"> </span>cp<span class="w"> </span>my-nginx:/etc/nginx/nginx.conf<span class="w"> </span>~/nginx/nginx.conf
+</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>docker<span class="w"> </span>cp<span class="w"> </span>my-nginx:/etc/nginx/conf.d<span class="w"> </span>~/nginx/
+</span></code></pre></div>
 <blockquote>
 <p>这样就不怕自己写的配置文件不标准而导致容器运行失败啦。</p>
 </blockquote>
 <p>简单分析一下这两个配置文件：</p>
-<div class="highlight"><pre><span></span><code><span class="nb">cd</span><span class="w"> </span>~
-vim<span class="w"> </span>nginx/nginx.conf
-</code></pre></div>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="nb">cd</span><span class="w"> </span>~
+</span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>vim<span class="w"> </span>nginx/nginx.conf
+</span></code></pre></div>
 <blockquote>
 <p>先看<code>nginx.conf</code>：
-<div class="highlight"><pre><span></span><code><span class="k">user</span><span class="w">  </span><span class="s">nginx</span><span class="p">;</span>
-<span class="k">worker_processes</span><span class="w">  </span><span class="s">auto</span><span class="p">;</span><span class="w">      </span><span class="c1"># 指定 Nginx 使用的工作进程数，auto 表示 Nginx 会自动根据 CPU 核数设置合适的进程数</span>
-
-<span class="k">error_log</span><span class="w">  </span><span class="s">/var/log/nginx/error.log</span><span class="w"> </span><span class="s">notice</span><span class="p">;</span><span class="w">      </span><span class="c1"># Nginx 错误日志文件的路径和日志级别，这里的日志级别为 notice，表示只记录警告级别及以上的日志</span>
-<span class="k">pid</span><span class="w">        </span><span class="s">/var/run/nginx.pid</span><span class="p">;</span>
-
-
-<span class="k">events</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="kn">worker_connections</span><span class="w">  </span><span class="mi">1024</span><span class="p">;</span>
-<span class="p">}</span>
-
-
-<span class="k">http</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="kn">include</span><span class="w">       </span><span class="s">/etc/nginx/mime.types</span><span class="p">;</span>
-<span class="w">    </span><span class="kn">default_type</span><span class="w">  </span><span class="s">application/octet-stream</span><span class="p">;</span>
-
-<span class="w">     </span><span class="c1"># 定义访问日志的格式</span>
-<span class="w">    </span><span class="kn">log_format</span><span class="w">  </span><span class="s">main</span><span class="w">  </span><span class="s">&#39;</span><span class="nv">$remote_addr</span><span class="w"> </span><span class="s">-</span><span class="w"> </span><span class="nv">$remote_user</span><span class="w"> </span><span class="s">[</span><span class="nv">$time_local]</span><span class="w"> </span><span class="s">&quot;</span><span class="nv">$request&quot;</span><span class="w"> </span><span class="s">&#39;</span>
-<span class="w">                      </span><span class="s">&#39;</span><span class="nv">$status</span><span class="w"> </span><span class="nv">$body_bytes_sent</span><span class="w"> </span><span class="s">&quot;</span><span class="nv">$http_referer&quot;</span><span class="w"> </span><span class="s">&#39;</span>
-<span class="w">                      </span><span class="s">&#39;&quot;</span><span class="nv">$http_user_agent&quot;</span><span class="w"> </span><span class="s">&quot;</span><span class="nv">$http_x_forwarded_for&quot;&#39;</span><span class="p">;</span>
-
-<span class="w">    </span><span class="kn">access_log</span><span class="w">  </span><span class="s">/var/log/nginx/access.log</span><span class="w">  </span><span class="s">main</span><span class="p">;</span><span class="w"> </span><span class="c1"># 指定访问日志文件的路径和日志格式，日志格式为上面定义的 main 格式</span>
-
-<span class="w">    </span><span class="kn">sendfile</span><span class="w">        </span><span class="no">on</span><span class="p">;</span><span class="w">      </span><span class="c1"># 启用 sendfile 指令，加快文件传输速度</span>
-<span class="w">    </span><span class="c1">#tcp_nopush     on;</span>
-
-<span class="w">    </span><span class="kn">keepalive_timeout</span><span class="w">  </span><span class="mi">65</span><span class="p">;</span><span class="w">   </span><span class="c1"># 指定客户端连接保持时间的最大值。</span>
-
-<span class="w">    </span><span class="c1">#gzip  on;</span>
-
-<span class="w">    </span><span class="kn">include</span><span class="w"> </span><span class="s">/etc/nginx/conf.d/*.conf</span><span class="p">;</span><span class="w">        </span><span class="c1"># 加载 /etc/nginx/conf.d/ 目录下的所有以 .conf 结尾的配置文件</span>
-<span class="p">}</span>
-</code></pre></div></p>
+<div class="language-nginx highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="k">user</span><span class="w">  </span><span class="s">nginx</span><span class="p">;</span>
+</span><span id="__span-7-2"><a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a><span class="k">worker_processes</span><span class="w">  </span><span class="s">auto</span><span class="p">;</span><span class="w">      </span><span class="c1"># 指定 Nginx 使用的工作进程数，auto 表示 Nginx 会自动根据 CPU 核数设置合适的进程数</span>
+</span><span id="__span-7-3"><a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a>
+</span><span id="__span-7-4"><a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a><span class="k">error_log</span><span class="w">  </span><span class="s">/var/log/nginx/error.log</span><span class="w"> </span><span class="s">notice</span><span class="p">;</span><span class="w">      </span><span class="c1"># Nginx 错误日志文件的路径和日志级别，这里的日志级别为 notice，表示只记录警告级别及以上的日志</span>
+</span><span id="__span-7-5"><a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a><span class="k">pid</span><span class="w">        </span><span class="s">/var/run/nginx.pid</span><span class="p">;</span>
+</span><span id="__span-7-6"><a id="__codelineno-7-6" name="__codelineno-7-6" href="#__codelineno-7-6"></a>
+</span><span id="__span-7-7"><a id="__codelineno-7-7" name="__codelineno-7-7" href="#__codelineno-7-7"></a>
+</span><span id="__span-7-8"><a id="__codelineno-7-8" name="__codelineno-7-8" href="#__codelineno-7-8"></a><span class="k">events</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-7-9"><a id="__codelineno-7-9" name="__codelineno-7-9" href="#__codelineno-7-9"></a><span class="w">    </span><span class="kn">worker_connections</span><span class="w">  </span><span class="mi">1024</span><span class="p">;</span>
+</span><span id="__span-7-10"><a id="__codelineno-7-10" name="__codelineno-7-10" href="#__codelineno-7-10"></a><span class="p">}</span>
+</span><span id="__span-7-11"><a id="__codelineno-7-11" name="__codelineno-7-11" href="#__codelineno-7-11"></a>
+</span><span id="__span-7-12"><a id="__codelineno-7-12" name="__codelineno-7-12" href="#__codelineno-7-12"></a>
+</span><span id="__span-7-13"><a id="__codelineno-7-13" name="__codelineno-7-13" href="#__codelineno-7-13"></a><span class="k">http</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-7-14"><a id="__codelineno-7-14" name="__codelineno-7-14" href="#__codelineno-7-14"></a><span class="w">    </span><span class="kn">include</span><span class="w">       </span><span class="s">/etc/nginx/mime.types</span><span class="p">;</span>
+</span><span id="__span-7-15"><a id="__codelineno-7-15" name="__codelineno-7-15" href="#__codelineno-7-15"></a><span class="w">    </span><span class="kn">default_type</span><span class="w">  </span><span class="s">application/octet-stream</span><span class="p">;</span>
+</span><span id="__span-7-16"><a id="__codelineno-7-16" name="__codelineno-7-16" href="#__codelineno-7-16"></a>
+</span><span id="__span-7-17"><a id="__codelineno-7-17" name="__codelineno-7-17" href="#__codelineno-7-17"></a><span class="w">     </span><span class="c1"># 定义访问日志的格式</span>
+</span><span id="__span-7-18"><a id="__codelineno-7-18" name="__codelineno-7-18" href="#__codelineno-7-18"></a><span class="w">    </span><span class="kn">log_format</span><span class="w">  </span><span class="s">main</span><span class="w">  </span><span class="s">&#39;</span><span class="nv">$remote_addr</span><span class="w"> </span><span class="s">-</span><span class="w"> </span><span class="nv">$remote_user</span><span class="w"> </span><span class="s">[</span><span class="nv">$time_local]</span><span class="w"> </span><span class="s">&quot;</span><span class="nv">$request&quot;</span><span class="w"> </span><span class="s">&#39;</span>
+</span><span id="__span-7-19"><a id="__codelineno-7-19" name="__codelineno-7-19" href="#__codelineno-7-19"></a><span class="w">                      </span><span class="s">&#39;</span><span class="nv">$status</span><span class="w"> </span><span class="nv">$body_bytes_sent</span><span class="w"> </span><span class="s">&quot;</span><span class="nv">$http_referer&quot;</span><span class="w"> </span><span class="s">&#39;</span>
+</span><span id="__span-7-20"><a id="__codelineno-7-20" name="__codelineno-7-20" href="#__codelineno-7-20"></a><span class="w">                      </span><span class="s">&#39;&quot;</span><span class="nv">$http_user_agent&quot;</span><span class="w"> </span><span class="s">&quot;</span><span class="nv">$http_x_forwarded_for&quot;&#39;</span><span class="p">;</span>
+</span><span id="__span-7-21"><a id="__codelineno-7-21" name="__codelineno-7-21" href="#__codelineno-7-21"></a>
+</span><span id="__span-7-22"><a id="__codelineno-7-22" name="__codelineno-7-22" href="#__codelineno-7-22"></a><span class="w">    </span><span class="kn">access_log</span><span class="w">  </span><span class="s">/var/log/nginx/access.log</span><span class="w">  </span><span class="s">main</span><span class="p">;</span><span class="w"> </span><span class="c1"># 指定访问日志文件的路径和日志格式，日志格式为上面定义的 main 格式</span>
+</span><span id="__span-7-23"><a id="__codelineno-7-23" name="__codelineno-7-23" href="#__codelineno-7-23"></a>
+</span><span id="__span-7-24"><a id="__codelineno-7-24" name="__codelineno-7-24" href="#__codelineno-7-24"></a><span class="w">    </span><span class="kn">sendfile</span><span class="w">        </span><span class="no">on</span><span class="p">;</span><span class="w">      </span><span class="c1"># 启用 sendfile 指令，加快文件传输速度</span>
+</span><span id="__span-7-25"><a id="__codelineno-7-25" name="__codelineno-7-25" href="#__codelineno-7-25"></a><span class="w">    </span><span class="c1">#tcp_nopush     on;</span>
+</span><span id="__span-7-26"><a id="__codelineno-7-26" name="__codelineno-7-26" href="#__codelineno-7-26"></a>
+</span><span id="__span-7-27"><a id="__codelineno-7-27" name="__codelineno-7-27" href="#__codelineno-7-27"></a><span class="w">    </span><span class="kn">keepalive_timeout</span><span class="w">  </span><span class="mi">65</span><span class="p">;</span><span class="w">   </span><span class="c1"># 指定客户端连接保持时间的最大值。</span>
+</span><span id="__span-7-28"><a id="__codelineno-7-28" name="__codelineno-7-28" href="#__codelineno-7-28"></a>
+</span><span id="__span-7-29"><a id="__codelineno-7-29" name="__codelineno-7-29" href="#__codelineno-7-29"></a><span class="w">    </span><span class="c1">#gzip  on;</span>
+</span><span id="__span-7-30"><a id="__codelineno-7-30" name="__codelineno-7-30" href="#__codelineno-7-30"></a>
+</span><span id="__span-7-31"><a id="__codelineno-7-31" name="__codelineno-7-31" href="#__codelineno-7-31"></a><span class="w">    </span><span class="kn">include</span><span class="w"> </span><span class="s">/etc/nginx/conf.d/*.conf</span><span class="p">;</span><span class="w">        </span><span class="c1"># 加载 /etc/nginx/conf.d/ 目录下的所有以 .conf 结尾的配置文件</span>
+</span><span id="__span-7-32"><a id="__codelineno-7-32" name="__codelineno-7-32" href="#__codelineno-7-32"></a><span class="p">}</span>
+</span></code></pre></div></p>
 <p>接着是<code>default.conf</code>：
-<div class="highlight"><pre><span></span><code><span class="k">server</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="kn">listen</span><span class="w">       </span><span class="mi">80</span><span class="p">;</span><span class="w">    </span><span class="c1"># 监听 IPV4 的80端口</span>
-<span class="w">    </span><span class="kn">listen</span><span class="w">  </span><span class="s">[::]:80</span><span class="p">;</span><span class="w">    </span><span class="c1"># 监听 IPV6 的80端口</span>
-<span class="w">    </span><span class="kn">server_name</span><span class="w">  </span><span class="mi">111</span><span class="s">.222.111.222</span><span class="p">;</span><span class="w">       </span><span class="c1"># 这里填入你的服务器地址</span>
-<span class="w">    </span><span class="c1">#access_log  /var/log/nginx/host.access.log  main;</span>
-
-<span class="w">    </span><span class="c1"># location 指令用于匹配请求的 URL 路径，并设置对应的处理方式</span>
-<span class="w">    </span><span class="c1"># 简单的说就是当有客户端访问 http://111.222.111.222/ 时，Nginx 将会尝试在           </span>
-<span class="w">    </span><span class="c1"># /usr/share/nginx/html 路径下查找 index.html 返回给客户端</span>
-<span class="w">    </span><span class="kn">location</span><span class="w"> </span><span class="s">/</span><span class="w"> </span><span class="p">{</span>
-<span class="w">        </span><span class="kn">root</span><span class="w">   </span><span class="s">/usr/share/nginx/html</span><span class="p">;</span><span class="w">       </span>
-<span class="w">        </span><span class="kn">index</span><span class="w">  </span><span class="s">index.html</span><span class="w"> </span><span class="s">index.htm</span><span class="p">;</span>
-<span class="w">    </span><span class="p">}</span>
-
-<span class="w">    </span><span class="c1"># error_page 指令定义了当服务器出现 500、502、503、504 错误时的处理方式</span>
-<span class="w">    </span><span class="kn">error_page</span><span class="w">   </span><span class="mi">500</span><span class="w"> </span><span class="mi">502</span><span class="w"> </span><span class="mi">503</span><span class="w"> </span><span class="mi">504</span><span class="w">  </span><span class="s">/50x.html</span><span class="p">;</span><span class="w">    </span><span class="c1"># 统一请求 /50x.html</span>
-<span class="w">    </span><span class="kn">location</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">/50x.html</span><span class="w"> </span><span class="p">{</span><span class="w">  </span><span class="c1"># &#39;=&#39;表示精确匹配，后面不可带参数。</span>
-<span class="w">        </span><span class="kn">root</span><span class="w">   </span><span class="s">/usr/share/nginx/html</span><span class="p">;</span>
-<span class="w">    </span><span class="p">}</span>
-<span class="p">}</span>
-</code></pre></div>
+<div class="language-nginx highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="k">server</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-8-2"><a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a><span class="w">    </span><span class="kn">listen</span><span class="w">       </span><span class="mi">80</span><span class="p">;</span><span class="w">    </span><span class="c1"># 监听 IPV4 的80端口</span>
+</span><span id="__span-8-3"><a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a><span class="w">    </span><span class="kn">listen</span><span class="w">  </span><span class="s">[::]:80</span><span class="p">;</span><span class="w">    </span><span class="c1"># 监听 IPV6 的80端口</span>
+</span><span id="__span-8-4"><a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a><span class="w">    </span><span class="kn">server_name</span><span class="w">  </span><span class="mi">111</span><span class="s">.222.111.222</span><span class="p">;</span><span class="w">       </span><span class="c1"># 这里填入你的服务器地址</span>
+</span><span id="__span-8-5"><a id="__codelineno-8-5" name="__codelineno-8-5" href="#__codelineno-8-5"></a><span class="w">    </span><span class="c1">#access_log  /var/log/nginx/host.access.log  main;</span>
+</span><span id="__span-8-6"><a id="__codelineno-8-6" name="__codelineno-8-6" href="#__codelineno-8-6"></a>
+</span><span id="__span-8-7"><a id="__codelineno-8-7" name="__codelineno-8-7" href="#__codelineno-8-7"></a><span class="w">    </span><span class="c1"># location 指令用于匹配请求的 URL 路径，并设置对应的处理方式</span>
+</span><span id="__span-8-8"><a id="__codelineno-8-8" name="__codelineno-8-8" href="#__codelineno-8-8"></a><span class="w">    </span><span class="c1"># 简单的说就是当有客户端访问 http://111.222.111.222/ 时，Nginx 将会尝试在           </span>
+</span><span id="__span-8-9"><a id="__codelineno-8-9" name="__codelineno-8-9" href="#__codelineno-8-9"></a><span class="w">    </span><span class="c1"># /usr/share/nginx/html 路径下查找 index.html 返回给客户端</span>
+</span><span id="__span-8-10"><a id="__codelineno-8-10" name="__codelineno-8-10" href="#__codelineno-8-10"></a><span class="w">    </span><span class="kn">location</span><span class="w"> </span><span class="s">/</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-8-11"><a id="__codelineno-8-11" name="__codelineno-8-11" href="#__codelineno-8-11"></a><span class="w">        </span><span class="kn">root</span><span class="w">   </span><span class="s">/usr/share/nginx/html</span><span class="p">;</span><span class="w">       </span>
+</span><span id="__span-8-12"><a id="__codelineno-8-12" name="__codelineno-8-12" href="#__codelineno-8-12"></a><span class="w">        </span><span class="kn">index</span><span class="w">  </span><span class="s">index.html</span><span class="w"> </span><span class="s">index.htm</span><span class="p">;</span>
+</span><span id="__span-8-13"><a id="__codelineno-8-13" name="__codelineno-8-13" href="#__codelineno-8-13"></a><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-8-14"><a id="__codelineno-8-14" name="__codelineno-8-14" href="#__codelineno-8-14"></a>
+</span><span id="__span-8-15"><a id="__codelineno-8-15" name="__codelineno-8-15" href="#__codelineno-8-15"></a><span class="w">    </span><span class="c1"># error_page 指令定义了当服务器出现 500、502、503、504 错误时的处理方式</span>
+</span><span id="__span-8-16"><a id="__codelineno-8-16" name="__codelineno-8-16" href="#__codelineno-8-16"></a><span class="w">    </span><span class="kn">error_page</span><span class="w">   </span><span class="mi">500</span><span class="w"> </span><span class="mi">502</span><span class="w"> </span><span class="mi">503</span><span class="w"> </span><span class="mi">504</span><span class="w">  </span><span class="s">/50x.html</span><span class="p">;</span><span class="w">    </span><span class="c1"># 统一请求 /50x.html</span>
+</span><span id="__span-8-17"><a id="__codelineno-8-17" name="__codelineno-8-17" href="#__codelineno-8-17"></a><span class="w">    </span><span class="kn">location</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">/50x.html</span><span class="w"> </span><span class="p">{</span><span class="w">  </span><span class="c1"># &#39;=&#39;表示精确匹配，后面不可带参数。</span>
+</span><span id="__span-8-18"><a id="__codelineno-8-18" name="__codelineno-8-18" href="#__codelineno-8-18"></a><span class="w">        </span><span class="kn">root</span><span class="w">   </span><span class="s">/usr/share/nginx/html</span><span class="p">;</span>
+</span><span id="__span-8-19"><a id="__codelineno-8-19" name="__codelineno-8-19" href="#__codelineno-8-19"></a><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-8-20"><a id="__codelineno-8-20" name="__codelineno-8-20" href="#__codelineno-8-20"></a><span class="p">}</span>
+</span></code></pre></div>
 </p>
 </blockquote>
 <ul>
 <li>暂停并删除容器</li>
 </ul>
 <p>暂停容器：</p>
-<div class="highlight"><pre><span></span><code>docker<span class="w"> </span>stop<span class="w"> </span>my-nginx
-</code></pre></div>
+<div class="language-shell highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>docker<span class="w"> </span>stop<span class="w"> </span>my-nginx
+</span></code></pre></div>
 <p>删除容器：</p>
-<div class="highlight"><pre><span></span><code>docker<span class="w"> </span>rm<span class="w"> </span>my-nginx
-</code></pre></div>
+<div class="language-shell highlight"><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>docker<span class="w"> </span>rm<span class="w"> </span>my-nginx
+</span></code></pre></div>
 <h3 id="_3">第四步：克隆静态博客源码</h3>
 <ul>
 <li>
 <p>克隆源码：</p>
-<div class="highlight"><pre><span></span><code>git<span class="w"> </span>clone<span class="w"> </span>git@github.com:austin2035/astro-air-blog.git
-</code></pre></div>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a>git<span class="w"> </span>clone<span class="w"> </span>git@github.com:austin2035/astro-air-blog.git
+</span></code></pre></div>
 </li>
 <li>
 <p>给你的博客源码改个名：</p>
-<div class="highlight"><pre><span></span><code>mv<span class="w"> </span>astro-air-blog<span class="w"> </span>~/blog
-</code></pre></div>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-12-1"><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a>mv<span class="w"> </span>astro-air-blog<span class="w"> </span>~/blog
+</span></code></pre></div>
 </li>
 <li>
 <p>进入项目目录：
-    <div class="highlight"><pre><span></span><code><span class="nb">cd</span><span class="w"> </span>~/blog
-</code></pre></div></p>
+    <div class="language-bash highlight"><pre><span></span><code><span id="__span-13-1"><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a><span class="nb">cd</span><span class="w"> </span>~/blog
+</span></code></pre></div></p>
 </li>
 </ul>
 <h3 id="_4">第五步：打包博客源码</h3>
 <ul>
 <li>打包项目：</li>
 </ul>
-<div class="highlight"><pre><span></span><code>npm<span class="w"> </span>run<span class="w"> </span>build
-</code></pre></div>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-14-1"><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a>npm<span class="w"> </span>run<span class="w"> </span>build
+</span></code></pre></div>
 <blockquote>
 <p>一定要打包后才再挂载，Nginx 只能解析 html 文件。</p>
 </blockquote>
 <ul>
 <li>查看打包后的文件：</li>
 </ul>
-<div class="highlight"><pre><span></span><code><span class="nb">cd</span><span class="w"> </span>dist
-ls
-</code></pre></div>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-15-1"><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a><span class="nb">cd</span><span class="w"> </span>dist
+</span><span id="__span-15-2"><a id="__codelineno-15-2" name="__codelineno-15-2" href="#__codelineno-15-2"></a>ls
+</span></code></pre></div>
 <p>确保目录内存在 index.html 文件。</p>
 <h3 id="_5">第六步：部署网站</h3>
 <ul>
 <li>先创建一个日志目录：</li>
 </ul>
-<div class="highlight"><pre><span></span><code><span class="nb">cd</span><span class="w"> </span>~
-mkdir<span class="w"> </span>nginx/logs
-</code></pre></div>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-16-1"><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a><span class="nb">cd</span><span class="w"> </span>~
+</span><span id="__span-16-2"><a id="__codelineno-16-2" name="__codelineno-16-2" href="#__codelineno-16-2"></a>mkdir<span class="w"> </span>nginx/logs
+</span></code></pre></div>
 <ul>
 <li>
 <p>挂载目录并运行容器：</p>
-<div class="highlight"><pre><span></span><code>docker<span class="w"> </span>run<span class="w"> </span><span class="se">\</span>
--p<span class="w"> </span><span class="m">80</span>:80<span class="w"> </span><span class="se">\</span>
---name<span class="w"> </span>my-nginx<span class="w"> </span><span class="se">\</span>
--v<span class="w"> </span>~/blog/dist:/usr/share/nginx/html<span class="w"> </span><span class="se">\</span>
--v<span class="w"> </span>~/nginx/nginx.conf:/etc/nginx/nginx.conf<span class="w"> </span><span class="se">\</span>
--v<span class="w"> </span>~/nginx/conf.d:/etc/nginx/conf.d<span class="w"> </span><span class="se">\</span>
--v<span class="w"> </span>~/nginx/logs:/var/log/nginx<span class="w"> </span><span class="se">\</span>
--d<span class="w"> </span>nginx
-</code></pre></div>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-17-1"><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a>docker<span class="w"> </span>run<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-17-2"><a id="__codelineno-17-2" name="__codelineno-17-2" href="#__codelineno-17-2"></a>-p<span class="w"> </span><span class="m">80</span>:80<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-17-3"><a id="__codelineno-17-3" name="__codelineno-17-3" href="#__codelineno-17-3"></a>--name<span class="w"> </span>my-nginx<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-17-4"><a id="__codelineno-17-4" name="__codelineno-17-4" href="#__codelineno-17-4"></a>-v<span class="w"> </span>~/blog/dist:/usr/share/nginx/html<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-17-5"><a id="__codelineno-17-5" name="__codelineno-17-5" href="#__codelineno-17-5"></a>-v<span class="w"> </span>~/nginx/nginx.conf:/etc/nginx/nginx.conf<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-17-6"><a id="__codelineno-17-6" name="__codelineno-17-6" href="#__codelineno-17-6"></a>-v<span class="w"> </span>~/nginx/conf.d:/etc/nginx/conf.d<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-17-7"><a id="__codelineno-17-7" name="__codelineno-17-7" href="#__codelineno-17-7"></a>-v<span class="w"> </span>~/nginx/logs:/var/log/nginx<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-17-8"><a id="__codelineno-17-8" name="__codelineno-17-8" href="#__codelineno-17-8"></a>-d<span class="w"> </span>nginx
+</span></code></pre></div>
 </li>
 <li>
 <p>查看容器是否运行成功：</p>
 </li>
 </ul>
-<div class="highlight"><pre><span></span><code>docker<span class="w"> </span>ps
-</code></pre></div>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-18-1"><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a>docker<span class="w"> </span>ps
+</span></code></pre></div>
 <p>若有<code>my-nginx</code> 这个镜像表示运行成功，若没有则表示 Docker 运行出错了，检查<code>nginx.conf</code>和<code>default.conf</code>文件语法是否存在错误。</p>
 <h3 id="_6">第七步：测试网站</h3>
 <p>试在浏览器直接访问你的服务器IP，若部署成功你将看到你的网站。</p>
@@ -1879,7 +1879,7 @@ mkdir<span class="w"> </span>nginx/logs
       <div class="md-dialog__inner md-typeset"></div>
     </div>
     
-    <script id="__config" type="application/json">{"base": "..", "features": [], "search": "../assets/javascripts/workers/search.a264c092.min.js", "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}}</script>
+    <script id="__config" type="application/json">{"base": "..", "features": ["content.code.select", "content.code.copy", {"tabs": true}], "search": "../assets/javascripts/workers/search.a264c092.min.js", "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}}</script>
     
     
       <script src="../assets/javascripts/bundle.4e0fa4ba.min.js"></script>

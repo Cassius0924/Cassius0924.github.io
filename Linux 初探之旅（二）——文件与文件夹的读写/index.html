@@ -1648,8 +1648,8 @@
 <h2 id="_1">读取文件</h2>
 <h3 id="cat">cat 命令：读取文件全部内容</h3>
 <p>要读取一个文件的内容，可以使用cat命令，语法为：</p>
-<div class="highlight"><pre><span></span><code>cat<span class="w"> </span>文件名
-</code></pre></div>
+<div class="language-shell highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>cat<span class="w"> </span>文件名
+</span></code></pre></div>
 <p>这会将文件的全部内容输出到终端。当文件比较大时，这样的输出会刷屏，不太方便查看。</p>
 <h3 id="head-tail">head 和 tail 命令：显示部分内容</h3>
 <p>Linux提供了head和tail命令来显示部分内容：</p>
@@ -1658,20 +1658,20 @@
 <li>tail - 显示结尾部分内容</li>
 </ul>
 <p>head和tail可以指定显示的行数，例如：</p>
-<div class="highlight"><pre><span></span><code>head<span class="w"> </span>-n<span class="w"> </span><span class="m">3</span><span class="w"> </span>文件名<span class="w"> </span><span class="c1"># 显示前3行 </span>
-tail<span class="w"> </span>-n<span class="w"> </span><span class="m">5</span><span class="w"> </span>文件名<span class="w"> </span><span class="c1"># 显示后5行</span>
-</code></pre></div>
+<div class="language-shell highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>head<span class="w"> </span>-n<span class="w"> </span><span class="m">3</span><span class="w"> </span>文件名<span class="w"> </span><span class="c1"># 显示前3行 </span>
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>tail<span class="w"> </span>-n<span class="w"> </span><span class="m">5</span><span class="w"> </span>文件名<span class="w"> </span><span class="c1"># 显示后5行</span>
+</span></code></pre></div>
 <h3 id="less">less 命令：分页显示</h3>
 <p>less命令可以分页方式显示文件内容，可以上下翻阅，是文件查看的首选工具。</p>
 <p>less可以用方向键上下翻页，也支持各种快捷键，推荐大家阅读less的帮助文档。</p>
 <h2 id="_2">写入文件</h2>
 <h3 id="echo">echo 命令：输出到文件</h3>
 <p>使用echo命令可以向文件写入内容，语法为：</p>
-<div class="highlight"><pre><span></span><code><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;要写入的内容&quot;</span><span class="w"> </span>&gt;<span class="w"> </span>文件名<span class="w"> </span>
-</code></pre></div>
+<div class="language-shell highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;要写入的内容&quot;</span><span class="w"> </span>&gt;<span class="w"> </span>文件名<span class="w"> </span>
+</span></code></pre></div>
 <p>这会覆盖文件原有内容。如果要附加内容，使用两个大于号：</p>
-<div class="highlight"><pre><span></span><code><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;新增内容&quot;</span><span class="w"> </span>&gt;&gt;<span class="w"> </span>文件名<span class="w"> </span>
-</code></pre></div>
+<div class="language-shell highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;新增内容&quot;</span><span class="w"> </span>&gt;&gt;<span class="w"> </span>文件名<span class="w"> </span>
+</span></code></pre></div>
 <h3 id="vim">文本编辑器：vim</h3>
 <p>对文件进行复杂编辑可以使用文本编辑器，Linux中的常用文本编辑器有vi、emacs、vim和nano等。这里简单介绍vim的使用。</p>
 <p>使用<code>vim 文件名</code>可以打开vim编辑器。vim有三种模式，分别是命令模式、插入模式和底线命令模式。</p>
@@ -1691,12 +1691,12 @@ tail<span class="w"> </span>-n<span class="w"> </span><span class="m">5</span><s
 <h2 id="_3">删除文件和目录</h2>
 <h3 id="rm">rm 命令：删除文件</h3>
 <p>删除文件使用rm命令：</p>
-<div class="highlight"><pre><span></span><code>rm<span class="w"> </span>文件名
-</code></pre></div>
+<div class="language-shell highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>rm<span class="w"> </span>文件名
+</span></code></pre></div>
 <h3 id="rm-r">rm -r 命令：删除目录</h3>
 <p>如果要删除目录，需要添加-r参数：</p>
-<div class="highlight"><pre><span></span><code>rm<span class="w"> </span>-r<span class="w"> </span>目录名
-</code></pre></div>
+<div class="language-shell highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>rm<span class="w"> </span>-r<span class="w"> </span>目录名
+</span></code></pre></div>
 <p>这会递归删除目录及其中的所有内容，需要小心使用。</p>
 <h2 id="_4">复制和移动文件</h2>
 <ul>
@@ -1707,12 +1707,12 @@ tail<span class="w"> </span>-n<span class="w"> </span><span class="m">5</span><s
 <p>移动使用mv命令，mv同时支持文件和目录的移动</p>
 </li>
 </ul>
-<div class="highlight"><pre><span></span><code>cp<span class="w"> </span>file1<span class="w"> </span>file2<span class="w">  </span><span class="c1"># 复制文件file1成为file2</span>
-cp<span class="w"> </span>-r<span class="w"> </span>dir1<span class="w"> </span>dir2<span class="w"> </span><span class="c1"># 复制目录dir1成为dir2</span>
-
-mv<span class="w"> </span>file1<span class="w"> </span>file2<span class="w">  </span><span class="c1"># 将文件file1移动并重命名为file2  </span>
-mv<span class="w"> </span>dir1<span class="w"> </span>dir2<span class="w">   </span><span class="c1"># 将目录dir1移动并重命名为dir2</span>
-</code></pre></div>
+<div class="language-shell highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>cp<span class="w"> </span>file1<span class="w"> </span>file2<span class="w">  </span><span class="c1"># 复制文件file1成为file2</span>
+</span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>cp<span class="w"> </span>-r<span class="w"> </span>dir1<span class="w"> </span>dir2<span class="w"> </span><span class="c1"># 复制目录dir1成为dir2</span>
+</span><span id="__span-6-3"><a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a>
+</span><span id="__span-6-4"><a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a>mv<span class="w"> </span>file1<span class="w"> </span>file2<span class="w">  </span><span class="c1"># 将文件file1移动并重命名为file2  </span>
+</span><span id="__span-6-5"><a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a>mv<span class="w"> </span>dir1<span class="w"> </span>dir2<span class="w">   </span><span class="c1"># 将目录dir1移动并重命名为dir2</span>
+</span></code></pre></div>
 <p>今天学习的这些基础命令非常实用，建议大家练习熟练掌握。可以在home目录下创建文件夹，在里面练习这些命令。掌握后，文件操作会更加高效。</p>
 <p>如果觉得文章有帮助，请点个赞收藏支持一下。下期再见!</p>
 
@@ -1782,7 +1782,7 @@ mv<span class="w"> </span>dir1<span class="w"> </span>dir2<span class="w">   </s
       <div class="md-dialog__inner md-typeset"></div>
     </div>
     
-    <script id="__config" type="application/json">{"base": "..", "features": [], "search": "../assets/javascripts/workers/search.a264c092.min.js", "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}}</script>
+    <script id="__config" type="application/json">{"base": "..", "features": ["content.code.select", "content.code.copy", {"tabs": true}], "search": "../assets/javascripts/workers/search.a264c092.min.js", "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}}</script>
     
     
       <script src="../assets/javascripts/bundle.4e0fa4ba.min.js"></script>

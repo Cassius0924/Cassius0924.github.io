@@ -1556,8 +1556,8 @@
 <p>本文是一个简单易用的Ubuntu安装OpenCV的指南，帮助用户轻松完成OpenCV的安装和配置。</p>
 <h2 id="_1">安装步骤</h2>
 <h3 id="_2">第一步：安装依赖项</h3>
-<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>apt-get<span class="w"> </span>install<span class="w"> </span>cmake<span class="w"> </span>git<span class="w"> </span>build-essential<span class="w"> </span>libgtk2.0-dev<span class="w"> </span>pkg-config<span class="w"> </span>libavcodec-dev<span class="w"> </span>libavformat-dev<span class="w"> </span>libswscale-dev<span class="w"> </span>python-dev<span class="w"> </span>python-numpy<span class="w"> </span>libtbb2<span class="w"> </span>libtbb-dev<span class="w"> </span>libjpeg-dev<span class="w"> </span>libpng-dev<span class="w"> </span>libtiff-dev<span class="w"> </span>libjasper-dev<span class="w"> </span>libdc1394-22-dev
-</code></pre></div>
+<div class="language-shell highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>sudo<span class="w"> </span>apt-get<span class="w"> </span>install<span class="w"> </span>cmake<span class="w"> </span>git<span class="w"> </span>build-essential<span class="w"> </span>libgtk2.0-dev<span class="w"> </span>pkg-config<span class="w"> </span>libavcodec-dev<span class="w"> </span>libavformat-dev<span class="w"> </span>libswscale-dev<span class="w"> </span>python-dev<span class="w"> </span>python-numpy<span class="w"> </span>libtbb2<span class="w"> </span>libtbb-dev<span class="w"> </span>libjpeg-dev<span class="w"> </span>libpng-dev<span class="w"> </span>libtiff-dev<span class="w"> </span>libjasper-dev<span class="w"> </span>libdc1394-22-dev
+</span></code></pre></div>
 <blockquote>
 <p>一口气全安装。</p>
 </blockquote>
@@ -1570,17 +1570,17 @@
 <p>切换到用户目录（也可以选择其他文件夹，本文以用户目录<code>~/</code>为例）：</p>
 </li>
 </ul>
-<p><div class="highlight"><pre><span></span><code><span class="nb">cd</span><span class="w"> </span>~
-</code></pre></div>
+<p><div class="language-shell highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="nb">cd</span><span class="w"> </span>~
+</span></code></pre></div>
   - 下载源码：</p>
-<div class="highlight"><pre><span></span><code>git<span class="w"> </span>clone<span class="w"> </span>https://github.com/opencv/opencv.git
-<span class="nb">cd</span><span class="w"> </span>opencv
-</code></pre></div>
+<div class="language-shell highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>git<span class="w"> </span>clone<span class="w"> </span>https://github.com/opencv/opencv.git
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="nb">cd</span><span class="w"> </span>opencv
+</span></code></pre></div>
 <ul>
 <li>可以根据需要替换为其他版本号，建议使用最新版：</li>
 </ul>
-<div class="highlight"><pre><span></span><code>git<span class="w"> </span>checkout<span class="w"> </span><span class="m">4</span>.7.0
-</code></pre></div>
+<div class="language-shell highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>git<span class="w"> </span>checkout<span class="w"> </span><span class="m">4</span>.7.0
+</span></code></pre></div>
 <ul>
 <li>
 <p>OpenCV官网下载：</p>
@@ -1593,9 +1593,9 @@
 <p>下载完成后将压缩包移到用户目录<code>~/</code>文件夹下，解压文件：</p>
 </li>
 </ul>
-<div class="highlight"><pre><span></span><code>unzip<span class="w"> </span>-q<span class="w"> </span>opencv-4.7.0.zip
-<span class="nb">cd</span><span class="w"> </span>opencv-4.7.0
-</code></pre></div>
+<div class="language-shell highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>unzip<span class="w"> </span>-q<span class="w"> </span>opencv-4.7.0.zip
+</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="nb">cd</span><span class="w"> </span>opencv-4.7.0
+</span></code></pre></div>
 <blockquote>
 <p>注意，不同版本的文件名不同。</p>
 </blockquote>
@@ -1605,52 +1605,52 @@
 <ul>
 <li>
 <p>新建并进入<code>build</code>文件夹：</p>
-<div class="highlight"><pre><span></span><code>mkdir<span class="w"> </span>build<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="nb">cd</span><span class="w"> </span>build
-</code></pre></div>
+<div class="language-shell highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>mkdir<span class="w"> </span>build<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="nb">cd</span><span class="w"> </span>build
+</span></code></pre></div>
 </li>
 <li>
 <p>编译OpenCV：
-    <div class="highlight"><pre><span></span><code>cmake<span class="w"> </span>..
-make<span class="w"> </span>-j8
-</code></pre></div></p>
+    <div class="language-shell highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>cmake<span class="w"> </span>..
+</span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>make<span class="w"> </span>-j8
+</span></code></pre></div></p>
 </li>
 <li>
 <p>安装OpenCV：
-    <div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>make<span class="w"> </span>install
-</code></pre></div></p>
+    <div class="language-shell highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>sudo<span class="w"> </span>make<span class="w"> </span>install
+</span></code></pre></div></p>
 </li>
 </ul>
 <h3 id="opencv_1">第四步：配置OpenCV</h3>
 <ul>
 <li>
 <p>获取<code>lib</code>文件夹路径：
-    <div class="highlight"><pre><span></span><code><span class="nb">cd</span><span class="w"> </span>lib<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="nb">pwd</span>
-</code></pre></div>
+    <div class="language-shell highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="nb">cd</span><span class="w"> </span>lib<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="nb">pwd</span>
+</span></code></pre></div>
     复制输出的路径 。</p>
 </li>
 <li>
 <p>修改配置文件：</p>
 <p>将刚刚复制的路径粘贴在引号之间。</p>
-<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span><span class="nb">echo</span><span class="w"> </span><span class="s1">&#39;include lib文件夹路径&#39;</span><span class="w"> </span>&gt;&gt;<span class="w"> </span>/etc/ld.so.conf
-</code></pre></div>
+<div class="language-shell highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>sudo<span class="w"> </span><span class="nb">echo</span><span class="w"> </span><span class="s1">&#39;include lib文件夹路径&#39;</span><span class="w"> </span>&gt;&gt;<span class="w"> </span>/etc/ld.so.conf
+</span></code></pre></div>
 </li>
 <li>
 <p>更新配置文件：
-    <div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>ldconfig
-</code></pre></div></p>
+    <div class="language-shell highlight"><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>sudo<span class="w"> </span>ldconfig
+</span></code></pre></div></p>
 </li>
 </ul>
 <h3 id="opencv_2">第五步：验证OpenCV</h3>
 <ul>
 <li>
 <p>查看版本号：
-    <div class="highlight"><pre><span></span><code>pkg-config<span class="w"> </span>--modversion<span class="w"> </span>opencv4
-</code></pre></div></p>
+    <div class="language-shell highlight"><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a>pkg-config<span class="w"> </span>--modversion<span class="w"> </span>opencv4
+</span></code></pre></div></p>
 </li>
 <li>
 <p>查看libs库：
-    <div class="highlight"><pre><span></span><code>pkg-config<span class="w"> </span>--libs<span class="w"> </span>opencv4
-</code></pre></div></p>
+    <div class="language-shell highlight"><pre><span></span><code><span id="__span-12-1"><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a>pkg-config<span class="w"> </span>--libs<span class="w"> </span>opencv4
+</span></code></pre></div></p>
 </li>
 </ul>
 <p>如果能够输出OpenCV版本号和libs库，则表明安装成功。</p>
@@ -1658,15 +1658,15 @@ make<span class="w"> </span>-j8
 <ul>
 <li>进入测试样例文件夹：</li>
 </ul>
-<div class="highlight"><pre><span></span><code><span class="nb">cd</span><span class="w"> </span>~/opencv-4.7.0/samples/cpp/example_cmake
-</code></pre></div>
+<div class="language-shell highlight"><pre><span></span><code><span id="__span-13-1"><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a><span class="nb">cd</span><span class="w"> </span>~/opencv-4.7.0/samples/cpp/example_cmake
+</span></code></pre></div>
 <ul>
 <li>依次执行以下命令：</li>
 </ul>
-<div class="highlight"><pre><span></span><code>mkdir<span class="w"> </span>build<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="nb">cd</span><span class="w"> </span>build
-cmake<span class="w"> </span>..
-make
-</code></pre></div>
+<div class="language-shell highlight"><pre><span></span><code><span id="__span-14-1"><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a>mkdir<span class="w"> </span>build<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="nb">cd</span><span class="w"> </span>build
+</span><span id="__span-14-2"><a id="__codelineno-14-2" name="__codelineno-14-2" href="#__codelineno-14-2"></a>cmake<span class="w"> </span>..
+</span><span id="__span-14-3"><a id="__codelineno-14-3" name="__codelineno-14-3" href="#__codelineno-14-3"></a>make
+</span></code></pre></div>
 <ul>
 <li>运行程序：
     <code>shell
@@ -1740,7 +1740,7 @@ make
       <div class="md-dialog__inner md-typeset"></div>
     </div>
     
-    <script id="__config" type="application/json">{"base": "..", "features": [], "search": "../assets/javascripts/workers/search.a264c092.min.js", "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}}</script>
+    <script id="__config" type="application/json">{"base": "..", "features": ["content.code.select", "content.code.copy", {"tabs": true}], "search": "../assets/javascripts/workers/search.a264c092.min.js", "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}}</script>
     
     
       <script src="../assets/javascripts/bundle.4e0fa4ba.min.js"></script>

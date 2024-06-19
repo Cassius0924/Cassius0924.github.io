@@ -1533,36 +1533,36 @@
 <p>首先在远程 Linux 上下载 frp，<a href="https://github.com/fatedier/frp/releases">Github 下载地址</a>。下载远程主机对应的版本，我这里是 ARM64 架构的 Linux，所以下载 <code>frp_0.51.2_linux_arm64.tar.gz</code>。</p>
 <p><img alt="frp GitHub" src="https://s2.loli.net/2023/08/01/P5MzmKDEeBjdJF3.png" /></p>
 <p>下载完毕后解压：
-<div class="highlight"><pre><span></span><code>tar<span class="w"> </span>-xvf<span class="w"> </span>frp_0.51.2_linux_arm64.tar.gz
-<span class="nb">cd</span><span class="w"> </span>frp_0.51.2_linux_arm64
-</code></pre></div></p>
+<div class="language-shell highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>tar<span class="w"> </span>-xvf<span class="w"> </span>frp_0.51.2_linux_arm64.tar.gz
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="nb">cd</span><span class="w"> </span>frp_0.51.2_linux_arm64
+</span></code></pre></div></p>
 <p>远程 Linux 为客户端，所以只需要保留 <code>frpc*</code> 文件即可，<code>frps</code>可以删除。</p>
-<div class="highlight"><pre><span></span><code>rm<span class="w"> </span>frps*
-</code></pre></div>
+<div class="language-shell highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>rm<span class="w"> </span>frps*
+</span></code></pre></div>
 <p>修改<code>frpc.ini</code>，只需要将<code>server_addr</code>修改为服务器的 IP 地址即可，<code>local_ip</code>不变。<code>server_port</code>和<code>remote_port</code>一般不变，若与其他服务冲突了可以修改。</p>
-<div class="highlight"><pre><span></span><code>vim<span class="w"> </span>frpc.ini<span class="w">    </span><span class="c1">#:wq 退出</span>
-</code></pre></div>
+<div class="language-shell highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>vim<span class="w"> </span>frpc.ini<span class="w">    </span><span class="c1">#:wq 退出</span>
+</span></code></pre></div>
 <p><img alt="vim frpc.ini" src="https://s2.loli.net/2023/08/01/r6dks5YSEm9WUXl.png" /></p>
 <h2 id="_3">配置服务器</h2>
 <p>同样下载好对应系统版本的 frp，解压后删除<code>frpc*</code>文件。</p>
-<div class="highlight"><pre><span></span><code>rm<span class="w"> </span>frpc*
-</code></pre></div>
+<div class="language-shell highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>rm<span class="w"> </span>frpc*
+</span></code></pre></div>
 <p>修改<code>frpc.ini</code>，确保<code>bind_port</code>与 frpc 客户端，即远程主机的<code>server_port</code>一致。</p>
 <p>再前往阿里云或腾讯云官网配置服务器防火墙规则，开放服务器的 6000 和 7000 端口（若修改了则开放修改后的端口）。</p>
 <p><img alt="aliyun" src="https://s2.loli.net/2023/08/01/gfIVoMU2mlDJY6t.png" /></p>
 <h2 id="frp">启动 frp</h2>
 <p>先启动服务器的<code>frps</code>：</p>
-<div class="highlight"><pre><span></span><code>./frps<span class="w"> </span>-c<span class="w"> </span>frps.ini
-</code></pre></div>
+<div class="language-shell highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>./frps<span class="w"> </span>-c<span class="w"> </span>frps.ini
+</span></code></pre></div>
 <p>显示以下三行则代表启动成功：</p>
 <p><img alt="./frps" src="https://s2.loli.net/2023/08/01/veKSDbOCPAGoHVj.png" /></p>
 <p>再启动远程主机的<code>frpc</code>：</p>
-<div class="highlight"><pre><span></span><code>./frpc<span class="w"> </span>-c<span class="w"> </span>frpc.ini
-</code></pre></div>
+<div class="language-shell highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>./frpc<span class="w"> </span>-c<span class="w"> </span>frpc.ini
+</span></code></pre></div>
 <h2 id="_4">连接远程主机</h2>
 <p>启动成功后就可以尝试 SSH 连接远程 Linux 主机了：</p>
-<div class="highlight"><pre><span></span><code>ssh<span class="w"> </span>-p<span class="w"> </span>&lt;server_port&gt;<span class="w"> </span>&lt;user&gt;@&lt;server_addr&gt;
-</code></pre></div>
+<div class="language-shell highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>ssh<span class="w"> </span>-p<span class="w"> </span>&lt;server_port&gt;<span class="w"> </span>&lt;user&gt;@&lt;server_addr&gt;
+</span></code></pre></div>
 <p>其中，<server_port>为上面<code>frpc.ini</code>里的<code>server_port</code>，<server_addr>为上面<code>frpc.ini</code>里的<code>server_port</code>，<user>为远程 Linux 的用户名。</p>
 
 
@@ -1631,7 +1631,7 @@
       <div class="md-dialog__inner md-typeset"></div>
     </div>
     
-    <script id="__config" type="application/json">{"base": "..", "features": [], "search": "../assets/javascripts/workers/search.a264c092.min.js", "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}}</script>
+    <script id="__config" type="application/json">{"base": "..", "features": ["content.code.select", "content.code.copy", {"tabs": true}], "search": "../assets/javascripts/workers/search.a264c092.min.js", "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}}</script>
     
     
       <script src="../assets/javascripts/bundle.4e0fa4ba.min.js"></script>

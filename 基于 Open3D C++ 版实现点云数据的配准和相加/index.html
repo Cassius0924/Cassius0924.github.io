@@ -1529,53 +1529,53 @@
 <p>本文介绍如何使用 Open3D C++ 库来进行点云的配准、相加和可视化显示。Open3D 是一个开源的多维数据处理工具箱，支持点云、图像和三维几何等多种类型的数据处理和可视化。</p>
 <h2 id="_1">点云读取</h2>
 <p>使用 <code>ReadPointCloud()</code> 函数可以轻松读取 pcd 和 ply 点云文件：</p>
-<div class="highlight"><pre><span></span><code><span class="c1">// 读取 pcd 和 ply 点云文件</span>
-<span class="k">auto</span><span class="w"> </span><span class="n">source</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">make_shared</span><span class="o">&lt;</span><span class="n">open3d</span><span class="o">::</span><span class="n">geometry</span><span class="o">::</span><span class="n">PointCloud</span><span class="o">&gt;</span><span class="p">();</span>
-<span class="k">auto</span><span class="w"> </span><span class="n">target</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">make_shared</span><span class="o">&lt;</span><span class="n">open3d</span><span class="o">::</span><span class="n">geometry</span><span class="o">::</span><span class="n">PointCloud</span><span class="o">&gt;</span><span class="p">();</span>
-<span class="n">open3d</span><span class="o">::</span><span class="n">io</span><span class="o">::</span><span class="n">ReadPointCloud</span><span class="p">(</span><span class="s">&quot;pcd-data/1.pcd&quot;</span><span class="p">,</span><span class="w"> </span><span class="o">*</span><span class="n">source</span><span class="p">);</span>
-<span class="n">open3d</span><span class="o">::</span><span class="n">io</span><span class="o">::</span><span class="n">ReadPointCloud</span><span class="p">(</span><span class="s">&quot;pcd-data/2.pcd&quot;</span><span class="p">,</span><span class="w"> </span><span class="o">*</span><span class="n">target</span><span class="p">);</span>
-<span class="c1">// ply 文件同理</span>
-<span class="c1">// open3d::io::ReadPointCloud(&quot;pcd-data/1.ply&quot;, *source);</span>
-<span class="c1">// open3d::io::ReadPointCloud(&quot;pcd-data/2.ply&quot;, *target);</span>
-</code></pre></div>
+<div class="language-c highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="c1">// 读取 pcd 和 ply 点云文件</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="k">auto</span><span class="w"> </span><span class="n">source</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">make_shared</span><span class="o">&lt;</span><span class="n">open3d</span><span class="o">::</span><span class="n">geometry</span><span class="o">::</span><span class="n">PointCloud</span><span class="o">&gt;</span><span class="p">();</span>
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="k">auto</span><span class="w"> </span><span class="n">target</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">make_shared</span><span class="o">&lt;</span><span class="n">open3d</span><span class="o">::</span><span class="n">geometry</span><span class="o">::</span><span class="n">PointCloud</span><span class="o">&gt;</span><span class="p">();</span>
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="n">open3d</span><span class="o">::</span><span class="n">io</span><span class="o">::</span><span class="n">ReadPointCloud</span><span class="p">(</span><span class="s">&quot;pcd-data/1.pcd&quot;</span><span class="p">,</span><span class="w"> </span><span class="o">*</span><span class="n">source</span><span class="p">);</span>
+</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="n">open3d</span><span class="o">::</span><span class="n">io</span><span class="o">::</span><span class="n">ReadPointCloud</span><span class="p">(</span><span class="s">&quot;pcd-data/2.pcd&quot;</span><span class="p">,</span><span class="w"> </span><span class="o">*</span><span class="n">target</span><span class="p">);</span>
+</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="c1">// ply 文件同理</span>
+</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="c1">// open3d::io::ReadPointCloud(&quot;pcd-data/1.ply&quot;, *source);</span>
+</span><span id="__span-0-8"><a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="c1">// open3d::io::ReadPointCloud(&quot;pcd-data/2.ply&quot;, *target);</span>
+</span></code></pre></div>
 <h2 id="_2">点云上色</h2>
 <p>为两份点云上上不同的颜色：</p>
-<div class="highlight"><pre><span></span><code><span class="n">source</span><span class="o">-&gt;</span><span class="n">PaintUniformColor</span><span class="p">({</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mf">0.706</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">});</span><span class="w">    </span><span class="c1">// source 为黄色</span>
-<span class="n">target</span><span class="o">-&gt;</span><span class="n">PaintUniformColor</span><span class="p">({</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mf">0.651</span><span class="p">,</span><span class="w"> </span><span class="mf">0.929</span><span class="p">});</span><span class="c1">// target 为蓝色</span>
-</code></pre></div>
+<div class="language-c highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="n">source</span><span class="o">-&gt;</span><span class="n">PaintUniformColor</span><span class="p">({</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mf">0.706</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">});</span><span class="w">    </span><span class="c1">// source 为黄色</span>
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="n">target</span><span class="o">-&gt;</span><span class="n">PaintUniformColor</span><span class="p">({</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mf">0.651</span><span class="p">,</span><span class="w"> </span><span class="mf">0.929</span><span class="p">});</span><span class="c1">// target 为蓝色</span>
+</span></code></pre></div>
 <h2 id="_3">点云配准</h2>
 <p>使用 Open3D 提供的 <code>RegistrationICP()</code> 函数进行点云配准。代码如下：</p>
-<div class="highlight"><pre><span></span><code><span class="c1">// 为两个点云分别进行outlier removal</span>
-<span class="c1">//auto processed_source = source-&gt;RadiusOutlierRemoval(16, 0.5);</span>
-<span class="c1">//auto processed_target = target-&gt;RadiusOutlierRemoval(16, 0.5);</span>
-
-<span class="kt">double</span><span class="w"> </span><span class="n">threshold</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">1.0</span><span class="p">;</span><span class="w"> </span><span class="c1">// 移动范围的阀值</span>
-<span class="n">Eigen</span><span class="o">::</span><span class="n">Matrix4d</span><span class="w"> </span><span class="n">trans_init</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Eigen</span><span class="o">::</span><span class="n">Matrix4d</span><span class="o">::</span><span class="n">Identity</span><span class="p">();</span>
-
-<span class="c1">// 运行ICP配准</span>
-<span class="n">open3d</span><span class="o">::</span><span class="n">pipelines</span><span class="o">::</span><span class="n">registration</span><span class="o">::</span><span class="n">RegistrationResult</span><span class="w"> </span><span class="n">reg_p2p</span><span class="p">;</span>
-
-<span class="c1">// 这一步会返回点云的变换矩阵</span>
-<span class="n">reg_p2p</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">open3d</span><span class="o">::</span><span class="n">pipelines</span><span class="o">::</span><span class="n">registration</span><span class="o">::</span><span class="n">RegistrationICP</span><span class="p">(</span>
-<span class="w">        </span><span class="o">*</span><span class="n">source</span><span class="p">,</span><span class="w"> </span><span class="o">*</span><span class="n">target</span><span class="p">,</span><span class="w"> </span><span class="n">threshold</span><span class="p">,</span><span class="w"> </span><span class="n">trans_init</span><span class="p">,</span>
-<span class="w">      </span><span class="n">open3d</span><span class="o">::</span><span class="n">pipelines</span><span class="o">::</span><span class="n">registration</span><span class="o">::</span><span class="n">TransformationEstimationPointToPoint</span><span class="p">());</span>
-
-<span class="c1">// 将点云依照输出的变换矩阵进行变换</span>
-<span class="n">source</span><span class="o">-&gt;</span><span class="n">Transform</span><span class="p">(</span><span class="n">reg_p2p</span><span class="p">.</span><span class="n">transformation_</span><span class="p">);</span>
-</code></pre></div>
+<div class="language-c highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="c1">// 为两个点云分别进行outlier removal</span>
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="c1">//auto processed_source = source-&gt;RadiusOutlierRemoval(16, 0.5);</span>
+</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="c1">//auto processed_target = target-&gt;RadiusOutlierRemoval(16, 0.5);</span>
+</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>
+</span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a><span class="kt">double</span><span class="w"> </span><span class="n">threshold</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">1.0</span><span class="p">;</span><span class="w"> </span><span class="c1">// 移动范围的阀值</span>
+</span><span id="__span-2-6"><a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a><span class="n">Eigen</span><span class="o">::</span><span class="n">Matrix4d</span><span class="w"> </span><span class="n">trans_init</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Eigen</span><span class="o">::</span><span class="n">Matrix4d</span><span class="o">::</span><span class="n">Identity</span><span class="p">();</span>
+</span><span id="__span-2-7"><a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a>
+</span><span id="__span-2-8"><a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a><span class="c1">// 运行ICP配准</span>
+</span><span id="__span-2-9"><a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a><span class="n">open3d</span><span class="o">::</span><span class="n">pipelines</span><span class="o">::</span><span class="n">registration</span><span class="o">::</span><span class="n">RegistrationResult</span><span class="w"> </span><span class="n">reg_p2p</span><span class="p">;</span>
+</span><span id="__span-2-10"><a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a>
+</span><span id="__span-2-11"><a id="__codelineno-2-11" name="__codelineno-2-11" href="#__codelineno-2-11"></a><span class="c1">// 这一步会返回点云的变换矩阵</span>
+</span><span id="__span-2-12"><a id="__codelineno-2-12" name="__codelineno-2-12" href="#__codelineno-2-12"></a><span class="n">reg_p2p</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">open3d</span><span class="o">::</span><span class="n">pipelines</span><span class="o">::</span><span class="n">registration</span><span class="o">::</span><span class="n">RegistrationICP</span><span class="p">(</span>
+</span><span id="__span-2-13"><a id="__codelineno-2-13" name="__codelineno-2-13" href="#__codelineno-2-13"></a><span class="w">        </span><span class="o">*</span><span class="n">source</span><span class="p">,</span><span class="w"> </span><span class="o">*</span><span class="n">target</span><span class="p">,</span><span class="w"> </span><span class="n">threshold</span><span class="p">,</span><span class="w"> </span><span class="n">trans_init</span><span class="p">,</span>
+</span><span id="__span-2-14"><a id="__codelineno-2-14" name="__codelineno-2-14" href="#__codelineno-2-14"></a><span class="w">      </span><span class="n">open3d</span><span class="o">::</span><span class="n">pipelines</span><span class="o">::</span><span class="n">registration</span><span class="o">::</span><span class="n">TransformationEstimationPointToPoint</span><span class="p">());</span>
+</span><span id="__span-2-15"><a id="__codelineno-2-15" name="__codelineno-2-15" href="#__codelineno-2-15"></a>
+</span><span id="__span-2-16"><a id="__codelineno-2-16" name="__codelineno-2-16" href="#__codelineno-2-16"></a><span class="c1">// 将点云依照输出的变换矩阵进行变换</span>
+</span><span id="__span-2-17"><a id="__codelineno-2-17" name="__codelineno-2-17" href="#__codelineno-2-17"></a><span class="n">source</span><span class="o">-&gt;</span><span class="n">Transform</span><span class="p">(</span><span class="n">reg_p2p</span><span class="p">.</span><span class="n">transformation_</span><span class="p">);</span>
+</span></code></pre></div>
 <h2 id="_4">点云相加</h2>
 <p>这一步很简单，使用重载运算符 <code>+=</code> 将两份点云数据相加：</p>
-<div class="highlight"><pre><span></span><code><span class="o">*</span><span class="n">source</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="o">*</span><span class="n">target</span><span class="p">;</span>
-</code></pre></div>
+<div class="language-c highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="o">*</span><span class="n">source</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="o">*</span><span class="n">target</span><span class="p">;</span>
+</span></code></pre></div>
 <h2 id="_5">点云显示</h2>
 <p>将两份点云数据在同一个窗口进行可视化显示：</p>
-<div class="highlight"><pre><span></span><code><span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="n">std</span><span class="o">::</span><span class="n">shared_ptr</span><span class="o">&lt;</span><span class="k">const</span><span class="w"> </span><span class="n">open3d</span><span class="o">::</span><span class="n">geometry</span><span class="o">::</span><span class="n">Geometry</span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">geometries</span><span class="p">;</span>
-<span class="n">geometries</span><span class="p">.</span><span class="n">push_back</span><span class="p">(</span><span class="n">source</span><span class="p">);</span>
-<span class="n">geometries</span><span class="p">.</span><span class="n">push_back</span><span class="p">(</span><span class="n">target</span><span class="p">);</span>
-
-<span class="c1">// 使用 `DrawGeometries()` 函数来显示点云</span>
-<span class="n">open3d</span><span class="o">::</span><span class="n">visualization</span><span class="o">::</span><span class="n">DrawGeometries</span><span class="p">(</span><span class="n">geometries</span><span class="p">);</span>
-</code></pre></div>
+<div class="language-c highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="n">std</span><span class="o">::</span><span class="n">shared_ptr</span><span class="o">&lt;</span><span class="k">const</span><span class="w"> </span><span class="n">open3d</span><span class="o">::</span><span class="n">geometry</span><span class="o">::</span><span class="n">Geometry</span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">geometries</span><span class="p">;</span>
+</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="n">geometries</span><span class="p">.</span><span class="n">push_back</span><span class="p">(</span><span class="n">source</span><span class="p">);</span>
+</span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="n">geometries</span><span class="p">.</span><span class="n">push_back</span><span class="p">(</span><span class="n">target</span><span class="p">);</span>
+</span><span id="__span-4-4"><a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a>
+</span><span id="__span-4-5"><a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a><span class="c1">// 使用 `DrawGeometries()` 函数来显示点云</span>
+</span><span id="__span-4-6"><a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a><span class="n">open3d</span><span class="o">::</span><span class="n">visualization</span><span class="o">::</span><span class="n">DrawGeometries</span><span class="p">(</span><span class="n">geometries</span><span class="p">);</span>
+</span></code></pre></div>
 
 
 
@@ -1643,7 +1643,7 @@
       <div class="md-dialog__inner md-typeset"></div>
     </div>
     
-    <script id="__config" type="application/json">{"base": "..", "features": [], "search": "../assets/javascripts/workers/search.a264c092.min.js", "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}}</script>
+    <script id="__config" type="application/json">{"base": "..", "features": ["content.code.select", "content.code.copy", {"tabs": true}], "search": "../assets/javascripts/workers/search.a264c092.min.js", "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}}</script>
     
     
       <script src="../assets/javascripts/bundle.4e0fa4ba.min.js"></script>

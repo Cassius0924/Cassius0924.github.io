@@ -1512,26 +1512,26 @@
 <h1 id="ubuntu-t7">Ubuntu 配置开机自动挂载三星 T7 固态硬盘指南</h1>
 <h2 id="_1">连接硬盘</h2>
 <p>先将硬盘与主机相连接，然后运行<code>fdisk</code>命令查看系统的硬盘分区。</p>
-<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>fdisk<span class="w"> </span>-l
-</code></pre></div>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>sudo<span class="w"> </span>fdisk<span class="w"> </span>-l
+</span></code></pre></div>
 <p><img alt="fdisk -l" src="https://s2.loli.net/2023/10/19/kvu6H917eayRX3Y.png" /></p>
 <p>找到自己连接的硬盘，一般为<code>/dev/sda1</code>。</p>
 <h2 id="uuid">查看硬盘UUID</h2>
 <p>运行命令</p>
-<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>blkid
-</code></pre></div>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>sudo<span class="w"> </span>blkid
+</span></code></pre></div>
 <p><img alt="blkid" src="https://s2.loli.net/2023/10/19/WTeys8u3ElFNxf2.png" /></p>
 <p>找到自己硬盘的 UUID 和 TYPE，记录下它们。三星 T7 硬盘默认为兼容性较好的 exfat 格式。</p>
 <h2 id="_2">配置开机自动挂载</h2>
 <p>接着修改系统<code>/etc/fstab</code>文件。</p>
-<div class="highlight"><pre><span></span><code>vim<span class="w"> </span>/etc/fstab
-</code></pre></div>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>vim<span class="w"> </span>/etc/fstab
+</span></code></pre></div>
 <p>在文件最后添加一行：</p>
-<div class="highlight"><pre><span></span><code>UUID=C65A-E9E1 ~/disk exfat defaults,nofail,utf8,dmask=022,fmask=133 0 0
-</code></pre></div>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>UUID=C65A-E9E1 ~/disk exfat defaults,nofail,utf8,dmask=022,fmask=133 0 0
+</span></code></pre></div>
 <p>内容格式为：</p>
-<div class="highlight"><pre><span></span><code>UUID=&lt;UUID&gt; &lt;挂载目录&gt; &lt;硬盘格式&gt; &lt;挂载参数&gt; &lt;是否自动备份&gt; &lt;开机是否自检&gt;
-</code></pre></div>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>UUID=&lt;UUID&gt; &lt;挂载目录&gt; &lt;硬盘格式&gt; &lt;挂载参数&gt; &lt;是否自动备份&gt; &lt;开机是否自检&gt;
+</span></code></pre></div>
 <p>挂载参数中可以设置：</p>
 <ul>
 <li>
@@ -1548,8 +1548,8 @@
 </ul>
 <p>设置完毕后保存并退出文件。</p>
 <h2 id="ubuntu">重启 Ubuntu</h2>
-<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>reboot
-</code></pre></div>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>sudo<span class="w"> </span>reboot
+</span></code></pre></div>
 <p>重启后将自动挂载硬盘到指定目录。</p>
 
 
@@ -1618,7 +1618,7 @@
       <div class="md-dialog__inner md-typeset"></div>
     </div>
     
-    <script id="__config" type="application/json">{"base": "..", "features": [], "search": "../assets/javascripts/workers/search.a264c092.min.js", "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}}</script>
+    <script id="__config" type="application/json">{"base": "..", "features": ["content.code.select", "content.code.copy", {"tabs": true}], "search": "../assets/javascripts/workers/search.a264c092.min.js", "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}}</script>
     
     
       <script src="../assets/javascripts/bundle.4e0fa4ba.min.js"></script>

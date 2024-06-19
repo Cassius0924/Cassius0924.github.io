@@ -1509,17 +1509,17 @@
 
 <h1 id="linux">Linux 批量修改文件名指南</h1>
 <p>使用 bash 脚本，先创建一个 .sh 结尾的脚本：</p>
-<div class="highlight"><pre><span></span><code><span class="k">vim</span> rename.<span class="k">sh</span>
-</code></pre></div>
+<div class="language-vim highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="k">vim</span> rename.<span class="k">sh</span>
+</span></code></pre></div>
 <p>以下是示例 bash 脚本内容，作用是将 /path/to/dir 目录下所有包含冒号<code>:</code>的文件名，将冒号替换为减号。</p>
-<div class="highlight"><pre><span></span><code><span class="c1"># !/bin/bash</span>
-
-find<span class="w"> </span>/path/to/dir<span class="w"> </span>-type<span class="w"> </span>f<span class="w"> </span>-name<span class="w"> </span><span class="s1">&#39;*:*&#39;</span><span class="w"> </span>-exec<span class="w"> </span>bash<span class="w"> </span>-c<span class="w"> </span><span class="s1">&#39;mv &quot;$0&quot; &quot;${0//:/-}&quot;&#39;</span><span class="w"> </span><span class="o">{}</span><span class="w"> </span><span class="se">\;</span>
-</code></pre></div>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="c1"># !/bin/bash</span>
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>find<span class="w"> </span>/path/to/dir<span class="w"> </span>-type<span class="w"> </span>f<span class="w"> </span>-name<span class="w"> </span><span class="s1">&#39;*:*&#39;</span><span class="w"> </span>-exec<span class="w"> </span>bash<span class="w"> </span>-c<span class="w"> </span><span class="s1">&#39;mv &quot;$0&quot; &quot;${0//:/-}&quot;&#39;</span><span class="w"> </span><span class="o">{}</span><span class="w"> </span><span class="se">\;</span>
+</span></code></pre></div>
 <h2 id="_1">代码解释</h2>
 <h3 id="find">使用<code>find</code>查找需要更改的文件</h3>
-<div class="highlight"><pre><span></span><code>find<span class="w"> </span>/path/to/dir<span class="w"> </span>-type<span class="w"> </span>f<span class="w"> </span>-name<span class="w"> </span><span class="s1">&#39;*:*&#39;</span>
-</code></pre></div>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>find<span class="w"> </span>/path/to/dir<span class="w"> </span>-type<span class="w"> </span>f<span class="w"> </span>-name<span class="w"> </span><span class="s1">&#39;*:*&#39;</span>
+</span></code></pre></div>
 <ul>
 <li><code>/path/to/dir</code> 应该替换为包含你要修改文件名的文件夹的实际路径。</li>
 <li><code>-type f</code> 表示只查找普通文件，而不包括目录。</li>
@@ -1527,8 +1527,8 @@ find<span class="w"> </span>/path/to/dir<span class="w"> </span>-type<span class
 </ul>
 <h3 id="mvbash">使用<code>mv</code>和<code>bash</code>执行文件名更改</h3>
 <p>一旦找到需要更改的文件，可以使用<code>mv</code>命令结合<code>bash</code>来执行文件名更改操作。</p>
-<div class="highlight"><pre><span></span><code>find<span class="w"> </span>/path/to/dir<span class="w"> </span>-type<span class="w"> </span>f<span class="w"> </span>-name<span class="w"> </span><span class="s1">&#39;*:*&#39;</span><span class="w"> </span>-exec<span class="w"> </span>bash<span class="w"> </span>-c<span class="w"> </span><span class="s1">&#39;mv &quot;$0&quot; &quot;${0//:/-}&quot;&#39;</span><span class="w"> </span><span class="o">{}</span><span class="w"> </span><span class="se">\;</span>
-</code></pre></div>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>find<span class="w"> </span>/path/to/dir<span class="w"> </span>-type<span class="w"> </span>f<span class="w"> </span>-name<span class="w"> </span><span class="s1">&#39;*:*&#39;</span><span class="w"> </span>-exec<span class="w"> </span>bash<span class="w"> </span>-c<span class="w"> </span><span class="s1">&#39;mv &quot;$0&quot; &quot;${0//:/-}&quot;&#39;</span><span class="w"> </span><span class="o">{}</span><span class="w"> </span><span class="se">\;</span>
+</span></code></pre></div>
 <p>这个命令中的 <code>-exec</code> 标志用于在<code>find</code>查找到的每个文件上执行指定的命令。<code>bash -c</code>之后的部分将执行文件名更改操作。</p>
 <ul>
 <li><code>mv "$0" "${0//:/-}"</code> 使用<code>mv</code>命令将文件名中的冒号替换为减号。<code>${0//:/-}</code> 部分是一个bash子shell，其中的<code>${0}</code>表示当前文件名，<code>//</code>后跟着<code>:</code>和<code>-</code>是用来替换的正则表达式。</li>
@@ -1600,7 +1600,7 @@ find<span class="w"> </span>/path/to/dir<span class="w"> </span>-type<span class
       <div class="md-dialog__inner md-typeset"></div>
     </div>
     
-    <script id="__config" type="application/json">{"base": "..", "features": [], "search": "../assets/javascripts/workers/search.a264c092.min.js", "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}}</script>
+    <script id="__config" type="application/json">{"base": "..", "features": ["content.code.select", "content.code.copy", {"tabs": true}], "search": "../assets/javascripts/workers/search.a264c092.min.js", "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}}</script>
     
     
       <script src="../assets/javascripts/bundle.4e0fa4ba.min.js"></script>

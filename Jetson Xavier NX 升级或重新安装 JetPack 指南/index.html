@@ -1640,18 +1640,18 @@
 <p>下载之前需要注册 Nvidia 开发者帐号，SDK Manager 也需要开发者帐号才能使用。</p>
 <h3 id="_3">安装</h3>
 <p>Ubuntu 系统使用 apt 安装刚刚下载的 .deb 文件：</p>
-<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>./sdkmanager_<span class="o">[</span>version<span class="o">]</span>-<span class="o">[</span>build<span class="o">]</span>_amd64.deb
-</code></pre></div>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>./sdkmanager_<span class="o">[</span>version<span class="o">]</span>-<span class="o">[</span>build<span class="o">]</span>_amd64.deb
+</span></code></pre></div>
 <p>CentOS 8.0 和 8.2 系统使用 dnf 安装 .rpm 文件：</p>
-<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>dnf<span class="w"> </span>install<span class="w"> </span>./sdkmanager_<span class="o">[</span>version<span class="o">]</span>-<span class="o">[</span>build<span class="o">]</span>.x86_64.rpm
-</code></pre></div>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>sudo<span class="w"> </span>dnf<span class="w"> </span>install<span class="w"> </span>./sdkmanager_<span class="o">[</span>version<span class="o">]</span>-<span class="o">[</span>build<span class="o">]</span>.x86_64.rpm
+</span></code></pre></div>
 <p>CentOS 7.6 使用 yum 安装：</p>
-<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>yum<span class="w"> </span>install<span class="w"> </span>./sdkmanager_<span class="o">[</span>version<span class="o">]</span>-<span class="o">[</span>build<span class="o">]</span>.x86_64.rpm
-</code></pre></div>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>sudo<span class="w"> </span>yum<span class="w"> </span>install<span class="w"> </span>./sdkmanager_<span class="o">[</span>version<span class="o">]</span>-<span class="o">[</span>build<span class="o">]</span>.x86_64.rpm
+</span></code></pre></div>
 <h2 id="sdk-manager_1">启动 SDK Manager</h2>
 <p>在终端使用命令启动 SDK Manager：</p>
-<div class="highlight"><pre><span></span><code>sdkmanager
-</code></pre></div>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>sdkmanager
+</span></code></pre></div>
 <p>启动后需要登录 Nvidia 开发者帐号。</p>
 <p><img alt="SDK Manager Login" src="https://s2.loli.net/2023/10/13/Za4GUdmqTVO2lij.png" /></p>
 <h2 id="jetpack">安装 JetPack</h2>
@@ -1739,7 +1739,7 @@
       <div class="md-dialog__inner md-typeset"></div>
     </div>
     
-    <script id="__config" type="application/json">{"base": "..", "features": [], "search": "../assets/javascripts/workers/search.a264c092.min.js", "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}}</script>
+    <script id="__config" type="application/json">{"base": "..", "features": ["content.code.select", "content.code.copy", {"tabs": true}], "search": "../assets/javascripts/workers/search.a264c092.min.js", "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}}</script>
     
     
       <script src="../assets/javascripts/bundle.4e0fa4ba.min.js"></script>

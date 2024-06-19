@@ -1599,16 +1599,16 @@
 <p>本文旨在为 Linux 用户介绍提供关于使用命令行连接网络的方法。 本文将详细介绍利用 nmcli 工具连接 Wi-Fi 和以太网的教程，包括查看连接状态、控制 Wi-Fi、控制以太网等等。</p>
 <h2 id="nmcli">安装 nmcli</h2>
 <p>nmcli 是 NetworkManager 的命令行工具，它可以用于管理和配置网络连接。如果你的 Linux 系统上没有安装 nmcli，请使用以下命令进行安装：</p>
-<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>apt-get<span class="w"> </span>install<span class="w"> </span>network-manager
-</code></pre></div>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>sudo<span class="w"> </span>apt-get<span class="w"> </span>install<span class="w"> </span>network-manager
+</span></code></pre></div>
 <h2 id="_1">查看连接状态</h2>
 <p>在连接网络之前，我们需要先查看网络状态。使用以下命令可以查看当前网络状态：</p>
-<div class="highlight"><pre><span></span><code>nmcli<span class="w"> </span>general<span class="w"> </span>status
-</code></pre></div>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>nmcli<span class="w"> </span>general<span class="w"> </span>status
+</span></code></pre></div>
 <blockquote>
 <p>以上命令可以简写为：</p>
-<div class="highlight"><pre><span></span><code>nmcli<span class="w"> </span>g<span class="w">   </span><span class="c1"># g 表示 general，默认为 status</span>
-</code></pre></div>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>nmcli<span class="w"> </span>g<span class="w">   </span><span class="c1"># g 表示 general，默认为 status</span>
+</span></code></pre></div>
 </blockquote>
 <p><img alt="nmcli general status" src="https://s2.loli.net/2023/04/14/H59AWqixYr4O3eC.png" /></p>
 <ul>
@@ -1685,90 +1685,90 @@
 </table>
 <h2 id="wi-fi">打开和关闭 Wi-Fi</h2>
 <p>如果你的 Linux 系统支持 Wi-Fi，你可以使用以下命令打开或关闭 Wi-Fi：</p>
-<div class="highlight"><pre><span></span><code>nmcli<span class="w"> </span>radio<span class="w"> </span>wifi<span class="w"> </span>on<span class="w">  </span><span class="c1"># 打开 Wi-Fi</span>
-nmcli<span class="w"> </span>radio<span class="w"> </span>wifi<span class="w"> </span>off<span class="w"> </span><span class="c1"># 关闭 Wi-Fi</span>
-</code></pre></div>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>nmcli<span class="w"> </span>radio<span class="w"> </span>wifi<span class="w"> </span>on<span class="w">  </span><span class="c1"># 打开 Wi-Fi</span>
+</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>nmcli<span class="w"> </span>radio<span class="w"> </span>wifi<span class="w"> </span>off<span class="w"> </span><span class="c1"># 关闭 Wi-Fi</span>
+</span></code></pre></div>
 <blockquote>
 <p>以上命令可以简写为：</p>
-<div class="highlight"><pre><span></span><code>nmcli<span class="w"> </span>r<span class="w"> </span>w<span class="w"> </span>on<span class="w">  </span><span class="c1"># r 表示 radio，w 表示 wifi</span>
-nmcli<span class="w"> </span>r<span class="w"> </span>w<span class="w"> </span>off
-</code></pre></div>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>nmcli<span class="w"> </span>r<span class="w"> </span>w<span class="w"> </span>on<span class="w">  </span><span class="c1"># r 表示 radio，w 表示 wifi</span>
+</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>nmcli<span class="w"> </span>r<span class="w"> </span>w<span class="w"> </span>off
+</span></code></pre></div>
 </blockquote>
 <h2 id="wi-fi_1">查看 Wi-Fi</h2>
 <p>查看当前可用的 Wi-Fi 网络：</p>
-<div class="highlight"><pre><span></span><code>nmcli<span class="w"> </span>dev<span class="w"> </span>wifi
-</code></pre></div>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>nmcli<span class="w"> </span>dev<span class="w"> </span>wifi
+</span></code></pre></div>
 <blockquote>
 <p>以上命令可以简写为：</p>
-<div class="highlight"><pre><span></span><code>nmcli<span class="w"> </span>d<span class="w"> </span>w<span class="w">   </span><span class="c1"># d 表示 dev，w 表示 wifi</span>
-</code></pre></div>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>nmcli<span class="w"> </span>d<span class="w"> </span>w<span class="w">   </span><span class="c1"># d 表示 dev，w 表示 wifi</span>
+</span></code></pre></div>
 </blockquote>
 <p><img alt="nmcli dew wifi" src="https://s2.loli.net/2023/04/14/hUM4gOPcRVJ5G3b.png" /></p>
 <p>带<code>*</code>星号的当前目前连接的Wi-Fi。</p>
 <h2 id="wi-fi_2">连接和断开 Wi-Fi</h2>
 <p>连接 Wi-Fi 网络需要知道网络名称和密码。使用以下命令连接一个 Wi-Fi 网络：</p>
-<div class="highlight"><pre><span></span><code>nmcli<span class="w"> </span>dev<span class="w"> </span>wifi<span class="w"> </span>con<span class="w"> </span>&lt;network-name&gt;<span class="w"> </span>password<span class="w"> </span>&lt;password&gt;
-</code></pre></div>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>nmcli<span class="w"> </span>dev<span class="w"> </span>wifi<span class="w"> </span>con<span class="w"> </span>&lt;network-name&gt;<span class="w"> </span>password<span class="w"> </span>&lt;password&gt;
+</span></code></pre></div>
 <blockquote>
 <p>以上命令可以简写为：</p>
-<div class="highlight"><pre><span></span><code>nmcli<span class="w"> </span>d<span class="w"> </span>w<span class="w"> </span>c<span class="w"> </span>&lt;network-name&gt;<span class="w"> </span>password<span class="w"> </span>&lt;password&gt;<span class="w">    </span><span class="c1"># d 表示 dev，c 表示 con</span>
-</code></pre></div>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>nmcli<span class="w"> </span>d<span class="w"> </span>w<span class="w"> </span>c<span class="w"> </span>&lt;network-name&gt;<span class="w"> </span>password<span class="w"> </span>&lt;password&gt;<span class="w">    </span><span class="c1"># d 表示 dev，c 表示 con</span>
+</span></code></pre></div>
 </blockquote>
 <p>如果连接成功，命令行将不会输出任何信息。使用以下命令查看当前连接的 Wi-Fi 网络：</p>
-<div class="highlight"><pre><span></span><code>nmcli<span class="w"> </span>con<span class="w"> </span>show
-</code></pre></div>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>nmcli<span class="w"> </span>con<span class="w"> </span>show
+</span></code></pre></div>
 <blockquote>
 <p>以上命令可以简写为：</p>
-<div class="highlight"><pre><span></span><code>nmcli<span class="w"> </span>c<span class="w">   </span><span class="c1"># c 表示 con，默认为 show</span>
-</code></pre></div>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>nmcli<span class="w"> </span>c<span class="w">   </span><span class="c1"># c 表示 con，默认为 show</span>
+</span></code></pre></div>
 </blockquote>
 <p>如果你需要断开当前连接的 Wi-Fi 网络，可以使用以下命令：</p>
-<div class="highlight"><pre><span></span><code>nmcli<span class="w"> </span>con<span class="w"> </span>down<span class="w"> </span>&lt;connection-name&gt;
-</code></pre></div>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a>nmcli<span class="w"> </span>con<span class="w"> </span>down<span class="w"> </span>&lt;connection-name&gt;
+</span></code></pre></div>
 <p>其中，<connection-name> 是需要断开的连接名称。</p>
 <blockquote>
 <p>以上命令可以简写为：</p>
-<div class="highlight"><pre><span></span><code>nmcli<span class="w"> </span>c<span class="w"> </span>d<span class="w"> </span>&lt;connection-name&gt;<span class="w">   </span><span class="c1"># d 表示 down</span>
-</code></pre></div>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-12-1"><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a>nmcli<span class="w"> </span>c<span class="w"> </span>d<span class="w"> </span>&lt;connection-name&gt;<span class="w">   </span><span class="c1"># d 表示 down</span>
+</span></code></pre></div>
 </blockquote>
 <h2 id="wi-fi_3">忘记 Wi-Fi</h2>
 <p>如果你不再需要连接到某个 Wi-Fi 网络，可以使用以下命令忘记该网络：</p>
-<div class="highlight"><pre><span></span><code>nmcli<span class="w"> </span>connection<span class="w"> </span>delete<span class="w"> </span>&lt;connection-name&gt;
-</code></pre></div>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-13-1"><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a>nmcli<span class="w"> </span>connection<span class="w"> </span>delete<span class="w"> </span>&lt;connection-name&gt;
+</span></code></pre></div>
 <p>其中，<connection-name> 是需要忘记的连接名称。</p>
 <blockquote>
 <p>以上命令可以简写为：</p>
-<div class="highlight"><pre><span></span><code>nmcli<span class="w"> </span>c<span class="w"> </span>de<span class="w"> </span>&lt;connection-name&gt;<span class="w">   </span><span class="c1"># de 表示 delete</span>
-</code></pre></div>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-14-1"><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a>nmcli<span class="w"> </span>c<span class="w"> </span>de<span class="w"> </span>&lt;connection-name&gt;<span class="w">   </span><span class="c1"># de 表示 delete</span>
+</span></code></pre></div>
 </blockquote>
 <h2 id="_2">连接以太网</h2>
 <p>如果你需要连接以太网，你可以使用以下命令连接：</p>
-<div class="highlight"><pre><span></span><code>nmcli<span class="w"> </span>dev<span class="w"> </span>con<span class="w"> </span>&lt;interface-name&gt;
-</code></pre></div>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-15-1"><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a>nmcli<span class="w"> </span>dev<span class="w"> </span>con<span class="w"> </span>&lt;interface-name&gt;
+</span></code></pre></div>
 <p>其中，<interface-name> 是需要连接的网络接口名称。</p>
 <blockquote>
 <p>以上命令可以简写为：</p>
-<div class="highlight"><pre><span></span><code>nmcli<span class="w"> </span>d<span class="w"> </span>c<span class="w"> </span>&lt;interface-name&gt;
-</code></pre></div>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-16-1"><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a>nmcli<span class="w"> </span>d<span class="w"> </span>c<span class="w"> </span>&lt;interface-name&gt;
+</span></code></pre></div>
 </blockquote>
 <h2 id="_3">查看以太网</h2>
 <p>查看当前可用的以太网网络：</p>
-<div class="highlight"><pre><span></span><code>nmcli<span class="w"> </span>dev<span class="w"> </span>status
-</code></pre></div>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-17-1"><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a>nmcli<span class="w"> </span>dev<span class="w"> </span>status
+</span></code></pre></div>
 <blockquote>
 <p>以上命令可以简写为：</p>
-<div class="highlight"><pre><span></span><code>nmcli<span class="w"> </span>d<span class="w">   </span><span class="c1"># d 表示 dev，默认为 status</span>
-</code></pre></div>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-18-1"><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a>nmcli<span class="w"> </span>d<span class="w">   </span><span class="c1"># d 表示 dev，默认为 status</span>
+</span></code></pre></div>
 </blockquote>
 <h2 id="_4">断开以太网</h2>
 <p>如果你需要断开当前连接的以太网网络，可以使用以下命令：</p>
-<div class="highlight"><pre><span></span><code>nmcli<span class="w"> </span>dev<span class="w"> </span>discon<span class="w"> </span>&lt;interface-name&gt;
-</code></pre></div>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-19-1"><a id="__codelineno-19-1" name="__codelineno-19-1" href="#__codelineno-19-1"></a>nmcli<span class="w"> </span>dev<span class="w"> </span>discon<span class="w"> </span>&lt;interface-name&gt;
+</span></code></pre></div>
 <p>其中，<interface-name> 是需要断开的网络接口名称。</p>
 <blockquote>
 <p>以上命令可以简写为：</p>
-<div class="highlight"><pre><span></span><code>nmcli<span class="w"> </span>d<span class="w"> </span>d<span class="w"> </span>&lt;interface-name&gt;<span class="w">   </span><span class="c1"># d 表示 discon</span>
-</code></pre></div>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-20-1"><a id="__codelineno-20-1" name="__codelineno-20-1" href="#__codelineno-20-1"></a>nmcli<span class="w"> </span>d<span class="w"> </span>d<span class="w"> </span>&lt;interface-name&gt;<span class="w">   </span><span class="c1"># d 表示 discon</span>
+</span></code></pre></div>
 </blockquote>
 <h2 id="_5">更多信息</h2>
 <p>若想了解更多关于 nmcli 的信息，可以使用<code>nmcli -h</code>命令查看帮助信息。或者访问 <a href="https://developer.gnome.org/NetworkManager/stable/nmcli.html">NetworkManager 官方文档</a>。</p>
@@ -1839,7 +1839,7 @@ nmcli<span class="w"> </span>r<span class="w"> </span>w<span class="w"> </span>o
       <div class="md-dialog__inner md-typeset"></div>
     </div>
     
-    <script id="__config" type="application/json">{"base": "..", "features": [], "search": "../assets/javascripts/workers/search.a264c092.min.js", "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}}</script>
+    <script id="__config" type="application/json">{"base": "..", "features": ["content.code.select", "content.code.copy", {"tabs": true}], "search": "../assets/javascripts/workers/search.a264c092.min.js", "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}}</script>
     
     
       <script src="../assets/javascripts/bundle.4e0fa4ba.min.js"></script>

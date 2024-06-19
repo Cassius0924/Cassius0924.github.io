@@ -1701,91 +1701,91 @@
 <h2 id="_1">下载源码</h2>
 <h3 id="open3d">下载 Open3D 源码</h3>
 <p>如果你之前下载过则不需要再下载：</p>
-<div class="highlight"><pre><span></span><code>git<span class="w"> </span>clone<span class="w"> </span>https://github.com/isl-org/Open3D.git
-</code></pre></div>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>git<span class="w"> </span>clone<span class="w"> </span>https://github.com/isl-org/Open3D.git
+</span></code></pre></div>
 <h3 id="open3d-ml">下载 Open3D-ML 源码</h3>
-<div class="highlight"><pre><span></span><code>git<span class="w"> </span>clone<span class="w"> </span>https://github.com/isl-org/Open3D-ML.git
-</code></pre></div>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>git<span class="w"> </span>clone<span class="w"> </span>https://github.com/isl-org/Open3D-ML.git
+</span></code></pre></div>
 <h2 id="_2">前提准备</h2>
 <p>安装依赖：</p>
-<div class="highlight"><pre><span></span><code><span class="nb">cd</span><span class="w"> </span>Open3D
-bash<span class="w"> </span>util/install_deps_ubuntu.sh
-</code></pre></div>
-<div class="highlight"><pre><span></span><code>pip<span class="w"> </span>install<span class="w"> </span>yapf
-</code></pre></div>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="nb">cd</span><span class="w"> </span>Open3D
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>bash<span class="w"> </span>util/install_deps_ubuntu.sh
+</span></code></pre></div>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>pip<span class="w"> </span>install<span class="w"> </span>yapf
+</span></code></pre></div>
 <p>重新链接 6.0.29 的 libstdc++.so，否则会出现<code>undefined reference to 'std::__throw_bad_array_new_Length()@GLIBCXX_3.4.29'</code>的错误。</p>
-<div class="highlight"><pre><span></span><code>ln<span class="w"> </span>-sf<span class="w"> </span>/usr/local/lib64/libstdc++.so.6.0.29<span class="w"> </span>/lib/aarch64-linux-gnu/libstdc++.so.6
-</code></pre></div>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>ln<span class="w"> </span>-sf<span class="w"> </span>/usr/local/lib64/libstdc++.so.6.0.29<span class="w"> </span>/lib/aarch64-linux-gnu/libstdc++.so.6
+</span></code></pre></div>
 <h2 id="_3">编译安装</h2>
 <p>国际惯例，先创建一个 build 文件夹。</p>
-<div class="highlight"><pre><span></span><code>mkdir<span class="w"> </span>build
-<span class="nb">cd</span><span class="w"> </span>build
-</code></pre></div>
-<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>cmake<span class="w"> </span><span class="se">\</span>
--DBUILD_CUDA_MODULE<span class="o">=</span>ON<span class="w"> </span><span class="se">\</span>
--DBUILD_PYTORCH_OPS<span class="o">=</span>ON<span class="w"> </span><span class="se">\</span>
--DBUILD_TENSORFLOW_OPS<span class="o">=</span>OFF<span class="w"> </span><span class="se">\</span>
--DBUILD_EXAMPLES<span class="o">=</span>OFF<span class="w"> </span><span class="se">\</span>
--DBUILD_SHARED_LIBS<span class="o">=</span>ON<span class="w"> </span><span class="se">\</span>
--DCMAKE_BUILD_TYPE<span class="o">=</span>Release<span class="w"> </span><span class="se">\</span>
--DGLIBCXX_USE_CXX11_ABI<span class="o">=</span>ON<span class="w"> </span><span class="se">\</span>
--DBUILD_PYTHON_MODULE<span class="o">=</span>ON<span class="w"> </span><span class="se">\</span>
--DBUNDLE_OPEN3D_ML<span class="o">=</span>ON<span class="w"> </span><span class="se">\</span>
--DCUDA_TOOLKIT_ROOT_DIR<span class="o">=</span>/usr/local/cuda<span class="w"> </span><span class="se">\</span>
--DPython3_EXECUTABLE<span class="o">=</span>/path/to/python<span class="w"> </span><span class="se">\</span>
--DOPEN3D_ML_ROOT<span class="o">=</span>../../Open3D-ML<span class="w"> </span><span class="se">\</span>
-..
-</code></pre></div>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>mkdir<span class="w"> </span>build
+</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="nb">cd</span><span class="w"> </span>build
+</span></code></pre></div>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>sudo<span class="w"> </span>cmake<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>-DBUILD_CUDA_MODULE<span class="o">=</span>ON<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-6-3"><a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a>-DBUILD_PYTORCH_OPS<span class="o">=</span>ON<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-6-4"><a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a>-DBUILD_TENSORFLOW_OPS<span class="o">=</span>OFF<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-6-5"><a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a>-DBUILD_EXAMPLES<span class="o">=</span>OFF<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-6-6"><a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a>-DBUILD_SHARED_LIBS<span class="o">=</span>ON<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-6-7"><a id="__codelineno-6-7" name="__codelineno-6-7" href="#__codelineno-6-7"></a>-DCMAKE_BUILD_TYPE<span class="o">=</span>Release<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-6-8"><a id="__codelineno-6-8" name="__codelineno-6-8" href="#__codelineno-6-8"></a>-DGLIBCXX_USE_CXX11_ABI<span class="o">=</span>ON<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-6-9"><a id="__codelineno-6-9" name="__codelineno-6-9" href="#__codelineno-6-9"></a>-DBUILD_PYTHON_MODULE<span class="o">=</span>ON<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-6-10"><a id="__codelineno-6-10" name="__codelineno-6-10" href="#__codelineno-6-10"></a>-DBUNDLE_OPEN3D_ML<span class="o">=</span>ON<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-6-11"><a id="__codelineno-6-11" name="__codelineno-6-11" href="#__codelineno-6-11"></a>-DCUDA_TOOLKIT_ROOT_DIR<span class="o">=</span>/usr/local/cuda<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-6-12"><a id="__codelineno-6-12" name="__codelineno-6-12" href="#__codelineno-6-12"></a>-DPython3_EXECUTABLE<span class="o">=</span>/path/to/python<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-6-13"><a id="__codelineno-6-13" name="__codelineno-6-13" href="#__codelineno-6-13"></a>-DOPEN3D_ML_ROOT<span class="o">=</span>../../Open3D-ML<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-6-14"><a id="__codelineno-6-14" name="__codelineno-6-14" href="#__codelineno-6-14"></a>..
+</span></code></pre></div>
 <p><code>-DBUILD_PYTORCH_OPS</code>和<code>-DBUILD_TENSORFLOW_OPS</code>分别为构建 PyTorch 版和构建 Tensorflow 版选项，两个选择可以同时为<code>ON</code>，本指南只构建 PyTorch。</p>
 <p><code>-DBUILD_EXAMPLES</code>表示是否构建官方示例，这里设置<code>OFF</code>不构建，可以缩短构建时间。</p>
 <p>如果没有使用 Python 虚拟环境，则不需要<code>-DPython3_EXECUTABLE</code>；如果使用了 Python 虚拟环境，需要改成虚拟环境的 Python 的路径，使用<code>which python</code>查看路径。</p>
 <p><code>-DOPEN3D_ML_ROOT</code>为刚刚下载的 Open-ML 的源代码路径。</p>
 <p>编译：</p>
-<div class="highlight"><pre><span></span><code>make<span class="w"> </span>-j<span class="k">$(</span>nproc<span class="k">)</span>
-</code></pre></div>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>make<span class="w"> </span>-j<span class="k">$(</span>nproc<span class="k">)</span>
+</span></code></pre></div>
 <p>编译过程需要数个小时的时间。</p>
 <p>编译完毕后需要添加一个环境变量：</p>
-<div class="highlight"><pre><span></span><code>vim<span class="w"> </span>~/.zsh<span class="w"> </span><span class="c1">#或者 ~/.bashrc</span>
-</code></pre></div>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>vim<span class="w"> </span>~/.zsh<span class="w"> </span><span class="c1">#或者 ~/.bashrc</span>
+</span></code></pre></div>
 <p>在文件末尾添加一行：</p>
-<div class="highlight"><pre><span></span><code><span class="nb">export</span><span class="w"> </span><span class="nv">LD_PRELOAD</span><span class="o">=</span>/usr/local/lib/libOpen3D.so
-</code></pre></div>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="nb">export</span><span class="w"> </span><span class="nv">LD_PRELOAD</span><span class="o">=</span>/usr/local/lib/libOpen3D.so
+</span></code></pre></div>
 <p>安装 Open3D C++ 库：</p>
-<div class="highlight"><pre><span></span><code>make<span class="w"> </span>install
-</code></pre></div>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>make<span class="w"> </span>install
+</span></code></pre></div>
 <p>安装 Open3D 与 Open3D-ML Python 库：</p>
-<div class="highlight"><pre><span></span><code>make<span class="w"> </span>install-pip-package<span class="w"> </span>-j<span class="k">$(</span>nproc<span class="k">)</span>
-</code></pre></div>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a>make<span class="w"> </span>install-pip-package<span class="w"> </span>-j<span class="k">$(</span>nproc<span class="k">)</span>
+</span></code></pre></div>
 <h2 id="_4">错误解决</h2>
 <h3 id="undefined-reference-to-glibcxx_3429">undefined reference to '***' @GLIBCXX_3.4.29</h3>
 <p>这个错误问题出在系统的 libstdc++ 版本不够高。尝试使用<code>strings /lib/aarch64-linux-gnu/libstdc++.so.6 | grep GLIBCXX</code>命令查看 libstdc++ 是否支持 GLIBCXX_3.4.29，如果缺少 GLIBCXX_3.4.29 则请尝试软链接 libstdc++.so.6 到正确版本。</p>
-<div class="highlight"><pre><span></span><code>ln<span class="w"> </span>-sf<span class="w"> </span>/usr/local/lib64/libstdc++.so.6.0.29<span class="w"> </span>/lib/aarch64-linux-gnu/libstdc++.so.6
-</code></pre></div>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-12-1"><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a>ln<span class="w"> </span>-sf<span class="w"> </span>/usr/local/lib64/libstdc++.so.6.0.29<span class="w"> </span>/lib/aarch64-linux-gnu/libstdc++.so.6
+</span></code></pre></div>
 <p>如果提示找不到 libstdc++.so.6.0.29 文件，则请升级 libstdc++ 库。</p>
 <p><img alt="undefined reference to GLIBCXX_3.4.29" src="https://s2.loli.net/2023/10/14/rpVu1exNK9ZQSYq.jpg" /></p>
 <h3 id="cmake_cuda_architectures-now-detected-for-nvcc">CMAKE_CUDA_ARCHITECTURES now detected for NVCC</h3>
 <p>检查系统默认 CUDA 版本是否存在 nvcc 二进制文件。</p>
-<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>stat<span class="w"> </span>/usr/local/cuda/bin/nvcc
-</code></pre></div>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-13-1"><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a>sudo<span class="w"> </span>stat<span class="w"> </span>/usr/local/cuda/bin/nvcc
+</span></code></pre></div>
 <p>若提示不存在文件，则 CUDA 开发环境已经损坏，需要重新安装 JetPack。详细参考文章 [Jetson Xavier NX 升级或重新安装 JetPack 指南]。</p>
 <h3 id="libreleaselibopen3dso-cannot-allocate-memory-in-static-tls-block">/lib/Release/libOpen3D.so: cannot allocate memory in static TLS block</h3>
-<div class="highlight"><pre><span></span><code>vim<span class="w"> </span>~/.zsh<span class="w"> </span><span class="c1">#或者 ~/.bashrc</span>
-</code></pre></div>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-14-1"><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a>vim<span class="w"> </span>~/.zsh<span class="w"> </span><span class="c1">#或者 ~/.bashrc</span>
+</span></code></pre></div>
 <p>在文件末尾添加一行：</p>
-<div class="highlight"><pre><span></span><code><span class="nb">export</span><span class="w"> </span><span class="nv">LD_PRELOAD</span><span class="o">=</span>/usr/local/lib/libOpen3D.so
-</code></pre></div>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-15-1"><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a><span class="nb">export</span><span class="w"> </span><span class="nv">LD_PRELOAD</span><span class="o">=</span>/usr/local/lib/libOpen3D.so
+</span></code></pre></div>
 <h3 id="modulenotfounderror-no-module-named-jupyter_packaging">ModuleNotFoundError: No module named ‘jupyter_packaging’</h3>
-<div class="highlight"><pre><span></span><code>pip<span class="w"> </span>install<span class="w"> </span>jupyter-packaging
-</code></pre></div>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-16-1"><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a>pip<span class="w"> </span>install<span class="w"> </span>jupyter-packaging
+</span></code></pre></div>
 <h3 id="modulenotfounderror-no-module-named-ipywidgets">ModuleNotFoundError: No module named ‘ipywidgets’</h3>
-<div class="highlight"><pre><span></span><code>pip<span class="w"> </span>install<span class="w"> </span>ipywidgets
-</code></pre></div>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-17-1"><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a>pip<span class="w"> </span>install<span class="w"> </span>ipywidgets
+</span></code></pre></div>
 <h3 id="open3d-was-built-with-cuda-114-but-pytorch-was-built-with-cuda-102">Open3D was built with CUDA 11.4 but PyTorch was built with CUDA 10.2</h3>
 <p>这个警告表示，PyTorch 的 CUDA 版本和 Open3D-ML 的 CUDA 版本不一致。需要使用与 Open3D-ML 一致的 CUDA 版本重新构建安装 PyTorch。详细请参考文章[Jetson Xavier NX 安装 CUDA 支持的 Pytorch 指南]。</p>
 <p><img alt="8481697106387_.pic" src="https://s2.loli.net/2023/10/14/yrIhgb95SclpjKM.jpg" /></p>
 <h2 id="_5">测试验证</h2>
-<div class="highlight"><pre><span></span><code>python3<span class="w"> </span>-c<span class="w"> </span><span class="s2">&quot;import open3d.ml.torch&quot;</span>
-</code></pre></div>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-18-1"><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a>python3<span class="w"> </span>-c<span class="w"> </span><span class="s2">&quot;import open3d.ml.torch&quot;</span>
+</span></code></pre></div>
 <p>若无任何输出，则表示安装成功。</p>
 
 
@@ -1854,7 +1854,7 @@ bash<span class="w"> </span>util/install_deps_ubuntu.sh
       <div class="md-dialog__inner md-typeset"></div>
     </div>
     
-    <script id="__config" type="application/json">{"base": "..", "features": [], "search": "../assets/javascripts/workers/search.a264c092.min.js", "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}}</script>
+    <script id="__config" type="application/json">{"base": "..", "features": ["content.code.select", "content.code.copy", {"tabs": true}], "search": "../assets/javascripts/workers/search.a264c092.min.js", "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}}</script>
     
     
       <script src="../assets/javascripts/bundle.4e0fa4ba.min.js"></script>

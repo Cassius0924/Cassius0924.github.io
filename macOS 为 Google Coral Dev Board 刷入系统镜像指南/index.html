@@ -1694,19 +1694,19 @@
 <p>下载完成后，双击运行并安装即可。</p>
 <h3 id="_2">安装辅助程序</h3>
 <p>通过 Homebrew 安装：</p>
-<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>brew<span class="w"> </span>install<span class="w"> </span>screen<span class="w"> </span>fastboot
-</code></pre></div>
+<div class="language-shell highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>sudo<span class="w"> </span>brew<span class="w"> </span>install<span class="w"> </span>screen<span class="w"> </span>fastboot
+</span></code></pre></div>
 <h3 id="_3">连接开发板</h3>
 <p>先不给开发板供电，使用 micro-B USB 线将 Mac 连接到开发板。连接成功后会开发板会亮起绿色🟩和橙色🟧指示灯。</p>
 <p><img alt="micro USB" src="https://s2.loli.net/2023/07/26/8miISKlWOMy149J.jpg" /></p>
 <p>随后使用命令查看串口连接是否正常工作：</p>
-<div class="highlight"><pre><span></span><code>ls<span class="w"> </span>/dev/cu*
-</code></pre></div>
+<div class="language-shell highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>ls<span class="w"> </span>/dev/cu*
+</span></code></pre></div>
 <p>连接正常应该会列出<code>/dev/cu.SLAB_USBtoUART</code>，如下图所示。</p>
 <p><img alt="ls /dev/cu*" src="https://s2.loli.net/2023/07/26/yafnbF9HUe8DQqT.png" /></p>
 <p>然后使用<code>screen</code>命令连接开发板串行命令行：</p>
-<div class="highlight"><pre><span></span><code>screen<span class="w"> </span>/dev/cu.SLAB_USBtoUART<span class="w"> </span><span class="m">115200</span>
-</code></pre></div>
+<div class="language-shell highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>screen<span class="w"> </span>/dev/cu.SLAB_USBtoUART<span class="w"> </span><span class="m">115200</span>
+</span></code></pre></div>
 <p>此时命令行应为空白，因为开发板未供电开机。</p>
 <h3 id="_4">给开发板供电</h3>
 <p>如图所示，将开发板电源插入，电源接口为右边的 USB-C 接口。</p>
@@ -1714,8 +1714,8 @@
 <p>连接后开发板会亮起电源指示灯并转动风扇。串行命令行则会打印开发板的开机信息：</p>
 <p><img alt="Coral Dev Board power on" src="https://s2.loli.net/2023/07/26/h8JnuNpzWBsG25I.png" /></p>
 <p>接着在串行命令行输入命令使开发板进入 fastboot 模式：
-<div class="highlight"><pre><span></span><code>fastboot<span class="w"> </span><span class="m">0</span>
-</code></pre></div></p>
+<div class="language-shell highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>fastboot<span class="w"> </span><span class="m">0</span>
+</span></code></pre></div></p>
 <p><img alt="fastboot 0" src="https://s2.loli.net/2023/07/26/owkygYAm5JTUxjt.png" /></p>
 <h2 id="mendel-linux">第二步：刷入 Mendel Linux 系统</h2>
 <h3 id="mendel-linux_1">下载 Mendel Linux 系统镜像</h3>
@@ -1726,12 +1726,12 @@
 <p>如图所示，给开发板插入 OTG 数据线。</p>
 <p><img alt="OTG 数据线" src="https://s2.loli.net/2023/07/26/ux7SbIMkl29qjZa.jpg" /></p>
 <p>在 Mac 中新建一个终端界面，输入命令：</p>
-<div class="highlight"><pre><span></span><code>fastboot<span class="w"> </span>devices
-</code></pre></div>
+<div class="language-shell highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>fastboot<span class="w"> </span>devices
+</span></code></pre></div>
 <p>若 OTG 连接成功，则会显示一串序列号<code>1b0741d6f0609912        fastboot</code>。</p>
 <p>连接成功后，转到刚刚下载的 Mendel Linux 文件夹，运行刷入脚本：</p>
-<div class="highlight"><pre><span></span><code>bash<span class="w"> </span>flash.sh
-</code></pre></div>
+<div class="language-shell highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>bash<span class="w"> </span>flash.sh
+</span></code></pre></div>
 <p>刷入过程大约5分钟，刷入成功后，开发板将会自动重启。</p>
 <h3 id="_6">连接网络</h3>
 <p>刷完系统后，需要先登录用户，敲击几下回车键。</p>
@@ -1739,51 +1739,51 @@
 <p>输入密码：mendel</p>
 <p>进入系统后先连接好网络，方便后续远程连接到开发板。</p>
 <p>可以使用有线连接，也可以使用 Wi-Fi 连接。Wi-Fi 连接则运行以下命令：</p>
-<div class="highlight"><pre><span></span><code>nmtui
-</code></pre></div>
+<div class="language-shell highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>nmtui
+</span></code></pre></div>
 <p>然后选择 <code>Activate a connection</code> 并按照命令行 UI 连接网络即可。</p>
 <h2 id="ssh">第三步：配置 SSH 免密登录</h2>
 <p>由于从 MacOS 10.15 (Catalina) 开始，MDT 无法通过 USB 创建到开发板，但还可以通过 SSH 远程连接。</p>
 <h3 id="mendel-ssh">创建 Mendel SSH 密钥</h3>
 <p>在 Mac 上新建一个终端，输入命令：</p>
-<div class="highlight"><pre><span></span><code>ssh-keygen<span class="w"> </span>-t<span class="w"> </span>rsa<span class="w"> </span>-m<span class="w"> </span>PEM
-</code></pre></div>
+<div class="language-shell highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>ssh-keygen<span class="w"> </span>-t<span class="w"> </span>rsa<span class="w"> </span>-m<span class="w"> </span>PEM
+</span></code></pre></div>
 <p>输入文件名“mendel”，密码则留空。</p>
 <p>这将在当前目录中创建一个名为 <code>mendel</code> 的私钥和一个名为 <code>mendel.pub</code> 的公钥。</p>
 <p>修改文件权限：</p>
-<div class="highlight"><pre><span></span><code>chmod<span class="w"> </span><span class="m">600</span><span class="w"> </span>mendel
-</code></pre></div>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>chmod<span class="w"> </span><span class="m">600</span><span class="w"> </span>mendel
+</span></code></pre></div>
 <p>将文件移动到 MDT 文件夹：</p>
-<div class="highlight"><pre><span></span><code>mkdir<span class="w"> </span>-p<span class="w"> </span>~/.config/mdt/keys<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>mv<span class="w"> </span>mendel<span class="w"> </span>~/.config/mdt/keys/mdt.key
-</code></pre></div>
+<div class="language-shell highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>mkdir<span class="w"> </span>-p<span class="w"> </span>~/.config/mdt/keys<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>mv<span class="w"> </span>mendel<span class="w"> </span>~/.config/mdt/keys/mdt.key
+</span></code></pre></div>
 <h3 id="_7">将公钥复制到开发板</h3>
 <p>输入<code>cat mendel.pub</code>并复制公钥内容。</p>
 <p>转到串行控制台，为 SSH 密钥创建一个新文件：（注意是在开发板上创建）</p>
-<div class="highlight"><pre><span></span><code>mkdir<span class="w"> </span>/home/mendel/.ssh<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>vi<span class="w"> </span>/home/mendel/.ssh/authorized_keys
-</code></pre></div>
+<div class="language-shell highlight"><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>mkdir<span class="w"> </span>/home/mendel/.ssh<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>vi<span class="w"> </span>/home/mendel/.ssh/authorized_keys
+</span></code></pre></div>
 <p>然后粘贴刚刚复制的公钥内容。完成之后保存并关闭（:wq）。</p>
 <h3 id="ssh_1">开启 SSH 密码登录权限</h3>
 <p>因为 Coral Dev Board 默认禁用了 SSH 密码登录权限，需要手动开启。</p>
 <p>在串行命令行中打开 SSH 配置文件：</p>
-<div class="highlight"><pre><span></span><code>vim<span class="w"> </span>/etc/ssh/sshd_config
-</code></pre></div>
+<div class="language-shell highlight"><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a>vim<span class="w"> </span>/etc/ssh/sshd_config
+</span></code></pre></div>
 <p>找到<code>PasswordAuthentication no</code>并修改为<code>PasswordAuthentication yes</code>。</p>
 <p>重启 SSH 服务：</p>
-<div class="highlight"><pre><span></span><code>/etc/init.d/sshd<span class="w"> </span>restart
-</code></pre></div>
+<div class="language-shell highlight"><pre><span></span><code><span id="__span-12-1"><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a>/etc/init.d/sshd<span class="w"> </span>restart
+</span></code></pre></div>
 <h2 id="mdt">第四步： 安装 MDT 开发工具</h2>
 <p>Mendel Development Tool（MDT）是一个命令行工具，可让你的电脑与 Mendel Linux 系统的设备进行通信。</p>
 <p>使用以下命令方式安装 MDT：</p>
-<div class="highlight"><pre><span></span><code>python3<span class="w"> </span>-m<span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>--user<span class="w"> </span>mendel-development-tool
-</code></pre></div>
+<div class="language-shell highlight"><pre><span></span><code><span id="__span-13-1"><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a>python3<span class="w"> </span>-m<span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>--user<span class="w"> </span>mendel-development-tool
+</span></code></pre></div>
 <p>安装完毕后需要配置环境变量：</p>
-<div class="highlight"><pre><span></span><code><span class="nb">echo</span><span class="w"> </span><span class="s1">&#39;export PATH=&quot;$PATH:$HOME/Library/Python/3.11/bin/&quot;&#39;</span><span class="w"> </span>&gt;&gt;<span class="w"> </span>~/.bash_profile
-<span class="nb">source</span><span class="w"> </span>~/.bash_profile
-</code></pre></div>
+<div class="language-shell highlight"><pre><span></span><code><span id="__span-14-1"><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a><span class="nb">echo</span><span class="w"> </span><span class="s1">&#39;export PATH=&quot;$PATH:$HOME/Library/Python/3.11/bin/&quot;&#39;</span><span class="w"> </span>&gt;&gt;<span class="w"> </span>~/.bash_profile
+</span><span id="__span-14-2"><a id="__codelineno-14-2" name="__codelineno-14-2" href="#__codelineno-14-2"></a><span class="nb">source</span><span class="w"> </span>~/.bash_profile
+</span></code></pre></div>
 <p>此处的路径与你所使用的Python版本有关。</p>
 <p>使用以下命令连接开发板。 </p>
-<div class="highlight"><pre><span></span><code>mdt<span class="w"> </span>shell
-</code></pre></div>
+<div class="language-shell highlight"><pre><span></span><code><span id="__span-15-1"><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a>mdt<span class="w"> </span>shell
+</span></code></pre></div>
 <p>若提示未找到命令，则表示为环境变量为配置正确，尝试重新配置。</p>
 <p>成功进入提示如下图：</p>
 <p><img alt="mdt shell" src="https://s2.loli.net/2023/07/26/hUVd6fCiz9xyrkS.png" /></p>
@@ -1854,7 +1854,7 @@
       <div class="md-dialog__inner md-typeset"></div>
     </div>
     
-    <script id="__config" type="application/json">{"base": "..", "features": [], "search": "../assets/javascripts/workers/search.a264c092.min.js", "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}}</script>
+    <script id="__config" type="application/json">{"base": "..", "features": ["content.code.select", "content.code.copy", {"tabs": true}], "search": "../assets/javascripts/workers/search.a264c092.min.js", "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}}</script>
     
     
       <script src="../assets/javascripts/bundle.4e0fa4ba.min.js"></script>

@@ -1529,14 +1529,14 @@
 <p>Protobuf（Protocol Buffers）是一种轻量级的数据交换格式，常用于高效地序列化结构化数据。本指南将介绍如何在 Ubuntu 上安装 Protobuf。</p>
 <h2 id="1">步骤 1：更新系统</h2>
 <p>在安装 Protobuf 之前，我们首先需要确保系统已经更新到最新版本。打开终端并执行以下命令：</p>
-<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>apt<span class="w"> </span>update
-sudo<span class="w"> </span>apt<span class="w"> </span>upgrade
-</code></pre></div>
+<div class="language-shell highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>sudo<span class="w"> </span>apt<span class="w"> </span>update
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>sudo<span class="w"> </span>apt<span class="w"> </span>upgrade
+</span></code></pre></div>
 <p>这将更新系统的软件包并安装最新的安全补丁。</p>
 <h2 id="2">步骤 2：安装编译工具和依赖项</h2>
 <p>在安装 Protobuf 之前，我们需要安装一些编译工具和依赖项。执行以下命令来安装它们：</p>
-<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>build-essential<span class="w"> </span>autoconf<span class="w"> </span>libtool
-</code></pre></div>
+<div class="language-shell highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>build-essential<span class="w"> </span>autoconf<span class="w"> </span>libtool
+</span></code></pre></div>
 <p>这些工具和依赖项将帮助我们编译和构建 Protobuf。</p>
 <h2 id="3-protobuf">步骤 3：下载和编译 Protobuf</h2>
 <ol>
@@ -1547,67 +1547,67 @@ sudo<span class="w"> </span>apt<span class="w"> </span>upgrade
 <p>解压压缩包</p>
 </li>
 </ol>
-<div class="highlight"><pre><span></span><code>tar<span class="w"> </span>-zxvf<span class="w"> </span>protobuf-all-3.20.3.tar.gz
-</code></pre></div>
+<div class="language-shell highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>tar<span class="w"> </span>-zxvf<span class="w"> </span>protobuf-all-3.20.3.tar.gz
+</span></code></pre></div>
 <p>这将克隆 Protobuf 的源代码到当前目录。</p>
 <ol>
 <li>进入克隆下来的 Protobuf 目录：</li>
 </ol>
-<div class="highlight"><pre><span></span><code><span class="nb">cd</span><span class="w"> </span>protobuf-all-3.20.3
-</code></pre></div>
+<div class="language-shell highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="nb">cd</span><span class="w"> </span>protobuf-all-3.20.3
+</span></code></pre></div>
 <ol>
 <li>在源代码目录中，运行以下命令来生成配置文件和构建系统：</li>
 </ol>
-<div class="highlight"><pre><span></span><code>./autogen.sh
-</code></pre></div>
+<div class="language-shell highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>./autogen.sh
+</span></code></pre></div>
 <ol>
 <li>接下来，我们需要运行 <code>configure</code> 脚本来配置编译选项。可以使用以下命令进行配置：</li>
 </ol>
-<div class="highlight"><pre><span></span><code>./configure
-</code></pre></div>
+<div class="language-shell highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>./configure
+</span></code></pre></div>
 <ol>
 <li>配置完成后，我们可以使用以下命令编译和安装 Protobuf：</li>
 </ol>
-<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>make
-sudo<span class="w"> </span>make<span class="w"> </span>check<span class="w"> </span><span class="c1">#这一步可能会报错，解决方法见下文</span>
-sudo<span class="w"> </span>make<span class="w"> </span>install
-sudo<span class="w"> </span>ldconfig
-</code></pre></div>
+<div class="language-shell highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>sudo<span class="w"> </span>make
+</span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>sudo<span class="w"> </span>make<span class="w"> </span>check<span class="w"> </span><span class="c1">#这一步可能会报错，解决方法见下文</span>
+</span><span id="__span-6-3"><a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a>sudo<span class="w"> </span>make<span class="w"> </span>install
+</span><span id="__span-6-4"><a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a>sudo<span class="w"> </span>ldconfig
+</span></code></pre></div>
 <p>编译过程可能需要一些时间，请耐心等待。</p>
 <h2 id="4">步骤 4：验证安装</h2>
 <p>安装完成后，我们可以验证 Protobuf 是否成功安装。执行以下命令来检查 Protobuf 的版本信息：</p>
-<div class="highlight"><pre><span></span><code>protoc<span class="w"> </span>--version
-</code></pre></div>
+<div class="language-shell highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>protoc<span class="w"> </span>--version
+</span></code></pre></div>
 <p>如果安装成功，将显示 Protobuf 的版本号。</p>
 <h2 id="make-check">解决 make check 报错</h2>
 <p>在执行 <code>make check</code> 时，可能会报错，错误信息如下：</p>
-<p><div class="highlight"><pre><span></span><code>FAIL:<span class="w"> </span>protobuf-test
-PASS:<span class="w"> </span>protobuf-lazy-descriptor-test
-PASS:<span class="w"> </span>protobuf-lite-test
-PASS:<span class="w"> </span>google/protobuf/compiler/zip_output_unittest.sh
-PASS:<span class="w"> </span>google/protobuf/io/gzip_stream_unittest.sh
-PASS:<span class="w"> </span>protobuf-lite-arena-test
-PASS:<span class="w"> </span>no-warning-test
-<span class="o">============================================================================</span>
-Testsuite<span class="w"> </span>summary<span class="w"> </span><span class="k">for</span><span class="w"> </span>Protocol<span class="w"> </span>Buffers<span class="w"> </span><span class="m">3</span>.19.4
-<span class="o">============================================================================</span>
-<span class="c1"># TOTAL: 7</span>
-<span class="c1"># PASS:  6</span>
-<span class="c1"># SKIP:  0</span>
-<span class="c1"># XFAIL: 0</span>
-<span class="c1"># FAIL:  1</span>
-<span class="c1"># XPASS: 0</span>
-<span class="c1"># ERROR: 0</span>
-<span class="o">============================================================================</span>
-See<span class="w"> </span>src/test-suite.log
-Please<span class="w"> </span>report<span class="w"> </span>to<span class="w"> </span>protobuf@googlegroups.com
-<span class="o">============================================================================</span>
-</code></pre></div>
+<p><div class="language-shell highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>FAIL:<span class="w"> </span>protobuf-test
+</span><span id="__span-8-2"><a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a>PASS:<span class="w"> </span>protobuf-lazy-descriptor-test
+</span><span id="__span-8-3"><a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a>PASS:<span class="w"> </span>protobuf-lite-test
+</span><span id="__span-8-4"><a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a>PASS:<span class="w"> </span>google/protobuf/compiler/zip_output_unittest.sh
+</span><span id="__span-8-5"><a id="__codelineno-8-5" name="__codelineno-8-5" href="#__codelineno-8-5"></a>PASS:<span class="w"> </span>google/protobuf/io/gzip_stream_unittest.sh
+</span><span id="__span-8-6"><a id="__codelineno-8-6" name="__codelineno-8-6" href="#__codelineno-8-6"></a>PASS:<span class="w"> </span>protobuf-lite-arena-test
+</span><span id="__span-8-7"><a id="__codelineno-8-7" name="__codelineno-8-7" href="#__codelineno-8-7"></a>PASS:<span class="w"> </span>no-warning-test
+</span><span id="__span-8-8"><a id="__codelineno-8-8" name="__codelineno-8-8" href="#__codelineno-8-8"></a><span class="o">============================================================================</span>
+</span><span id="__span-8-9"><a id="__codelineno-8-9" name="__codelineno-8-9" href="#__codelineno-8-9"></a>Testsuite<span class="w"> </span>summary<span class="w"> </span><span class="k">for</span><span class="w"> </span>Protocol<span class="w"> </span>Buffers<span class="w"> </span><span class="m">3</span>.19.4
+</span><span id="__span-8-10"><a id="__codelineno-8-10" name="__codelineno-8-10" href="#__codelineno-8-10"></a><span class="o">============================================================================</span>
+</span><span id="__span-8-11"><a id="__codelineno-8-11" name="__codelineno-8-11" href="#__codelineno-8-11"></a><span class="c1"># TOTAL: 7</span>
+</span><span id="__span-8-12"><a id="__codelineno-8-12" name="__codelineno-8-12" href="#__codelineno-8-12"></a><span class="c1"># PASS:  6</span>
+</span><span id="__span-8-13"><a id="__codelineno-8-13" name="__codelineno-8-13" href="#__codelineno-8-13"></a><span class="c1"># SKIP:  0</span>
+</span><span id="__span-8-14"><a id="__codelineno-8-14" name="__codelineno-8-14" href="#__codelineno-8-14"></a><span class="c1"># XFAIL: 0</span>
+</span><span id="__span-8-15"><a id="__codelineno-8-15" name="__codelineno-8-15" href="#__codelineno-8-15"></a><span class="c1"># FAIL:  1</span>
+</span><span id="__span-8-16"><a id="__codelineno-8-16" name="__codelineno-8-16" href="#__codelineno-8-16"></a><span class="c1"># XPASS: 0</span>
+</span><span id="__span-8-17"><a id="__codelineno-8-17" name="__codelineno-8-17" href="#__codelineno-8-17"></a><span class="c1"># ERROR: 0</span>
+</span><span id="__span-8-18"><a id="__codelineno-8-18" name="__codelineno-8-18" href="#__codelineno-8-18"></a><span class="o">============================================================================</span>
+</span><span id="__span-8-19"><a id="__codelineno-8-19" name="__codelineno-8-19" href="#__codelineno-8-19"></a>See<span class="w"> </span>src/test-suite.log
+</span><span id="__span-8-20"><a id="__codelineno-8-20" name="__codelineno-8-20" href="#__codelineno-8-20"></a>Please<span class="w"> </span>report<span class="w"> </span>to<span class="w"> </span>protobuf@googlegroups.com
+</span><span id="__span-8-21"><a id="__codelineno-8-21" name="__codelineno-8-21" href="#__codelineno-8-21"></a><span class="o">============================================================================</span>
+</span></code></pre></div>
 <img alt="Make Check Error" src="https://s2.loli.net/2023/06/13/N7k5xDE9AfhUTeM.png" /></p>
 <p><code>protobuf-test</code> 测试不通过，这个错误是因为加载大型数据集时内存溢出导致的。</p>
 <p>解决方法是加大可用内存或增加内存 Swap 分区，这里以 Jetson Xavier NX 增加内存 Swap 分区为例，此前请先确保已经安装 Jtop 工具：</p>
-<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>jtop
-</code></pre></div>
+<div class="language-shell highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>sudo<span class="w"> </span>jtop
+</span></code></pre></div>
 <p>先切换到4号内存面板，接着点击右边的 Create new 按钮，点击三次，创建三个内存 Swap 分区即可。</p>
 <p><img alt="Jtop Men Panle" src="https://s2.loli.net/2023/06/13/GIaNmi436kAXz5l.png" /></p>
 <p><img alt="Jtop Swapfile" src="https://s2.loli.net/2023/06/13/siFRxYDvQl3toAS.png" /></p>
@@ -1681,7 +1681,7 @@ Please<span class="w"> </span>report<span class="w"> </span>to<span class="w"> <
       <div class="md-dialog__inner md-typeset"></div>
     </div>
     
-    <script id="__config" type="application/json">{"base": "..", "features": [], "search": "../assets/javascripts/workers/search.a264c092.min.js", "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}}</script>
+    <script id="__config" type="application/json">{"base": "..", "features": ["content.code.select", "content.code.copy", {"tabs": true}], "search": "../assets/javascripts/workers/search.a264c092.min.js", "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}}</script>
     
     
       <script src="../assets/javascripts/bundle.4e0fa4ba.min.js"></script>

@@ -1638,73 +1638,73 @@
 <h2 id="_1">安装步骤</h2>
 <h3 id="_2">第一步：安装依赖</h3>
 <p>在终端中运行以下命令，安装 PCL 所需的依赖：</p>
-<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>apt-get<span class="w"> </span>update
-sudo<span class="w"> </span>apt-get<span class="w"> </span>install<span class="w"> </span>git<span class="w"> </span>build-essential<span class="w"> </span>linux-libc-dev
-sudo<span class="w"> </span>apt-get<span class="w"> </span>install<span class="w"> </span>cmake<span class="w"> </span>cmake-gui
-sudo<span class="w"> </span>apt-get<span class="w"> </span>install<span class="w"> </span>libusb-1.0-0-dev<span class="w"> </span>libusb-dev<span class="w"> </span>libudev-dev
-sudo<span class="w"> </span>apt-get<span class="w"> </span>install<span class="w"> </span>mpi-default-dev<span class="w"> </span>openmpi-bin<span class="w"> </span>openmpi-common
-sudo<span class="w"> </span>apt-get<span class="w"> </span>install<span class="w"> </span>libpcap-dev
-sudo<span class="w"> </span>apt-get<span class="w"> </span>install<span class="w"> </span>libflann1.9<span class="w"> </span>libflann-dev
-sudo<span class="w"> </span>apt-get<span class="w"> </span>install<span class="w"> </span>libeigen3-dev
-sudo<span class="w"> </span>apt-get<span class="w"> </span>install<span class="w"> </span>libboost-all-dev
-sudo<span class="w"> </span>apt-get<span class="w"> </span>install<span class="w"> </span>vtk6<span class="w"> </span>libvtk6.3<span class="w"> </span>libvtk6-dev<span class="w"> </span>libvtk6.3-qt<span class="w"> </span>libvtk6-qt-dev
-sudo<span class="w"> </span>apt-get<span class="w"> </span>install<span class="w"> </span>libqhull-dev<span class="w"> </span>libgtest-dev
-sudo<span class="w"> </span>apt-get<span class="w"> </span>install<span class="w"> </span>freeglut3-dev<span class="w"> </span>pkg-config
-sudo<span class="w"> </span>apt-get<span class="w"> </span>install<span class="w"> </span>libxmu-dev<span class="w"> </span>libxi-dev
-sudo<span class="w"> </span>apt-get<span class="w"> </span>install<span class="w"> </span>mono-complete
-sudo<span class="w"> </span>apt-get<span class="w"> </span>install<span class="w"> </span>libopenni-dev<span class="w"> </span>libopenni2-dev
-sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>build-essential<span class="w"> </span>libssl-dev
-</code></pre></div>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>sudo<span class="w"> </span>apt-get<span class="w"> </span>update
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>sudo<span class="w"> </span>apt-get<span class="w"> </span>install<span class="w"> </span>git<span class="w"> </span>build-essential<span class="w"> </span>linux-libc-dev
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>sudo<span class="w"> </span>apt-get<span class="w"> </span>install<span class="w"> </span>cmake<span class="w"> </span>cmake-gui
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>sudo<span class="w"> </span>apt-get<span class="w"> </span>install<span class="w"> </span>libusb-1.0-0-dev<span class="w"> </span>libusb-dev<span class="w"> </span>libudev-dev
+</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>sudo<span class="w"> </span>apt-get<span class="w"> </span>install<span class="w"> </span>mpi-default-dev<span class="w"> </span>openmpi-bin<span class="w"> </span>openmpi-common
+</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>sudo<span class="w"> </span>apt-get<span class="w"> </span>install<span class="w"> </span>libpcap-dev
+</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>sudo<span class="w"> </span>apt-get<span class="w"> </span>install<span class="w"> </span>libflann1.9<span class="w"> </span>libflann-dev
+</span><span id="__span-0-8"><a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a>sudo<span class="w"> </span>apt-get<span class="w"> </span>install<span class="w"> </span>libeigen3-dev
+</span><span id="__span-0-9"><a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a>sudo<span class="w"> </span>apt-get<span class="w"> </span>install<span class="w"> </span>libboost-all-dev
+</span><span id="__span-0-10"><a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a>sudo<span class="w"> </span>apt-get<span class="w"> </span>install<span class="w"> </span>vtk6<span class="w"> </span>libvtk6.3<span class="w"> </span>libvtk6-dev<span class="w"> </span>libvtk6.3-qt<span class="w"> </span>libvtk6-qt-dev
+</span><span id="__span-0-11"><a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a>sudo<span class="w"> </span>apt-get<span class="w"> </span>install<span class="w"> </span>libqhull-dev<span class="w"> </span>libgtest-dev
+</span><span id="__span-0-12"><a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a>sudo<span class="w"> </span>apt-get<span class="w"> </span>install<span class="w"> </span>freeglut3-dev<span class="w"> </span>pkg-config
+</span><span id="__span-0-13"><a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a>sudo<span class="w"> </span>apt-get<span class="w"> </span>install<span class="w"> </span>libxmu-dev<span class="w"> </span>libxi-dev
+</span><span id="__span-0-14"><a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a>sudo<span class="w"> </span>apt-get<span class="w"> </span>install<span class="w"> </span>mono-complete
+</span><span id="__span-0-15"><a id="__codelineno-0-15" name="__codelineno-0-15" href="#__codelineno-0-15"></a>sudo<span class="w"> </span>apt-get<span class="w"> </span>install<span class="w"> </span>libopenni-dev<span class="w"> </span>libopenni2-dev
+</span><span id="__span-0-16"><a id="__codelineno-0-16" name="__codelineno-0-16" href="#__codelineno-0-16"></a>sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>build-essential<span class="w"> </span>libssl-dev
+</span></code></pre></div>
 <h3 id="eigen">第二步：安装Eigen库</h3>
 <p>先卸载Eigen库</p>
-<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>updatedb
-locate<span class="w"> </span>eigen3
-sudo<span class="w"> </span>rm<span class="w"> </span>-rf<span class="w"> </span>/usr/include/eigen3<span class="w"> </span>/usr/lib/cmake/eigen3<span class="w"> </span>/usr/share/doc/libeigen3-<span class="w"> </span>dev<span class="w"> </span>/usr/share/pkgconfig/eigen3.pc<span class="w"> </span>/var/lib/dpkg/info/libeigen3-dev.list<span class="w"> </span>/var/lib/dpkg/info/libeigen3-dev.md5sums
-</code></pre></div>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>sudo<span class="w"> </span>updatedb
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>locate<span class="w"> </span>eigen3
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>sudo<span class="w"> </span>rm<span class="w"> </span>-rf<span class="w"> </span>/usr/include/eigen3<span class="w"> </span>/usr/lib/cmake/eigen3<span class="w"> </span>/usr/share/doc/libeigen3-<span class="w"> </span>dev<span class="w"> </span>/usr/share/pkgconfig/eigen3.pc<span class="w"> </span>/var/lib/dpkg/info/libeigen3-dev.list<span class="w"> </span>/var/lib/dpkg/info/libeigen3-dev.md5sums
+</span></code></pre></div>
 <p>安装：</p>
-<div class="highlight"><pre><span></span><code>wget<span class="w"> </span>https://gitlab.com/libeigen/eigen/-/archive/3.3.7/eigen-3.3.7.tar.gz
-sudo<span class="w"> </span>tar<span class="w"> </span>-xvf<span class="w"> </span>eigen-3.3.7.tar.gz
-<span class="nb">cd</span><span class="w"> </span>eigen-3.3.7
-mkdir<span class="w"> </span>build<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="nb">cd</span><span class="w"> </span>build
-sudo<span class="w"> </span>cmake<span class="w"> </span>..
-sudo<span class="w"> </span>make<span class="w"> </span>install
-sudo<span class="w"> </span>cp<span class="w"> </span>-r<span class="w"> </span>/usr/local/include/eigen3/Eigen<span class="w"> </span>/usr/local/include
-</code></pre></div>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>wget<span class="w"> </span>https://gitlab.com/libeigen/eigen/-/archive/3.3.7/eigen-3.3.7.tar.gz
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>sudo<span class="w"> </span>tar<span class="w"> </span>-xvf<span class="w"> </span>eigen-3.3.7.tar.gz
+</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="nb">cd</span><span class="w"> </span>eigen-3.3.7
+</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>mkdir<span class="w"> </span>build<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="nb">cd</span><span class="w"> </span>build
+</span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>sudo<span class="w"> </span>cmake<span class="w"> </span>..
+</span><span id="__span-2-6"><a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a>sudo<span class="w"> </span>make<span class="w"> </span>install
+</span><span id="__span-2-7"><a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a>sudo<span class="w"> </span>cp<span class="w"> </span>-r<span class="w"> </span>/usr/local/include/eigen3/Eigen<span class="w"> </span>/usr/local/include
+</span></code></pre></div>
 <h3 id="pcl">第三步：下载 PCL 源码</h3>
 <p>在终端中运行以下命令，下载 PCL 源码：</p>
-<div class="highlight"><pre><span></span><code>git<span class="w"> </span>clone<span class="w"> </span>https://github.com/PointCloudLibrary/pcl.git
-</code></pre></div>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>git<span class="w"> </span>clone<span class="w"> </span>https://github.com/PointCloudLibrary/pcl.git
+</span></code></pre></div>
 <h3 id="pcl_1">第四步：编译 PCL 源码</h3>
 <p>进入 PCL 源码目录，先切换到<code>1.9.1</code>版本：</p>
-<div class="highlight"><pre><span></span><code><span class="nb">cd</span><span class="w"> </span>pcl
-git<span class="w"> </span>checkout<span class="w"> </span>pcl-1.9.1
-</code></pre></div>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="nb">cd</span><span class="w"> </span>pcl
+</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>git<span class="w"> </span>checkout<span class="w"> </span>pcl-1.9.1
+</span></code></pre></div>
 <p>创建<code>build</code>文件夹：</p>
-<div class="highlight"><pre><span></span><code>mkdir<span class="w"> </span>build<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="nb">cd</span><span class="w"> </span>build
-</code></pre></div>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>mkdir<span class="w"> </span>build<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="nb">cd</span><span class="w"> </span>build
+</span></code></pre></div>
 <p>开始编译：</p>
-<div class="highlight"><pre><span></span><code>cmake<span class="w"> </span>-DCMAKE_BUILD_TYPE<span class="o">=</span>None<span class="w"> </span><span class="se">\</span>
--DCMAKE_INSTALL_PREFIX<span class="o">=</span>/usr/local<span class="w"> </span><span class="se">\</span>
--DBUILD_GPU<span class="o">=</span>ON<span class="w"> </span><span class="se">\</span>
--DBUILD_CUDA<span class="o">=</span>ON<span class="w"> </span><span class="se">\</span>
--DBUILD_apps<span class="o">=</span>ON<span class="w"> </span><span class="se">\</span>
--DBUILD_examples<span class="o">=</span>ON<span class="w"> </span>..
-</code></pre></div>
-<div class="highlight"><pre><span></span><code>make
-</code></pre></div>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>cmake<span class="w"> </span>-DCMAKE_BUILD_TYPE<span class="o">=</span>None<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>-DCMAKE_INSTALL_PREFIX<span class="o">=</span>/usr/local<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-6-3"><a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a>-DBUILD_GPU<span class="o">=</span>ON<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-6-4"><a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a>-DBUILD_CUDA<span class="o">=</span>ON<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-6-5"><a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a>-DBUILD_apps<span class="o">=</span>ON<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-6-6"><a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a>-DBUILD_examples<span class="o">=</span>ON<span class="w"> </span>..
+</span></code></pre></div>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>make
+</span></code></pre></div>
 <p>编译过程可能需要较长时间，请耐心等待。</p>
 <blockquote>
 <p>Jetson Nano 编译 PCL 真的很慢。</p>
 <p>过程中可能遇到一些错误，解决方法见**报错解决** 。</p>
 </blockquote>
 <h3 id="pcl_2">第五步：安装 PCL</h3>
-<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>make<span class="w"> </span>install
-</code></pre></div>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>sudo<span class="w"> </span>make<span class="w"> </span>install
+</span></code></pre></div>
 <h3 id="pcl_3">第六步：测试 PCL 安装是否成功</h3>
 <p>在终端中运行以下命令，测试 PCL 是否安装成功：</p>
-<div class="highlight"><pre><span></span><code><span class="nb">cd</span><span class="w"> </span>../test
-./all_tests
-</code></pre></div>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="nb">cd</span><span class="w"> </span>../test
+</span><span id="__span-9-2"><a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a>./all_tests
+</span></code></pre></div>
 <p>如果所有测试都通过，说明 PCL 安装成功。</p>
 <h2 id="_3">报错解决</h2>
 <h3 id="internal-compiler-error-segmentation-fault-program-cc1plus">internal compiler error: Segmentation fault (program cc1plus)</h3>
@@ -1713,8 +1713,8 @@ git<span class="w"> </span>checkout<span class="w"> </span>pcl-1.9.1
 <p>使用<code>ulimit -a</code>查看系统的限制参数。</p>
 <p><img alt="ulimit -a" src="https://s2.loli.net/2023/03/22/pauXTL7FedP4xVS.png" /></p>
 <p>解决方法：增加 stack size 的大小即可。</p>
-<div class="highlight"><pre><span></span><code><span class="nb">ulimit</span><span class="w"> </span>-s<span class="w"> </span><span class="m">102400</span>
-</code></pre></div>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="nb">ulimit</span><span class="w"> </span>-s<span class="w"> </span><span class="m">102400</span>
+</span></code></pre></div>
 <h3 id="namespace-thrust-has-no-member-device_malloc">namespace “thrust” has no member “device_malloc”</h3>
 <blockquote>
 <p>完蛋，报错图片没保存 :( 大家自行脑补。</p>
@@ -1724,8 +1724,8 @@ git<span class="w"> </span>checkout<span class="w"> </span>pcl-1.9.1
 <h3 id="pax-assembly-aborted-due-to-errors">Pax assembly aborted due to errors</h3>
 <p><img alt="Ptx assembly aborted due to errors" src="https://s2.loli.net/2023/03/22/zI2W3ykXlJB5wCG.png" /></p>
 <p>此错误是由于PTX ISA版本6.4不支持sm_70及更高版本的目标。需要将CUDA_ARCH_BIN cmake变量限制为低于7.0的架构。</p>
-<div class="highlight"><pre><span></span><code>vim<span class="w"> </span>../CMakeList.txt
-</code></pre></div>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a>vim<span class="w"> </span>../CMakeList.txt
+</span></code></pre></div>
 <p>添加上<code>set(CUDA_ARCH_BIN "6.1")</code>即可。</p>
 <p><img alt="CMakeList.txt" src="https://s2.loli.net/2023/03/22/kmswYOlR2MQI3fE.png" /></p>
 <blockquote>
@@ -1798,7 +1798,7 @@ git<span class="w"> </span>checkout<span class="w"> </span>pcl-1.9.1
       <div class="md-dialog__inner md-typeset"></div>
     </div>
     
-    <script id="__config" type="application/json">{"base": "..", "features": [], "search": "../assets/javascripts/workers/search.a264c092.min.js", "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}}</script>
+    <script id="__config" type="application/json">{"base": "..", "features": ["content.code.select", "content.code.copy", {"tabs": true}], "search": "../assets/javascripts/workers/search.a264c092.min.js", "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}}</script>
     
     
       <script src="../assets/javascripts/bundle.4e0fa4ba.min.js"></script>

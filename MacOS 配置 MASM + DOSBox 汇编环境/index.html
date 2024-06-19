@@ -1557,14 +1557,14 @@
 <ol>
 <li>克隆该项目到本地：</li>
 </ol>
-<div class="highlight"><pre><span></span><code>git<span class="w"> </span>clone<span class="w"> </span>https://github.com/cassius0924/MASMForMac.git
-</code></pre></div>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>git<span class="w"> </span>clone<span class="w"> </span>https://github.com/cassius0924/MASMForMac.git
+</span></code></pre></div>
 <ol>
 <li>将项目文件夹移动某个位置：</li>
 </ol>
 <p>例如我将这个文件夹放到了 <code>~/Documents/</code>中</p>
-<div class="highlight"><pre><span></span><code>mv<span class="w"> </span>MASMForMac<span class="w"> </span>~/Documents/.
-</code></pre></div>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>mv<span class="w"> </span>MASMForMac<span class="w"> </span>~/Documents/.
+</span></code></pre></div>
 <ol>
 <li>安装 DOSBox：</li>
 </ol>
@@ -1573,67 +1573,67 @@
 <ol>
 <li>在 DOSBox 中挂载目录：</li>
 </ol>
-<div class="highlight"><pre><span></span><code>mount<span class="w"> </span>c<span class="w"> </span>~/Documents/MASMForMac
-</code></pre></div>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>mount<span class="w"> </span>c<span class="w"> </span>~/Documents/MASMForMac
+</span></code></pre></div>
 <p>此目录将会把<code>~/Documents/MASMForMac</code>挂载到 C 盘。路径根据自己情况修改。</p>
 <p>每次打开 DOSBox 应用程序都需要挂载目录。可以配置自动挂载，详见下文**「配置文件」**。</p>
 <ol>
 <li>在 DOSBox 中进入 C 盘：</li>
 </ol>
-<div class="highlight"><pre><span></span><code>c:
-</code></pre></div>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>c:
+</span></code></pre></div>
 <ol>
 <li>编译 <code>hello.asm</code> 文件：</li>
 </ol>
 <p>已经预先写好了一个<code>hello.asm</code>汇编测试示例，用于测试汇编环境。</p>
-<div class="highlight"><pre><span></span><code>masm<span class="w"> </span>hello.asm
-</code></pre></div>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>masm<span class="w"> </span>hello.asm
+</span></code></pre></div>
 <p>连按三下回车，此命令会生成<code>obj</code>文件。</p>
 <ol>
 <li>生成<code>hello.exe</code>可执行文件：</li>
 </ol>
-<div class="highlight"><pre><span></span><code>link<span class="w"> </span>hello.obj
-</code></pre></div>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>link<span class="w"> </span>hello.obj
+</span></code></pre></div>
 <p>同样连按三下回车。</p>
 <ol>
 <li>运行 <code>hello.exe</code> 文件：</li>
 </ol>
-<div class="highlight"><pre><span></span><code>hello.exe
-</code></pre></div>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>hello.exe
+</span></code></pre></div>
 <p>正常情况，会输出字符串：Hello world!</p>
 <p><img alt="Hello world!" src="https://s2.loli.net/2023/04/12/MFtVCEZekNRgSIQ.png" /></p>
 <h2 id="_2">文件结构</h2>
-<div class="highlight"><pre><span></span><code>.
-├── CREF.EXE
-├── ERROUT.EXE
-├── EXEMOD.EXE
-├── EXEPACK.EXE
-├── LIB.EXE
-├── LINK.EXE
-├── MAKE.EXE
-├── MASM.EXE
-├── README.DOC
-├── SETENV.EXE
-├── debug.exe
-├── hello.asm
-└── mac
-    ├── DOSBox-0.74-3-3.dmg
-    └── masm5.zip
-</code></pre></div>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>.
+</span><span id="__span-7-2"><a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>├── CREF.EXE
+</span><span id="__span-7-3"><a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a>├── ERROUT.EXE
+</span><span id="__span-7-4"><a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a>├── EXEMOD.EXE
+</span><span id="__span-7-5"><a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a>├── EXEPACK.EXE
+</span><span id="__span-7-6"><a id="__codelineno-7-6" name="__codelineno-7-6" href="#__codelineno-7-6"></a>├── LIB.EXE
+</span><span id="__span-7-7"><a id="__codelineno-7-7" name="__codelineno-7-7" href="#__codelineno-7-7"></a>├── LINK.EXE
+</span><span id="__span-7-8"><a id="__codelineno-7-8" name="__codelineno-7-8" href="#__codelineno-7-8"></a>├── MAKE.EXE
+</span><span id="__span-7-9"><a id="__codelineno-7-9" name="__codelineno-7-9" href="#__codelineno-7-9"></a>├── MASM.EXE
+</span><span id="__span-7-10"><a id="__codelineno-7-10" name="__codelineno-7-10" href="#__codelineno-7-10"></a>├── README.DOC
+</span><span id="__span-7-11"><a id="__codelineno-7-11" name="__codelineno-7-11" href="#__codelineno-7-11"></a>├── SETENV.EXE
+</span><span id="__span-7-12"><a id="__codelineno-7-12" name="__codelineno-7-12" href="#__codelineno-7-12"></a>├── debug.exe
+</span><span id="__span-7-13"><a id="__codelineno-7-13" name="__codelineno-7-13" href="#__codelineno-7-13"></a>├── hello.asm
+</span><span id="__span-7-14"><a id="__codelineno-7-14" name="__codelineno-7-14" href="#__codelineno-7-14"></a>└── mac
+</span><span id="__span-7-15"><a id="__codelineno-7-15" name="__codelineno-7-15" href="#__codelineno-7-15"></a>    ├── DOSBox-0.74-3-3.dmg
+</span><span id="__span-7-16"><a id="__codelineno-7-16" name="__codelineno-7-16" href="#__codelineno-7-16"></a>    └── masm5.zip
+</span></code></pre></div>
 <h2 id="_3">配置文件</h2>
 <p>MacOS 的 DOSBox 配置文件位于 <code>~/Library/Preferences/DOSBox\ 0.74-3-3\ Preferences</code></p>
-<div class="highlight"><pre><span></span><code>vim<span class="w"> </span>~/Library/Preferences/DOSBox<span class="se">\ </span><span class="m">0</span>.74-3-3<span class="se">\ </span>Preferences
-</code></pre></div>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>vim<span class="w"> </span>~/Library/Preferences/DOSBox<span class="se">\ </span><span class="m">0</span>.74-3-3<span class="se">\ </span>Preferences
+</span></code></pre></div>
 <h3 id="_4">配置自动挂载</h3>
 <p>在文件末尾加入两行命令：</p>
-<div class="highlight"><pre><span></span><code>mount c ~/Documents/MASMForMac
-c:
-</code></pre></div>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>mount c ~/Documents/MASMForMac
+</span><span id="__span-9-2"><a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a>c:
+</span></code></pre></div>
 <p>每次启动 DOSBox 将会自动运行这两行命令。</p>
 <h3 id="_5">调整窗口大小</h3>
 <p>找到<code>windowresolution=origin</code>，将<code>origin</code>修改成 <code>长度x高度</code>。例如：</p>
-<div class="highlight"><pre><span></span><code>windowresolution=1024x680
-</code></pre></div>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>windowresolution=1024x680
+</span></code></pre></div>
 <h3 id="_6">其他配置</h3>
 <p>更多配置详解见<a href="https://www.dosbox.com/wiki/Dosbox.conf#Mac_OS_X">官方说明</a>。</p>
 
@@ -1703,7 +1703,7 @@ c:
       <div class="md-dialog__inner md-typeset"></div>
     </div>
     
-    <script id="__config" type="application/json">{"base": "..", "features": [], "search": "../assets/javascripts/workers/search.a264c092.min.js", "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}}</script>
+    <script id="__config" type="application/json">{"base": "..", "features": ["content.code.select", "content.code.copy", {"tabs": true}], "search": "../assets/javascripts/workers/search.a264c092.min.js", "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}}</script>
     
     
       <script src="../assets/javascripts/bundle.4e0fa4ba.min.js"></script>
