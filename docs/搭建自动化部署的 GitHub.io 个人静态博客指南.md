@@ -61,7 +61,7 @@ vim requirements.txt
 ```
 
 ``` txt
-mkdocs-material>=0.4.0
+markdown-callouts>=0.4.0
 ```
 
 ### 配置 MkDocs
