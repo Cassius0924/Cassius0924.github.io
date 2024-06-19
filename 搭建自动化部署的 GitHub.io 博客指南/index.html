@@ -1373,13 +1373,6 @@
   
 </li>
         
-          <li class="md-nav__item">
-  <a href="#secrets" class="md-nav__link">
-    配置 Secrets
-  </a>
-  
-</li>
-        
       </ul>
     </nav>
   
@@ -1643,13 +1636,6 @@
   
 </li>
         
-          <li class="md-nav__item">
-  <a href="#secrets" class="md-nav__link">
-    配置 Secrets
-  </a>
-  
-</li>
-        
       </ul>
     </nav>
   
@@ -1834,22 +1820,14 @@
 </span><span id="__span-8-25"><a id="__codelineno-8-25" name="__codelineno-8-25" href="#__codelineno-8-25"></a><span class="w">          </span><span class="nt">publish_dir</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">./site</span>
 </span><span id="__span-8-26"><a id="__codelineno-8-26" name="__codelineno-8-26" href="#__codelineno-8-26"></a><span class="w">          </span><span class="nt">publish_branch</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">gh-pages</span>
 </span></code></pre></div>
-<p>解释一下这个配置文件，这个配置文件定义了一个名为 <code>Deploy</code> 的工作流，当 <code>main</code> 分支有代码提交时，会触发这个工作流。</p>
+<p>这个配置文件定义了一个名为 <code>Deploy</code> 的工作流，当 <code>main</code> 分支有代码提交时，会触发这个工作流。</p>
+<p>可以发现这个 <code>deploy.yml</code> 中使用了一个名为 <code>GITHUB_TOKEN</code> 的 secret，GitHub 会为每个工作流都创建并注入 <code>GITHUB_TOKEN</code>，我们并不需要手动创建这个 secret。</p>
 <p>这个工作流包含了三个步骤：</p>
 <ol>
 <li><code>Checkout</code>：检出代码</li>
 <li><code>Build</code>：构建 MkDocs 项目</li>
 <li><code>Deploy</code>：部署到 GitHub Pages（推送到 GitHub 的 <code>gh-pages</code> 分支）</li>
 </ol>
-<h3 id="secrets">配置 Secrets</h3>
-<p>可以发现这个 <code>deploy.yml</code> 中使用了一个名为 <code>GITHUB_TOKEN</code> 的 secret，这个 secret 是用来推送代码到 GitHub 的 <code>gh-pages</code> 分支的。</p>
-<p>访问 
-<a href="https://github.com/settings/tokens/new">https://github.com/settings/tokens/new</a>，
-或者依次点击 GitHub 的个人 Settings -&gt; Developer settings -&gt; Personal access tokens -&gt; Tokens (classic)。
-此页面用于生成 GitHub Access Token。</p>
-<p><img alt="生成 GitHub Token" src="https://s2.loli.net/2024/06/17/DF6REOJjt7iH3Vv.png" /></p>
-<p>按照上图的配置生成一个有 repo 和 workflow 权限的 token，生成后复制这个这个 token，然后在仓库 Settings 的 Secrets 新建一个 Secret，并将这个 token 粘贴到下图箭头指向处。</p>
-<p><img alt="配置仓库 Secret" src="https://s2.loli.net/2024/06/17/Z4OI1lYcCiXRtmT.png" /></p>
 <h2 id="github-pages">部署到 GitHub Pages</h2>
 <p>当我们将代码推送到 GitHub 的 <code>main</code> 分支时，GitHub Actions 会自动触发工作流，构建 MkDocs 项目，并将生成的静态网页推送到 <code>gh-pages</code> 分支。</p>
 <p>由于 GitHub 不允许使用 HTTPS 协议推送代码，所以 Push 前需要将本地仓库的远程仓库地址修改为你远程仓库 SSH 地址：</p>
