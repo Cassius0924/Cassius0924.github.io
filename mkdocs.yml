@@ -8,8 +8,10 @@ theme:
   palette:
     primary: 'indigo'
     accent: 'indigo'
-  feature:
-    tabs: true
+  features:
+    - content.code.select
+    - content.code.copy
+    - tabs: true
   language: 'zh'
 extra:
   social:
@@ -18,6 +20,7 @@ extra:
     - icon: 'fontawesome/brands/bilibili'
       link: 'https://space.bilibili.com/12873865'
 markdown_extensions:
+  - github-callouts
   - admonition # 注解块支持
   - pymdownx.arithmatex # 数学公式的TeX语法支持
   - pymdownx.betterem:
@@ -27,14 +30,19 @@ markdown_extensions:
   - pymdownx.details
   - pymdownx.emoji: # 表情支持
       emoji_generator: !!python/name:pymdownx.emoji.to_svg
-  - pymdownx.inlinehilite
   - pymdownx.magiclink
   - pymdownx.mark
   - pymdownx.smartsymbols
-  - pymdownx.superfences
   - pymdownx.tasklist: # 任务清单支持
       custom_checkbox: true
   - pymdownx.tilde
+  - pymdownx.highlight:
+      anchor_linenums: true
+      line_spans: __span
+      pygments_lang_class: true
+  - pymdownx.inlinehilite
+  - pymdownx.snippets
+  - pymdownx.superfences
   - meta # 元数据支持
 extra_javascript:
   - 'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML'

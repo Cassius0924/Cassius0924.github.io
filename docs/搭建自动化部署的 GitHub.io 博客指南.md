@@ -48,7 +48,7 @@ mkdocs new .
 然后，我们需要安装 MkDocs Material 主题。当然我们也可以选择其他主题，可以在 MkDocs 的 [WiKi](https://github.com/mkdocs/mkdocs/wiki/MkDocs-Themes) 查看更多主题。
 
 ```bash
-pip install mkdocs-material
+pip install mkdocs-material markdown-callouts
 ```
 
 ### 配置 MkDocs
@@ -62,16 +62,18 @@ MkDocs 的配置文件是 `mkdocs.yml`，我们可以在这个文件中配置 Mk
 
 ```yaml
 site_name: Cassius0924's Blog
+# site_url: https://cassius0924.github.io
 site_author: Cassius0924
 repo_name: 'Cassius0924/Cassius0924.github.io'
 copyright: "Copyright &copy; 2024 - 2024 Chihchou Ho"
-theme: #这里使用的是 MkDocs Material 主题
+theme:
   name: 'material'
   palette:
     primary: 'indigo'
     accent: 'indigo'
-  feature:
-    tabs: true
+  features:
+    - content.code.select
+    - content.code.copy
   language: 'zh'
 extra:
   social:
@@ -80,6 +82,7 @@ extra:
     - icon: 'fontawesome/brands/bilibili'
       link: 'https://space.bilibili.com/12873865'
 markdown_extensions:
+  - github-callouts
   - admonition # 注解块支持
   - pymdownx.arithmatex # 数学公式的TeX语法支持
   - pymdownx.betterem:
@@ -89,14 +92,19 @@ markdown_extensions:
   - pymdownx.details
   - pymdownx.emoji: # 表情支持
       emoji_generator: !!python/name:pymdownx.emoji.to_svg
-  - pymdownx.inlinehilite
   - pymdownx.magiclink
   - pymdownx.mark
   - pymdownx.smartsymbols
-  - pymdownx.superfences
   - pymdownx.tasklist: # 任务清单支持
       custom_checkbox: true
   - pymdownx.tilde
+  - pymdownx.highlight:
+      anchor_linenums: true
+      line_spans: __span
+      pygments_lang_class: true
+  - pymdownx.inlinehilite
+  - pymdownx.snippets
+  - pymdownx.superfences
   - meta # 元数据支持
 extra_javascript:
   - 'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML'
