@@ -169,6 +169,7 @@ jobs:
         uses: Tiryoh/actions-mkdocs@v0
         with:
           mkdocs_version: 'latest'
+          requirements: 'requirements.txt'
           configfile: 'mkdocs.yml'
           
       - name: Deploy
