@@ -24,7 +24,7 @@
 
 然后，我们需要将这个仓库克隆到本地：
 
-```bash
+``` bash
 git clone <repository-url>
 cd <repository-name>
 ```
@@ -35,20 +35,33 @@ cd <repository-name>
 
 MkDocs 是一个 Python 项目使用 pip 安装：
 
-```bash
+``` bash
 pip install mkdocs
 ```
 
 我们需要创建一个 MkDocs 项目，可以使用 MkDocs 官方提供的模板来创建。直接在仓库根目录执行以下命令即可：
 
-```bash
+``` bash
 mkdocs new .
 ```
 
 然后，我们需要安装 MkDocs Material 主题。当然我们也可以选择其他主题，可以在 MkDocs 的 [WiKi](https://github.com/mkdocs/mkdocs/wiki/MkDocs-Themes) 查看更多主题。
 
-```bash
+``` bash
 pip install mkdocs-material markdown-callouts
+```
+
+> ![NOTE]
+> 这里我安装了 `markdown-callouts` 插件，这个插件可以让我们在 MkDocs 中使用 GitHub 的 callouts 语法，比如 `> ![NOTE]`、`> ![WARNING]` 等。
+
+因此我们为项目添加一个 `requirements.txt` 文件，内容如下：
+
+``` bash 
+vim requirements.txt
+```
+
+``` txt
+mkdocs-material>=0.4.0
 ```
 
 ### 配置 MkDocs
@@ -82,7 +95,7 @@ extra:
     - icon: 'fontawesome/brands/bilibili'
       link: 'https://space.bilibili.com/12873865'
 markdown_extensions:
-  - github-callouts
+  - github-callouts # github callouts 语法支持
   - admonition # 注解块支持
   - pymdownx.arithmatex # 数学公式的TeX语法支持
   - pymdownx.betterem:
@@ -124,7 +137,7 @@ plugins:
 
 在本地预览 MkDocs 生成的静态网页，可以执行以下命令：
 
-```bash
+``` bash
 mkdocs serve
 ```
 
@@ -195,13 +208,13 @@ jobs:
 
 由于 GitHub 不允许使用 HTTPS 协议推送代码，所以 Push 前需要将本地仓库的远程仓库地址修改为你远程仓库 SSH 地址：
 
-```bash
+``` bash
 git remote set-url origin <ssh-repo-url>
 ```
 
 然后，将代码推送到 GitHub：
 
-```bash
+``` bash
 git add .
 git commit -m "Add MkDocs project"
 git push origin main
