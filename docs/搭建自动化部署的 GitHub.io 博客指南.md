@@ -180,28 +180,15 @@ jobs:
           publish_branch: gh-pages
 ```
 
-解释一下这个配置文件，这个配置文件定义了一个名为 `Deploy` 的工作流，当 `main` 分支有代码提交时，会触发这个工作流。
+这个配置文件定义了一个名为 `Deploy` 的工作流，当 `main` 分支有代码提交时，会触发这个工作流。
+
+可以发现这个 `deploy.yml` 中使用了一个名为 `GITHUB_TOKEN` 的 secret，GitHub 会为每个工作流都创建并注入 `GITHUB_TOKEN`，我们并不需要手动创建这个 secret。
 
 这个工作流包含了三个步骤：
 
 1. `Checkout`：检出代码
 2. `Build`：构建 MkDocs 项目
 3. `Deploy`：部署到 GitHub Pages（推送到 GitHub 的 `gh-pages` 分支）
-
-### 配置 Secrets
-
-可以发现这个 `deploy.yml` 中使用了一个名为 `GITHUB_TOKEN` 的 secret，这个 secret 是用来推送代码到 GitHub 的 `gh-pages` 分支的。
-
-访问 
-[https://github.com/settings/tokens/new](https://github.com/settings/tokens/new)，
-或者依次点击 GitHub 的个人 Settings -> Developer settings -> Personal access tokens -> Tokens (classic)。
-此页面用于生成 GitHub Access Token。
-
-![生成 GitHub Token](https://s2.loli.net/2024/06/17/DF6REOJjt7iH3Vv.png)
-
-按照上图的配置生成一个有 repo 和 workflow 权限的 token，生成后复制这个这个 token，然后在仓库 Settings 的 Secrets 新建一个 Secret，并将这个 token 粘贴到下图箭头指向处。
-
-![配置仓库 Secret](https://s2.loli.net/2024/06/17/Z4OI1lYcCiXRtmT.png)
 
 ## 部署到 GitHub Pages
 
