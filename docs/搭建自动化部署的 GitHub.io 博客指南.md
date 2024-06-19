@@ -51,8 +51,8 @@ mkdocs new .
 pip install mkdocs-material markdown-callouts
 ```
 
-> ![NOTE]
-> 这里我安装了 `markdown-callouts` 插件，这个插件可以让我们在 MkDocs 中使用 GitHub 的 callouts 语法，比如 `> ![NOTE]`、`> ![WARNING]` 等。
+> [!NOTE]
+> 这里我安装了 `markdown-callouts` 插件，这个插件可以让我们在 MkDocs 中使用 GitHub 的 callouts 语法，比如 `> [!NOTE]`、`> [!WARNING]` 等。
 
 因此我们为项目添加一个 `requirements.txt` 文件，内容如下：
 
