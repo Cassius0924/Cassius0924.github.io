@@ -1373,6 +1373,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#workflow" class="md-nav__link">
+    设置 Workflow 权限
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -1636,6 +1643,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#workflow" class="md-nav__link">
+    设置 Workflow 权限
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -1826,6 +1840,9 @@
 <li><code>Build</code>：构建 MkDocs 项目</li>
 <li><code>Deploy</code>：部署到 GitHub Pages（推送到 GitHub 的 <code>gh-pages</code> 分支）</li>
 </ol>
+<h3 id="workflow">设置 Workflow 权限</h3>
+<p>进入仓库的 Settings -&gt; Actions -&gt; Generals 页面，滑到下面，找到 <code>Workflow permissions</code>，勾选 <code>Read and write permissions</code>，然后点击 <code>Save</code>。</p>
+<p><img alt="Workflow permissions" src="https://s2.loli.net/2024/06/20/1Nzr9iK8jRHbW25.png" /></p>
 <h2 id="github-pages">部署到 GitHub Pages</h2>
 <p>当我们将代码推送到 GitHub 的 <code>main</code> 分支时，GitHub Actions 会自动触发工作流，构建 MkDocs 项目，并将生成的静态网页推送到 <code>gh-pages</code> 分支。</p>
 <p>由于 GitHub 不允许使用 HTTPS 协议推送代码，所以 Push 前需要将本地仓库的远程仓库地址修改为你远程仓库 SSH 地址：</p>
