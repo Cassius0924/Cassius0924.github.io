@@ -187,6 +187,12 @@ jobs:
 2. `Build`：构建 MkDocs 项目
 3. `Deploy`：部署到 GitHub Pages（推送到 GitHub 的 `gh-pages` 分支）
 
+### 设置 Workflow 权限
+
+进入仓库的 Settings -> Actions -> Generals 页面，滑到下面，找到 `Workflow permissions`，勾选 `Read and write permissions`，然后点击 `Save`。
+
+![Workflow permissions](https://s2.loli.net/2024/06/20/1Nzr9iK8jRHbW25.png)
+
 ## 部署到 GitHub Pages
 
 当我们将代码推送到 GitHub 的 `main` 分支时，GitHub Actions 会自动触发工作流，构建 MkDocs 项目，并将生成的静态网页推送到 `gh-pages` 分支。
