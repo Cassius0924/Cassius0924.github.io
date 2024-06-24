@@ -15,7 +15,9 @@
 
 - **[WeChatter](https://github.com/Cassius0924/WeChatter)**： *基于 wechatbot-webhook 的微信机器人，支持 GPT 问答、热搜、天气预报、消息转发、小游戏、Webhook 提醒等功能。*
 
-- **[TetrisTwins](https://github.com/Cassius0924/TetrisTwins)**： *基于终端的双人竞赛俄罗斯方块小游戏，用 C++ 编写*
+- **[TetrisTwins](https://github.com/Cassius0924/TetrisTwins)**： *基于终端的双人竞赛俄罗斯方块小游戏，用 C++17 编写。*
+
+- **[Zetta（开发中）](https://github.com/Cassius0924/Zetta)**： *一个基于Reactor模式高性能网络库，支持TCP、UDP、HTTP协议，整合了Protobuf，用C++20编写。*
 
 - **[Cpp-Style-Guide](https://github.com/NCIST-IoT-Lab/Cpp-Style-Guide)**：*由我编写的个人 C++ 代码风格规范。*
 
