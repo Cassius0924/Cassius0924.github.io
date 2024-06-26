@@ -6,17 +6,15 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="本指南帮助 ARM64 架构的 Jetson Nano 安装 PCL。">
-      
       
         <meta name="author" content="Cassius0924">
       
       
       
-        <link rel="prev" href="../Jetson%20nano%20%E5%AE%89%E8%A3%85%20Jtop%20%E5%92%8C%20Jtop%20%E4%BD%BF%E7%94%A8%E6%8C%87%E5%8D%97/">
+        <link rel="prev" href="../Mermaid%EF%BC%9A%E6%8A%9B%E5%BC%83%E3%80%8C%E7%94%BB%E5%9B%BE%E3%80%8D%EF%BC%8C%E6%8B%A5%E6%8A%B1%E3%80%8C%E7%A0%81%E5%9B%BE%E3%80%8D/">
       
       
-        <link rel="next" href="../Jetson%20nano%E5%AE%89%E8%A3%85Azure%20Kinect%20DK%E6%8C%87%E5%8D%97/">
+        <link rel="next" href="../SSH%20%E8%BF%9C%E7%A8%8B%E8%BF%9E%E6%8E%A5%E5%90%8E%E8%A7%A3%E5%86%B3%20No%20protocol%20specified%20%E6%8C%87%E5%8D%97/">
       
       
       <link rel="icon" href="../assets/images/favicon.png">
@@ -24,7 +22,7 @@
     
     
       
-        <title>Jetson nano 安装 PCL 指南 - Cassius0924's Blog</title>
+        <title>Redis 为什么采用单线程，为什么性能好 - Cassius0924's Blog</title>
       
     
     
@@ -75,7 +73,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#jetson-nano-pcl" class="md-skip">
+        <a href="#redis" class="md-skip">
           跳转至
         </a>
       
@@ -111,7 +109,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Jetson nano 安装 PCL 指南
+              Redis 为什么采用单线程，为什么性能好
             
           </span>
         </div>
@@ -542,29 +540,9 @@
       
   
   
-    
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  <span class="md-ellipsis">
-    Jetson nano 安装 PCL 指南
-  </span>
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../Jetson%20nano%20%E5%AE%89%E8%A3%85%20PCL%20%E6%8C%87%E5%8D%97/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -573,115 +551,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="目录">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      目录
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#_1" class="md-nav__link">
-    安装步骤
-  </a>
-  
-    <nav class="md-nav" aria-label="安装步骤">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
-    第一步：安装依赖
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#eigen" class="md-nav__link">
-    第二步：安装Eigen库
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#pcl" class="md-nav__link">
-    第三步：下载 PCL 源码
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#pcl_1" class="md-nav__link">
-    第四步：编译 PCL 源码
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#pcl_2" class="md-nav__link">
-    第五步：安装 PCL
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#pcl_3" class="md-nav__link">
-    第六步：测试 PCL 安装是否成功
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
-    报错解决
-  </a>
-  
-    <nav class="md-nav" aria-label="报错解决">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#internal-compiler-error-segmentation-fault-program-cc1plus" class="md-nav__link">
-    internal compiler error: Segmentation fault (program cc1plus)
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#namespace-thrust-has-no-member-device_malloc" class="md-nav__link">
-    namespace “thrust” has no member “device_malloc”
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#pax-assembly-aborted-due-to-errors" class="md-nav__link">
-    Pax assembly aborted due to errors
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -880,9 +749,29 @@
       
   
   
+    
   
-    <li class="md-nav__item">
-      <a href="../Redis%20%E4%B8%BA%E4%BB%80%E4%B9%88%E9%87%87%E7%94%A8%E5%8D%95%E7%BA%BF%E7%A8%8B%EF%BC%8C%E4%B8%BA%E4%BB%80%E4%B9%88%E6%80%A7%E8%83%BD%E5%A5%BD/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Redis 为什么采用单线程，为什么性能好
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   <span class="md-ellipsis">
@@ -891,6 +780,74 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#redis_1" class="md-nav__link">
+    Redis 是什么？
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#redis_2" class="md-nav__link">
+    Redis 是不是单线程？
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#redis_3" class="md-nav__link">
+    Redis 为什么采用单线程？
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#redis_4" class="md-nav__link">
+    单线程的 Redis 为什么速度很快？
+  </a>
+  
+    <nav class="md-nav" aria-label="单线程的 Redis 为什么速度很快？">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#redis_5" class="md-nav__link">
+    Redis 机制
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#redis_6" class="md-nav__link">
+    Redis 采用的优化
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -1644,85 +1601,44 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#_1" class="md-nav__link">
-    安装步骤
+  <a href="#redis_1" class="md-nav__link">
+    Redis 是什么？
   </a>
-  
-    <nav class="md-nav" aria-label="安装步骤">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
-    第一步：安装依赖
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#eigen" class="md-nav__link">
-    第二步：安装Eigen库
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#pcl" class="md-nav__link">
-    第三步：下载 PCL 源码
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#pcl_1" class="md-nav__link">
-    第四步：编译 PCL 源码
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#pcl_2" class="md-nav__link">
-    第五步：安装 PCL
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#pcl_3" class="md-nav__link">
-    第六步：测试 PCL 安装是否成功
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
-    报错解决
+  <a href="#redis_2" class="md-nav__link">
+    Redis 是不是单线程？
   </a>
   
-    <nav class="md-nav" aria-label="报错解决">
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#redis_3" class="md-nav__link">
+    Redis 为什么采用单线程？
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#redis_4" class="md-nav__link">
+    单线程的 Redis 为什么速度很快？
+  </a>
+  
+    <nav class="md-nav" aria-label="单线程的 Redis 为什么速度很快？">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#internal-compiler-error-segmentation-fault-program-cc1plus" class="md-nav__link">
-    internal compiler error: Segmentation fault (program cc1plus)
+  <a href="#redis_5" class="md-nav__link">
+    Redis 机制
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#namespace-thrust-has-no-member-device_malloc" class="md-nav__link">
-    namespace “thrust” has no member “device_malloc”
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#pax-assembly-aborted-due-to-errors" class="md-nav__link">
-    Pax assembly aborted due to errors
+  <a href="#redis_6" class="md-nav__link">
+    Redis 采用的优化
   </a>
   
 </li>
@@ -1747,104 +1663,71 @@
                   
 
 
-<h1 id="jetson-nano-pcl">Jetson nano 安装 PCL 指南</h1>
-<p>本指南帮助 ARM64 架构的 Jetson Nano 安装 PCL（点云库）。</p>
-<h2 id="_1">安装步骤</h2>
-<h3 id="_2">第一步：安装依赖</h3>
-<p>在终端中运行以下命令，安装 PCL 所需的依赖：</p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>sudo<span class="w"> </span>apt-get<span class="w"> </span>update
-</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>sudo<span class="w"> </span>apt-get<span class="w"> </span>install<span class="w"> </span>git<span class="w"> </span>build-essential<span class="w"> </span>linux-libc-dev
-</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>sudo<span class="w"> </span>apt-get<span class="w"> </span>install<span class="w"> </span>cmake<span class="w"> </span>cmake-gui
-</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>sudo<span class="w"> </span>apt-get<span class="w"> </span>install<span class="w"> </span>libusb-1.0-0-dev<span class="w"> </span>libusb-dev<span class="w"> </span>libudev-dev
-</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>sudo<span class="w"> </span>apt-get<span class="w"> </span>install<span class="w"> </span>mpi-default-dev<span class="w"> </span>openmpi-bin<span class="w"> </span>openmpi-common
-</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>sudo<span class="w"> </span>apt-get<span class="w"> </span>install<span class="w"> </span>libpcap-dev
-</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>sudo<span class="w"> </span>apt-get<span class="w"> </span>install<span class="w"> </span>libflann1.9<span class="w"> </span>libflann-dev
-</span><span id="__span-0-8"><a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a>sudo<span class="w"> </span>apt-get<span class="w"> </span>install<span class="w"> </span>libeigen3-dev
-</span><span id="__span-0-9"><a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a>sudo<span class="w"> </span>apt-get<span class="w"> </span>install<span class="w"> </span>libboost-all-dev
-</span><span id="__span-0-10"><a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a>sudo<span class="w"> </span>apt-get<span class="w"> </span>install<span class="w"> </span>vtk6<span class="w"> </span>libvtk6.3<span class="w"> </span>libvtk6-dev<span class="w"> </span>libvtk6.3-qt<span class="w"> </span>libvtk6-qt-dev
-</span><span id="__span-0-11"><a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a>sudo<span class="w"> </span>apt-get<span class="w"> </span>install<span class="w"> </span>libqhull-dev<span class="w"> </span>libgtest-dev
-</span><span id="__span-0-12"><a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a>sudo<span class="w"> </span>apt-get<span class="w"> </span>install<span class="w"> </span>freeglut3-dev<span class="w"> </span>pkg-config
-</span><span id="__span-0-13"><a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a>sudo<span class="w"> </span>apt-get<span class="w"> </span>install<span class="w"> </span>libxmu-dev<span class="w"> </span>libxi-dev
-</span><span id="__span-0-14"><a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a>sudo<span class="w"> </span>apt-get<span class="w"> </span>install<span class="w"> </span>mono-complete
-</span><span id="__span-0-15"><a id="__codelineno-0-15" name="__codelineno-0-15" href="#__codelineno-0-15"></a>sudo<span class="w"> </span>apt-get<span class="w"> </span>install<span class="w"> </span>libopenni-dev<span class="w"> </span>libopenni2-dev
-</span><span id="__span-0-16"><a id="__codelineno-0-16" name="__codelineno-0-16" href="#__codelineno-0-16"></a>sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>build-essential<span class="w"> </span>libssl-dev
-</span></code></pre></div>
-<h3 id="eigen">第二步：安装Eigen库</h3>
-<p>先卸载Eigen库</p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>sudo<span class="w"> </span>updatedb
-</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>locate<span class="w"> </span>eigen3
-</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>sudo<span class="w"> </span>rm<span class="w"> </span>-rf<span class="w"> </span>/usr/include/eigen3<span class="w"> </span>/usr/lib/cmake/eigen3<span class="w"> </span>/usr/share/doc/libeigen3-<span class="w"> </span>dev<span class="w"> </span>/usr/share/pkgconfig/eigen3.pc<span class="w"> </span>/var/lib/dpkg/info/libeigen3-dev.list<span class="w"> </span>/var/lib/dpkg/info/libeigen3-dev.md5sums
-</span></code></pre></div>
-<p>安装：</p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>wget<span class="w"> </span>https://gitlab.com/libeigen/eigen/-/archive/3.3.7/eigen-3.3.7.tar.gz
-</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>sudo<span class="w"> </span>tar<span class="w"> </span>-xvf<span class="w"> </span>eigen-3.3.7.tar.gz
-</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="nb">cd</span><span class="w"> </span>eigen-3.3.7
-</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>mkdir<span class="w"> </span>build<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="nb">cd</span><span class="w"> </span>build
-</span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>sudo<span class="w"> </span>cmake<span class="w"> </span>..
-</span><span id="__span-2-6"><a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a>sudo<span class="w"> </span>make<span class="w"> </span>install
-</span><span id="__span-2-7"><a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a>sudo<span class="w"> </span>cp<span class="w"> </span>-r<span class="w"> </span>/usr/local/include/eigen3/Eigen<span class="w"> </span>/usr/local/include
-</span></code></pre></div>
-<h3 id="pcl">第三步：下载 PCL 源码</h3>
-<p>在终端中运行以下命令，下载 PCL 源码：</p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>git<span class="w"> </span>clone<span class="w"> </span>https://github.com/PointCloudLibrary/pcl.git
-</span></code></pre></div>
-<h3 id="pcl_1">第四步：编译 PCL 源码</h3>
-<p>进入 PCL 源码目录，先切换到<code>1.9.1</code>版本：</p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="nb">cd</span><span class="w"> </span>pcl
-</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>git<span class="w"> </span>checkout<span class="w"> </span>pcl-1.9.1
-</span></code></pre></div>
-<p>创建<code>build</code>文件夹：</p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>mkdir<span class="w"> </span>build<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="nb">cd</span><span class="w"> </span>build
-</span></code></pre></div>
-<p>开始编译：</p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>cmake<span class="w"> </span>-DCMAKE_BUILD_TYPE<span class="o">=</span>None<span class="w"> </span><span class="se">\</span>
-</span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>-DCMAKE_INSTALL_PREFIX<span class="o">=</span>/usr/local<span class="w"> </span><span class="se">\</span>
-</span><span id="__span-6-3"><a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a>-DBUILD_GPU<span class="o">=</span>ON<span class="w"> </span><span class="se">\</span>
-</span><span id="__span-6-4"><a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a>-DBUILD_CUDA<span class="o">=</span>ON<span class="w"> </span><span class="se">\</span>
-</span><span id="__span-6-5"><a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a>-DBUILD_apps<span class="o">=</span>ON<span class="w"> </span><span class="se">\</span>
-</span><span id="__span-6-6"><a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a>-DBUILD_examples<span class="o">=</span>ON<span class="w"> </span>..
-</span></code></pre></div>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>make
-</span></code></pre></div>
-<p>编译过程可能需要较长时间，请耐心等待。</p>
-<blockquote>
-<p>Jetson Nano 编译 PCL 真的很慢。</p>
-<p>过程中可能遇到一些错误，解决方法见**报错解决** 。</p>
-</blockquote>
-<h3 id="pcl_2">第五步：安装 PCL</h3>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>sudo<span class="w"> </span>make<span class="w"> </span>install
-</span></code></pre></div>
-<h3 id="pcl_3">第六步：测试 PCL 安装是否成功</h3>
-<p>在终端中运行以下命令，测试 PCL 是否安装成功：</p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="nb">cd</span><span class="w"> </span>../test
-</span><span id="__span-9-2"><a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a>./all_tests
-</span></code></pre></div>
-<p>如果所有测试都通过，说明 PCL 安装成功。</p>
-<h2 id="_3">报错解决</h2>
-<h3 id="internal-compiler-error-segmentation-fault-program-cc1plus">internal compiler error: Segmentation fault (program cc1plus)</h3>
-<p><img alt="Error: Segmentation fault" src="https://s2.loli.net/2023/03/22/b2WsoMnBfXatSzv.png" /></p>
-<p>此错误是 stack size 太小导致的。</p>
-<p>使用<code>ulimit -a</code>查看系统的限制参数。</p>
-<p><img alt="ulimit -a" src="https://s2.loli.net/2023/03/22/pauXTL7FedP4xVS.png" /></p>
-<p>解决方法：增加 stack size 的大小即可。</p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="nb">ulimit</span><span class="w"> </span>-s<span class="w"> </span><span class="m">102400</span>
-</span></code></pre></div>
-<h3 id="namespace-thrust-has-no-member-device_malloc">namespace “thrust” has no member “device_malloc”</h3>
-<blockquote>
-<p>完蛋，报错图片没保存 :( 大家自行脑补。</p>
-</blockquote>
-<p>此错误是<code>point_cloud.h</code>文件缺少头文件导致的。</p>
-<p>解决方法：找到namespace “thrust” has no member “device_malloc”这句话前面的文件，使用<code>vi</code>或<code>vim</code>打开编辑，在顶部添加一句<code>#include &lt;thrust/device_malloc.h&gt;</code>即可。</p>
-<h3 id="pax-assembly-aborted-due-to-errors">Pax assembly aborted due to errors</h3>
-<p><img alt="Ptx assembly aborted due to errors" src="https://s2.loli.net/2023/03/22/zI2W3ykXlJB5wCG.png" /></p>
-<p>此错误是由于PTX ISA版本6.4不支持sm_70及更高版本的目标。需要将CUDA_ARCH_BIN cmake变量限制为低于7.0的架构。</p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a>vim<span class="w"> </span>../CMakeList.txt
-</span></code></pre></div>
-<p>添加上<code>set(CUDA_ARCH_BIN "6.1")</code>即可。</p>
-<p><img alt="CMakeList.txt" src="https://s2.loli.net/2023/03/22/kmswYOlR2MQI3fE.png" /></p>
-<blockquote>
-<p>这个错误在网上找了一圈没找到解决方法，最后还是 New Bing 救了我。</p>
-</blockquote>
+<h1 id="redis">Redis 为什么采用单线程，为什么性能好</h1>
+<p>Redis 采用单线程的原因是因为在 <strong>内存中</strong> 进行读写操作，<strong>CPU不是Redis的性能瓶颈</strong>，而是内存和带宽，所以采用单线程可以避免 <strong>线程切换和锁的开销</strong>。</p>
+<h2 id="redis_1">Redis 是什么？</h2>
+<p>Redis 是一个开源的内存数据库，它可以存储键值对，支持多种数据结构，如字符串（string）、哈希（hash）、列表（list）、集合（set）、有序集合（zset）等。</p>
+<h2 id="redis_2">Redis 是不是单线程？</h2>
+<p>实际上，Redis 是多线程的，其内部有以下几个线程：</p>
+<ul>
+<li>
+<p><code>redis-server</code>：主线程，负责接收客户端的连接，读取请求，发送响应。</p>
+</li>
+<li>
+<p><code>bio-close-file</code>：负责异步关闭大文件。</p>
+</li>
+<li>
+<p><code>bio-aof-fsync</code>：负责将 AOF 文件异步刷到磁盘。</p>
+</li>
+<li>
+<p><code>bio-lasy-free</code>：负责异步释放大内存。</p>
+</li>
+<li>
+<p><code>jemalloc-bg-thread</code>：负责内存碎片整理。</p>
+</li>
+<li>
+<p><code>io-thread</code>：IO 线程，负责 read/write，decode/encode。</p>
+</li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p><strong>AOF（Append Only File）</strong> 是 Redis 的一种持久化方式，将所有写操作追加到文件末尾，重启时重新执行 AOF 文件中的命令即可恢复数据。实时硬盘操作，不会丢失数据，但是会影响性能。</p>
+<p>除了 AOF，Redis 还有一种持久化方式是 <strong>RDB（Redis DataBase）</strong> ，它是将内存中的数据快照保存到磁盘上。非实时硬盘操作，可能会丢失数据，但是性能更好。</p>
+</div>
+<h2 id="redis_3">Redis 为什么采用单线程？</h2>
+<ul>
+<li>
+<p>Redis 不是 CPU 密集型应用，CPU 不是 Redis 的性能瓶颈。</p>
+</li>
+<li>
+<p>如果采用多线程，会导致加锁解锁的开销大，CPU 上下文切换开销大。数据库请求量变化大，一会有请求，一会无请求，多线程会在运行和阻塞状态来回切换。</p>
+</li>
+</ul>
+<h2 id="redis_4">单线程的 Redis 为什么速度很快？</h2>
+<h3 id="redis_5">Redis 机制</h3>
+<ul>
+<li>
+<p>内存数据库：Redis 是一个内存数据库，内存的读写速度相比于磁盘的读写速度要快很多。</p>
+</li>
+<li>
+<p>数据结构高效：Redis 使用了很多高效的数据结构，如哈希表、跳表等。</p>
+</li>
+<li>
+<p>使用了 Reactor 模型：Redis 使用了 Reactor 模型，采用了 IO 多路复用技术，可以处理多个客户端请求。采用的是非阻塞 IO，不会因为一个 IO 阻塞导致其他任务无法执行。</p>
+</li>
+</ul>
+<h3 id="redis_6">Redis 采用的优化</h3>
+<ul>
+<li>
+<p>耗时的操作，另起线程：如 AOF 文件的刷盘操作，Redis 会另起线程异步执行。</p>
+</li>
+<li>
+<p>拆分大任务：例如 Dict 的扩容（rehash）操作，Redis 会将其拆分为多个小任务，分批执行。</p>
+</li>
+<li>
+<p>不同的对象类型选择不同的数据结构：根据节点数量，Redis 会选择不同的数据结构，以取得空间和时间上的平衡。</p>
+</li>
+</ul>
 
 
 

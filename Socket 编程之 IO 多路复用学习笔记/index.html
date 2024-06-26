@@ -751,6 +751,25 @@
   
   
     <li class="md-nav__item">
+      <a href="../Redis%20%E4%B8%BA%E4%BB%80%E4%B9%88%E9%87%87%E7%94%A8%E5%8D%95%E7%BA%BF%E7%A8%8B%EF%BC%8C%E4%B8%BA%E4%BB%80%E4%B9%88%E6%80%A7%E8%83%BD%E5%A5%BD/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Redis 为什么采用单线程，为什么性能好
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../SSH%20%E8%BF%9C%E7%A8%8B%E8%BF%9E%E6%8E%A5%E5%90%8E%E8%A7%A3%E5%86%B3%20No%20protocol%20specified%20%E6%8C%87%E5%8D%97/" class="md-nav__link">
         
   
@@ -1803,7 +1822,6 @@
 <p>由于 Scoket 默认是阻塞 IO，所以很多初学者在处理多个连接时，会为每个连接创建一个线程来处理，但这样做会引起 CPU 的上下文切换，降低系统的性能。</p>
 <p>有一种更“优雅”的方式，那就是 IO 多路复用，也称为事件驱动模型（Event-driven IO）。IO 多路复用是指内核一旦发现进程指定的一个或者多个 IO 事件已经就绪，就通知该进程。IO 多路复用模型中，只需要一个线程就可以同时处理多个连接。</p>
 <p>通俗易懂的说，IO 多路复用就是将多个 IO 事件交给内核，内核帮我们监听这些 IO 事件，当有 IO 事件就绪时，内核会通知我们，我们只需要处理就绪的 IO 事件即可。</p>
-<p>阻塞 IO、非阻塞 IO 和 IO 多路复用都属于同步 IO 模型。</p>
 <h2 id="io_2">IO 多路复用的优点</h2>
 <ul>
 <li>
