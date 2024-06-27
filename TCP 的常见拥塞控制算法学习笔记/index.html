@@ -11,10 +11,10 @@
       
       
       
-        <link rel="prev" href="../Linux%20Boost.Python3%20%E5%AE%89%E8%A3%85%E4%BB%A5%E5%8F%8A%20CMake%20%E9%85%8D%E7%BD%AE%E6%8C%87%E5%8D%97/">
+        <link rel="prev" href="../Socket%20%E7%BC%96%E7%A8%8B%E4%B9%8B%20IO%20%E5%A4%9A%E8%B7%AF%E5%A4%8D%E7%94%A8%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">
       
       
-        <link rel="next" href="../Linux%20%E5%88%9D%E6%8E%A2%E4%B9%8B%E6%97%85%EF%BC%88%E4%BA%8C%EF%BC%89%E2%80%94%E2%80%94%E6%96%87%E4%BB%B6%E4%B8%8E%E6%96%87%E4%BB%B6%E5%A4%B9%E7%9A%84%E8%AF%BB%E5%86%99/">
+        <link rel="next" href="../Ubuntu%20Neovim%20%E5%AE%89%E8%A3%85%E5%92%8C%E9%85%8D%E7%BD%AE%E6%8C%87%E5%8D%97/">
       
       
       <link rel="icon" href="../assets/images/favicon.png">
@@ -22,7 +22,7 @@
     
     
       
-        <title>Linux 初探之旅（三）——重定向、标准输入输出和管道 - Cassius0924's Blog</title>
+        <title>TCP 的常见拥塞控制算法学习笔记 - Cassius0924's Blog</title>
       
     
     
@@ -73,7 +73,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#linux" class="md-skip">
+        <a href="#tcp" class="md-skip">
           跳转至
         </a>
       
@@ -109,7 +109,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Linux 初探之旅（三）——重定向、标准输入输出和管道
+              TCP 的常见拥塞控制算法学习笔记
             
           </span>
         </div>
@@ -635,29 +635,9 @@
       
   
   
-    
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  <span class="md-ellipsis">
-    Linux 初探之旅（三）——重定向、标准输入输出和管道
-  </span>
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../Linux%20%E5%88%9D%E6%8E%A2%E4%B9%8B%E6%97%85%EF%BC%88%E4%B8%89%EF%BC%89%E2%80%94%E2%80%94%E9%87%8D%E5%AE%9A%E5%90%91%E3%80%81%E6%A0%87%E5%87%86%E8%BE%93%E5%85%A5%E8%BE%93%E5%87%BA%E5%92%8C%E7%AE%A1%E9%81%93/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -666,54 +646,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="目录">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      目录
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#_1" class="md-nav__link">
-    标准输入输出
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
-    输出重定向
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
-    输入重定向
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_4" class="md-nav__link">
-    管道
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -893,9 +825,29 @@
       
   
   
+    
   
-    <li class="md-nav__item">
-      <a href="../TCP%20%E7%9A%84%E5%B8%B8%E8%A7%81%E6%8B%A5%E5%A1%9E%E6%8E%A7%E5%88%B6%E7%AE%97%E6%B3%95%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    TCP 的常见拥塞控制算法学习笔记
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   <span class="md-ellipsis">
@@ -904,6 +856,82 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#tahoe" class="md-nav__link">
+    Tahoe
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#reno" class="md-nav__link">
+    Reno
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#newreno" class="md-nav__link">
+    NewReno
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sack" class="md-nav__link">
+    SACK
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#bic" class="md-nav__link">
+    BIC
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cubic" class="md-nav__link">
+    CUBIC
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#bbr" class="md-nav__link">
+    BBR
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    参考
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -1619,29 +1647,57 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#tahoe" class="md-nav__link">
+    Tahoe
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#reno" class="md-nav__link">
+    Reno
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#newreno" class="md-nav__link">
+    NewReno
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sack" class="md-nav__link">
+    SACK
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#bic" class="md-nav__link">
+    BIC
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cubic" class="md-nav__link">
+    CUBIC
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#bbr" class="md-nav__link">
+    BBR
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#_1" class="md-nav__link">
-    标准输入输出
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
-    输出重定向
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
-    输入重定向
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_4" class="md-nav__link">
-    管道
+    参考
   </a>
   
 </li>
@@ -1661,49 +1717,82 @@
                   
 
 
-<h1 id="linux">Linux 初探之旅（三）——重定向、标准输入输出和管道</h1>
-<h2 id="_1">标准输入输出</h2>
-<p>我们先从Linux最基础的交互来讲起，我们究竟是如何和Linux系统内核进行交互的？换句话说，如何通过在按下键盘，就能让系统实现对应的操作的？</p>
-<p>这一切都离不开它，终端——用户与Linux建立起联系的桥梁。</p>
-<p>当我们在终端上输入命令的时候，直到我们未按下回车键之前，我们输入的所有内容都储存在终端的缓冲区（Buffer）里。此时我们输入的内容不会被系统所读到，只有在我们按下回车键后，缓冲区里的内容才会被发往 stdin （Standrad input 标准输入），stdin 是 Linux 内核和用户交互的通道。</p>
-<p>接着，Shell 会介入，它会将 stdin 收到的内容翻译成操作并执行，Shell 译为壳层，与 Kernel（内核）相对应。Shell在外，Kernel在内。例如我们输入<code>ls</code>，那么 Shell 就会找到 <code>ls</code> 这条命令对应的二进制文件并执行。</p>
-<p>执行完命令后，Shell 会将获取到的结果发送到另一条与 stdin 相对应的通道中，即 stdout（Standard output 标准输出）。终端会不间断地从 stdout 里读取内容，然后打印到屏幕上，即我们在终端中看到的输出。</p>
-<p>总的来说，用户的输入的内容会发往 stdin 并被 Shell 读取，Shell 将找到内容所对应的二进制文件并执行，执行完后 Shell 会将结果发往 stdout 中，及时的显示在屏幕上。这就是一次与 Linux 交互的过程。 </p>
-<p>我们总说，在 Linux 中一切皆为文件，那么 stdin 和 stdout 也不例外，它们也是系统的两个文件。除了 stdin 和 stdout 之外，还有第三条通道 stderr（Standard error 标准错误）。stderr 和 stdout 一样，它们都是用于存储执行结果的地方，区别在于，Shell 执行完命令后，会将正常的结果发往 stdout 里，将错误的结果发往 stderr 里。同样地，stderr 也会被终端所读取，最后显示在屏幕上。</p>
-<h2 id="_2">输出重定向</h2>
-<p>理解了标准输入输出后，我们能弄懂重定向的原理了，实际上就是 Shell 执行完命令后不把输出结果存放在 stdout 或 stderr 。而是存放到另一个文件当中。</p>
-<p>下面说一下重定向的简单用法，即在命令后面加箭头（&gt;）：</p>
-<div class="language-shell highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;Hello World&quot;</span><span class="w"> </span>&gt;<span class="w"> </span>test.txt<span class="w">   </span><span class="c1">#将 Hello World 覆盖式写入 test.txt 文件中</span>
-</span></code></pre></div>
-<p>重定向还有支持更高阶的操作，比如我们可以分别指定标准输出和标准错误的输出位置。</p>
-<p>在重定向的时候，<code>1</code>代表的就是 stdin，<code>2</code>代表的就是 stderr。例如：</p>
-<div class="language-shell highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>cmd<span class="w"> </span><span class="m">1</span>&gt;outfile.txt<span class="w"> </span><span class="m">2</span>&gt;errfile.txt<span class="w">     </span><span class="c1">#cmd 为你想执行的命令</span>
-</span></code></pre></div>
-<p>我们还可以将一条通道重定向到另一条通道中：</p>
-<div class="language-shell highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>cmd<span class="w"> </span><span class="m">2</span>&gt;<span class="p">&amp;</span><span class="m">1</span><span class="w">        </span><span class="c1">#将标准错误重定向到标准输出中</span>
-</span></code></pre></div>
-<p>当箭头后方是一条输出通道的时候，需要加上 &amp; 符号，表示指定的是 1 号通道，而不是一个名为“1”的文件。</p>
-<p>将标准错误和标准输出都存放到一个文件内：</p>
-<div class="language-shell highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>cmd<span class="w"> </span><span class="m">1</span>&gt;outfile.txt<span class="w"> </span><span class="m">2</span>&gt;<span class="p">&amp;</span><span class="m">1</span>
-</span></code></pre></div>
-<p>注意这里的顺序，<code>2&gt;&amp;1</code>必须在后面，因为重定向并不是简单的将两个通道相连接，而是当箭头右侧为一条输出通道时，重定向会将箭头左侧的内容直接连接右侧通道的输出端。</p>
-<p>另外，我们可以把不希望输出的内容重定向到<code>/dev/null</code>中，这个文件相当于 Linux 的垃圾桶（黑洞）。</p>
-<h2 id="_3">输入重定向</h2>
-<p>将箭头反过来（&lt;）就表示输入重定向了。这里用 Linux 中十分常用的一条命令<code>grep</code>作为例子，<code>grep</code>的作用是在给定内容中寻找目标字符串所在的一行。</p>
-<div class="language-shell highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>grep<span class="w"> </span><span class="s2">&quot;int main&quot;</span><span class="w"> </span>&lt;<span class="w"> </span>Hello.cpp
-</span></code></pre></div>
-<h2 id="_4">管道</h2>
-<p>实际上<code>grep</code>命令经与管道（pipe）一起用，管道符号为<code>|</code>，其作用也很简单，就是将管道左侧命令的标准输出与管道右侧命令的标准输入相连接。</p>
-<p>例如上面的<code>grep</code>命令的例子也能用管道实现：</p>
-<div class="language-shell highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>cat<span class="w"> </span>Hello.cpp<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span><span class="s2">&quot;int main&quot;</span>
-</span></code></pre></div>
-<p>下面再举几个<code>|</code>的例子：</p>
-<p>与<code>ifconfig</code>命令配合使用，查询局域网 ipv4 地址：</p>
-<div class="language-shell highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>ifconfig<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span><span class="m">192</span>.168
-</span></code></pre></div>
-<p>与<code>ps</code>命令配合使用，查询后台程序是否正在运行：
-<div class="language-text highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>ps aux | grep chrome
-</span></code></pre></div></p>
+<h1 id="tcp">TCP 的常见拥塞控制算法学习笔记</h1>
+<p>TCP 的拥塞控制算法有几种：</p>
+<ul>
+<li>
+<p>Tahoe</p>
+</li>
+<li>
+<p>Reno</p>
+</li>
+<li>
+<p>NewReno</p>
+</li>
+<li>
+<p>SACK</p>
+</li>
+<li>
+<p>BIC</p>
+</li>
+<li>
+<p>CUBIC</p>
+</li>
+<li>
+<p>BBR</p>
+</li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>MSS: Maximum Segment Size，最大分段大小。</p>
+<p>cwnd: Congestion Window，拥塞窗口，单位为 MSS。</p>
+<p>ssthresh: Slow Start Threshold，慢启动阈值，单位为 MSS。</p>
+<p>RTO: Retransmission TimeOut，重传超时时间。</p>
+</div>
+<h2 id="tahoe">Tahoe</h2>
+<p>Tahoe 只有两种状态：慢启动和拥塞避免。</p>
+<p><img alt="Tahoe" src="https://s2.loli.net/2024/06/27/oDsi6fncYx9Vadu.png" /></p>
+<p>慢启动阶段：<code>cwnd = 1; ssthresh = 65535;</code>。</p>
+<p>每次收到一个 ACK，<code>cwnd = cwnd + 1;</code>，所以一个 RTT 内 <code>cwnd</code> 会翻倍，<code>cwnd</code> 呈指数增长。</p>
+<p>拥塞避免阶段：<code>cwnd = cwnd + 1;</code>。</p>
+<p>每次收到一个 ACK，<code>cwnd = cwnd + 1 / cwnd;</code>，所以每个 RTT 内 <code>cwnd</code> 只会增加 1，<code>cwnd</code> 呈线性增长。</p>
+<p>触发事件：RTO 超时 或 3 个冗余 ACK。</p>
+<p>进入慢启动状态，<code>cwnd = 1; ssthresh = cwnd / 2;</code>。</p>
+<p>Tahoe 算法还有一个快速重传机制，当收到 3 个冗余 ACK 时，立即重传丢失的数据包。但无论是重传还是超时，都会将 <code>ssthresh</code> 设置为 <code>cwnd / 2</code>，并将 <code>cwnd</code> 设置为 1。反应很激烈，所以效率不高。</p>
+<p><img alt="Tahoe" src="https://s2.loli.net/2024/06/27/MgunrEARJC9mkcf.png" /></p>
+<h2 id="reno">Reno</h2>
+<p>Reno 在 Tahoe 的基础上增加了快速恢复机制。</p>
+<p><img alt="Reno" src="https://s2.loli.net/2024/06/27/kEyoLCBlq3HmzKx.jpg" /></p>
+<p>触发事件：3 个冗余 ACK。</p>
+<p>进入快速恢复状态，<code>ssthresh = cwnd / 2; cwnd = ssthresh + 3;</code>。</p>
+<p>在快速恢复状态下，每收到一个冗余 ACK，<code>cwnd = cwnd + 1</code>，直到收到新的 ACK，证明原来丢失的数据包已经被接收，回到拥塞避免状态，并且将 <code>cwnd</code> 设置为 <code>ssthresh</code>。</p>
+<p>触发事件：RTO 超时。</p>
+<p>和 Tahoe 一样，Reno 在 RTO 超时时，会将 <code>ssthresh</code> 设置为 <code>cwnd / 2</code>，并将 <code>cwnd</code> 设置为 1。</p>
+<p>相较于 Tahoe，Reno 在收到 3 个冗余 ACK 时，不会将 <code>cwnd</code> 设置为 1，而是设置为 <code>ssthresh + 3</code>，这样可以更快地恢复拥塞窗口。</p>
+<h2 id="newreno">NewReno</h2>
+<p>NewReno 在 Reno 的基础上优化了快速恢复机制。在网络中只有一个丢包时，NewReno 算法和 Reno 算法的表现是一样的。但在网络中有多个丢包时，NewReno 算法可以更快地恢复拥塞窗口。 </p>
+<p><code>PACK</code>：Partial ACK，部分 ACK。</p>
+<p><code>RACK</code>：Recovery ACK，恢复 ACK。</p>
+<h2 id="sack">SACK</h2>
+<p>SACK：Selective Acknowledgment，选择性确认。</p>
+<p>SACK 是一种可选的 TCP 选项，可以在 TCP 连接建立时协商是否使用 SACK。旨在解决 NewReno 一次 RTT 只能恢复一个丢包的问题。</p>
+<p>SACK 在 Reno 的基础上增加了选择确认机制和选择重传机制。</p>
+<p>通过 <code>left_edge</code> 和 <code>right_edge</code> 来标记已经接收到的数据包，当收到冗余 ACK 时，可以根据 SACK 选项来选择重传哪些数据包。</p>
+<h2 id="bic">BIC</h2>
+<p>BIC 是一种新的拥塞控制算法，可以更好地适应高速网络。简单来说是使用了二分搜索来寻找最佳拥塞窗口。</p>
+<h2 id="cubic">CUBIC</h2>
+<p>优化后的 BIC 算法。</p>
+<h2 id="bbr">BBR</h2>
+<p>BBR 是谷歌开发的一种拥塞控制算法，可以更好地适应高速网络和高延迟网络。它不再是基于丢包的拥塞控制算法，而是基于带宽和延迟的拥塞控制算法。</p>
+<h2 id="_1">参考</h2>
+<ul>
+<li>
+<p><a href="https://blog.csdn.net/m0_38068229/article/details/80417503">TCP拥塞控制算法之NewReno和SACK</a>（文章）</p>
+</li>
+<li>
+<p><a href="https://blog.csdn.net/weixin_45662974/article/details/122400338">拥塞控制算法（从Tahoe到PCC Vivace）</a>（文章）</p>
+</li>
+</ul>
 
 
 
