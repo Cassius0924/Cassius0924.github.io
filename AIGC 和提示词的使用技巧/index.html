@@ -6,17 +6,15 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="这是一个简单教程，旨在帮助大家实现免密SSH登录，省去每次输入用户名和密码的烦恼。">
-      
       
         <meta name="author" content="Cassius0924">
       
       
       
-        <link rel="prev" href="../Jetson%20nano%20%E5%AE%89%E8%A3%85%20PCL%20%E6%8C%87%E5%8D%97/">
+        <link rel="prev" href="..">
       
       
-        <link rel="next" href="../Kinect%20%E8%8E%B7%E5%8F%96%E6%95%B0%E6%8D%AE%E5%92%8C%E5%8F%AF%E8%A7%86%E5%8C%96/">
+        <link rel="next" href="../C%23%20Protobuf%20%E6%8E%A5%E6%94%B6%E6%95%B0%E6%8D%AE%E5%B9%B6%E8%A7%A3%E6%9E%90%E6%95%B0%E6%8D%AE/">
       
       
       <link rel="icon" href="../assets/images/favicon.png">
@@ -24,7 +22,7 @@
     
     
       
-        <title>Jetson nano 安装 Azure Kinect DK 指南 - Cassius0924's Blog</title>
+        <title>AIGC 和提示词的使用技巧 - Cassius0924's Blog</title>
       
     
     
@@ -75,7 +73,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#jetson-nano-azure-kinect-dk" class="md-skip">
+        <a href="#aigc" class="md-skip">
           跳转至
         </a>
       
@@ -111,7 +109,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Jetson nano 安装 Azure Kinect DK 指南
+              AIGC 和提示词的使用技巧
             
           </span>
         </div>
@@ -219,9 +217,29 @@
       
   
   
+    
   
-    <li class="md-nav__item">
-      <a href="../AIGC%20%E5%92%8C%E6%8F%90%E7%A4%BA%E8%AF%8D%E7%9A%84%E4%BD%BF%E7%94%A8%E6%8A%80%E5%B7%A7/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    AIGC 和提示词的使用技巧
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   <span class="md-ellipsis">
@@ -230,6 +248,54 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#alert-area" class="md-nav__link">
+    Alert Area
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    有效提示词
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    角色扮演
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    文章撰写
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -656,29 +722,9 @@
       
   
   
-    
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  <span class="md-ellipsis">
-    Jetson nano 安装 Azure Kinect DK 指南
-  </span>
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../Jetson%20nano%E5%AE%89%E8%A3%85Azure%20Kinect%20DK%E6%8C%87%E5%8D%97/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -687,81 +733,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="目录">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      目录
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#_1" class="md-nav__link">
-    前提
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
-    安装步骤
-  </a>
-  
-    <nav class="md-nav" aria-label="安装步骤">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
-    第一步：配置微软软件包储存库
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_4" class="md-nav__link">
-    第二步：安装依赖项
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#k4a-tools" class="md-nav__link">
-    第三步：安装 k4a-tools
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#azure-kinect" class="md-nav__link">
-    第四步：插上 Azure Kinect 设备
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#k4a_viewer" class="md-nav__link">
-    第五步：运行 k4a_viewer
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -1724,57 +1695,30 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#alert-area" class="md-nav__link">
+    Alert Area
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#_1" class="md-nav__link">
-    前提
+    有效提示词
   </a>
   
 </li>
       
         <li class="md-nav__item">
   <a href="#_2" class="md-nav__link">
-    安装步骤
+    角色扮演
   </a>
   
-    <nav class="md-nav" aria-label="安装步骤">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
+</li>
+      
+        <li class="md-nav__item">
   <a href="#_3" class="md-nav__link">
-    第一步：配置微软软件包储存库
+    文章撰写
   </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_4" class="md-nav__link">
-    第二步：安装依赖项
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#k4a-tools" class="md-nav__link">
-    第三步：安装 k4a-tools
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#azure-kinect" class="md-nav__link">
-    第四步：插上 Azure Kinect 设备
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#k4a_viewer" class="md-nav__link">
-    第五步：运行 k4a_viewer
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
@@ -1793,70 +1737,221 @@
                   
 
 
-<h1 id="jetson-nano-azure-kinect-dk">Jetson nano 安装 Azure Kinect DK 指南</h1>
-<p><img alt="Azure Kinect" src="https://s2.loli.net/2023/03/24/IwUxHR56CdVWjOZ.jpg" /></p>
-<p>该项目提供了一个简单的指南，帮助用户在 NVIDIA Jetson Nano 上正确安装 Azure Kinect DK。</p>
-<p>Jetson nano是ARM64架构，而非AMD64架构。所以环境配置起来会和AMD64架构的有所不同。</p>
-<h2 id="_1">前提</h2>
-<p>在开始安装 Azure Kinect DK 之前，请确保您的 Jetson Nano 满足以下要求：</p>
-<ul>
-<li>版本为Ubuntu 18.04 LTS</li>
-<li>已安装cURL</li>
-</ul>
+<h1 id="aigc">AIGC 和提示词的使用技巧</h1>
+<p>所谓 AIGC，即人工智能生成内容（Artifical Intelligence Generated Content）的缩写，是指利用 AI 来生成文本、影像、音频等各种内容的方式。</p>
+<p>提示词（prompt）是 AIGC 中的一个重要的概念。提示词是伴随着输入一起，给予 AI 的一种上下文，它告诉并指导 AI 接下来应该要做什么任务，是对 AI 的一个提示。 好的提示词能使 AI 变的更 “聪明”，能够帮助 AI 更好的理解任务，生成更加准确、多样化的内容。</p>
+<h2 id="alert-area">Alert Area</h2>
 <blockquote>
-<p>不再费文笔说明如何安装上述工具。</p>
+<p><strong>Note:</strong></p>
+<p>Here is a note</p>
 </blockquote>
-<h2 id="_2">安装步骤</h2>
-<h3 id="_3">第一步：配置微软软件包储存库</h3>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This is a note</p>
+</div>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>adf</p>
+</div>
 <blockquote>
-<p>系统版本必须为Ubuntu 18.04，其他版本参考<a href="https://learn.microsoft.com/zh-cn/windows-server/administration/linux-package-repository-for-microsoft-software">Microsoft 产品的 Linux 软件存储库</a>。</p>
+<p>![[jjjjkkTIP]</p>
+<p>更多命令使用 <code>/help</code> 命令查看。</p>
 </blockquote>
-<p>依次运行下列命令：</p>
-<ul>
-<li>添加微软GPG公钥：</li>
-</ul>
-<div class="language-shell highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>curl<span class="w"> </span>-sSL<span class="w"> </span>https://packages.microsoft.com/keys/microsoft.asc<span class="w"> </span><span class="p">|</span><span class="w"> </span>sudo<span class="w"> </span>apt-key<span class="w"> </span>add<span class="w"> </span>-
-</span></code></pre></div>
-<ul>
-<li>
-<p>添加微软软件包源：</p>
-<div class="language-shell highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>sudo<span class="w"> </span>apt-add-repository<span class="w"> </span>https://packages.microsoft.com/ubuntu/18.04/prod
-</span></code></pre></div>
-</li>
-<li>
-<p>下载最新软件包列表：
-    <div class="language-shell highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>sudo<span class="w"> </span>apt-get<span class="w"> </span>update
-</span></code></pre></div></p>
+<ul class="task-list">
+<li class="task-list-item">
+<p><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> GitHub 仓库 WebHook</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>需要在</p>
+</div>
 </li>
 </ul>
-<h3 id="_4">第二步：安装依赖项</h3>
-<blockquote>
-<p>依赖项需要手动安装ARM64版本的。</p>
-</blockquote>
+<p>This is a list that contain child elements under a bullet item.</p>
+<ul>
+<li>First bullet item</li>
+</ul>
+<p>Sentence explaining the first bullet.</p>
 <ul>
 <li>
-<p>安装libk4a</p>
-<div class="language-shell highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>curl<span class="w"> </span>-O<span class="w"> </span>https://packages.microsoft.com/ubuntu/18.04/multiarch/prod/pool/main/libk/libk4a1.4/libk4a1.4_1.4.1_arm64.deb<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>sudo<span class="w"> </span>dpkg<span class="w"> </span>-i<span class="w"> </span>libk4a1.4_1.4.1_arm64.deb
-</span></code></pre></div>
+<p>Child bullet item</p>
+<p>Sentence explaining the child bullet.</p>
 </li>
 <li>
-<p>安装libk4a-dev</p>
+<p>Second bullet item</p>
+</li>
+<li>
+<p>Third bullet item</p>
+</li>
+<li>
+<p>For the first element, insert a single space after the 1. Long sentences should be wrapped to the
+   next line and must line up with the first character after the numbered list marker.</p>
 </li>
 </ul>
-<div class="language-shell highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>curl<span class="w"> </span>-O<span class="w"> </span>https://packages.microsoft.com/ubuntu/18.04/multiarch/prod/pool/main/libk/libk4a1.4-dev/libk4a1.4-dev_1.4.1_arm64.deb<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>sudo<span class="w"> </span>dpkg<span class="w"> </span>-i<span class="w"> </span>libk4a1.4-dev_1.4.1_arm64.deb
-</span></code></pre></div>
-<h3 id="k4a-tools">第三步：安装 k4a-tools</h3>
-<blockquote>
-<p>k4a-tools也需要手动安装ARM64版本的。</p>
-</blockquote>
-<div class="language-shell highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>curl<span class="w"> </span>-O<span class="w"> </span>https://packages.microsoft.com/ubuntu/18.04/multiarch/prod/pool/main/k/k4a-tools/k4a-tools_1.4.1_arm64.deb<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>sudo<span class="w"> </span>dpkg<span class="w"> </span>-i<span class="w"> </span>k4a-tools_1.4.1_arm64.deb
-</span></code></pre></div>
-<h3 id="azure-kinect">第四步：插上 Azure Kinect 设备</h3>
-<p>将 Azure Kinect 插到 Jetson nano 上，注意必须使用支持 USB3.0 的数据线并插到 USB 3.0 的接口上，否则程序会报错。</p>
-<h3 id="k4a_viewer">第五步：运行 k4a_viewer</h3>
-<p>必须使用<code>sudo</code>运行，否则程序找不到设备。</p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>sudo<span class="w"> </span>k4aviewer
-</span></code></pre></div>
+<p>To include a second element, insert a line break after the first and align indentations. The
+   indentation of the second element must line up with the first character after the numbered list
+   marker.</p>
+<ol>
+<li>The next numbered item starts here.</li>
+</ol>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Information the user should notice even if skimming.</p>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>Optional information to help a user be more successful.</p>
+</div>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>Essential information required for user success.</p>
+</div>
+<div class="admonition danger">
+<p class="admonition-title">Caution</p>
+<p>Negative potential consequences of an action.</p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Dangerous certain consequences of an action. </p>
+</div>
+<p>By default, if you don't specify this parameter, the DMTF standard resource URI
+<code>http://schemas.dmtf.org/wbem/wscim/1/cim-schema/2/</code> is used and the class name is appended to it.</p>
+<h2 id="_1">有效提示词</h2>
+<table>
+<thead>
+<tr>
+<th>提示词</th>
+<th>作用</th>
+<th>备注</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>假设你是一位 ...</td>
+<td></td>
+<td>详细参考<a href="#角色扮演">角色扮演</a>。</td>
+</tr>
+<tr>
+<td>请一步一步分析</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>回答前请冷静分析</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>以表格的形式总结</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>意思不变的前提下改写上面的内容</td>
+<td>润色，降重</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2 id="_2">角色扮演</h2>
+<table>
+<thead>
+<tr>
+<th>Prompt</th>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2 id="_3">文章撰写</h2>
+<p>针对"你的文章题目"的题目，给我拟定一份本科毕业论文。</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
 
 
 
