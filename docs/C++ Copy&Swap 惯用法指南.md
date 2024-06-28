@@ -131,7 +131,7 @@ public:
         swap(a._vec, b._vec);
     }
 
-    BetterAClass(BetterAClass &a) : _count(a._count), _str(a._str), _vec(a._vec) {
+    BetterAClass(const BetterAClass &a) : _count(a._count), _str(a._str), _vec(a._vec) {
         std::cout << "Copy constructor called\n";
     }
 
