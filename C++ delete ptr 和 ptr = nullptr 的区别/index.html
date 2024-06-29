@@ -6,17 +6,15 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="此文章旨在帮助解决C++版Open3D编译时找不到AzureKinect相关函数的问题。">
-      
       
         <meta name="author" content="Cassius0924">
       
       
       
-        <link rel="prev" href="../%E6%90%AD%E5%BB%BA%E8%87%AA%E5%8A%A8%E5%8C%96%E9%83%A8%E7%BD%B2%E7%9A%84%20GitHub.io%20%E4%B8%AA%E4%BA%BA%E9%9D%99%E6%80%81%E5%8D%9A%E5%AE%A2%E6%8C%87%E5%8D%97/">
+        <link rel="prev" href="../C%2B%2B%20STL%20%E5%B8%B8%E7%94%A8%E5%AE%B9%E5%99%A8%E5%92%8C%E8%BF%AD%E4%BB%A3%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">
       
       
-        <link rel="next" href="../%E6%B5%85%E6%9E%90%20SSH%20%E5%85%8D%E5%AF%86%E7%99%BB%E5%BD%95%E5%8E%9F%E7%90%86/">
+        <link rel="next" href="../C%2B%2B%20%E4%B8%AD%E4%BD%8D%E8%BF%90%E7%AE%97%E7%9A%84%E5%A6%99%E7%94%A8%EF%BC%9A%E4%B8%8E%E8%BF%90%E7%AE%97%E5%92%8C%E6%88%96%E8%BF%90%E7%AE%97%E7%9A%84%E5%90%88%E5%B9%B6%E6%A0%87%E5%BF%97%E4%BD%8D/">
       
       
       <link rel="icon" href="../assets/images/favicon.png">
@@ -24,7 +22,7 @@
     
     
       
-        <title>构建 Open3D 官方 Azure Kinect 示例时找不到 AzureKinect*** 的解决方法 - Cassius0924's Blog</title>
+        <title>C++ delete ptr 和 ptr = nullptr 的区别 - Cassius0924's Blog</title>
       
     
     
@@ -75,7 +73,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#open3d-azure-kinect-azurekinect" class="md-skip">
+        <a href="#c-delete-ptr-ptr-nullptr" class="md-skip">
           跳转至
         </a>
       
@@ -111,7 +109,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              构建 Open3D 官方 Azure Kinect 示例时找不到 AzureKinect*** 的解决方法
+              C++ delete ptr 和 ptr = nullptr 的区别
             
           </span>
         </div>
@@ -295,9 +293,29 @@
       
   
   
+    
   
-    <li class="md-nav__item">
-      <a href="../C%2B%2B%20delete%20ptr%20%E5%92%8C%20ptr%20%3D%20nullptr%20%E7%9A%84%E5%8C%BA%E5%88%AB/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    C++ delete ptr 和 ptr = nullptr 的区别
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   <span class="md-ellipsis">
@@ -306,6 +324,47 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#delete-ptr" class="md-nav__link">
+    delete ptr
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ptr-nullptr" class="md-nav__link">
+    ptr = nullptr
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#unique_ptr" class="md-nav__link">
+    试着实现一个 unique_ptr
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -1549,29 +1608,9 @@
       
   
   
-    
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  <span class="md-ellipsis">
-    构建 Open3D 官方 Azure Kinect 示例时找不到 AzureKinect*** 的解决方法
-  </span>
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../%E6%9E%84%E5%BB%BA%20Open3D%20%E5%AE%98%E6%96%B9%20Azure%20Kinect%20%E7%A4%BA%E4%BE%8B%E6%97%B6%E6%89%BE%E4%B8%8D%E5%88%B0%20AzureKinect%2A%2A%2A%20%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1580,40 +1619,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="目录">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      目录
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#_1" class="md-nav__link">
-    问题描述
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
-    解决方法
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -1740,15 +1745,22 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#_1" class="md-nav__link">
-    问题描述
+  <a href="#delete-ptr" class="md-nav__link">
+    delete ptr
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
-    解决方法
+  <a href="#ptr-nullptr" class="md-nav__link">
+    ptr = nullptr
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#unique_ptr" class="md-nav__link">
+    试着实现一个 unique_ptr
   </a>
   
 </li>
@@ -1768,40 +1780,78 @@
                   
 
 
-<h1 id="open3d-azure-kinect-azurekinect">构建 Open3D 官方 Azure Kinect 示例时找不到 AzureKinect*** 的解决方法</h1>
-<p><img alt="Azure Kinect with Open3D" src="https://s2.loli.net/2023/04/08/Urlin4NQLEc3kyV.png" /></p>
-<p>此文章旨在帮助解决 C++ 版 Open3D 编译时找不到 AzureKinect 相关函数的问题。</p>
-<h2 id="_1">问题描述</h2>
-<p>在尝试构建官方Azure Kinect示例时（<code>AzureKinectViewer.cpp</code>、<code>AzureKinectMKVReader.cpp</code>和<code>AzureKinectRecord.cpp</code>）报错：</p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="o">[</span><span class="m">1</span>/1<span class="o">]</span><span class="w"> </span>Linking<span class="w"> </span>CXX<span class="w"> </span>executable<span class="w"> </span>AzureKinectViewer
-</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>FAILED:<span class="w"> </span>AzureKinectViewer<span class="w"> </span>
-</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>:<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>/usr/bin/c++<span class="w">   </span>CMakeFiles/AzureKinectViewer.dir/AzureKinectViewer.cpp.o<span class="w"> </span>-o<span class="w"> </span>AzureKinectViewer<span class="w"> </span>-L/usr/local/lib<span class="w">   </span>-L/usr/local/cuda/lib64<span class="w"> </span>-Wl,-rpath,/usr/local/lib:/usr/local/cuda/lib64<span class="w">  </span>/usr/lib/aarch64-linux-gnu/libk4a.so.1.4.1<span class="w">  </span>/usr/local/lib/libOpen3D.so<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>:
-</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>CMakeFiles/AzureKinectViewer.dir/AzureKinectViewer.cpp.o:<span class="w"> </span>In<span class="w"> </span><span class="k">function</span><span class="w"> </span><span class="sb">`</span>main<span class="s1">&#39;:</span>
-</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="s1">AzureKinectViewer.cpp:(.text+0x4fc): undefined reference to `open3d::io::AzureKinectSensor::ListDevices()&#39;</span>
-</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>AzureKinectViewer.cpp:<span class="o">(</span>.text+0x50c<span class="o">)</span>:<span class="w"> </span>undefined<span class="w"> </span>reference<span class="w"> </span>to<span class="w"> </span><span class="sb">`</span>open3d::io::AzureKinectSensorConfig::AzureKinectSensorConfig<span class="o">()</span><span class="s1">&#39;</span>
-</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="s1">AzureKinectViewer.cpp:(.text+0x75c): undefined reference to `open3d::io::AzureKinectSensor::AzureKinectSensor(open3d::io::AzureKinectSensorConfig const&amp;)&#39;</span>
-</span><span id="__span-0-8"><a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a>AzureKinectViewer.cpp:<span class="o">(</span>.text+0x76c<span class="o">)</span>:<span class="w"> </span>undefined<span class="w"> </span>reference<span class="w"> </span>to<span class="w"> </span><span class="sb">`</span>open3d::io::AzureKinectSensor::Connect<span class="o">(</span>unsigned<span class="w"> </span>long<span class="o">)</span><span class="s1">&#39;</span>
-</span><span id="__span-0-9"><a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="s1">AzureKinectViewer.cpp:(.text+0x84c): undefined reference to `open3d::io::AzureKinectSensor::CaptureFrame(bool) const&#39;</span>
-</span><span id="__span-0-10"><a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a>AzureKinectViewer.cpp:<span class="o">(</span>.text+0x93c<span class="o">)</span>:<span class="w"> </span>undefined<span class="w"> </span>reference<span class="w"> </span>to<span class="w"> </span><span class="sb">`</span>open3d::io::AzureKinectSensor::~AzureKinectSensor<span class="o">()</span><span class="s1">&#39;</span>
-</span><span id="__span-0-11"><a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a><span class="s1">AzureKinectViewer.cpp:(.text+0xb2c): undefined reference to `open3d::io::AzureKinectSensor::~AzureKinectSensor()&#39;</span>
-</span><span id="__span-0-12"><a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a>CMakeFiles/AzureKinectViewer.dir/AzureKinectViewer.cpp.o:<span class="w"> </span>In<span class="w"> </span><span class="k">function</span><span class="w"> </span><span class="sb">`</span>open3d::io::AzureKinectSensorConfig::~AzureKinectSensorConfig<span class="o">()</span><span class="s1">&#39;:</span>
-</span><span id="__span-0-13"><a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a><span class="s1">AzureKinectViewer.cpp:(.text._ZN6open3d2io23AzureKinectSensorConfigD2Ev[_ZN6open3d2io23AzureKinectSensorConfigD5Ev]+0xc): undefined reference to `vtable for open3d::io::AzureKinectSensorConfig&#39;</span>
-</span><span id="__span-0-14"><a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a>AzureKinectViewer.cpp:<span class="o">(</span>.text._ZN6open3d2io23AzureKinectSensorConfigD2Ev<span class="o">[</span>_ZN6open3d2io23AzureKinectSensorConfigD5Ev<span class="o">]</span>+0x10<span class="o">)</span>:<span class="w"> </span>undefined<span class="w"> </span>reference<span class="w"> </span>to<span class="w"> </span><span class="sb">`</span>vtable<span class="w"> </span><span class="k">for</span><span class="w"> </span>open3d::io::AzureKinectSensorConfig<span class="err">&#39;</span>
-</span><span id="__span-0-15"><a id="__codelineno-0-15" name="__codelineno-0-15" href="#__codelineno-0-15"></a>collect2:<span class="w"> </span>error:<span class="w"> </span>ld<span class="w"> </span>returned<span class="w"> </span><span class="m">1</span><span class="w"> </span><span class="nb">exit</span><span class="w"> </span>status
-</span><span id="__span-0-16"><a id="__codelineno-0-16" name="__codelineno-0-16" href="#__codelineno-0-16"></a>ninja:<span class="w"> </span>build<span class="w"> </span>stopped:<span class="w"> </span>subcommand<span class="w"> </span>failed.
+<h1 id="c-delete-ptr-ptr-nullptr">C++ delete ptr 和 ptr = nullptr 的区别</h1>
+<h2 id="delete-ptr">delete ptr</h2>
+<p><code>delete ptr</code> 是释放 <code>ptr</code> 所指向的对象资源，而 <code>ptr</code> 依然存在，且依然指向那片内存地址。</p>
+<h2 id="ptr-nullptr">ptr = nullptr</h2>
+<p><code>ptr = nullptr</code> 是将 <code>ptr</code> 指向空指针，和其所指向的对象没关系。</p>
+<p><img alt="ptr" src="https://s2.loli.net/2024/06/29/z8RCgt6krxTPZjU.jpg" /></p>
+<h2 id="unique_ptr">试着实现一个 unique_ptr</h2>
+<div class="language-c++ highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">typename</span><span class="w"> </span><span class="nc">T</span><span class="o">&gt;</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="k">class</span><span class="w"> </span><span class="nc">UniquePtr</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="k">private</span><span class="o">:</span>
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="w">    </span><span class="n">T</span><span class="w"> </span><span class="o">*</span><span class="n">_ptr</span><span class="p">;</span>
+</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>
+</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="k">public</span><span class="o">:</span>
+</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="w">    </span><span class="c1">// 默认构造</span>
+</span><span id="__span-0-8"><a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="w">    </span><span class="n">UniquePtr</span><span class="p">()</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">_ptr</span><span class="p">(</span><span class="k">nullptr</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="p">}</span>
+</span><span id="__span-0-9"><a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="w">    </span><span class="k">explicit</span><span class="w"> </span><span class="n">UniquePtr</span><span class="p">(</span><span class="n">T</span><span class="w"> </span><span class="o">*</span><span class="n">ptr</span><span class="p">)</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">_ptr</span><span class="p">(</span><span class="n">ptr</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="p">}</span>
+</span><span id="__span-0-10"><a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a>
+</span><span id="__span-0-11"><a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a><span class="w">    </span><span class="o">~</span><span class="n">UniquePtr</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-0-12"><a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a><span class="w">        </span><span class="k">delete</span><span class="w"> </span><span class="n">_ptr</span><span class="p">;</span>
+</span><span id="__span-0-13"><a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a><span class="w">        </span><span class="c1">// 无需置 nullptr，因为析构函数会被调用，_ptr 会被销毁</span>
+</span><span id="__span-0-14"><a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a><span class="w">        </span><span class="c1">// 置空无意义</span>
+</span><span id="__span-0-15"><a id="__codelineno-0-15" name="__codelineno-0-15" href="#__codelineno-0-15"></a><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-0-16"><a id="__codelineno-0-16" name="__codelineno-0-16" href="#__codelineno-0-16"></a>
+</span><span id="__span-0-17"><a id="__codelineno-0-17" name="__codelineno-0-17" href="#__codelineno-0-17"></a><span class="w">    </span><span class="c1">// 拷贝构造 删除</span>
+</span><span id="__span-0-18"><a id="__codelineno-0-18" name="__codelineno-0-18" href="#__codelineno-0-18"></a><span class="w">    </span><span class="n">UniquePtr</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">UniquePtr</span><span class="w"> </span><span class="o">&amp;</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">delete</span><span class="p">;</span>
+</span><span id="__span-0-19"><a id="__codelineno-0-19" name="__codelineno-0-19" href="#__codelineno-0-19"></a><span class="w">    </span><span class="n">UniquePtr</span><span class="w"> </span><span class="o">&amp;</span><span class="k">operator</span><span class="o">=</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">UniquePtr</span><span class="w"> </span><span class="o">&amp;</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">delete</span><span class="p">;</span>
+</span><span id="__span-0-20"><a id="__codelineno-0-20" name="__codelineno-0-20" href="#__codelineno-0-20"></a>
+</span><span id="__span-0-21"><a id="__codelineno-0-21" name="__codelineno-0-21" href="#__codelineno-0-21"></a><span class="w">    </span><span class="c1">// 移动构造</span>
+</span><span id="__span-0-22"><a id="__codelineno-0-22" name="__codelineno-0-22" href="#__codelineno-0-22"></a><span class="w">    </span><span class="n">UniquePtr</span><span class="p">(</span><span class="n">UniquePtr</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="n">p</span><span class="p">)</span><span class="w"> </span><span class="k">noexcept</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">_ptr</span><span class="p">(</span><span class="n">p</span><span class="p">.</span><span class="n">_ptr</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-0-23"><a id="__codelineno-0-23" name="__codelineno-0-23" href="#__codelineno-0-23"></a><span class="w">        </span><span class="c1">// 至于这里为什么不需要 delete _ptr</span>
+</span><span id="__span-0-24"><a id="__codelineno-0-24" name="__codelineno-0-24" href="#__codelineno-0-24"></a><span class="w">        </span><span class="c1">// 是因为这是移动构造函数，是个构造函数！_ptr 本来就没有资源</span>
+</span><span id="__span-0-25"><a id="__codelineno-0-25" name="__codelineno-0-25" href="#__codelineno-0-25"></a><span class="w">        </span><span class="n">p</span><span class="p">.</span><span class="n">_ptr</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">nullptr</span><span class="p">;</span>
+</span><span id="__span-0-26"><a id="__codelineno-0-26" name="__codelineno-0-26" href="#__codelineno-0-26"></a><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-0-27"><a id="__codelineno-0-27" name="__codelineno-0-27" href="#__codelineno-0-27"></a><span class="w">    </span><span class="n">UniquePtr</span><span class="w"> </span><span class="o">&amp;</span><span class="k">operator</span><span class="o">=</span><span class="p">(</span><span class="n">UniquePtr</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="n">p</span><span class="p">)</span><span class="w"> </span><span class="k">noexcept</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-0-28"><a id="__codelineno-0-28" name="__codelineno-0-28" href="#__codelineno-0-28"></a><span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">p</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="o">*</span><span class="k">this</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-0-29"><a id="__codelineno-0-29" name="__codelineno-0-29" href="#__codelineno-0-29"></a><span class="w">            </span><span class="k">delete</span><span class="w"> </span><span class="n">_ptr</span><span class="p">;</span><span class="w">        </span><span class="c1">// 第一步，释放当前资源</span>
+</span><span id="__span-0-30"><a id="__codelineno-0-30" name="__codelineno-0-30" href="#__codelineno-0-30"></a><span class="w">            </span><span class="n">_ptr</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">p</span><span class="p">.</span><span class="n">_ptr</span><span class="p">;</span><span class="w">      </span><span class="c1">// 第二步，将当前指针指向新的资源</span>
+</span><span id="__span-0-31"><a id="__codelineno-0-31" name="__codelineno-0-31" href="#__codelineno-0-31"></a><span class="w">            </span><span class="n">p</span><span class="p">.</span><span class="n">_ptr</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">nullptr</span><span class="p">;</span><span class="w">   </span><span class="c1">// 第三步，将原来的指针置空</span>
+</span><span id="__span-0-32"><a id="__codelineno-0-32" name="__codelineno-0-32" href="#__codelineno-0-32"></a><span class="w">        </span><span class="p">}</span>
+</span><span id="__span-0-33"><a id="__codelineno-0-33" name="__codelineno-0-33" href="#__codelineno-0-33"></a><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="o">*</span><span class="k">this</span><span class="p">;</span>
+</span><span id="__span-0-34"><a id="__codelineno-0-34" name="__codelineno-0-34" href="#__codelineno-0-34"></a><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-0-35"><a id="__codelineno-0-35" name="__codelineno-0-35" href="#__codelineno-0-35"></a>
+</span><span id="__span-0-36"><a id="__codelineno-0-36" name="__codelineno-0-36" href="#__codelineno-0-36"></a><span class="w">    </span><span class="n">T</span><span class="w"> </span><span class="o">*</span><span class="n">get</span><span class="p">()</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="c1">// 返回指针</span>
+</span><span id="__span-0-37"><a id="__codelineno-0-37" name="__codelineno-0-37" href="#__codelineno-0-37"></a><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">_ptr</span><span class="p">;</span>
+</span><span id="__span-0-38"><a id="__codelineno-0-38" name="__codelineno-0-38" href="#__codelineno-0-38"></a><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-0-39"><a id="__codelineno-0-39" name="__codelineno-0-39" href="#__codelineno-0-39"></a><span class="w">    </span><span class="n">T</span><span class="w"> </span><span class="o">*</span><span class="k">operator</span><span class="o">-&gt;</span><span class="p">()</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="c1">// 返回指针</span>
+</span><span id="__span-0-40"><a id="__codelineno-0-40" name="__codelineno-0-40" href="#__codelineno-0-40"></a><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">_ptr</span><span class="p">;</span>
+</span><span id="__span-0-41"><a id="__codelineno-0-41" name="__codelineno-0-41" href="#__codelineno-0-41"></a><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-0-42"><a id="__codelineno-0-42" name="__codelineno-0-42" href="#__codelineno-0-42"></a><span class="w">    </span><span class="n">T</span><span class="w"> </span><span class="o">&amp;</span><span class="k">operator</span><span class="o">*</span><span class="p">()</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="c1">// 解引用</span>
+</span><span id="__span-0-43"><a id="__codelineno-0-43" name="__codelineno-0-43" href="#__codelineno-0-43"></a><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="o">*</span><span class="n">_ptr</span><span class="p">;</span>
+</span><span id="__span-0-44"><a id="__codelineno-0-44" name="__codelineno-0-44" href="#__codelineno-0-44"></a><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-0-45"><a id="__codelineno-0-45" name="__codelineno-0-45" href="#__codelineno-0-45"></a>
+</span><span id="__span-0-46"><a id="__codelineno-0-46" name="__codelineno-0-46" href="#__codelineno-0-46"></a><span class="w">    </span><span class="n">T</span><span class="w"> </span><span class="o">*</span><span class="n">release</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-0-47"><a id="__codelineno-0-47" name="__codelineno-0-47" href="#__codelineno-0-47"></a><span class="w">        </span><span class="c1">// 这里不能 delete _ptr</span>
+</span><span id="__span-0-48"><a id="__codelineno-0-48" name="__codelineno-0-48" href="#__codelineno-0-48"></a><span class="w">        </span><span class="c1">// 因为 release 只是解除 UniquePtr 对资源的所有权，但资源还是存在的</span>
+</span><span id="__span-0-49"><a id="__codelineno-0-49" name="__codelineno-0-49" href="#__codelineno-0-49"></a><span class="w">        </span><span class="n">T</span><span class="w"> </span><span class="o">*</span><span class="n">tmp</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">_ptr</span><span class="p">;</span>
+</span><span id="__span-0-50"><a id="__codelineno-0-50" name="__codelineno-0-50" href="#__codelineno-0-50"></a><span class="w">        </span><span class="n">_ptr</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">nullptr</span><span class="p">;</span>
+</span><span id="__span-0-51"><a id="__codelineno-0-51" name="__codelineno-0-51" href="#__codelineno-0-51"></a><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">tmp</span><span class="p">;</span>
+</span><span id="__span-0-52"><a id="__codelineno-0-52" name="__codelineno-0-52" href="#__codelineno-0-52"></a><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-0-53"><a id="__codelineno-0-53" name="__codelineno-0-53" href="#__codelineno-0-53"></a>
+</span><span id="__span-0-54"><a id="__codelineno-0-54" name="__codelineno-0-54" href="#__codelineno-0-54"></a><span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="n">reset</span><span class="p">(</span><span class="n">T</span><span class="w"> </span><span class="o">*</span><span class="n">newptr</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">nullptr</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-0-55"><a id="__codelineno-0-55" name="__codelineno-0-55" href="#__codelineno-0-55"></a><span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">_ptr</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="n">newptr</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-0-56"><a id="__codelineno-0-56" name="__codelineno-0-56" href="#__codelineno-0-56"></a><span class="w">            </span><span class="k">delete</span><span class="w"> </span><span class="n">_ptr</span><span class="p">;</span><span class="w">        </span><span class="c1">// 释放当前资源</span>
+</span><span id="__span-0-57"><a id="__codelineno-0-57" name="__codelineno-0-57" href="#__codelineno-0-57"></a><span class="w">            </span><span class="n">_ptr</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">newptr</span><span class="p">;</span><span class="w">      </span><span class="c1">// 指向新资源</span>
+</span><span id="__span-0-58"><a id="__codelineno-0-58" name="__codelineno-0-58" href="#__codelineno-0-58"></a><span class="w">            </span><span class="c1">// 这里不需要置空 newptr</span>
+</span><span id="__span-0-59"><a id="__codelineno-0-59" name="__codelineno-0-59" href="#__codelineno-0-59"></a><span class="w">            </span><span class="c1">// 是否置空 new ptr 由用户决定</span>
+</span><span id="__span-0-60"><a id="__codelineno-0-60" name="__codelineno-0-60" href="#__codelineno-0-60"></a><span class="w">        </span><span class="p">}</span>
+</span><span id="__span-0-61"><a id="__codelineno-0-61" name="__codelineno-0-61" href="#__codelineno-0-61"></a><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-0-62"><a id="__codelineno-0-62" name="__codelineno-0-62" href="#__codelineno-0-62"></a><span class="p">};</span>
 </span></code></pre></div>
-<p>这是因为安装Open3D时未开启Azure Kinect的支持选项。</p>
-<h2 id="_2">解决方法</h2>
-<p>重新安装Open3D。找到Open3D源码文件夹，执行以下命令：</p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="nb">cd</span><span class="w"> </span>build
-</span></code></pre></div>
-<p>开启Azure Kinect支持的构建选项：</p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>sudo<span class="w"> </span>cmake<span class="w"> </span>-DBUILD_AZURE_KINECT<span class="o">=</span>ON<span class="w"> </span>..
-</span></code></pre></div>
-<p>编译安装：</p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>sudo<span class="w"> </span>make
-</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>sudo<span class="w"> </span>make<span class="w"> </span>install
-</span></code></pre></div>
+<p><code>UniquePtr &amp;operator=(UniquePtr &amp;&amp;p)</code> 移动赋值运算符的原理如下图：</p>
+<p><img alt="" src="https://s2.loli.net/2024/06/29/SIOfTD1RgjmUXVJ.png" /></p>
 
 
 
