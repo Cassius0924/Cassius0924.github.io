@@ -6,17 +6,15 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="本文简单介绍了Google搜索引擎的几种高级搜索用法">
-      
       
         <meta name="author" content="Cassius0924">
       
       
       
-        <link rel="prev" href="../Google%20Coral%20Dev%20Board%20%E4%BF%AE%E6%94%B9%E9%A3%8E%E6%89%87%E8%BD%AC%E5%8A%A8%E6%B8%A9%E5%BA%A6%E9%98%88%E5%80%BC%E6%8C%87%E5%8D%97/">
+        <link rel="prev" href="../C%2B%2B%20%E4%B8%AD%E4%BD%8D%E8%BF%90%E7%AE%97%E7%9A%84%E5%A6%99%E7%94%A8%EF%BC%9A%E4%B8%8E%E8%BF%90%E7%AE%97%E5%92%8C%E6%88%96%E8%BF%90%E7%AE%97%E7%9A%84%E5%90%88%E5%B9%B6%E6%A0%87%E5%BF%97%E4%BD%8D/">
       
       
-        <link rel="next" href="../HTTP%20%E5%8D%8F%E8%AE%AE%E7%89%88%E6%9C%AC%E5%8F%98%E5%8C%96%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">
+        <link rel="next" href="../C%2B%2B%20%E5%A4%9A%E6%80%81%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">
       
       
       <link rel="icon" href="../assets/images/favicon.png">
@@ -24,7 +22,7 @@
     
     
       
-        <title>Google 搜索引擎使用技巧 - Cassius0924's Blog</title>
+        <title>C++ 内存模型学习笔记 - Cassius0924's Blog</title>
       
     
     
@@ -75,7 +73,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#google" class="md-skip">
+        <a href="#c" class="md-skip">
           跳转至
         </a>
       
@@ -111,7 +109,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Google 搜索引擎使用技巧
+              C++ 内存模型学习笔记
             
           </span>
         </div>
@@ -333,9 +331,18 @@
       
   
   
+    
   
-    <li class="md-nav__item">
-      <a href="../C%2B%2B%20%E5%86%85%E5%AD%98%E6%A8%A1%E5%9E%8B%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   <span class="md-ellipsis">
@@ -344,6 +351,7 @@
   
 
       </a>
+      
     </li>
   
 
@@ -523,29 +531,9 @@
       
   
   
-    
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  <span class="md-ellipsis">
-    Google 搜索引擎使用技巧
-  </span>
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../Google%20%E6%90%9C%E7%B4%A2%E5%BC%95%E6%93%8E%E4%BD%BF%E7%94%A8%E6%8A%80%E5%B7%A7/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -554,89 +542,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="目录">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      目录
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#1" class="md-nav__link">
-    1. “ ”——准确搜索
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#2" class="md-nav__link">
-    2. 空格+减号——排除关键词
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#3-or" class="md-nav__link">
-    3. OR——逻辑搜索
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#4" class="md-nav__link">
-    4. *——模糊搜索
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#5-filetype" class="md-nav__link">
-    5. filetype:——搜索指定文件类型
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#6-site" class="md-nav__link">
-    6. site——搜索指定网站内容
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#7-inurlurl" class="md-nav__link">
-    7. inurl——搜索指定URL内容
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#8-intitletilte" class="md-nav__link">
-    8. intitle——搜索指定Tilte内容
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#9-define" class="md-nav__link">
-    9. define——搜索定义
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -1801,77 +1706,6 @@
     
   
   
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      目录
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#1" class="md-nav__link">
-    1. “ ”——准确搜索
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#2" class="md-nav__link">
-    2. 空格+减号——排除关键词
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#3-or" class="md-nav__link">
-    3. OR——逻辑搜索
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#4" class="md-nav__link">
-    4. *——模糊搜索
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#5-filetype" class="md-nav__link">
-    5. filetype:——搜索指定文件类型
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#6-site" class="md-nav__link">
-    6. site——搜索指定网站内容
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#7-inurlurl" class="md-nav__link">
-    7. inurl——搜索指定URL内容
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#8-intitletilte" class="md-nav__link">
-    8. intitle——搜索指定Tilte内容
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#9-define" class="md-nav__link">
-    9. define——搜索定义
-  </a>
-  
-</li>
-      
-    </ul>
-  
 </nav>
                   </div>
                 </div>
@@ -1885,52 +1719,26 @@
                   
 
 
-<h1 id="google">Google 搜索引擎使用技巧</h1>
-<h2 id="1">1. “ ”——准确搜索</h2>
-<p>给关键词加上英文双引号"" 实现准确搜索。</p>
-<blockquote>
-<p>例如："人工智能算法"</p>
-</blockquote>
-<h2 id="2">2. 空格+减号——排除关键词</h2>
-<p>在搜索内容后面加上空格和减号排除的指定的关键词。</p>
-<blockquote>
-<p>例如：Apple -iPhone -iPad</p>
-</blockquote>
-<h2 id="3-or">3. OR——逻辑搜索</h2>
-<p>用大写的OR和空格隔开关键词，使关键词互不干扰。</p>
-<blockquote>
-<p>例如：百度 OR 谷歌</p>
-</blockquote>
-<h2 id="4">4. *——模糊搜索</h2>
-<p>用*代替关键词。</p>
-<blockquote>
-<p>例如：Study * home</p>
-</blockquote>
-<h2 id="5-filetype">5. filetype:——搜索指定文件类型</h2>
-<p>在关键词后加上filetype:&lt;文件类型&gt;。</p>
-<blockquote>
-<p>例如：高等数学 filetype:pdf</p>
-</blockquote>
-<h2 id="6-site">6. site——搜索指定网站内容</h2>
-<p>在关键词后加上site:&lt;指定的网站&gt;。</p>
-<blockquote>
-<p>例如：后浪 site:bilibili.com</p>
-</blockquote>
-<h2 id="7-inurlurl">7. inurl——搜索指定URL内容</h2>
-<p>在关键词后加上inurl:&lt;指定的网站&gt;。</p>
-<blockquote>
-<p>例如：民法典 inurl:gov.cn</p>
-</blockquote>
-<h2 id="8-intitletilte">8. intitle——搜索指定Tilte内容</h2>
-<p>在关键词后加上intitle:&lt;需要筛选的title关键字&gt;。</p>
-<blockquote>
-<p>例如：machine learning intitle:stanford </p>
-</blockquote>
-<h2 id="9-define">9. define——搜索定义</h2>
-<p>通过define:关键词得到准确定义 eg: define:internet</p>
-<blockquote>
-<p>例如：define:internet</p>
-</blockquote>
+<h1 id="c">C++ 内存模型学习笔记</h1>
+<p>C++ 内存模型从上（高地址）到下（低地址）可以分为以下几个部分：</p>
+<ul>
+<li>
+<p><strong>栈区</strong>：由编译器自动分配释放，存放函数的参数值、局部变量的值等。</p>
+</li>
+<li>
+<p><strong>堆区</strong>：由程序员分配释放，若程序员不释放，程序结束时可能由操作系统回收。</p>
+</li>
+<li>
+<p><strong>全局/静态区</strong>：分为 .data 段（全局初始化区）和 .bss 段（全局未初始化区），.data 段存放 <strong>已初始化</strong> 了的全局变量和静态变量，.bss 段存放 <strong>未初始化</strong> 的变量。</p>
+</li>
+<li>
+<p><strong>常量区</strong>：就是 .rodata 段，存放常量。</p>
+</li>
+<li>
+<p><strong>代码区</strong>：存放函数体的代码。</p>
+</li>
+</ul>
+<p><img alt="" src="https://s2.loli.net/2024/06/29/kHdqTj5Y2Fh7Ea4.jpg" /></p>
 
 
 
