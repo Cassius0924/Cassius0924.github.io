@@ -94,7 +94,7 @@ int select(int nfds, fd_set *readfds, fd_set *writefds, fd_set *exceptfds, struc
 
 至于 nfds 为什么要加 1，是因为 `select` 函数是从 0 开始遍历文件描述符的。用刚刚 fd_set 的例子来说，如果我们不加 1，那么 `select` 函数只会遍历到 `00011000` 七个 fd，而不会遍历最后一个 `1` 对应的 fd。
 
-`timeout` 参数除了设置一个具体的时间值外，还可以设置为 `NULL`，表示永久阻塞，直到有文件描述符就绪。如果设置为 `0`，则表示立即返回，不会阻塞。
+`timeout` 参数除了设置一个具体的时间值外，还可以设置为 `-1`，表示永久阻塞，直到有文件描述符就绪。如果设置为 `0`，则表示立即返回，不会阻塞。
 
 select 的工作原理大致如下：
 
@@ -439,7 +439,7 @@ epoll
 
 `epoll` 函数的使用示例：
 
-``` c linenums="1" hl_lines=""
+``` c linenums="1"
 // ...
 // 假设 
 
@@ -478,9 +478,7 @@ while (1) {
 }
 ```
 
-![](https://s2.loli.net/2024/06/24/RpOmNqd3XnUfYcE.jpg)
-
-
+![](https://s2.loli.net/2024/06/30/zpATkxvCNqP4Yd1.jpg)
 
 ### kqueue
 
