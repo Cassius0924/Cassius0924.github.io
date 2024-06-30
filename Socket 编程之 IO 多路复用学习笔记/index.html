@@ -1084,8 +1084,8 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#epoll_1" class="md-nav__link">
-    epoll 为什么使用红黑树而不是哈希表？
+  <a href="#epoll-avl" class="md-nav__link">
+    epoll 为什么使用红黑树而不是哈希表或 AVL 树？
   </a>
   
 </li>
@@ -1982,8 +1982,8 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#epoll_1" class="md-nav__link">
-    epoll 为什么使用红黑树而不是哈希表？
+  <a href="#epoll-avl" class="md-nav__link">
+    epoll 为什么使用红黑树而不是哈希表或 AVL 树？
   </a>
   
 </li>
@@ -2506,13 +2506,13 @@
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p><strong>epoll 的两种触发模式</strong></p>
-<p>epoll 有两种触发模式，分别是 <strong>水平触发模式</strong>（ <em>Level Trigger</em> ）和 <strong>边缘触发模式</strong>（ <em>Edge Trigger</em> ）。</p>
+<p>epoll 有两种触发模式，分别是 <strong>水平触发模式</strong>（ <em>Level Trigger</em> ）和 <strong>边缘触发模式</strong>（ <em>Edge Trigger</em> ）。水平触发模式是 epoll 默认的工作模式。</p>
 <ul>
 <li>
-<p><strong>水平触发模式（ <em>LT模式</em> ）</strong>：相当于时序电路中的高电平触发</p>
+<p><strong>水平触发模式（ <em>LT模式</em> ）</strong>：相当于时序电路中的高电平触发。关注点是 <strong>数据</strong>，只要读操作缓冲区不为空或写操作缓冲区不为满，<code>epoll_wait</code> 就会返回就绪事件。</p>
 </li>
 <li>
-<p><strong>边缘触发模式（ <em>ET模式</em> ）</strong>：相当于时序电路中的边沿出发
+<p><strong>边缘触发模式（ <em>ET模式</em> ）</strong>：相当于时序电路中的边沿出发。关注点是 <strong>变化</strong>，只有当有数据写接收进缓冲区或者从发送缓冲区读出数据时，<code>epoll_wait</code> 才会返回就绪事件。
 </p>
 </li>
 </ul>
@@ -2590,17 +2590,52 @@
 </span><span id="__span-13-35"><a id="__codelineno-13-35" name="__codelineno-13-35"></a><span class="w">    </span><span class="p">}</span>
 </span><span id="__span-13-36"><a id="__codelineno-13-36" name="__codelineno-13-36"></a><span class="p">}</span>
 </span></code></pre></div></td></tr></table></div>
-<p><img alt="" src="https://s2.loli.net/2024/06/30/zpATkxvCNqP4Yd1.jpg" /></p>
 <h3 id="kqueue">kqueue</h3>
 <h3 id="iocp">IOCP</h3>
 <h2 id="_1">总结</h2>
 <h3 id="select_1">select 一无是处了吗？</h3>
 <p>在学完这几个多路复用函数后，可能有些人会对 select 感到失望，感觉 select 一无是处了。但是 select 也有它的优点，比如 <code>select</code> 函数是跨平台的，无论你在 Linux、Windows 还是 macOS 下，都可以使用 <code>select</code> 函数。而改进的 IO 多路复用模型兼容性差，<code>epoll</code> 函数只能在 Linux 下使用，<code>kqueue</code> 函数只能在 FreeBSD 下使用，<code>IOCP</code> 函数只能在 Windows 下使用。</p>
 <p>除此之外，未必所有的程序都需要处理大量的并发连接，如果一个程序只需要处理十几个连接，那么选择 <code>select</code> 函数是优于 <code>epoll</code> 函数的。</p>
-<h3 id="epoll_1">epoll 为什么使用红黑树而不是哈希表？</h3>
-<p>主要是因为红黑树的插入、删除、查找的在最坏情况下时间复杂度都是 <code>O(log n)</code>，而哈希表在最坏情况下可能会退化为链表，时间复杂度为 <code>O(n)</code>。</p>
+<h3 id="epoll-avl">epoll 为什么使用红黑树而不是哈希表或 AVL 树？</h3>
+<p>其实历史版本的 Linux 内核中，<code>epoll</code> 使用的是哈希表，但后面改用了红黑树。</p>
+<p>应用程序在调用 epoll 函数，尤其是当 epoll 监视的文件数量达到百万级的时候，对文件描述符的增删改查操作的频率很高，选用不同的数据结构带来的效率差异可能非常大。我们需要选择一个综合性能较好的数据结构。</p>
+<table>
+<thead>
+<tr>
+<th>数据结构</th>
+<th>插入</th>
+<th>删除</th>
+<th>查找</th>
+<th>特点</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>红黑树</td>
+<td>O(log n)</td>
+<td>O(log n)</td>
+<td>O(log n)</td>
+<td>综合性能最优，最坏情况下时间复杂度为 O(log n)</td>
+</tr>
+<tr>
+<td>哈希表</td>
+<td>O(1)</td>
+<td>O(1)</td>
+<td>O(1)</td>
+<td>ReHashing 开销大即扩展性差，且难以抉择哈希表大小</td>
+</tr>
+<tr>
+<td>AVL 树</td>
+<td>O(log n)</td>
+<td>O(log n)</td>
+<td>O(log n)</td>
+<td>查询效率稍快于红黑树，但插入删除效率稍慢于红黑树</td>
+</tr>
+</tbody>
+</table>
+<p>综合考量，红黑树是最优选择。</p>
 <h3 id="epitem-epitem">为什么是 <code>epitem</code> 的成员指向就绪列表，而不是列表元素指向 <code>epitem</code>？</h3>
-<p>有人可能会发现，在 <code>epitem</code> 结构体中，<code>rdllink</code> 指向就绪列表，而不是就绪列表的元素指向 <code>epitem</code>。这是由于 Linux </p>
+<p>有人可能会发现，在 <code>epitem</code> 结构体中，<code>rdllink</code> 指向就绪列表，而不是就绪列表的元素指向 <code>epitem</code>。这是由于 Linux 内核的链表设计哲学：“让万物包含链表，而不是链表包含万物。” Linux 内核可以通过 <code>container_of</code> 宏来获取链表元素的所在结构体地址，所以就绪列表的元素不需要指向 <code>epitem</code>。</p>
 <h2 id="_2">参考资料</h2>
 <ul>
 <li>
@@ -2611,6 +2646,9 @@
 </li>
 <li>
 <p><a href="https://gityuan.com/2019/01/06/linux-epoll/">源码解读epoll内核机制</a>（文章）</p>
+</li>
+<li>
+<p><a href="https://mp.weixin.qq.com/s/h3CBZt2KEA-ScXFSKHaRBg">十个问题理解Linux epoll工作原理</a>（文章）</p>
 </li>
 <li>
 <p><a href="https://www.bilibili.com/video/BV1qJ411w7du">【并发】IO多路复用select/poll/epoll介绍</a>（视频）</p>
