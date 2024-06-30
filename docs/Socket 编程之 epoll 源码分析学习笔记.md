@@ -10,11 +10,11 @@
 
 这是 epoll 的主要数据结构，它用于存储 epoll 的相关信息，包括等待队列、就绪队列、红黑树等。
 
-``` c
+``` c linenums="1"
 struct eventpoll {
 	wait_queue_head_t wq;       // epoll 的等待队列：用于存储等待的进程/线程，指向等待队列头
 
-	wait_queue_head_t poll_wait;// poll 的等待队列
+	wait_queue_head_t poll_wait;// 这个 poll_wait 等待队列只有在 epoll 嵌套的情况下才会用到
 
 	struct list_head rdllist;   // 就绪队列：用于存储就绪的 fd，指向就绪队列头
 
@@ -28,7 +28,7 @@ struct eventpoll {
 
 epitem 的作用是将 fd、就绪队列、红黑树节点等信息封装在一起。
 
-``` c
+``` c linenums="1"
 struct epitem {
     union {
         struct rb_node rbn;     // 红黑树节点，用于存储 fd，指向红黑树节点
@@ -51,7 +51,7 @@ struct epitem {
 
 给 poll 队列封装的结构体，用于存储 poll_table 和 epitem。
 
-``` c
+``` c linenums="1"
 struct ep_pqueue {
 	poll_table pt;
 	struct epitem *epi;
@@ -62,7 +62,7 @@ struct ep_pqueue {
 
 poll_table 的作用是封装 poll 队列的处理函数和 key。
 
-``` c
+``` c linenums="1"
 typedef struct poll_table_struct {
 	poll_queue_proc _qproc;
 	__poll_t _key;
@@ -71,7 +71,7 @@ typedef struct poll_table_struct {
 
 ### eppoll_entry
 
-``` c
+``` c linenums="1"
 struct eppoll_entry {
 	struct eppoll_entry *next;  // 指向 epitem 的 epoll_entry
 
@@ -79,7 +79,7 @@ struct eppoll_entry {
 
 	wait_queue_entry_t wait;    // 等待队列项
 
-	wait_queue_head_t *whead;   // 指向 poll 等待队列头
+	wait_queue_head_t *whead;   // 指向 socket 等待队列头
 };
 ```
 
@@ -87,7 +87,7 @@ struct eppoll_entry {
 
 wait_queue_entry 的作用是封装等待队列的相关信息。
 
-``` c
+``` c linenums="1"
 struct wait_queue_entry {
 	unsigned int		flags;
 	void			*private;
@@ -98,7 +98,7 @@ struct wait_queue_entry {
 
 ## epoll_create
 
-``` c
+``` c linenums="1"
 // 定义 epoll_create 系统调用
 SYSCALL_DEFINE1(epoll_create, int, size)
 {
@@ -173,9 +173,11 @@ static int ep_alloc(struct eventpoll **pep)
 }
 ```
 
+<img src="https://s2.loli.net/2024/06/30/N4KUv2DYEW6OS5g.jpg" height=1000/>
+
 ## epoll_ctl
 
-``` c
+``` c linenums="1"
 // 定义 epoll_ctl 系统调用
 SYSCALL_DEFINE4(epoll_ctl, int, epfd, int, op, int, fd,
 		struct epoll_event __user *, event)
@@ -284,7 +286,7 @@ error_return:
 
 ### ep_insert
 
-``` c
+``` c linenums="1"
 static int ep_insert(struct eventpoll *ep, const struct epoll_event *event,
 		     struct file *tfile, int fd, int full_check)
 {
@@ -292,12 +294,9 @@ static int ep_insert(struct eventpoll *ep, const struct epoll_event *event,
 	__poll_t revents;
 	struct epitem *epi;
 	struct ep_pqueue epq;       // 一个 epitem 和回调函数的包装
-	struct eventpoll *tep = NULL;
+	struct eventpoll *tep = NULL;   // 这个是用于处理 epoll 嵌套的情况
 
-	if (is_file_epoll(tfile))
-		tep = tfile->private_data;  // 获取 fd 中的 eventpoll 结构体
-
-    // 省略一段看都看不懂的代码，问题不大
+    // 省略一段不重要的代码，问题不大
 
     // 为 epitem 分配内存
     if (!(epi = kmem_cache_zalloc(epi_cache, GFP_KERNEL))) {
@@ -319,7 +318,8 @@ static int ep_insert(struct eventpoll *ep, const struct epoll_event *event,
     // 省略不重要的代码
 
 	epq.epi = epi;  // 将 epitem 放入 ep_pqueue 这个队列
-	init_poll_funcptr(&epq.pt, ep_ptable_queue_proc);   // 将 ep_ptable_queue_proc 函数赋值给 ep_pqueue.pt 的函数指针，用于处理 poll 队列，会在下一行的 ep_item_poll 函数中回调
+    // 将 ep_ptable_queue_proc 函数赋值给 ep_pqueue.pt 的函数指针，用于处理 poll 队列，会在下一行的 ep_item_poll 函数中回调
+	init_poll_funcptr(&epq.pt, ep_ptable_queue_proc);   
 
 	revents = ep_item_poll(epi, &epq.pt, 1);    // 调用 ep_item_poll 函数 [[具体实现见下面]]
 
@@ -331,15 +331,12 @@ static int ep_insert(struct eventpoll *ep, const struct epoll_event *event,
 		ep_pm_stay_awake(epi);  // 保持唤醒状态
 
 		if (waitqueue_active(&ep->wq))
-			wake_up(&ep->wq);   // 唤醒等待队列
-		if (waitqueue_active(&ep->poll_wait))   // 唤醒 poll 等待队列
-			pwake++;
+			wake_up(&ep->wq);   // 唤醒 wq 等待队列
+        // 省略和 epoll 嵌套有关的代码
 	}
-
 	write_unlock_irq(&ep->lock);
 
-	if (pwake)
-		ep_poll_safewake(ep, NULL, 0);
+    // 省略和 epoll 嵌套有关的代码
 	return 0;
 }
 
@@ -391,7 +388,7 @@ __poll_t tcp_poll(struct file *file, struct socket *sock, poll_table *wait)
 	u8 shutdown;
 	int state;
 
-	sock_poll_wait(file, sock, wait);   // 这里实际上是调用了 poll_wait 函数，[[具体实现见下面]]
+	sock_poll_wait(file, sock, wait);   // sock_poll_wait 函数 [[具体实现见下面]]
 
 	state = inet_sk_state_load(sk);
 	if (state == TCP_LISTEN)    // 如果是监听状态，查看 accept 队列是否为空
@@ -405,34 +402,12 @@ __poll_t tcp_poll(struct file *file, struct socket *sock, poll_table *wait)
 	return mask;
 }
 
-// 嵌套 epoll 的处理函数
-static __poll_t __ep_eventpoll_poll(struct file *file, poll_table *wait, int depth)
+static inline void sock_poll_wait(struct file *filp, struct socket *sock, poll_table *p)
 {
-	struct eventpoll *ep = file->private_data;
-	LIST_HEAD(txlist);
-	struct epitem *epi, *tmp;
-	poll_table pt;
-	__poll_t res = 0;
-
-	init_poll_funcptr(&pt, NULL);
-
-	poll_wait(file, &ep->poll_wait, wait);  // 到这
-
-	mutex_lock_nested(&ep->mtx, depth);
-	ep_start_scan(ep, &txlist);
-	list_for_each_entry_safe(epi, tmp, &txlist, rdllink) {
-		if (ep_item_poll(epi, &pt, depth + 1)) {    // 递归调用 ep_item_poll 函数
-            // ep_item_poll 返回不为 0，说明 fd 就绪，直接 res = EPOLLIN | EPOLLRDNORM
-			res = EPOLLIN | EPOLLRDNORM;
-			break;
-		} else {
-			__pm_relax(ep_wakeup_source(epi));
-			list_del_init(&epi->rdllink);
-		}
+	if (!poll_does_not_wait(p)) {
+		poll_wait(filp, &sock->wq.wait, p);   // [[具体实现见下面]]
+		smp_mb();
 	}
-	ep_done_scan(ep, &txlist);
-	mutex_unlock(&ep->mtx);
-	return res;
 }
 
 static inline void poll_wait(struct file * filp, wait_queue_head_t * wait_address, poll_table *p)
@@ -466,11 +441,14 @@ static void ep_ptable_queue_proc(struct file *file, wait_queue_head_t *whead, po
 	if (epi->event.events & EPOLLEXCLUSIVE)
 		add_wait_queue_exclusive(whead, &pwq->wait);
 	else
-		add_wait_queue(whead, &pwq->wait);  // 将 pwq 加入到 ep.poll_wait 等待队列
+		add_wait_queue(whead, &pwq->wait);  // 将 pwq 加入到 socket 的等待队列
+        // 这个 pwq 会在 socket 网卡有数据时被中断程序调用，然后调用 pwq 里存的回调函数，即 ep_poll_callback
 	pwq->next = epi->pwqlist;
 	epi->pwqlist = pwq;
 }
 ```
+
+<img src="https://s2.loli.net/2024/06/30/7MiSVynwNpEYQcR.jpg" height=1700/>
 
 ### ep_modify
 
@@ -478,7 +456,7 @@ static void ep_ptable_queue_proc(struct file *file, wait_queue_head_t *whead, po
 
 ## epoll_wait
 
-``` c
+``` c linenums="1"
 SYSCALL_DEFINE4(epoll_wait, int, epfd, struct epoll_event __user *, events,
 		int, maxevents, int, timeout)
 {
@@ -533,16 +511,16 @@ static int ep_poll(struct eventpoll *ep, struct epoll_event __user *events,
 
     // 计算超时时间
 	if (timeout && (timeout->tv_sec | timeout->tv_nsec)) {
-        // 这里是用户指定了超时时间，计算超时时间
+        // 这里是用户指定了超时时间
 		slack = select_estimate_accuracy(timeout);
 		to = &expires;
-		*to = timespec64_to_ktime(*timeout);
+		*to = timespec64_to_ktime(*timeout);    // 将时间转换为 ktime_t 结构体
 	} else if (timeout) {
-        // 这里是用户没有指定超时时间，直接返回
+        // 这里是用户没有指定超时时间，将会在检查一次事件后返回
 		timed_out = 1;
 	}
 
-	eavail = ep_events_available(ep);   // 检查是否有事件可用
+	eavail = ep_events_available(ep);   // 检查是否有事件可用 [[具体实现见下面]]
 
 	while (1) {
 		if (eavail) {   // 有事件可用
@@ -565,22 +543,22 @@ static int ep_poll(struct eventpoll *ep, struct epoll_event __user *events,
 
 		write_lock_irq(&ep->lock);
 
-		__set_current_state(TASK_INTERRUPTIBLE);    // 设置当前线程状态为 可中断睡眠
+		__set_current_state(TASK_INTERRUPTIBLE);    // 设置当前进程状态为 可中断睡眠
 
 		eavail = ep_events_available(ep);   // 再次检查是否有事件可用
-		if (!eavail)    // 没有事件可用，将当前线程加入到等待队列
+		if (!eavail)    // 没有事件可用，将当前进程加入到等待队列
 			__add_wait_queue_exclusive(&ep->wq, &wait);
 
 		write_unlock_irq(&ep->lock);
 
 		if (!eavail)
-            // 没事件，将当前线程挂起，如果有中断信号，则会被唤醒，超时也会被唤醒。
+            // 没事件，将当前进程挂起，如果有中断信号，则会被唤醒，超时也会被唤醒。
             // 如果是被有事件的中断信号唤醒的，
             // 则先会调用 epitem 的回调函数，即在 epoll_ctl 中注册的 ep_poll_callback 函数，
             // 将就绪的 fd 放入 rdllist 就绪队列，再唤醒刚刚加入到 ep->wq 的线程。
             // 然后再返回。
 			timed_out = !schedule_hrtimeout_range(to, slack, HRTIMER_MODE_ABS);
-		__set_current_state(TASK_RUNNING);  // 设置当前线程状态为 运行
+		__set_current_state(TASK_RUNNING);  // 设置当前进程状态为运行态
 
 		eavail = 1;
 
@@ -593,11 +571,82 @@ static int ep_poll(struct eventpoll *ep, struct epoll_event __user *events,
 		}
 	}
 }
+
+static inline int ep_events_available(struct eventpoll *ep)
+{
+	return !list_empty_careful(&ep->rdllist) ||
+		READ_ONCE(ep->ovflist) != EP_UNACTIVE_PTR;
+}
+
+static int ep_send_events(struct eventpoll *ep, struct epoll_event __user *events, int maxevents)
+{
+	struct epitem *epi, *tmp;
+	LIST_HEAD(txlist);  // txlist 是用来向用户空间拷贝数据的链表
+	poll_table pt;
+	int res = 0;
+
+	if (fatal_signal_pending(current))
+		return -EINTR;
+
+	init_poll_funcptr(&pt, NULL);
+
+	mutex_lock(&ep->mtx);
+	ep_start_scan(ep, &txlist); // 这个函数用于将 ep->rdllist 拷贝到 txlist
+
+	list_for_each_entry_safe(epi, tmp, &txlist, rdllink) {  // 遍历 txlist
+		struct wakeup_source *ws;
+		__poll_t revents;
+
+		if (res >= maxevents)
+			break;
+
+        // 确保进程唤醒
+		ws = ep_wakeup_source(epi);
+		if (ws) {
+			if (ws->active)
+				__pm_stay_awake(ep->ws);
+			__pm_relax(ws);
+		}
+
+		list_del_init(&epi->rdllink);   // 从就绪队列中删除 epi
+
+		revents = ep_item_poll(epi, &pt, 1);    // 查询 socket 是否有事件，上面已经分析过了
+		if (!revents)
+			continue;   // 没有事件，遍历下一个 epi
+
+        // 有事件，将其拷贝到用户空间
+		events = epoll_put_uevent(revents, epi->event.data, events);
+		if (!events) {
+			list_add(&epi->rdllink, &txlist);   // 拷贝失败，将 epi 放回 txlist
+			ep_pm_stay_awake(epi);
+			if (!res)
+				res = -EFAULT;
+			break;
+		}
+		res++;
+		if (epi->event.events & EPOLLONESHOT) // 处理 EPOLLONESHOT 的情况
+			epi->event.events &= EP_PRIVATE_BITS;
+		else if (!(epi->event.events & EPOLLET)) {  // 处理 EPOLLET 的情况
+            // 如果是 水平触发 模式，将 epi 放回就绪队列，等待下一次事件
+			list_add_tail(&epi->rdllink, &ep->rdllist);
+			ep_pm_stay_awake(epi);
+		}
+	}
+    // 要理解这个函数，我们得知道，如果在扫描过程中有 fd 要加入就绪队列，
+    // 由于 rdllist 已经被锁住了，所以会将这个 fd 放入 ovflist 中，
+    // 这个函数就是将 ovflist 中的 fd 放回入 rdllist 中。
+	ep_done_scan(ep, &txlist);
+	mutex_unlock(&ep->mtx);
+
+	return res;
+}
 ```
+
+<img src="https://s2.loli.net/2024/06/30/yjO4xHCiZMq5XpL.jpg" height=1400/>
 
 ### ep_poll_callback
 
-``` c
+``` c linenums="1"
 // 这是传递给等待队列唤醒机制的回调函数。当存储的文件描述符有事件要报告时，它会被调用。
 // 其实就干两件事，一是将就绪的 fd 放入就绪队列，二是唤醒等待队列。
 static int ep_poll_callback(wait_queue_entry_t *wait, unsigned mode, int sync, void *key)
@@ -620,7 +669,7 @@ static int ep_poll_callback(wait_queue_entry_t *wait, unsigned mode, int sync, v
 	if (READ_ONCE(ep->ovflist) != EP_UNACTIVE_PTR) {
 		if (chain_epi_lockless(epi))
 			ep_pm_stay_awake_rcu(epi);
-	} else if (!ep_is_linked(epi)) {    // 如果 fd 不在就绪队列
+	} else if (!ep_is_linked(epi)) {    // 如果 epi 不在就绪队列
         // fd 就绪，将其放入就绪队列
 		if (list_add_tail_lockless(&epi->rdllink, &ep->rdllist))
 			ep_pm_stay_awake_rcu(epi);
@@ -643,28 +692,17 @@ static int ep_poll_callback(wait_queue_entry_t *wait, unsigned mode, int sync, v
 				break;
 			}
 		}
-		wake_up(&ep->wq);   // 唤醒线程
+		wake_up(&ep->wq);   // 唤醒进程
 	}
-	if (waitqueue_active(&ep->poll_wait))
-		pwake++;
+    // 省略和 epoll 嵌套有关的代码
 
 out_unlock:
 	read_unlock_irqrestore(&ep->lock, flags);
 
-    // 这些都不太重要
-	if (pwake)
-		ep_poll_safewake(ep, epi, pollflags & EPOLL_URING_WAKE);
-	if (!(epi->event.events & EPOLLEXCLUSIVE))
-		ewake = 1;
-	if (pollflags & POLLFREE) {
-		list_del_init(&wait->entry);
-		smp_store_release(&ep_pwq_from_wait(wait)->whead, NULL);
-	}
+    // 省略和 epoll 嵌套有关的代码
 
 	return ewake;
 }
 ```
 
-
-
-
+<img src="https://s2.loli.net/2024/06/30/VKyeuZSxjkmwn1t.jpg" height=700/>
