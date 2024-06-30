@@ -14,7 +14,7 @@
         <link rel="prev" href="../SSH%20%E8%BF%9C%E7%A8%8B%E8%BF%9E%E6%8E%A5%E5%90%8E%E8%A7%A3%E5%86%B3%20No%20protocol%20specified%20%E6%8C%87%E5%8D%97/">
       
       
-        <link rel="next" href="../TCP%20%E7%9A%84%E5%B8%B8%E8%A7%81%E6%8B%A5%E5%A1%9E%E6%8E%A7%E5%88%B6%E7%AE%97%E6%B3%95%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">
+        <link rel="next" href="../Socket%20%E7%BC%96%E7%A8%8B%E4%B9%8B%20epoll%20%E6%BA%90%E7%A0%81%E5%88%86%E6%9E%90%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">
       
       
       <link rel="icon" href="../assets/images/favicon.png">
@@ -1123,6 +1123,25 @@
   
   
     <li class="md-nav__item">
+      <a href="../Socket%20%E7%BC%96%E7%A8%8B%E4%B9%8B%20epoll%20%E6%BA%90%E7%A0%81%E5%88%86%E6%9E%90%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Socket 编程之 epoll 源码分析学习笔记
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../TCP%20%E7%9A%84%E5%B8%B8%E8%A7%81%E6%8B%A5%E5%A1%9E%E6%8E%A7%E5%88%B6%E7%AE%97%E6%B3%95%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" class="md-nav__link">
         
   
@@ -2096,7 +2115,7 @@
 </ul>
 <p>从函数原型可以看出，<code>select</code> 函数中间三个参数都是输出参数，我们只需要传入 <code>fd_set</code> 结构体的指针即可。我们需要给予 <code>select</code> 函数的数据只有监听的 <code>fd</code> 的最大值加 1 和监听超时时间，然后 <code>select</code> 函数就会帮我们监听这些文件描述符。</p>
 <p>至于 nfds 为什么要加 1，是因为 <code>select</code> 函数是从 0 开始遍历文件描述符的。用刚刚 fd_set 的例子来说，如果我们不加 1，那么 <code>select</code> 函数只会遍历到 <code>00011000</code> 七个 fd，而不会遍历最后一个 <code>1</code> 对应的 fd。</p>
-<p><code>timeout</code> 参数除了设置一个具体的时间值外，还可以设置为 <code>NULL</code>，表示永久阻塞，直到有文件描述符就绪。如果设置为 <code>0</code>，则表示立即返回，不会阻塞。</p>
+<p><code>timeout</code> 参数除了设置一个具体的时间值外，还可以设置为 <code>-1</code>，表示永久阻塞，直到有文件描述符就绪。如果设置为 <code>0</code>，则表示立即返回，不会阻塞。</p>
 <p>select 的工作原理大致如下：</p>
 <ol>
 <li>
@@ -2499,42 +2518,79 @@
 </ul>
 </div>
 <p><code>epoll</code> 函数的使用示例：</p>
-<p>``` c linenums="1" hl_lines=""
-// ...
-// 假设 </p>
-<p>struct epoll_event events[5]
-int epfd = epoll_create(1);</p>
-<p>for (int i = 0; i &lt; 5; i++) {
-    static struct epoll_event ev;
-    ev.events = EPOLLIN | EPOLLOUT | EPOLLERR;  // 设置需要监听的事件
-    ev.data.fd = fds[i];  // 设置需要监听的文件描述符
-    epoll_ctl(epfd, EPOLL_CTL_ADD, ev.data.fd, &amp;ev);  // 注册文件描述符和事件
-}</p>
-<p>while (1) {
-    int ret = epoll_wait(epfd, events, 5, 5000);  // 设置超时时间为 5 秒
-    if (ret == 0) {
-        printf("epoll timeout\n");
-        continue;
-    }
-    if (ret &lt; 0) {
-        perror("epoll error");
-        break;
-    }</p>
-<div class="language-text highlight"><pre><span></span><code>for (int i = 0; i &lt; ret; i++) {
-    if (events[i].events &amp; EPOLLIN) {
-        // 处理读事件，events[i].data.fd 为就绪的文件描述符
-    }
-    if (events[i].events &amp; EPOLLOUT) {
-        // 处理写事件，events[i].data.fd 为就绪的文件描述符
-    }
-    if (events[i].events &amp; EPOLLERR) {
-        // 处理异常事件，events[i].data.fd 为就绪的文件描述符
-    }
-}
-</code></pre></div>
-<p>}
-```</p>
-<p><img alt="" src="https://s2.loli.net/2024/06/24/RpOmNqd3XnUfYcE.jpg" /></p>
+<div class="language-c highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-13-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-13-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-13-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-13-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-13-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-13-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-13-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-13-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-13-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-13-10">10</a></span>
+<span class="normal"><a href="#__codelineno-13-11">11</a></span>
+<span class="normal"><a href="#__codelineno-13-12">12</a></span>
+<span class="normal"><a href="#__codelineno-13-13">13</a></span>
+<span class="normal"><a href="#__codelineno-13-14">14</a></span>
+<span class="normal"><a href="#__codelineno-13-15">15</a></span>
+<span class="normal"><a href="#__codelineno-13-16">16</a></span>
+<span class="normal"><a href="#__codelineno-13-17">17</a></span>
+<span class="normal"><a href="#__codelineno-13-18">18</a></span>
+<span class="normal"><a href="#__codelineno-13-19">19</a></span>
+<span class="normal"><a href="#__codelineno-13-20">20</a></span>
+<span class="normal"><a href="#__codelineno-13-21">21</a></span>
+<span class="normal"><a href="#__codelineno-13-22">22</a></span>
+<span class="normal"><a href="#__codelineno-13-23">23</a></span>
+<span class="normal"><a href="#__codelineno-13-24">24</a></span>
+<span class="normal"><a href="#__codelineno-13-25">25</a></span>
+<span class="normal"><a href="#__codelineno-13-26">26</a></span>
+<span class="normal"><a href="#__codelineno-13-27">27</a></span>
+<span class="normal"><a href="#__codelineno-13-28">28</a></span>
+<span class="normal"><a href="#__codelineno-13-29">29</a></span>
+<span class="normal"><a href="#__codelineno-13-30">30</a></span>
+<span class="normal"><a href="#__codelineno-13-31">31</a></span>
+<span class="normal"><a href="#__codelineno-13-32">32</a></span>
+<span class="normal"><a href="#__codelineno-13-33">33</a></span>
+<span class="normal"><a href="#__codelineno-13-34">34</a></span>
+<span class="normal"><a href="#__codelineno-13-35">35</a></span>
+<span class="normal"><a href="#__codelineno-13-36">36</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-13-1"><a id="__codelineno-13-1" name="__codelineno-13-1"></a><span class="c1">// ...</span>
+</span><span id="__span-13-2"><a id="__codelineno-13-2" name="__codelineno-13-2"></a><span class="c1">// 假设 </span>
+</span><span id="__span-13-3"><a id="__codelineno-13-3" name="__codelineno-13-3"></a>
+</span><span id="__span-13-4"><a id="__codelineno-13-4" name="__codelineno-13-4"></a><span class="k">struct</span><span class="w"> </span><span class="nc">epoll_event</span><span class="w"> </span><span class="n">events</span><span class="p">[</span><span class="mi">5</span><span class="p">]</span>
+</span><span id="__span-13-5"><a id="__codelineno-13-5" name="__codelineno-13-5"></a><span class="kt">int</span><span class="w"> </span><span class="n">epfd</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">epoll_create</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
+</span><span id="__span-13-6"><a id="__codelineno-13-6" name="__codelineno-13-6"></a>
+</span><span id="__span-13-7"><a id="__codelineno-13-7" name="__codelineno-13-7"></a><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">5</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-13-8"><a id="__codelineno-13-8" name="__codelineno-13-8"></a><span class="w">    </span><span class="k">static</span><span class="w"> </span><span class="k">struct</span><span class="w"> </span><span class="nc">epoll_event</span><span class="w"> </span><span class="n">ev</span><span class="p">;</span>
+</span><span id="__span-13-9"><a id="__codelineno-13-9" name="__codelineno-13-9"></a><span class="w">    </span><span class="n">ev</span><span class="p">.</span><span class="n">events</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">EPOLLIN</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="n">EPOLLOUT</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="n">EPOLLERR</span><span class="p">;</span><span class="w">  </span><span class="c1">// 设置需要监听的事件</span>
+</span><span id="__span-13-10"><a id="__codelineno-13-10" name="__codelineno-13-10"></a><span class="w">    </span><span class="n">ev</span><span class="p">.</span><span class="n">data</span><span class="p">.</span><span class="n">fd</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">fds</span><span class="p">[</span><span class="n">i</span><span class="p">];</span><span class="w">  </span><span class="c1">// 设置需要监听的文件描述符</span>
+</span><span id="__span-13-11"><a id="__codelineno-13-11" name="__codelineno-13-11"></a><span class="w">    </span><span class="n">epoll_ctl</span><span class="p">(</span><span class="n">epfd</span><span class="p">,</span><span class="w"> </span><span class="n">EPOLL_CTL_ADD</span><span class="p">,</span><span class="w"> </span><span class="n">ev</span><span class="p">.</span><span class="n">data</span><span class="p">.</span><span class="n">fd</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">ev</span><span class="p">);</span><span class="w">  </span><span class="c1">// 注册文件描述符和事件</span>
+</span><span id="__span-13-12"><a id="__codelineno-13-12" name="__codelineno-13-12"></a><span class="p">}</span>
+</span><span id="__span-13-13"><a id="__codelineno-13-13" name="__codelineno-13-13"></a>
+</span><span id="__span-13-14"><a id="__codelineno-13-14" name="__codelineno-13-14"></a><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-13-15"><a id="__codelineno-13-15" name="__codelineno-13-15"></a><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">ret</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">epoll_wait</span><span class="p">(</span><span class="n">epfd</span><span class="p">,</span><span class="w"> </span><span class="n">events</span><span class="p">,</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w"> </span><span class="mi">5000</span><span class="p">);</span><span class="w">  </span><span class="c1">// 设置超时时间为 5 秒</span>
+</span><span id="__span-13-16"><a id="__codelineno-13-16" name="__codelineno-13-16"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">ret</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-13-17"><a id="__codelineno-13-17" name="__codelineno-13-17"></a><span class="w">        </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;epoll timeout</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span>
+</span><span id="__span-13-18"><a id="__codelineno-13-18" name="__codelineno-13-18"></a><span class="w">        </span><span class="k">continue</span><span class="p">;</span>
+</span><span id="__span-13-19"><a id="__codelineno-13-19" name="__codelineno-13-19"></a><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-13-20"><a id="__codelineno-13-20" name="__codelineno-13-20"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">ret</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-13-21"><a id="__codelineno-13-21" name="__codelineno-13-21"></a><span class="w">        </span><span class="n">perror</span><span class="p">(</span><span class="s">&quot;epoll error&quot;</span><span class="p">);</span>
+</span><span id="__span-13-22"><a id="__codelineno-13-22" name="__codelineno-13-22"></a><span class="w">        </span><span class="k">break</span><span class="p">;</span>
+</span><span id="__span-13-23"><a id="__codelineno-13-23" name="__codelineno-13-23"></a><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-13-24"><a id="__codelineno-13-24" name="__codelineno-13-24"></a>
+</span><span id="__span-13-25"><a id="__codelineno-13-25" name="__codelineno-13-25"></a><span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">ret</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-13-26"><a id="__codelineno-13-26" name="__codelineno-13-26"></a><span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">events</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">events</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="n">EPOLLIN</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-13-27"><a id="__codelineno-13-27" name="__codelineno-13-27"></a><span class="w">            </span><span class="c1">// 处理读事件，events[i].data.fd 为就绪的文件描述符</span>
+</span><span id="__span-13-28"><a id="__codelineno-13-28" name="__codelineno-13-28"></a><span class="w">        </span><span class="p">}</span>
+</span><span id="__span-13-29"><a id="__codelineno-13-29" name="__codelineno-13-29"></a><span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">events</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">events</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="n">EPOLLOUT</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-13-30"><a id="__codelineno-13-30" name="__codelineno-13-30"></a><span class="w">            </span><span class="c1">// 处理写事件，events[i].data.fd 为就绪的文件描述符</span>
+</span><span id="__span-13-31"><a id="__codelineno-13-31" name="__codelineno-13-31"></a><span class="w">        </span><span class="p">}</span>
+</span><span id="__span-13-32"><a id="__codelineno-13-32" name="__codelineno-13-32"></a><span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">events</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">events</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="n">EPOLLERR</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-13-33"><a id="__codelineno-13-33" name="__codelineno-13-33"></a><span class="w">            </span><span class="c1">// 处理异常事件，events[i].data.fd 为就绪的文件描述符</span>
+</span><span id="__span-13-34"><a id="__codelineno-13-34" name="__codelineno-13-34"></a><span class="w">        </span><span class="p">}</span>
+</span><span id="__span-13-35"><a id="__codelineno-13-35" name="__codelineno-13-35"></a><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-13-36"><a id="__codelineno-13-36" name="__codelineno-13-36"></a><span class="p">}</span>
+</span></code></pre></div></td></tr></table></div>
+<p><img alt="" src="https://s2.loli.net/2024/06/30/zpATkxvCNqP4Yd1.jpg" /></p>
 <h3 id="kqueue">kqueue</h3>
 <h3 id="iocp">IOCP</h3>
 <h2 id="_1">总结</h2>
