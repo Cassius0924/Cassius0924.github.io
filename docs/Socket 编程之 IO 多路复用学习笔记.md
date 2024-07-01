@@ -310,9 +310,9 @@ epoll 共有三个函数：
 
 - `epoll_wait`：等待就绪的文件描述符
 
-select 和 poll 都只有一个函数，所有功能都聚合到一个函数中，因此每次调用都需要传入需要监听的文件描述符，也就导致了每次都需要将文件描述符集合从用户态拷贝到内核态，增加了开销。
-
 epoll 的 “e” 代表了 “event”，这是一个事件驱动的模型，即响应式的模型。内核不再需要 **主动** 轮询文件描述符，而是通过回调函数来实现通知进程，属于 **被动响应** 。
+
+select 和 poll 都只有一个函数，所有功能都聚合到一个函数中，因此每次调用都需要传入需要监听的文件描述符，也就导致了每次都需要将文件描述符集合从用户态拷贝到内核态，增加了开销。
 
 epoll 将 **维护文件描述符集合** 和 **判断文件描述符是否就绪** 两个功能进行了拆分，整个过程只需要使用 `epoll_ctl` 函数添加一次文件描述符，在 `epoll_wait` 函数中不再需要传入需要监听文件描述符，这样就大大减少了从用户态到内核态切换的开销。
 
@@ -345,7 +345,19 @@ eventpoll 是一个内核数据结构，由操作系统管理，其内部有三�
 
 eventpoll 还维护了一个名为 `rdllist` 的就绪列表，用来存放就绪的文件描述符。当文件描述符就绪时，其会被 `rdllist` 引用，因此用户只需要获取 `rdllist` 中的内容即可知道哪些文件描述符就绪。
 
-由于一个 epoll 实例可以被多个进程/线程共享，即一个 `epfd` 可以被多个进程/线程的 `epoll_wait` 函数调用，所以 eventpoll 还维护了一个名为 `wq` 的等待队列，用来存放等待中（阻塞中）的进程/线程。
+由于一个 epoll 实例可以被多个进程共享，即一个 `epfd` 可以被多个进程的 `epoll_wait` 函数调用，所以 eventpoll 还维护了一个名为 `wq` 的等待队列，用来存放等待中（阻塞中）的线程。
+
+`epoll_create` 的工作原理大致如下：
+
+- 为 `eventpoll` 申请空间，并且初始化其成员，如红黑树、就绪列表和等待队列等
+
+- 为 `eventpoll` 申请一个未使用的文件描述符 `fd`
+
+- 申请一个满足 VFS 的虚拟文件结构体 `file`
+
+- `eventpoll` 与 `file` 关联，将 `fd` 和 `file` 关联起来
+
+- 返回 `fd`
 
 ---
 
@@ -390,10 +402,27 @@ epitem 结构体的定义如下：
 struct epitem {
     struct rb_node rbn;  // 红黑树节点
     struct list_head rdllink;  // 就绪列表节点
-    int sockfd;  // 文件描述符
+    struct eppoll_entry *pwqlist;  // socket 等待队列
+    struct eventpoll* ep;   // 指向 eventpoll 结构体
     struct epoll_event event;  // 事件
 }
 ```
+
+`epoll_ctl(ADD)` 函数的工作原理大致如下：
+
+1. 将 `event` 拷贝到内核空间
+
+2. 尝试在红黑树中查找 `fd` 对应的 `epitem` 结构体
+
+3. 找不到则创建一个新的 `epitem`，并将 `epitem` 添加到红黑树中
+
+4. 创建一个 `epitem` 对应的 `eppoll_entry` 用于链接到 socket 等待队列，并为 `eppoll_entry` 设置回调函数
+
+5. 将 `eppoll_entry` 添加到 socket 等待队列中
+
+6. 检查该 socket 的读写缓冲区和状态，如果有事件发生，则将 `epitem` 添加到就绪列表中，并且唤醒 `eventpoll.wq` 中的等待进程
+
+7. 函数返回
 
 ---
 
@@ -415,14 +444,38 @@ int epoll_wait(int epfd, struct epoll_event *events, int maxevents, int timeout)
 
 `epoll_wait` 函数会检查 epoll 实例的就绪链表，如果就绪链表中有文件描述符，则将其添加到 `events` 数组中，然后返回就绪的文件描述符的数量。如果就绪链表为空，则会阻塞直到有文件描述符就绪或者超时。
 
+`epoll_wait` 函数的工作原理大致如下：
 
-epoll
+1. 通过传入的 `epfd` 找到对应的 `eventpoll` 结构体
+
+2. 判断 `eventpoll.rdllist` 是否有 `epitem`，有则代表有 `epitem` 就绪，但不一定是我们感兴趣的事件，所以需要进一步判断
+
+3. 若 `rdllist` 不为空，则遍历它，获取 `epitem` 的 `socket` 后，在 `rdllist` 中删除此 `epitem`，接着判断 `socket` 具体触发的事件类型是否为我们需要监听的事件
+
+4. 若是我们需要监听的事件，则将此事件拷贝回用户态的 `events` 数组中，函数返回
+
+5. 若是水平触发模式，则将 `epitem` 重新添加到 `rdllist` 中，以便下次再次判断
+
+6. 若 `rdllist` 为空，则判断是否超时，若超时则直接返回
+
+7. 未超时则将该进程加入到 `eventpoll.wq` 进程等待队列中，并且将进程置为可中断睡眠状态，等待唤醒
+
+8. 唤醒后，将进程设置为运行状态，并在 `wq` 中删除该进程
+
+9. 重复 2-8 步骤，直到超时或者有文件描述符就绪
 
 > [!NOTE]
 >
 > 注意，epoll 并没有采用共享内存的方式，阅读源码可知，epoll 采用了内核态和用户态的数据拷贝：
+>
 > ``` c
-> 
+> epoll_put_uevent(__poll_t revents, __u64 data, struct epoll_event __user *uevent)
+> {
+>   // __put_user 是内核态到用户态的数据拷贝的函数
+> 	if (__put_user(revents, &uevent->events) || __put_user(data, &uevent->data))
+> 		return NULL;
+> 	return uevent+1;
+> }
 > ```
 
 > [!NOTE]
@@ -440,7 +493,7 @@ epoll
 
 ``` c linenums="1"
 // ...
-// 假设 
+// 假设 epfd 为 epoll 实例的文件描述符，fds 为需要监听的文件描述符数组，fds_size 为 fds 的大小
 
 struct epoll_event events[5]
 int epfd = epoll_create(1);
@@ -484,15 +537,15 @@ while (1) {
 ### IOCP
 
 
-## 总结
+## 几个问题 
 
-### select 一无是处了吗？
+### 1. select 和 poll  一无是处了吗？
 
-在学完这几个多路复用函数后，可能有些人会对 select 感到失望，感觉 select 一无是处了。但是 select 也有它的优点，比如 `select` 函数是跨平台的，无论你在 Linux、Windows 还是 macOS 下，都可以使用 `select` 函数。而改进的 IO 多路复用模型兼容性差，`epoll` 函数只能在 Linux 下使用，`kqueue` 函数只能在 FreeBSD 下使用，`IOCP` 函数只能在 Windows 下使用。
+在学完这几个多路复用函数后，可能有些人会对 select 和 poll 感到失望。但是它们也有优点，比如 `select` 函数是跨平台的，无论你在 Linux、Windows 还是 macOS 下，都可以使用 `select` 函数。而改进的 IO 多路复用模型兼容性差，`epoll` 函数只能在 Linux 下使用，`kqueue` 函数只能在 FreeBSD 下使用，`IOCP` 函数只能在 Windows 下使用。
 
 除此之外，未必所有的程序都需要处理大量的并发连接，如果一个程序只需要处理十几个连接，那么选择 `select` 函数是优于 `epoll` 函数的。
 
-### epoll 为什么使用红黑树而不是哈希表或 AVL 树？
+### 2. epoll 为什么使用红黑树而不是哈希表或 AVL 树？
 
 其实历史版本的 Linux 内核中，`epoll` 使用的是哈希表，但后面改用了红黑树。
 
@@ -506,7 +559,7 @@ while (1) {
 
 综合考量，红黑树是最优选择。
 
-### 为什么是 `epitem` 的成员指向就绪列表，而不是列表元素指向 `epitem`？
+### 3. 为什么是 `epitem` 的成员指向就绪列表，而不是列表元素指向 `epitem`？
 
 有人可能会发现，在 `epitem` 结构体中，`rdllink` 指向就绪列表，而不是就绪列表的元素指向 `epitem`。这是由于 Linux 内核的链表设计哲学：“让万物包含链表，而不是链表包含万物。” Linux 内核可以通过 `container_of` 宏来获取链表元素的所在结构体地址，所以就绪列表的元素不需要指向 `epitem`。
 

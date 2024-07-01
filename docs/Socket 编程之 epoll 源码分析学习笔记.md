@@ -4,7 +4,7 @@
 
 ## 几个数据结构
 
-![数据结构](https://s2.loli.net/2024/06/30/zpATkxvCNqP4Yd1.jpg)
+![数据结构](https://s2.loli.net/2024/06/30/fPingVOd2YcEFUX.jpg)
 
 ### eventpoll
 
@@ -355,9 +355,9 @@ static __poll_t ep_item_poll(const struct epitem *epi, poll_table *pt, int depth
 		res = vfs_poll(file, pt);
 	else
         // 这种情况属于嵌套 epoll，调用 __ep_eventpoll_poll 函数
-		res = __ep_eventpoll_poll(file, pt, depth); 
+		res = __ep_eventpoll_poll(file, pt, depth);     // res 就是 socket 所有就绪的事件
 	fput(file);
-	return res & epi->event.events;
+	return res & epi->event.events; // 这里才进一步判断是否是我们关心的事件（监听的事件）
 }
 
 // 普通 fd 的处理函数
@@ -539,7 +539,8 @@ static int ep_poll(struct eventpoll *ep, struct epoll_event __user *events,
 			return -EINTR;
 
 		init_wait(&wait);   // 初始化等待队列项，这里就和 ep.wq 有关了
-		wait.func = ep_autoremove_wake_function;    // 设置回调函数，自动移除等待队列项
+        // 设置回调函数，在唤醒进程后自动删除该进程在 ep.wq 中对应的项
+		wait.func = ep_autoremove_wake_function;
 
 		write_lock_irq(&ep->lock);
 
@@ -610,12 +611,16 @@ static int ep_send_events(struct eventpoll *ep, struct epoll_event __user *event
 
 		list_del_init(&epi->rdllink);   // 从就绪队列中删除 epi
 
-		revents = ep_item_poll(epi, &pt, 1);    // 查询 socket 是否有事件，上面已经分析过了
+        // 注意！rdllist 里的 epi 有事件就绪，但不一定是我们感兴趣的事件！
+        // 所以这里查询 socket 的具体事件，是否为我们感兴趣的事件！
+        // 也就是说，rdllist 只能告诉我们可能有任何事件发生，
+        // 但具体是什么事件，是否是我们感兴趣的事件，需要通过 ep_item_poll 函数来判断
+		revents = ep_item_poll(epi, &pt, 1);
 		if (!revents)
-			continue;   // 没有事件，遍历下一个 epi
+			continue;   // 没有我们感兴趣事件，遍历下一个 epi
 
-        // 有事件，将其拷贝到用户空间
-		events = epoll_put_uevent(revents, epi->event.data, events);
+        // 有我们感兴趣的事件，将 revents 和 epi->event.data 其拷贝到用户空间的 events 里
+		events = epoll_put_uevent(revents, epi->event.data, events);    // [[具体实现见下面]]
 		if (!events) {
 			list_add(&epi->rdllink, &txlist);   // 拷贝失败，将 epi 放回 txlist
 			ep_pm_stay_awake(epi);
@@ -639,6 +644,14 @@ static int ep_send_events(struct eventpoll *ep, struct epoll_event __user *event
 	mutex_unlock(&ep->mtx);
 
 	return res;
+}
+
+epoll_put_uevent(__poll_t revents, __u64 data, struct epoll_event __user *uevent)
+{
+    // 注意这里依然使用的是 __put_user 函数，即从内核空间拷贝到用户空间，并没有使用共享内存！
+	if (__put_user(revents, &uevent->events) || __put_user(data, &uevent->data))
+		return NULL;
+	return uevent+1;
 }
 ```
 
