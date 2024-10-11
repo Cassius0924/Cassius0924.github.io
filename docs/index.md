@@ -11,11 +11,17 @@
 [![Top Languages](https://github-readme-stats.vercel.app/api/top-langs/?username=cassius0924&exclude_repo=Cassius0924.github.io&hide=css,html&card_width=500&hide_border=true&theme=transparent)](https://github.com/cassius0924)
 [![GitHub Stats](https://github-readme-stats.vercel.app/api?username=cassius0924&card_width=500&hide_border=true&theme=transparent)](https://github.com/cassius0924)
 
+> [!NOTE]
+>
+> im bytedancer, 宇宙厂实习中...
+
 ## 我的开源项目
 
 - **[WeChatter](https://github.com/Cassius0924/WeChatter)**： *基于 wechatbot-webhook 的微信机器人，支持 GPT 问答、热搜、天气预报、消息转发、小游戏、Webhook 提醒等功能。*
 
 - **[TetrisTwins](https://github.com/Cassius0924/TetrisTwins)**： *基于终端的双人竞赛俄罗斯方块小游戏，用 C++17 编写。*
+
+- **[NcistSeatBook](https://github.com/Cassius0924/NcistSeatBook)**： *帮同学写的一个学校图书馆座位自动预约服务（抢位置用的，闭源了，担心被滥用）*
 
 - **[Zetta（开发中）](https://github.com/Cassius0924/Zetta)**： *一个基于Reactor模式高性能网络库，支持TCP、UDP、HTTP协议，整合了Protobuf，用C++20编写。*
 
@@ -31,7 +37,7 @@
 
 ### Languages
 
-[![C](https://img.shields.io/badge/c-black?style=for-the-badge&logo=c)](https://github.com/cassius0924)
+[![Golang](https://img.shields.io/badge/go-black?style=for-the-badge&logo=go)](https://github.com/cassius0924)
 [![C++](https://img.shields.io/badge/c++-black?style=for-the-badge&logo=cplusplus)](https://github.com/cassius0924)
 [![Python](https://img.shields.io/badge/python-black?style=for-the-badge&logo=python)](https://github.com/cassius0924)
 [![MySQL](https://img.shields.io/badge/mysql-black?style=for-the-badge&logo=mysql)](https://github.com/cassius0924)
