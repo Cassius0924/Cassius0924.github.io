@@ -23,8 +23,6 @@
 
 - **[NcistSeatBook](https://github.com/Cassius0924/NcistSeatBook)**： *帮同学写的一个学校图书馆座位自动预约服务（抢位置用的，闭源了，担心被滥用）*
 
-- **[Zetta（开发中）](https://github.com/Cassius0924/Zetta)**： *一个基于Reactor模式高性能网络库，支持TCP、UDP、HTTP协议，整合了Protobuf，用C++20编写。*
-
 - **[Cpp-Style-Guide](https://github.com/NCIST-IoT-Lab/Cpp-Style-Guide)**：*由我编写的个人 C++ 代码风格规范。*
 
 - **[Scel2Rime](https://github.com/Cassius0924/Scel2Rime)**：*macOS 的 Rime 输入法自动化工具，自动下载词库并转成 YAML 格式，自动部署 Rime。*
