@@ -4,32 +4,24 @@
 [![Bilibili](https://img.shields.io/badge/Bilibili-blue?style=flat-square&logo=bilibili&logoColor=white)](https://space.bilibili.com/12873865)
 [![Email](https://img.shields.io/badge/Email-blue?style=flat-square&logo=gmail&logoColor=white)](mailto:cassius0924@qq.com)
 
-分享我经历过的事情、学习过的知识、发现的好东西啦啦啦。
-
 ![GitHub Contributions](https://ghchart.rshah.org/cassius0924)
 
 [![Top Languages](https://github-readme-stats.vercel.app/api/top-langs/?username=cassius0924&exclude_repo=Cassius0924.github.io&hide=css,html&card_width=500&hide_border=true&theme=transparent)](https://github.com/cassius0924)
 [![GitHub Stats](https://github-readme-stats.vercel.app/api?username=cassius0924&card_width=500&hide_border=true&theme=transparent)](https://github.com/cassius0924)
 
-> [!NOTE]
->
-> im bytedancer, 宇宙厂实习中...
-
 ## 我的开源项目
+
+- **[JTGO](https://github.com/Cassius0924/JTGO)**： *JSON Template with GO，基于 Go 的 JSON 模板引擎，支持条件语句、循环、函数调用等功能，可以用于生成动态的 JSON 数据。*
 
 - **[WeChatter](https://github.com/Cassius0924/WeChatter)**： *基于 wechatbot-webhook 的微信机器人，支持 GPT 问答、热搜、天气预报、消息转发、小游戏、Webhook 提醒等功能。*
 
 - **[TetrisTwins](https://github.com/Cassius0924/TetrisTwins)**： *基于终端的双人竞赛俄罗斯方块小游戏，用 C++17 编写。*
-
-- **[NcistSeatBook](https://github.com/Cassius0924/NcistSeatBook)**： *帮同学写的一个学校图书馆座位自动预约服务（抢位置用的，闭源了，担心被滥用）*
 
 - **[Cpp-Style-Guide](https://github.com/NCIST-IoT-Lab/Cpp-Style-Guide)**：*由我编写的个人 C++ 代码风格规范。*
 
 - **[Scel2Rime](https://github.com/Cassius0924/Scel2Rime)**：*macOS 的 Rime 输入法自动化工具，自动下载词库并转成 YAML 格式，自动部署 Rime。*
 
 - **[MultipleSearch](https://github.com/Cassius0924/MultipleSearch)**：*快捷切换搜索引擎的油猴脚本。*
-
-- **[ChaoxingAnswerToggler](https://github.com/Cassius0924/ChaoxingAnswerToggler)**：*隐藏或显示学习通作业选择题答案，复习专用。*
 
 ## 我的技术栈
 
