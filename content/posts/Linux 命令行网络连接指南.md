@@ -1,16 +1,10 @@
 ---
-layout: '../../layouts/MarkdownPost.astro'
 title: 'Linux 命令行网络连接指南'
-pubDate: 2023-04-14
+draft: false
+date: 2023-04-14T10:00:00+08:00
 description: '本文旨在为 Linux 用户介绍提供关于使用命令行连接网络的方法。'
 author: 'Cassius0924'
-cover:
-    url: 'https://s2.loli.net/2023/04/14/ZthLdpQJjDc2XGC.png'
-    square: 'https://s2.loli.net/2023/04/14/ZthLdpQJjDc2XGC.png'
-    alt: 'Network Manager'
 tags: ["Linux", "Network", "CLI"]
-theme: 'light'
-featured: ture
 ---
 
 # Linux 命令行网络连接指南

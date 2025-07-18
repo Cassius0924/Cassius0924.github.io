@@ -1,16 +1,10 @@
 ---
-layout: '../../layouts/MarkdownPost.astro'
 title: '浅析 SSH 免密登录原理'
-pubDate: 2023-03-28
+draft: false
+date: 2023-03-28T10:00:00+08:00
 description: '本文旨在以简单易懂的方式解释SSH免密登录的原理。'
 author: 'Cassius0924'
-cover:
-    url: 'https://s2.loli.net/2023/03/28/8an6PHflIvZytdo.png'
-    square: 'https://s2.loli.net/2023/03/28/RZc1M34LgDpEolw.png'
-    alt: 'SSH'
 tags: ["Linux", "SSH", "Passwordless"]
-theme: 'light'
-featured: ture
 ---
 
 # 浅析 SSH 免密登录原理

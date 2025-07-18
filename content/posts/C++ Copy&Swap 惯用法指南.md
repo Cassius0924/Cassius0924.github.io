@@ -1,3 +1,13 @@
+---
+title: "C++ Copy&Swap 惯用法指南"
+draft: false
+date: 2024-01-15T10:00:00+08:00
+draft: false
+tags: ["C++", "编程技巧", "设计模式"]
+categories: ["C++"]
+description: "详细介绍 C++ 中 Copy&Swap 惯用法的实现和优势"
+---
+
 # C++ Copy&Swap 惯用法指南
 
 ## Copy&Swap 是什么

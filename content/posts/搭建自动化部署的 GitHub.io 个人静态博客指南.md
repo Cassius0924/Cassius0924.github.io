@@ -76,7 +76,6 @@ site_name: Cassius0924's Blog
 site_author: Cassius0924
 repo_name: 'Cassius0924/Cassius0924.github.io'
 copyright: "Copyright &copy; 2024 - 2024 Chihchou Ho"
-theme:
   name: 'material'
   palette:
     primary: 'indigo'

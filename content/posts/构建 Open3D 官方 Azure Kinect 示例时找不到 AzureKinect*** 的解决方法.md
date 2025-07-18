@@ -1,16 +1,10 @@
 ---
-layout: '../../layouts/MarkdownPost.astro'
 title: '构建 Open3D 官方 Azure Kinect 示例时找不到 AzureKinect*** 的解决方法'
-pubDate: 2023-04-08
+draft: false
+date: 2023-04-08T10:00:00+08:00
 description: '此文章旨在帮助解决C++版Open3D编译时找不到AzureKinect相关函数的问题。'
 author: 'Cassius0924'
-cover:
-    url: 'https://s2.loli.net/2023/04/08/Urlin4NQLEc3kyV.png'
-    square: 'https://s2.loli.net/2023/04/08/Urlin4NQLEc3kyV.png'
-    alt: 'Azure Kinect with Open3D'
 tags: ["Linux", "Ubuntu", "Open3D", "Kinect"]
-theme: 'light'
-featured: ture
 ---
 
 # 构建 Open3D 官方 Azure Kinect 示例时找不到 AzureKinect*** 的解决方法

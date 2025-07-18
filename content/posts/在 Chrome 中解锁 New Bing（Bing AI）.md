@@ -1,16 +1,10 @@
 ---
-layout: '../../layouts/MarkdownPost.astro'
 title: '在 Chrome 中解锁 New Bing（Bing AI）'
-pubDate: 2023-04-08
+draft: false
+date: 2023-04-08T10:00:00+08:00
 description: '本文旨在帮助大家在 Chrome 中使用 New Bing（Bing AI）。'
 author: 'Cassius0924'
-cover:
-    url: 'https://s2.loli.net/2023/04/12/QERJ7XMlsh5NufH.png'
-    square: 'https://s2.loli.net/2023/04/12/QERJ7XMlsh5NufH.png'
-    alt: 'BingAI'
 tags: ["New Bing", "Chrome", "Chrome extension"]
-theme: 'light'
-featured: ture
 ---
 
 # 在 Chrome 中解锁 New Bing（Bing AI）

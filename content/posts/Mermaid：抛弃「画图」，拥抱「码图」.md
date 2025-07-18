@@ -1,16 +1,10 @@
 ---
-layout: '../../layouts/MarkdownPost.astro'
 title: 'Jetson nano 安装 Azure Kinect DK 指南'
-pubDate: 2023-03-24
+draft: false
+date: 2023-03-24T10:00:00+08:00
 description: 'Mermaid 是一个可以让你通过代码来绘制流程图、序列图、甘特图等各种图表的工具。'
 author: 'Cassius0924'
-cover:
-    url: 'https://s2.loli.net/2023/03/24/HZq6GLmaM839s7b.jpg'
-    square: 'https://s2.loli.net/2023/03/24/HZq6GLmaM839s7b.jpg'
-    alt: 'Mermaid'
 tags: ["Mermaid", "Markdown"]
-theme: 'light'
-featured: ture
 ---
 
 # Mermaid：抛弃「画图」，拥抱「码图」

@@ -1,16 +1,10 @@
 ---
-layout: '../../layouts/MarkdownPost.astro'
 title: 'Jetson nano 安装 PCL 指南'
-pubDate: 2023-03-24
+draft: false
+date: 2023-03-24T10:00:00+08:00
 description: '本指南帮助 ARM64 架构的 Jetson Nano 安装 PCL。'
 author: 'Cassius0924'
-cover:
-    url: 'https://pointclouds.org/documentation/pointcloudlibrary_logo.png'
-    square: 'https://pointclouds.org/documentation/pointcloudlibrary_logo.png'
-    alt: 'PCL'
 tags: ["Linux", "Ubuntu", "Jetson", "PCL"]
-theme: 'light'
-featured: ture
 ---
 
 # Jetson nano 安装 PCL 指南

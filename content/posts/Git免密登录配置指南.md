@@ -1,16 +1,10 @@
 ---
-layout: '../../layouts/MarkdownPost.astro'
 title: 'Git 免密登录配置指南'
-pubDate: 2023-03-24
+draft: false
+date: 2023-03-24T10:00:00+08:00
 description: '这是一个简单教程，旨在帮助大家实现免密SSH登录，省去每次输入用户名和密码的烦恼。'
 author: 'Cassius0924'
-cover:
-    url: 'https://s2.loli.net/2023/03/24/wH3xWXve6C5NOAm.png'
-    square: 'https://s2.loli.net/2023/03/24/wH3xWXve6C5NOAm.png'
-    alt: 'GitHub'
 tags: ["Linux", "SSH", "Passwordless"]
-theme: 'light'
-featured: true 
 ---
 
 # Git免密登录配置指南

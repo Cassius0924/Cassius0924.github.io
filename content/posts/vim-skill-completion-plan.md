@@ -1,3 +1,14 @@
+---
+title: "Vim 技能补全计划"
+summary: "适合已经熟悉 Vim 基础操作，希望提高编辑技能的开发者的实用技巧集合"
+date: 2025-07-19
+series: ["Vim"]
+aliases: ["/vim-skill-completion"]
+tags: ["Vim", "Editor", "Skill"]
+author: ["Cassius0924"]
+draft: false
+---
+
 # Vim 技能补全计划
 
 这篇文章适合于那些已经熟悉 Vim 基础操作，希望提高 Vim 编辑技能的开发者。

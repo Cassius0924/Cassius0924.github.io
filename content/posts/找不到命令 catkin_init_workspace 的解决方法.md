@@ -1,16 +1,10 @@
 ---
-layout: '../../layouts/MarkdownPost.astro'
 title: '找不到 catkin_init_workspace 命令的解决方法'
-pubDate: 2023-03-28
+draft: false
+date: 2023-03-28T10:00:00+08:00
 description: '本文旨在解决找不到 catkin_init_workspace 命令的问题。'
 author: 'Cassius0924'
-cover:
-    url: 'https://s2.loli.net/2023/03/28/TPrkdjpvx2bwXMn.png'
-    square: 'https://s2.loli.net/2023/03/28/TPrkdjpvx2bwXMn.png'
-    alt: 'ROS'
 tags: ["Linux", "ROS"]
-theme: 'light'
-featured: ture
 ---
 
 #找不到 catkin_init_workspace 命令的解决方法

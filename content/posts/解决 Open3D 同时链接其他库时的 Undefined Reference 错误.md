@@ -1,16 +1,10 @@
 ---
-layout: '../../layouts/MarkdownPost.astro'
 title: '解决 Open3D 同时链接其他库时的 Undefined Reference 错误'
-pubDate: 2023-06-09
+draft: false
+date: 2023-06-09T10:00:00+08:00
 description: '本文旨在解决C++ Open3D库与其他库冲突问题。'
 author: 'Cassius0924'
-cover:
-    url: 'https://s2.loli.net/2023/06/09/9CkQ2fANYiyVmZj.png'
-    square: 'https://s2.loli.net/2023/06/09/9CkQ2fANYiyVmZj.png'
-    alt: 'Open3D'
 tags: ["Linux", "Open3D"]
-theme: 'light'
-featured: ture
 ---
 
 # 解决 Open3D 同时链接其他库时的 Undefined Reference 错误

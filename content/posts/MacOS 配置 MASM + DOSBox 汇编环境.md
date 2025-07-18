@@ -1,16 +1,10 @@
 ---
-layout: '../../layouts/MarkdownPost.astro'
 title: 'MacOS 配置 MASM + DOSBox 汇编环境'
-pubDate: 2023-04-12
+draft: false
+date: 2023-04-12T10:00:00+08:00
 description: '该文章旨在帮助在 MacOS 系统下想要学习汇编语言的开发者配置 MASM + DOSBox 环境。'
 author: 'Cassius0924'
-cover:
-    url: 'https://s2.loli.net/2023/04/12/SVgEioRKfzWXQt8.png'
-    square: 'https://s2.loli.net/2023/04/12/SVgEioRKfzWXQt8.png'
-    alt: 'DOSBox'
 tags: ["MacOS", "MASM", "DOSBox", "Assembly"]
-theme: 'light'
-featured: ture
 ---
 
 # macOS 配置 MASM + DOSBox 汇编环境

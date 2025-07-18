@@ -1,16 +1,10 @@
 ---
-layout: '../../layouts/MarkdownPost.astro'
 title: 'Jetson (Ubuntu Arm64) 安装 Bazel'
-pubDate: 2023-06-14
+draft: false
+date: 2023-06-14T10:00:00+08:00
 description: '本指南帮助 ARM64 架构的 Jetson 安装 Bazel'
 author: 'Cassius0924'
-cover:
-    url: 'https://s2.loli.net/2023/06/14/pdJIcoZsxq9Ou27.png'
-    square: 'https://s2.loli.net/2023/06/14/pdJIcoZsxq9Ou27.png'
-    alt: 'Bazel'
 tags: ["Linux", "Ubuntu", "Jetson", "Bazel"]
-theme: 'light'
-featured: ture
 ---
 
 # Jetson (Ubuntu Arm64) 安装 Bazel

@@ -1,16 +1,10 @@
 ---
-layout: '../../layouts/MarkdownPost.astro'
 title: 'Ubuntu 安装软件包时遇到 unmet dependencies 的解决方法'
-pubDate: 2023-03-24
+draft: false
+date: 2023-03-24T10:00:00+08:00
 description: '本文旨在解决Ubuntu用户遇到“The following packages have unmet dependencies”错误的问题'
 author: 'Cassius0924'
-cover:
-    url: 'https://s2.loli.net/2023/03/24/JGsMUbp6lIvejgS.png'
-    square: 'https://s2.loli.net/2023/03/24/JGsMUbp6lIvejgS.png'
-    alt: 'Ubuntu unmet dependencies'
 tags: ["Linux", "Ubuntu", "Skill"]
-theme: 'light'
-featured: ture
 ---
 
 # Ubuntu 安装软件包时遇到 unmet dependencies 的解决方法

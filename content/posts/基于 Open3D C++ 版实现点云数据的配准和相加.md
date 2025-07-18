@@ -1,16 +1,10 @@
 ---
-layout: '../../layouts/MarkdownPost.astro'
 title: '基于 Open3D C++ 版实现点云数据的配准、相加和显示'
-pubDate: 2023-04-10
+draft: false
+date: 2023-04-10T10:00:00+08:00
 description: '本文介绍如何使用 Open3D C++ 库来进行点云的配准、相加和可视化显示。'
 author: 'Cassius0924'
-cover:
-    url: 'https://s2.loli.net/2023/04/12/SsedX24UrHELNDQ.png'
-    square: 'https://s2.loli.net/2023/04/12/SsedX24UrHELNDQ.png'
-    alt: 'Open3D'
 tags: ["Open3D", "Point cloud", "C++"]
-theme: 'light'
-featured: ture
 ---
 
 # 基于 Open3D C++ 版实现点云数据的配准、相加和显示

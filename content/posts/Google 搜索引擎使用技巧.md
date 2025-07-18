@@ -1,16 +1,10 @@
 ---
-layout: '../../layouts/MarkdownPost.astro'
 title: 'Google 搜索引擎使用技巧'
-pubDate: 2023-03-24
+draft: false
+date: 2023-03-24T10:00:00+08:00
 description: '本文简单介绍了Google搜索引擎的几种高级搜索用法'
 author: 'Cassius0924'
-cover:
-    url: 'https://storage.googleapis.com/gweb-uniblog-publish-prod/original_images/New__revised_0312_Keyword_blog-header-animated-final_YCPcPYO.gif'
-    square: 'https://storage.googleapis.com/gweb-uniblog-publish-prod/original_images/New__revised_0312_Keyword_blog-header-animated-final_YCPcPYO.gif'
-    alt: 'Google GIF'
 tags: ["Google", "Skill"]
-theme: 'light'
-featured: ture
 ---
 
 # Google 搜索引擎使用技巧

@@ -1,16 +1,10 @@
 ---
-layout: '../../layouts/MarkdownPost.astro'
 title: 'Ubuntu 安装 OpenCV 指南'
-pubDate: 2023-03-24
+draft: false
+date: 2023-03-24T10:00:00+08:00
 description: '本文是一个简单易用的Ubuntu安装OpenCV的指南，帮助用户轻松完成OpenCV的安装和配置。'
 author: 'Cassius0924'
-cover:
-    url: 'https://s2.loli.net/2023/03/16/HsmExtPf2vRegYG.png'
-    square: 'https://s2.loli.net/2023/03/16/HsmExtPf2vRegYG.png'
-    alt: 'OpenCV'
 tags: ["Linux", "Ubuntu", "OpenCV"]
-theme: 'light'
-featured: ture
 ---
 
 # Ubuntu 安装 OpenCV 指南

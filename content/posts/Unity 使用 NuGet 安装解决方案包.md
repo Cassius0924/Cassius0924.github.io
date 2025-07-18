@@ -1,16 +1,10 @@
 ---
-layout: '../../layouts/MarkdownPost.astro'
 title: 'Unity 脚本使用 NuGet 安装解决方案包'
-pubDate: 2023-06-01
+draft: false
+date: 2023-06-01T10:00:00+08:00
 description: ' 本文旨在教大家如何在 Unity 中使用 NuGet 安装解决方案包。'
 author: 'Cassius0924'
-cover:
-    url: 'https://s2.loli.net/2023/06/09/mRxtlD7Y5LbUrBa.png'
-    square: 'https://s2.loli.net/2023/06/09/mRxtlD7Y5LbUrBa.png'
-    alt: 'NuGet'
 tags: ["Linux", "Unity", "C Sharp"]
-theme: 'light'
-featured: ture
 ---
 
 # Unity 脚本使用 NuGet 安装解决方案包

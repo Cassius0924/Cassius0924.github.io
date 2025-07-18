@@ -1,16 +1,10 @@
 ---
-layout: '../../layouts/MarkdownPost.astro'
 title: 'MacOS 修改 App Store 和地图软件语言指南'
-pubDate: 2023-04-14
+draft: false
+date: 2023-04-14T10:00:00+08:00
 description: '本文提供了一种简单的方法，让您能够修改 App Store 和 Maps 的语言设置。'
 author: 'Cassius0924'
-cover:
-    url: 'https://s2.loli.net/2023/04/14/SGT6eMtA1RNf8wi.png'
-    square: 'https://s2.loli.net/2023/04/14/SGT6eMtA1RNf8wi.png'
-    alt: 'MacOS'
 tags: ["MacOS"]
-theme: 'light'
-featured: ture
 ---
 
 # macOS 修改 App Store 和地图软件语言指南

@@ -1,16 +1,10 @@
 ---
-layout: '../../layouts/MarkdownPost.astro'
 title: 'Ubuntu 安装 Protobuf 指南'
-pubDate: 2023-06-12
+draft: false
+date: 2023-06-12T10:00:00+08:00
 description: '本指南将介绍如何在 Ubuntu 上安装 Protobuf。'
 author: 'Cassius0924'
-cover:
-    url: 'https://s2.loli.net/2023/06/12/VSB1moNvdrglhnu.png'
-    square: 'https://s2.loli.net/2023/06/12/VSB1moNvdrglhnu.png'
-    alt: 'Protobuf'
 tags: ["Linux", "Protobuf"]
-theme: 'light'
-featured: ture
 ---
 
 # Ubuntu 安装 Protobuf 指南

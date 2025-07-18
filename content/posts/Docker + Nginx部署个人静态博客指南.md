@@ -1,16 +1,14 @@
 ---
-layout: '../../layouts/MarkdownPost.astro'
 title: 'Docker + Nginx 部署个人静态博客指南'
-pubDate: 2023-03-24
+draft: false
+date: 2023-03-24T10:00:00+08:00
+draft: false
 description: '通过本指南，您可以快速了解如何使用 Docker 和 Nginx 部署自己的静态博客网站。'
+tags: ["Docker", "Nginx", "部署", "博客"]
+categories: ["运维"]
 author: 'Cassius0924'
-cover:
-    url: 'https://www.docker.com/wp-content/uploads/2021/09/all-hands-community-e1634155180482.png'
-    square: 'https://www.docker.com/wp-content/uploads/2021/09/all-hands-community-e1634155180482.png'
-    alt: 'Docker'
+---
 tags: ["Linux", "Docker", "Nginx", "Server", "Blog"]
-theme: 'light'
-featured: ture
 ---
 
 # Docker + Nginx 部署个人静态博客指南

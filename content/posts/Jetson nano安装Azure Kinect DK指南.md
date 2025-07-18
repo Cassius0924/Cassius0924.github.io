@@ -1,16 +1,10 @@
 ---
-layout: '../../layouts/MarkdownPost.astro'
 title: 'Jetson nano 安装 Azure Kinect DK 指南'
-pubDate: 2023-03-24
+draft: false
+date: 2023-03-24T10:00:00+08:00
 description: '这是一个简单教程，旨在帮助大家实现免密SSH登录，省去每次输入用户名和密码的烦恼。'
 author: 'Cassius0924'
-cover:
-    url: 'https://s2.loli.net/2023/03/24/HZq6GLmaM839s7b.jpg'
-    square: 'https://s2.loli.net/2023/03/24/HZq6GLmaM839s7b.jpg'
-    alt: 'Azure Kinect'
 tags: ["Linux", "Ubuntu", "Jetson", "Azure Kinect", "Microsoft"]
-theme: 'light'
-featured: ture
 ---
 
 # Jetson nano 安装 Azure Kinect DK 指南
