@@ -1,0 +1,5 @@
+{{- if eq .Level 1 -}}
+  {{- /* 隐藏一级标题，因为已经在模板中通过.Title显示了 */ -}}
+{{- else -}}
+    <h{{ .Level }} id="{{ .Anchor | safeURL }}">{{ .Text | safeHTML }}</h{{ .Level }}>
+{{- end -}}

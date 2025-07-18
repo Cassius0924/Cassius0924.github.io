@@ -1,0 +1,174 @@
+baseURL: 'https://blog.cassdev.com/'
+theme: ["paper-mod", "hugo-admonitions"]
+
+enableInlineShortcodes: true
+publishDir: 'public'
+enableEmoji: true
+enableRobotsTXT: true
+buildDrafts: false
+copyright: "Copyright © 2025-2025 Cassius0924. All rights reserved."
+buildFuture: false
+buildExpired: false
+
+# 国际化配置
+defaultContentLanguage: 'zh'
+defaultContentLanguageInSubdir: false
+
+# 全局参数
+params:
+  env: "production"
+  subtitle: '音乐是可以回到过去的时间机器'
+  defaultTheme: auto
+  ShowReadingTime: true
+  ShowPageNums: true
+  displayFullLangName: true
+  ShowBreadCrumbs: true
+  ShowCodeCopyButtons: true
+  ShowRssButtonInSectionTermList: true
+  ShowToc: true
+  TocOpen: true
+  ShowAllPagesInArchive: true
+  stickyHeader: true
+
+  socialIcons:
+  - name: github
+    title: Follow me on GitHub
+    url: "https://github.com/Cassius0924"
+  - name: bilibili
+    title: Watch my videos on Bilibili
+    url: "https://space.bilibili.com/12873865"
+  - name: email
+    title: Contact me via Email
+    url: "mailto:cassius0924@qq.com"
+
+languages:
+  zh:
+    languageCode: "zh-CN"
+    languageName: "中文"
+    title: "Cassius0924 的博客"
+    mainSections: ["posts"]
+    weight: 1
+    
+    params:
+      DateFormat: "2006年01月02日"
+      homeInfoParams:
+        Title: "欢迎 ：）"
+        Content: >
+          👋 欢迎来到我的技术博客！
+          <br>
+          我是 Cassius0924，目前在字节跳动担任 Golang 开发工程师。
+          <br>
+          我热衷于开源项目和新技术的探索。
+          <br>
+          在这里我分享关于编程、技术趋势和开发经验的思考。
+
+    menu:
+      main:
+        - identifier: "home"
+          name: "首页"
+          pageRef: "/"
+          title: ""
+          weight: 1
+        - identifier: "search"
+          name: "搜索"
+          pageRef: "/search/"
+          title: ""
+          weight: 2
+        - identifier: "mind-space"
+          name: "思维空间"
+          url: "/mind-space/"
+          title: ""
+          weight: 3
+        - identifier: "tags"
+          name: "标签"
+          url: "/tags/"
+          title: ""
+          weight: 4
+        - identifier: "archives"
+          name: "归档"
+          url: "/archives/"
+          title: ""
+          weight: 5
+        - identifier: "friends"
+          name: "友链"
+          url: "/friends/"
+          title: ""
+          weight: 7
+
+  en:
+    languageCode: "en-US"
+    languageName: "English"
+    title: "Cassius0924's Blog"
+    mainSections: ["/posts"]
+    weight: 2
+    
+    params:
+      profileMode:
+        enabled: true
+        Title: "Welcome :)"
+        subtitle: >
+          👋 Welcome to my blog!
+          <br>
+          I am Cassius0924, a Golang developer working at ByteDance.
+          <br>
+          I'm passionate about open source projects and new technologies.
+          <br>
+          Here I share my thoughts on programming, technology trends, and development experiences.
+        buttons:
+          - name: Posts
+            url: ../posts
+
+
+    menu:
+      main:
+        - identifier: "home"
+          name: "Home"
+          pageRef: "/"
+          title: "Home"
+          weight: 1
+        - identifier: "search"
+          name: "Search"
+          url: "../search/"
+          title: "Search"
+          weight: 2
+        - identifier: "mind-space"
+          name: "Mind Space"
+          url: "../mind-space/"
+          title: "Mind Space"
+          weight: 3
+        - identifier: "tags"
+          name: "Tags"
+          url: "../tags/"
+          title: "Tags"
+          weight: 4
+        - identifier: "archives"
+          name: "Archives"
+          url: "../archives/"
+          title: "Archives"
+          weight: 5
+        - identifier: "friends"
+          name: "Friends"
+          url: "../friends/"
+          title: "Friends"
+          weight: 7
+  
+
+minify:
+  disableXML: true
+
+pagination:
+  disableAliases: false
+  pagerSize: 10
+
+outputs:
+  home:
+    - HTML
+    - RSS
+    - JSON
+
+markup:
+  goldmark:
+    renderer:
+      unsafe: true
+  highlight:
+    noClasses: false

@@ -1,0 +1,47 @@
+[translations]
+other = "Translations"
+
+[home]
+other = "Home"
+
+[read_time]
+other = "{{ .ReadingTime }} min read"
+
+[words]
+other = "{{ .Count }} words"
+
+[reading_time]
+other = "Reading time"
+
+[page_not_found]
+other = "Page not found"
+
+[go_to_homepage]
+other = "Go to homepage"
+
+[archives]
+other = "Archives"
+
+[tags]
+other = "Tags"
+
+[search]
+other = "Search"
+
+[toc]
+other = "Table of Contents"
+
+[edit_post]
+other = "Edit post"
+
+[updated]
+other = "Updated on"
+
+[by]
+other = "by"
+
+[posts]
+other = "Posts"
+
+[page]
+other = "Page"

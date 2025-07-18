@@ -1,0 +1,146 @@
+/* 顶部导航栏吸附效果 */
+.header {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    background-color: rgba(var(--theme-bg), 0.85);
+    transition: all 0.3s ease;
+}
+
+/* 为页面内容添加合适的顶部间距，避免内容被固定header遮挡 */
+.main {
+    margin-top: 0;
+}
+
+/* 确保导航栏在滚动时保持可见性 */
+.nav {
+    backdrop-filter: inherit;
+}
+
+/* 深色模式下的背景调整 */
+.dark .header {
+    background-color: rgba(var(--theme-bg), 0.85);
+}
+
+/* GitHub Alerts 样式 - 支持 [!Note] [!Warning] 等功能 */
+.markdown-alert {
+    padding: 0.5rem 1rem;
+    margin-bottom: 16px;
+    color: inherit;
+    border-left: 0.25em solid var(--color-border-default);
+    border-radius: 6px;
+    background-color: var(--color-canvas-subtle);
+}
+
+.markdown-alert > :first-child {
+    margin-top: 0;
+}
+
+.markdown-alert > :last-child {
+    margin-bottom: 0;
+}
+
+.markdown-alert .markdown-alert-title {
+    display: flex;
+    font-weight: 500;
+    align-items: center;
+    line-height: 1;
+    margin-bottom: 4px;
+}
+
+.markdown-alert.markdown-alert-note {
+    border-left-color: #0969da;
+    background-color: rgba(9, 105, 218, 0.1);
+}
+
+.markdown-alert.markdown-alert-note .markdown-alert-title {
+    color: #0969da;
+}
+
+.markdown-alert.markdown-alert-tip {
+    border-left-color: #1a7f37;
+    background-color: rgba(26, 127, 55, 0.1);
+}
+
+.markdown-alert.markdown-alert-tip .markdown-alert-title {
+    color: #1a7f37;
+}
+
+.markdown-alert.markdown-alert-important {
+    border-left-color: #8250df;
+    background-color: rgba(130, 80, 223, 0.1);
+}
+
+.markdown-alert.markdown-alert-important .markdown-alert-title {
+    color: #8250df;
+}
+
+.markdown-alert.markdown-alert-warning {
+    border-left-color: #9a6700;
+    background-color: rgba(154, 103, 0, 0.1);
+}
+
+.markdown-alert.markdown-alert-warning .markdown-alert-title {
+    color: #9a6700;
+}
+
+.markdown-alert.markdown-alert-caution {
+    border-left-color: #cf222e;
+    background-color: rgba(207, 34, 46, 0.1);
+}
+
+.markdown-alert.markdown-alert-caution .markdown-alert-title {
+    color: #cf222e;
+}
+
+/* 深色模式下的 GitHub Alerts 样式 */
+.dark .markdown-alert {
+    background-color: rgba(255, 255, 255, 0.05);
+}
+
+.dark .markdown-alert.markdown-alert-note {
+    border-left-color: #58a6ff;
+    background-color: rgba(88, 166, 255, 0.1);
+}
+
+.dark .markdown-alert.markdown-alert-note .markdown-alert-title {
+    color: #58a6ff;
+}
+
+.dark .markdown-alert.markdown-alert-tip {
+    border-left-color: #3fb950;
+    background-color: rgba(63, 185, 80, 0.1);
+}
+
+.dark .markdown-alert.markdown-alert-tip .markdown-alert-title {
+    color: #3fb950;
+}
+
+.dark .markdown-alert.markdown-alert-important {
+    border-left-color: #a5a5ff;
+    background-color: rgba(165, 165, 255, 0.1);
+}
+
+.dark .markdown-alert.markdown-alert-important .markdown-alert-title {
+    color: #a5a5ff;
+}
+
+.dark .markdown-alert.markdown-alert-warning {
+    border-left-color: #d29922;
+    background-color: rgba(210, 153, 34, 0.1);
+}
+
+.dark .markdown-alert.markdown-alert-warning .markdown-alert-title {
+    color: #d29922;
+}
+
+.dark .markdown-alert.markdown-alert-caution {
+    border-left-color: #f85149;
+    background-color: rgba(248, 81, 73, 0.1);
+}
+
+.dark .markdown-alert.markdown-alert-caution .markdown-alert-title {
+    color: #f85149;
+}
