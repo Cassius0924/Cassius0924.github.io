@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>Cassius0924's Blog</title><link>https://www.cassdev.com/</link><description>Recent content on Cassius0924's Blog</description><generator>Hugo -- 0.148.1</generator><language>zh-cn</language><atom:link href="https://www.cassdev.com/index.xml" rel="self" type="application/rss+xml"/><item><title/><link>https://www.cassdev.com/docs/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://www.cassdev.com/docs/</guid><description>&lt;h1 id="cassius0924-的个人博客">Cassius0924 的个人博客&lt;/h1>
+&lt;p>&lt;a href="https://github.com/cassius0924">&lt;img alt="GitHub" loading="lazy" src="https://img.shields.io/badge/GitHub-blue?style=flat-square&amp;logo=Github&amp;logoColor=white">&lt;/a>
+&lt;a href="https://space.bilibili.com/12873865">&lt;img alt="Bilibili" loading="lazy" src="https://img.shields.io/badge/Bilibili-blue?style=flat-square&amp;logo=bilibili&amp;logoColor=white">&lt;/a>
+&lt;a href="mailto:cassius0924@qq.com">&lt;img alt="Email" loading="lazy" src="https://img.shields.io/badge/Email-blue?style=flat-square&amp;logo=gmail&amp;logoColor=white">&lt;/a>&lt;/p>
+&lt;p>&lt;img alt="GitHub Contributions" loading="lazy" src="https://ghchart.rshah.org/cassius0924">&lt;/p>
+&lt;p>&lt;a href="https://github.com/cassius0924">&lt;img alt="Top Languages" loading="lazy" src="https://github-readme-stats.vercel.app/api/top-langs/?username=cassius0924&amp;exclude_repo=Cassius0924.github.io&amp;hide=css,html&amp;card_width=500&amp;hide_border=true&amp;theme=transparent">&lt;/a>
+&lt;a href="https://github.com/cassius0924">&lt;img alt="GitHub Stats" loading="lazy" src="https://github-readme-stats.vercel.app/api?username=cassius0924&amp;card_width=500&amp;hide_border=true&amp;theme=transparent">&lt;/a>&lt;/p>
+&lt;h2 id="我的开源项目">我的开源项目&lt;/h2>
+&lt;ul>
+&lt;li>
+&lt;p>&lt;strong>&lt;a href="https://github.com/Cassius0924/JTGO">JTGO&lt;/a>&lt;/strong>： &lt;em>JSON Template with GO，基于 Go 的 JSON 模板引擎，支持条件语句、循环、函数调用等功能，可以用于生成动态的 JSON 数据。&lt;/em>&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;strong>&lt;a href="https://github.com/Cassius0924/WeChatter">WeChatter&lt;/a>&lt;/strong>： &lt;em>基于 wechatbot-webhook 的微信机器人，支持 GPT 问答、热搜、天气预报、消息转发、小游戏、Webhook 提醒等功能。&lt;/em>&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;strong>&lt;a href="https://github.com/Cassius0924/TetrisTwins">TetrisTwins&lt;/a>&lt;/strong>： &lt;em>基于终端的双人竞赛俄罗斯方块小游戏，用 C++17 编写。&lt;/em>&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;strong>&lt;a href="https://github.com/NCIST-IoT-Lab/Cpp-Style-Guide">Cpp-Style-Guide&lt;/a>&lt;/strong>：&lt;em>由我编写的个人 C++ 代码风格规范。&lt;/em>&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;strong>&lt;a href="https://github.com/Cassius0924/Scel2Rime">Scel2Rime&lt;/a>&lt;/strong>：&lt;em>macOS 的 Rime 输入法自动化工具，自动下载词库并转成 YAML 格式，自动部署 Rime。&lt;/em>&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;strong>&lt;a href="https://github.com/Cassius0924/MultipleSearch">MultipleSearch&lt;/a>&lt;/strong>：&lt;em>快捷切换搜索引擎的油猴脚本。&lt;/em>&lt;/p>
+&lt;/li>
+&lt;/ul>
+&lt;h2 id="我的技术栈">我的技术栈&lt;/h2>
+&lt;h3 id="languages">Languages&lt;/h3>
+&lt;p>&lt;a href="https://github.com/cassius0924">&lt;img alt="Golang" loading="lazy" src="https://img.shields.io/badge/go-black?style=for-the-badge&amp;logo=go">&lt;/a>
+&lt;a href="https://github.com/cassius0924">&lt;img alt="C++" loading="lazy" src="https://img.shields.io/badge/c++-black?style=for-the-badge&amp;logo=cplusplus">&lt;/a>
+&lt;a href="https://github.com/cassius0924">&lt;img alt="Python" loading="lazy" src="https://img.shields.io/badge/python-black?style=for-the-badge&amp;logo=python">&lt;/a>
+&lt;a href="https://github.com/cassius0924">&lt;img alt="Redis" loading="lazy" src="https://img.shields.io/badge/redis-black?style=for-the-badge&amp;logo=redis">&lt;/a>
+&lt;a href="https://github.com/cassius0924">&lt;img alt="MySQL" loading="lazy" src="https://img.shields.io/badge/mysql-black?style=for-the-badge&amp;logo=mysql">&lt;/a>
+&lt;a href="https://github.com/cassius0924">&lt;img alt="SQLite" loading="lazy" src="https://img.shields.io/badge/sqlite-black?style=for-the-badge&amp;logo=sqlite">&lt;/a>&lt;/p>
+&lt;h3 id="technologies--frameworks">Technologies &amp;amp; Frameworks&lt;/h3>
+&lt;p>&lt;a href="https://github.com/cassius0924">&lt;img alt="Linux" loading="lazy" src="https://img.shields.io/badge/linux-black?style=for-the-badge&amp;logo=Linux">&lt;/a>
+&lt;a href="https://github.com/cassius0924">&lt;img alt="MacOS" loading="lazy" src="https://img.shields.io/badge/MacOS-black?style=for-the-badge&amp;logo=Windows">&lt;/a>
+&lt;a href="https://github.com/cassius0924">&lt;img alt="BASH" loading="lazy" src="https://img.shields.io/badge/bash-black?style=for-the-badge&amp;logo=gnu-bash&amp;logoColor=white">&lt;/a>
+&lt;a href="https://hub.docker.com/u/wervlad">&lt;img alt="Docker" loading="lazy" src="https://img.shields.io/badge/docker-black?style=for-the-badge&amp;logo=docker">&lt;/a>&lt;/p>
+&lt;h3 id="games">Games&lt;/h3>
+&lt;p>&lt;a href="https://github.com/cassius0924">&lt;img alt="Minecraft" loading="lazy" src="https://img.shields.io/badge/minecraft-black?style=for-the-badge&amp;logo=minecraft">&lt;/a>
+&lt;a href="https://github.com/cassius0924">&lt;img alt="Overwatch" loading="lazy" src="https://img.shields.io/badge/overwatch-black?style=for-the-badge&amp;logo=">&lt;/a>&lt;/p>
+&lt;h3 id="libraries--tools">Libraries &amp;amp; Tools&lt;/h3>
+&lt;p>&lt;a href="https://github.com/cassius0924">&lt;img alt="Socket" loading="lazy" src="https://img.shields.io/badge/socket-black?style=for-the-badge&amp;logo=socket.io">&lt;/a>
+&lt;a href="https://github.com/cassius0924">&lt;img alt="Open3D" loading="lazy" src="https://img.shields.io/badge/open3d-black?style=for-the-badge&amp;logo=open3d">&lt;/a>
+&lt;a href="https://github.com/cassius0924">&lt;img alt="SQLAlchemy" loading="lazy" src="https://img.shields.io/badge/sqlalchemy-black?style=for-the-badge&amp;logo=sqlalchemy">&lt;/a>
+&lt;a href="https://github.com/cassius0924">&lt;img alt="Protobuf" loading="lazy" src="https://img.shields.io/badge/protobuf-black?style=for-the-badge&amp;logo=protobuf">&lt;/a>
+&lt;a href="https://github.com/cassius0924">&lt;img alt="MMDetection3D" loading="lazy" src="https://img.shields.io/badge/mmdetection3d-black?style=for-the-badge&amp;logo=">&lt;/a>&lt;/p>
+&lt;h2 id="我的邮箱">我的邮箱&lt;/h2>
+&lt;p>联系我：&lt;a href="mailto:cassius0924@qq.com">cassius0924@qq.com&lt;/a>&lt;/p></description></item></channel></rss>
