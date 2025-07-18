@@ -7,24 +7,36 @@ jobs:
   build:
     name: Deploy docs to GitHub Pages
     runs-on: ubuntu-latest
+    env:
+      HUGO_CACHEDIR: /tmp/hugo_cache
     steps:
       - name: Checkout
-        uses: actions/checkout@v2
-        # with:
-        #   submodules: true
-          
-      - name: Build
-        uses: Tiryoh/actions-mkdocs@v0
+        uses: actions/checkout@v4
         with:
-          mkdocs_version: 'latest'
-          requirements: 'requirements.txt' # option
-          configfile: 'mkdocs.yml'
-          
+          submodules: true 
+          fetch-depth: 0   
+
+      - name: Setup Hugo
+        uses: peaceiris/actions-hugo@v3
+        with:
+          hugo-version: 'latest'
+          extended: true
+
+      - name: Build
+        run: hugo --minify
+    
+      - uses: actions/cache@v4
+        with:
+          path: ${{ env.HUGO_CACHEDIR }}
+          key: ${{ runner.os }}-hugomod-${{ hashFiles('**/go.sum') }}
+          restore-keys: |
+            ${{ runner.os }}-hugomod-
+
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v4
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./site
+          publish_dir: ./public
           publish_branch: gh-pages
-          cname: blog.cassdev.com
+          cname: www.cassdev.com
 

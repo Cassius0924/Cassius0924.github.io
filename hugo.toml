@@ -1,0 +1,5 @@
+baseURL = 'https://www.cassdev.com/'
+languageCode = 'zh-cn'
+title = "Cassius0924's Blog"
+theme = 'paper-mod'
+publishDir = 'public'
