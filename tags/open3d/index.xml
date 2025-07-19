@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Open3D on Cassius0924 的博客</title>
+    <link>https://blog.cassdev.com/tags/open3d/</link>
+    <description>Recent content in Open3D on Cassius0924 的博客</description>
+    <generator>Hugo -- 0.148.1</generator>
+    <language>zh-CN</language>
+    <copyright>Copyright © 2025-2025 Cassius0924. All rights reserved.</copyright>
+    <lastBuildDate>Fri, 09 Jun 2023 10:00:00 +0800</lastBuildDate>
+    <atom:link href="https://blog.cassdev.com/tags/open3d/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>解决 Open3D 同时链接其他库时的 Undefined Reference 错误</title>
+      <link>https://blog.cassdev.com/posts/%E8%A7%A3%E5%86%B3-open3d-%E5%90%8C%E6%97%B6%E9%93%BE%E6%8E%A5%E5%85%B6%E4%BB%96%E5%BA%93%E6%97%B6%E7%9A%84-undefined-reference-%E9%94%99%E8%AF%AF/</link>
+      <pubDate>Fri, 09 Jun 2023 10:00:00 +0800</pubDate>
+      <guid>https://blog.cassdev.com/posts/%E8%A7%A3%E5%86%B3-open3d-%E5%90%8C%E6%97%B6%E9%93%BE%E6%8E%A5%E5%85%B6%E4%BB%96%E5%BA%93%E6%97%B6%E7%9A%84-undefined-reference-%E9%94%99%E8%AF%AF/</guid>
+      <description>本文旨在解决C&#43;&#43; Open3D库与其他库冲突问题。</description>
+    </item>
+    <item>
+      <title>基于 Open3D C&#43;&#43; 版实现点云数据的配准、相加和显示</title>
+      <link>https://blog.cassdev.com/posts/%E5%9F%BA%E4%BA%8E-open3d-c&#43;&#43;-%E7%89%88%E5%AE%9E%E7%8E%B0%E7%82%B9%E4%BA%91%E6%95%B0%E6%8D%AE%E7%9A%84%E9%85%8D%E5%87%86%E5%92%8C%E7%9B%B8%E5%8A%A0/</link>
+      <pubDate>Mon, 10 Apr 2023 10:00:00 +0800</pubDate>
+      <guid>https://blog.cassdev.com/posts/%E5%9F%BA%E4%BA%8E-open3d-c&#43;&#43;-%E7%89%88%E5%AE%9E%E7%8E%B0%E7%82%B9%E4%BA%91%E6%95%B0%E6%8D%AE%E7%9A%84%E9%85%8D%E5%87%86%E5%92%8C%E7%9B%B8%E5%8A%A0/</guid>
+      <description>本文介绍如何使用 Open3D C&#43;&#43; 库来进行点云的配准、相加和可视化显示。</description>
+    </item>
+    <item>
+      <title>构建 Open3D 官方 Azure Kinect 示例时找不到 AzureKinect*** 的解决方法</title>
+      <link>https://blog.cassdev.com/posts/%E6%9E%84%E5%BB%BA-open3d-%E5%AE%98%E6%96%B9-azure-kinect-%E7%A4%BA%E4%BE%8B%E6%97%B6%E6%89%BE%E4%B8%8D%E5%88%B0-azurekinect-%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95/</link>
+      <pubDate>Sat, 08 Apr 2023 10:00:00 +0800</pubDate>
+      <guid>https://blog.cassdev.com/posts/%E6%9E%84%E5%BB%BA-open3d-%E5%AE%98%E6%96%B9-azure-kinect-%E7%A4%BA%E4%BE%8B%E6%97%B6%E6%89%BE%E4%B8%8D%E5%88%B0-azurekinect-%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95/</guid>
+      <description>此文章旨在帮助解决C&#43;&#43;版Open3D编译时找不到AzureKinect相关函数的问题。</description>
+    </item>
+  </channel>
+</rss>

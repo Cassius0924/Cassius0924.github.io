@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>OpenCV on Cassius0924 的博客</title>
+    <link>https://blog.cassdev.com/tags/opencv/</link>
+    <description>Recent content in OpenCV on Cassius0924 的博客</description>
+    <generator>Hugo -- 0.148.1</generator>
+    <language>zh-CN</language>
+    <copyright>Copyright © 2025-2025 Cassius0924. All rights reserved.</copyright>
+    <lastBuildDate>Fri, 24 Mar 2023 10:00:00 +0800</lastBuildDate>
+    <atom:link href="https://blog.cassdev.com/tags/opencv/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Ubuntu 安装 OpenCV 指南</title>
+      <link>https://blog.cassdev.com/posts/ubuntu%E5%AE%89%E8%A3%85opencv%E6%8C%87%E5%8D%97/</link>
+      <pubDate>Fri, 24 Mar 2023 10:00:00 +0800</pubDate>
+      <guid>https://blog.cassdev.com/posts/ubuntu%E5%AE%89%E8%A3%85opencv%E6%8C%87%E5%8D%97/</guid>
+      <description>本文是一个简单易用的Ubuntu安装OpenCV的指南，帮助用户轻松完成OpenCV的安装和配置。</description>
+    </item>
+  </channel>
+</rss>

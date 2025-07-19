@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>MASM on Cassius0924 的博客</title>
+    <link>https://blog.cassdev.com/tags/masm/</link>
+    <description>Recent content in MASM on Cassius0924 的博客</description>
+    <generator>Hugo -- 0.148.1</generator>
+    <language>zh-CN</language>
+    <copyright>Copyright © 2025-2025 Cassius0924. All rights reserved.</copyright>
+    <lastBuildDate>Wed, 12 Apr 2023 10:00:00 +0800</lastBuildDate>
+    <atom:link href="https://blog.cassdev.com/tags/masm/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>MacOS 配置 MASM &#43; DOSBox 汇编环境</title>
+      <link>https://blog.cassdev.com/posts/macos-%E9%85%8D%E7%BD%AE-masm-&#43;-dosbox-%E6%B1%87%E7%BC%96%E7%8E%AF%E5%A2%83/</link>
+      <pubDate>Wed, 12 Apr 2023 10:00:00 +0800</pubDate>
+      <guid>https://blog.cassdev.com/posts/macos-%E9%85%8D%E7%BD%AE-masm-&#43;-dosbox-%E6%B1%87%E7%BC%96%E7%8E%AF%E5%A2%83/</guid>
+      <description>该文章旨在帮助在 MacOS 系统下想要学习汇编语言的开发者配置 MASM &#43; DOSBox 环境。</description>
+    </item>
+  </channel>
+</rss>

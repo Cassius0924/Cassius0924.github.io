@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>PCL on Cassius0924 的博客</title>
+    <link>https://blog.cassdev.com/tags/pcl/</link>
+    <description>Recent content in PCL on Cassius0924 的博客</description>
+    <generator>Hugo -- 0.148.1</generator>
+    <language>zh-CN</language>
+    <copyright>Copyright © 2025-2025 Cassius0924. All rights reserved.</copyright>
+    <lastBuildDate>Fri, 24 Mar 2023 10:00:00 +0800</lastBuildDate>
+    <atom:link href="https://blog.cassdev.com/tags/pcl/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Jetson nano 安装 PCL 指南</title>
+      <link>https://blog.cassdev.com/posts/jetson-nano-%E5%AE%89%E8%A3%85-pcl-%E6%8C%87%E5%8D%97/</link>
+      <pubDate>Fri, 24 Mar 2023 10:00:00 +0800</pubDate>
+      <guid>https://blog.cassdev.com/posts/jetson-nano-%E5%AE%89%E8%A3%85-pcl-%E6%8C%87%E5%8D%97/</guid>
+      <description>本指南帮助 ARM64 架构的 Jetson Nano 安装 PCL。</description>
+    </item>
+  </channel>
+</rss>

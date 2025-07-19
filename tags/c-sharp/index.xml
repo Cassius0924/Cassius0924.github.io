@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>C Sharp on Cassius0924 的博客</title>
+    <link>https://blog.cassdev.com/tags/c-sharp/</link>
+    <description>Recent content in C Sharp on Cassius0924 的博客</description>
+    <generator>Hugo -- 0.148.1</generator>
+    <language>zh-CN</language>
+    <copyright>Copyright © 2025-2025 Cassius0924. All rights reserved.</copyright>
+    <lastBuildDate>Thu, 01 Jun 2023 10:00:00 +0800</lastBuildDate>
+    <atom:link href="https://blog.cassdev.com/tags/c-sharp/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Unity 脚本使用 NuGet 安装解决方案包</title>
+      <link>https://blog.cassdev.com/posts/unity-%E4%BD%BF%E7%94%A8-nuget-%E5%AE%89%E8%A3%85%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88%E5%8C%85/</link>
+      <pubDate>Thu, 01 Jun 2023 10:00:00 +0800</pubDate>
+      <guid>https://blog.cassdev.com/posts/unity-%E4%BD%BF%E7%94%A8-nuget-%E5%AE%89%E8%A3%85%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88%E5%8C%85/</guid>
+      <description> 本文旨在教大家如何在 Unity 中使用 NuGet 安装解决方案包。</description>
+    </item>
+  </channel>
+</rss>

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>SSH on Cassius0924 的博客</title>
+    <link>https://blog.cassdev.com/tags/ssh/</link>
+    <description>Recent content in SSH on Cassius0924 的博客</description>
+    <generator>Hugo -- 0.148.1</generator>
+    <language>zh-CN</language>
+    <copyright>Copyright © 2025-2025 Cassius0924. All rights reserved.</copyright>
+    <lastBuildDate>Tue, 28 Mar 2023 10:00:00 +0800</lastBuildDate>
+    <atom:link href="https://blog.cassdev.com/tags/ssh/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>浅析 SSH 免密登录原理</title>
+      <link>https://blog.cassdev.com/posts/%E6%B5%85%E6%9E%90-ssh-%E5%85%8D%E5%AF%86%E7%99%BB%E5%BD%95%E5%8E%9F%E7%90%86/</link>
+      <pubDate>Tue, 28 Mar 2023 10:00:00 +0800</pubDate>
+      <guid>https://blog.cassdev.com/posts/%E6%B5%85%E6%9E%90-ssh-%E5%85%8D%E5%AF%86%E7%99%BB%E5%BD%95%E5%8E%9F%E7%90%86/</guid>
+      <description>本文旨在以简单易懂的方式解释SSH免密登录的原理。</description>
+    </item>
+    <item>
+      <title>Git 免密登录配置指南</title>
+      <link>https://blog.cassdev.com/posts/git%E5%85%8D%E5%AF%86%E7%99%BB%E5%BD%95%E9%85%8D%E7%BD%AE%E6%8C%87%E5%8D%97/</link>
+      <pubDate>Fri, 24 Mar 2023 10:00:00 +0800</pubDate>
+      <guid>https://blog.cassdev.com/posts/git%E5%85%8D%E5%AF%86%E7%99%BB%E5%BD%95%E9%85%8D%E7%BD%AE%E6%8C%87%E5%8D%97/</guid>
+      <description>这是一个简单教程，旨在帮助大家实现免密SSH登录，省去每次输入用户名和密码的烦恼。</description>
+    </item>
+  </channel>
+</rss>

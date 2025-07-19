@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Editor on Cassius0924 的博客</title>
+    <link>https://blog.cassdev.com/tags/editor/</link>
+    <description>Recent content in Editor on Cassius0924 的博客</description>
+    <generator>Hugo -- 0.148.1</generator>
+    <language>zh-CN</language>
+    <copyright>Copyright © 2025-2025 Cassius0924. All rights reserved.</copyright>
+    <lastBuildDate>Sat, 19 Jul 2025 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://blog.cassdev.com/tags/editor/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Vim 技能补全计划</title>
+      <link>https://blog.cassdev.com/posts/vim-skill-completion-plan/</link>
+      <pubDate>Sat, 19 Jul 2025 00:00:00 +0000</pubDate>
+      <guid>https://blog.cassdev.com/posts/vim-skill-completion-plan/</guid>
+      <description>适合已经熟悉 Vim 基础操作，希望提高编辑技能的开发者的实用技巧集合</description>
+    </item>
+  </channel>
+</rss>

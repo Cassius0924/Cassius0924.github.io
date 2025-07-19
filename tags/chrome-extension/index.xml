@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Chrome Extension on Cassius0924 的博客</title>
+    <link>https://blog.cassdev.com/tags/chrome-extension/</link>
+    <description>Recent content in Chrome Extension on Cassius0924 的博客</description>
+    <generator>Hugo -- 0.148.1</generator>
+    <language>zh-CN</language>
+    <copyright>Copyright © 2025-2025 Cassius0924. All rights reserved.</copyright>
+    <lastBuildDate>Sat, 08 Apr 2023 10:00:00 +0800</lastBuildDate>
+    <atom:link href="https://blog.cassdev.com/tags/chrome-extension/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>在 Chrome 中解锁 New Bing（Bing AI）</title>
+      <link>https://blog.cassdev.com/posts/%E5%9C%A8-chrome-%E4%B8%AD%E8%A7%A3%E9%94%81-new-bingbing-ai/</link>
+      <pubDate>Sat, 08 Apr 2023 10:00:00 +0800</pubDate>
+      <guid>https://blog.cassdev.com/posts/%E5%9C%A8-chrome-%E4%B8%AD%E8%A7%A3%E9%94%81-new-bingbing-ai/</guid>
+      <description>本文旨在帮助大家在 Chrome 中使用 New Bing（Bing AI）。</description>
+    </item>
+  </channel>
+</rss>

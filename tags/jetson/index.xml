@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Jetson on Cassius0924 的博客</title>
+    <link>https://blog.cassdev.com/tags/jetson/</link>
+    <description>Recent content in Jetson on Cassius0924 的博客</description>
+    <generator>Hugo -- 0.148.1</generator>
+    <language>zh-CN</language>
+    <copyright>Copyright © 2025-2025 Cassius0924. All rights reserved.</copyright>
+    <lastBuildDate>Wed, 14 Jun 2023 10:00:00 +0800</lastBuildDate>
+    <atom:link href="https://blog.cassdev.com/tags/jetson/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Jetson (Ubuntu Arm64) 安装 Bazel</title>
+      <link>https://blog.cassdev.com/posts/jetson-ubuntu-arm64-%E5%AE%89%E8%A3%85-bazel/</link>
+      <pubDate>Wed, 14 Jun 2023 10:00:00 +0800</pubDate>
+      <guid>https://blog.cassdev.com/posts/jetson-ubuntu-arm64-%E5%AE%89%E8%A3%85-bazel/</guid>
+      <description>本指南帮助 ARM64 架构的 Jetson 安装 Bazel</description>
+    </item>
+    <item>
+      <title>Jetson nano 安装 Azure Kinect DK 指南</title>
+      <link>https://blog.cassdev.com/posts/jetson-nano%E5%AE%89%E8%A3%85azure-kinect-dk%E6%8C%87%E5%8D%97/</link>
+      <pubDate>Fri, 24 Mar 2023 10:00:00 +0800</pubDate>
+      <guid>https://blog.cassdev.com/posts/jetson-nano%E5%AE%89%E8%A3%85azure-kinect-dk%E6%8C%87%E5%8D%97/</guid>
+      <description>这是一个简单教程，旨在帮助大家实现免密SSH登录，省去每次输入用户名和密码的烦恼。</description>
+    </item>
+    <item>
+      <title>Jetson nano 安装 PCL 指南</title>
+      <link>https://blog.cassdev.com/posts/jetson-nano-%E5%AE%89%E8%A3%85-pcl-%E6%8C%87%E5%8D%97/</link>
+      <pubDate>Fri, 24 Mar 2023 10:00:00 +0800</pubDate>
+      <guid>https://blog.cassdev.com/posts/jetson-nano-%E5%AE%89%E8%A3%85-pcl-%E6%8C%87%E5%8D%97/</guid>
+      <description>本指南帮助 ARM64 架构的 Jetson Nano 安装 PCL。</description>
+    </item>
+  </channel>
+</rss>

@@ -1,12 +1,307 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
-    <title>Tags on Cassius0924&#39;s Blog</title>
+    <title>Tags on Cassius0924 的博客</title>
     <link>https://blog.cassdev.com/tags/</link>
-    <description>Recent content in Tags on Cassius0924&#39;s Blog</description>
+    <description>Recent content in Tags on Cassius0924 的博客</description>
     <generator>Hugo -- 0.148.1</generator>
     <language>zh-CN</language>
     <copyright>Copyright © 2025-2025 Cassius0924. All rights reserved.</copyright>
+    <lastBuildDate>Sat, 19 Jul 2025 00:00:00 +0000</lastBuildDate>
     <atom:link href="https://blog.cassdev.com/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Editor</title>
+      <link>https://blog.cassdev.com/tags/editor/</link>
+      <pubDate>Sat, 19 Jul 2025 00:00:00 +0000</pubDate>
+      <guid>https://blog.cassdev.com/tags/editor/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Skill</title>
+      <link>https://blog.cassdev.com/tags/skill/</link>
+      <pubDate>Sat, 19 Jul 2025 00:00:00 +0000</pubDate>
+      <guid>https://blog.cassdev.com/tags/skill/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Vim</title>
+      <link>https://blog.cassdev.com/tags/vim/</link>
+      <pubDate>Sat, 19 Jul 2025 00:00:00 +0000</pubDate>
+      <guid>https://blog.cassdev.com/tags/vim/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>C&#43;&#43;</title>
+      <link>https://blog.cassdev.com/tags/c&#43;&#43;/</link>
+      <pubDate>Mon, 15 Jan 2024 10:00:00 +0800</pubDate>
+      <guid>https://blog.cassdev.com/tags/c&#43;&#43;/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>编程技巧</title>
+      <link>https://blog.cassdev.com/tags/%E7%BC%96%E7%A8%8B%E6%8A%80%E5%B7%A7/</link>
+      <pubDate>Mon, 15 Jan 2024 10:00:00 +0800</pubDate>
+      <guid>https://blog.cassdev.com/tags/%E7%BC%96%E7%A8%8B%E6%8A%80%E5%B7%A7/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>设计模式</title>
+      <link>https://blog.cassdev.com/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/</link>
+      <pubDate>Mon, 15 Jan 2024 10:00:00 +0800</pubDate>
+      <guid>https://blog.cassdev.com/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Bazel</title>
+      <link>https://blog.cassdev.com/tags/bazel/</link>
+      <pubDate>Wed, 14 Jun 2023 10:00:00 +0800</pubDate>
+      <guid>https://blog.cassdev.com/tags/bazel/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Jetson</title>
+      <link>https://blog.cassdev.com/tags/jetson/</link>
+      <pubDate>Wed, 14 Jun 2023 10:00:00 +0800</pubDate>
+      <guid>https://blog.cassdev.com/tags/jetson/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Linux</title>
+      <link>https://blog.cassdev.com/tags/linux/</link>
+      <pubDate>Wed, 14 Jun 2023 10:00:00 +0800</pubDate>
+      <guid>https://blog.cassdev.com/tags/linux/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Ubuntu</title>
+      <link>https://blog.cassdev.com/tags/ubuntu/</link>
+      <pubDate>Wed, 14 Jun 2023 10:00:00 +0800</pubDate>
+      <guid>https://blog.cassdev.com/tags/ubuntu/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Protobuf</title>
+      <link>https://blog.cassdev.com/tags/protobuf/</link>
+      <pubDate>Mon, 12 Jun 2023 10:00:00 +0800</pubDate>
+      <guid>https://blog.cassdev.com/tags/protobuf/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Open3D</title>
+      <link>https://blog.cassdev.com/tags/open3d/</link>
+      <pubDate>Fri, 09 Jun 2023 10:00:00 +0800</pubDate>
+      <guid>https://blog.cassdev.com/tags/open3d/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>C Sharp</title>
+      <link>https://blog.cassdev.com/tags/c-sharp/</link>
+      <pubDate>Thu, 01 Jun 2023 10:00:00 +0800</pubDate>
+      <guid>https://blog.cassdev.com/tags/c-sharp/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Unity</title>
+      <link>https://blog.cassdev.com/tags/unity/</link>
+      <pubDate>Thu, 01 Jun 2023 10:00:00 +0800</pubDate>
+      <guid>https://blog.cassdev.com/tags/unity/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Coding Style</title>
+      <link>https://blog.cassdev.com/tags/coding-style/</link>
+      <pubDate>Fri, 21 Apr 2023 10:00:00 +0800</pubDate>
+      <guid>https://blog.cassdev.com/tags/coding-style/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>JavaScript</title>
+      <link>https://blog.cassdev.com/tags/javascript/</link>
+      <pubDate>Fri, 21 Apr 2023 10:00:00 +0800</pubDate>
+      <guid>https://blog.cassdev.com/tags/javascript/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>CLI</title>
+      <link>https://blog.cassdev.com/tags/cli/</link>
+      <pubDate>Fri, 14 Apr 2023 10:00:00 +0800</pubDate>
+      <guid>https://blog.cassdev.com/tags/cli/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>MacOS</title>
+      <link>https://blog.cassdev.com/tags/macos/</link>
+      <pubDate>Fri, 14 Apr 2023 10:00:00 +0800</pubDate>
+      <guid>https://blog.cassdev.com/tags/macos/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Network</title>
+      <link>https://blog.cassdev.com/tags/network/</link>
+      <pubDate>Fri, 14 Apr 2023 10:00:00 +0800</pubDate>
+      <guid>https://blog.cassdev.com/tags/network/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Assembly</title>
+      <link>https://blog.cassdev.com/tags/assembly/</link>
+      <pubDate>Wed, 12 Apr 2023 10:00:00 +0800</pubDate>
+      <guid>https://blog.cassdev.com/tags/assembly/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>DOSBox</title>
+      <link>https://blog.cassdev.com/tags/dosbox/</link>
+      <pubDate>Wed, 12 Apr 2023 10:00:00 +0800</pubDate>
+      <guid>https://blog.cassdev.com/tags/dosbox/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>MASM</title>
+      <link>https://blog.cassdev.com/tags/masm/</link>
+      <pubDate>Wed, 12 Apr 2023 10:00:00 +0800</pubDate>
+      <guid>https://blog.cassdev.com/tags/masm/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Point Cloud</title>
+      <link>https://blog.cassdev.com/tags/point-cloud/</link>
+      <pubDate>Mon, 10 Apr 2023 10:00:00 +0800</pubDate>
+      <guid>https://blog.cassdev.com/tags/point-cloud/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Chrome</title>
+      <link>https://blog.cassdev.com/tags/chrome/</link>
+      <pubDate>Sat, 08 Apr 2023 10:00:00 +0800</pubDate>
+      <guid>https://blog.cassdev.com/tags/chrome/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Chrome Extension</title>
+      <link>https://blog.cassdev.com/tags/chrome-extension/</link>
+      <pubDate>Sat, 08 Apr 2023 10:00:00 +0800</pubDate>
+      <guid>https://blog.cassdev.com/tags/chrome-extension/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Kinect</title>
+      <link>https://blog.cassdev.com/tags/kinect/</link>
+      <pubDate>Sat, 08 Apr 2023 10:00:00 +0800</pubDate>
+      <guid>https://blog.cassdev.com/tags/kinect/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>New Bing</title>
+      <link>https://blog.cassdev.com/tags/new-bing/</link>
+      <pubDate>Sat, 08 Apr 2023 10:00:00 +0800</pubDate>
+      <guid>https://blog.cassdev.com/tags/new-bing/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Passwordless</title>
+      <link>https://blog.cassdev.com/tags/passwordless/</link>
+      <pubDate>Tue, 28 Mar 2023 10:00:00 +0800</pubDate>
+      <guid>https://blog.cassdev.com/tags/passwordless/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>ROS</title>
+      <link>https://blog.cassdev.com/tags/ros/</link>
+      <pubDate>Tue, 28 Mar 2023 10:00:00 +0800</pubDate>
+      <guid>https://blog.cassdev.com/tags/ros/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>SSH</title>
+      <link>https://blog.cassdev.com/tags/ssh/</link>
+      <pubDate>Tue, 28 Mar 2023 10:00:00 +0800</pubDate>
+      <guid>https://blog.cassdev.com/tags/ssh/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Azure Kinect</title>
+      <link>https://blog.cassdev.com/tags/azure-kinect/</link>
+      <pubDate>Fri, 24 Mar 2023 10:00:00 +0800</pubDate>
+      <guid>https://blog.cassdev.com/tags/azure-kinect/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Docker</title>
+      <link>https://blog.cassdev.com/tags/docker/</link>
+      <pubDate>Fri, 24 Mar 2023 10:00:00 +0800</pubDate>
+      <guid>https://blog.cassdev.com/tags/docker/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Google</title>
+      <link>https://blog.cassdev.com/tags/google/</link>
+      <pubDate>Fri, 24 Mar 2023 10:00:00 +0800</pubDate>
+      <guid>https://blog.cassdev.com/tags/google/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Markdown</title>
+      <link>https://blog.cassdev.com/tags/markdown/</link>
+      <pubDate>Fri, 24 Mar 2023 10:00:00 +0800</pubDate>
+      <guid>https://blog.cassdev.com/tags/markdown/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Mermaid</title>
+      <link>https://blog.cassdev.com/tags/mermaid/</link>
+      <pubDate>Fri, 24 Mar 2023 10:00:00 +0800</pubDate>
+      <guid>https://blog.cassdev.com/tags/mermaid/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Microsoft</title>
+      <link>https://blog.cassdev.com/tags/microsoft/</link>
+      <pubDate>Fri, 24 Mar 2023 10:00:00 +0800</pubDate>
+      <guid>https://blog.cassdev.com/tags/microsoft/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Nginx</title>
+      <link>https://blog.cassdev.com/tags/nginx/</link>
+      <pubDate>Fri, 24 Mar 2023 10:00:00 +0800</pubDate>
+      <guid>https://blog.cassdev.com/tags/nginx/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>OpenCV</title>
+      <link>https://blog.cassdev.com/tags/opencv/</link>
+      <pubDate>Fri, 24 Mar 2023 10:00:00 +0800</pubDate>
+      <guid>https://blog.cassdev.com/tags/opencv/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>PCL</title>
+      <link>https://blog.cassdev.com/tags/pcl/</link>
+      <pubDate>Fri, 24 Mar 2023 10:00:00 +0800</pubDate>
+      <guid>https://blog.cassdev.com/tags/pcl/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>博客</title>
+      <link>https://blog.cassdev.com/tags/%E5%8D%9A%E5%AE%A2/</link>
+      <pubDate>Fri, 24 Mar 2023 10:00:00 +0800</pubDate>
+      <guid>https://blog.cassdev.com/tags/%E5%8D%9A%E5%AE%A2/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>部署</title>
+      <link>https://blog.cassdev.com/tags/%E9%83%A8%E7%BD%B2/</link>
+      <pubDate>Fri, 24 Mar 2023 10:00:00 +0800</pubDate>
+      <guid>https://blog.cassdev.com/tags/%E9%83%A8%E7%BD%B2/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Shell</title>
+      <link>https://blog.cassdev.com/tags/shell/</link>
+      <pubDate>Fri, 24 Mar 2023 00:00:00 +0000</pubDate>
+      <guid>https://blog.cassdev.com/tags/shell/</guid>
+      <description></description>
+    </item>
   </channel>
 </rss>

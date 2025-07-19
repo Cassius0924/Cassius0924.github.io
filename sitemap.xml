@@ -1,17 +1,16 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
-  xmlns:xhtml="http://www.w3.org/1999/xhtml">
-  <url>
-    <loc>https://blog.cassdev.com/posts/</loc>
-  </url><url>
-    <loc>https://blog.cassdev.com/archvies/</loc>
-  </url><url>
-    <loc>https://blog.cassdev.com/</loc>
-  </url><url>
-    <loc>https://blog.cassdev.com/categories/</loc>
-  </url><url>
-    <loc>https://blog.cassdev.com/search/</loc>
-  </url><url>
-    <loc>https://blog.cassdev.com/tags/</loc>
-  </url>
-</urlset>
+<sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  
+  <sitemap>
+    <loc>https://blog.cassdev.com/zh/sitemap.xml</loc>
+    
+      <lastmod>2025-07-19T00:00:00+00:00</lastmod>
+    
+  </sitemap>
+  
+  <sitemap>
+    <loc>https://blog.cassdev.com/en/sitemap.xml</loc>
+    
+  </sitemap>
+  
+</sitemapindex>

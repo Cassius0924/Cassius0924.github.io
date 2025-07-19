@@ -1,0 +1,112 @@
+<!doctype html><html lang=zh dir=auto><head><meta name=generator content="Hugo 0.148.1"><meta charset=utf-8><meta http-equiv=X-UA-Compatible content="IE=edge"><meta name=viewport content="width=device-width,initial-scale=1,shrink-to-fit=no"><meta name=robots content="index, follow"><title>Cassius0924 的博客</title><meta name=description content><meta name=author content><link rel=canonical href=https://blog.cassdev.com/><link crossorigin=anonymous href=/assets/css/stylesheet.8fe10233a706bc87f2e08b3cf97b8bd4c0a80f10675a143675d59212121037c0.css integrity="sha256-j+ECM6cGvIfy4Is8+XuL1MCoDxBnWhQ2ddWSEhIQN8A=" rel="preload stylesheet" as=style><link rel=icon href=https://blog.cassdev.com/favicon.ico><link rel=icon type=image/png sizes=16x16 href=https://blog.cassdev.com/favicon-16x16.png><link rel=icon type=image/png sizes=32x32 href=https://blog.cassdev.com/favicon-32x32.png><link rel=apple-touch-icon href=https://blog.cassdev.com/apple-touch-icon.png><link rel=mask-icon href=https://blog.cassdev.com/safari-pinned-tab.svg><meta name=theme-color content="#2e2e33"><meta name=msapplication-TileColor content="#2e2e33"><link rel=alternate type=application/rss+xml href=https://blog.cassdev.com/index.xml><link rel=alternate hreflang=zh href=https://blog.cassdev.com/><link rel=alternate hreflang=en href=https://blog.cassdev.com/en/><noscript><style>#theme-toggle,.top-link{display:none}</style><style>@media(prefers-color-scheme:dark){:root{--theme:rgb(29, 30, 32);--entry:rgb(46, 46, 51);--primary:rgb(218, 218, 219);--secondary:rgb(155, 156, 157);--tertiary:rgb(65, 66, 68);--content:rgb(196, 196, 197);--code-block-bg:rgb(46, 46, 51);--code-bg:rgb(55, 56, 62);--border:rgb(51, 51, 51)}.list{background:var(--theme)}.list:not(.dark)::-webkit-scrollbar-track{background:0 0}.list:not(.dark)::-webkit-scrollbar-thumb{border-color:var(--theme)}}</style></noscript><meta property="og:url" content="https://blog.cassdev.com/"><meta property="og:site_name" content="Cassius0924 的博客"><meta property="og:title" content="Cassius0924 的博客"><meta property="og:locale" content="zh-CN"><meta property="og:type" content="website"><meta name=twitter:card content="summary"><meta name=twitter:title content="Cassius0924 的博客"><meta name=twitter:description content><script type=application/ld+json>{"@context":"https://schema.org","@type":"Organization","name":"Cassius0924 的博客","url":"https://blog.cassdev.com/","description":"","logo":"https://blog.cassdev.com/favicon.ico","sameAs":["https://github.com/Cassius0924","https://space.bilibili.com/12873865"]}</script></head><body class=list id=top><script>localStorage.getItem("pref-theme")==="dark"?document.body.classList.add("dark"):localStorage.getItem("pref-theme")==="light"?document.body.classList.remove("dark"):window.matchMedia("(prefers-color-scheme: dark)").matches&&document.body.classList.add("dark")</script><header class=header><nav class=nav><div class=logo><a href=https://blog.cassdev.com/ accesskey=h title="Cassius0924 的博客 (Alt + H)">Cassius0924 的博客</a><div class=logo-switches><button id=theme-toggle accesskey=t title="(Alt + T)" aria-label="Toggle theme">
+<svg id="moon" width="24" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/></svg>
+<svg id="sun" width="24" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg></button><ul class=lang-switch><li>|</li><li><a href=https://blog.cassdev.com/en/ title=English aria-label=English>English</a></li></ul></div></div><ul id=menu><li><a href=https://blog.cassdev.com/ title=首页><span class=active>首页</span></a></li><li><a href=https://blog.cassdev.com/search/ title="搜索 (Alt + /)" accesskey=/><span>搜索</span></a></li><li><a href=https://blog.cassdev.com/archives/ title=归档><span>归档</span></a></li><li><a href=https://blog.cassdev.com/mind-space/ title=思维空间><span>思维空间</span></a></li><li><a href=https://blog.cassdev.com/tags/ title=标签><span>标签</span></a></li><li><a href=https://blog.cassdev.com/gallery/ title=图库><span>图库</span></a></li><li><a href=https://blog.cassdev.com/friends/ title=友链><span>友链</span></a></li></ul></nav></header><main class=main><article class=post-entry><header class=entry-header><h2 class=entry-hint-parent>Jetson nano 安装 PCL 指南</h2></header><div class=entry-content><p>Jetson nano 安装 PCL 指南 本指南帮助 ARM64 架构的 Jetson Nano 安装 PCL（点云库）。
+安装步骤 第一步：安装依赖 在终端中运行以下命令，安装 PCL 所需的依赖：
+sudo apt-get update sudo apt-get install git build-essential linux-libc-dev sudo apt-get install cmake cmake-gui sudo apt-get install libusb-1.0-0-dev libusb-dev libudev-dev sudo apt-get install mpi-default-dev openmpi-bin openmpi-common sudo apt-get install libpcap-dev sudo apt-get install libflann1.9 libflann-dev sudo apt-get install libeigen3-dev sudo apt-get install libboost-all-dev sudo apt-get install vtk6 libvtk6.3 libvtk6-dev libvtk6.3-qt libvtk6-qt-dev sudo apt-get install libqhull-dev libgtest-dev sudo apt-get install freeglut3-dev pkg-config sudo apt-get install libxmu-dev libxi-dev sudo apt-get install mono-complete sudo apt-get install libopenni-dev libopenni2-dev sudo apt install build-essential libssl-dev 第二步：安装Eigen库 先卸载Eigen库
+...</p></div><footer class=entry-footer><span title='2023-03-24 10:00:00 +0800 +0800'>三月 24, 2023</span>&nbsp;·&nbsp;2 分钟&nbsp;·&nbsp;Cassius0924</footer><a class=entry-link aria-label="post link to Jetson nano 安装 PCL 指南" href=https://blog.cassdev.com/posts/jetson-nano-%E5%AE%89%E8%A3%85-pcl-%E6%8C%87%E5%8D%97/></a></article><article class=post-entry><header class=entry-header><h2 class=entry-hint-parent>Ubuntu 安装 OpenCV 指南</h2></header><div class=entry-content><p>Ubuntu 安装 OpenCV 指南 本文是一个简单易用的Ubuntu安装OpenCV的指南，帮助用户轻松完成OpenCV的安装和配置。
+安装步骤 第一步：安装依赖项 sudo apt-get install cmake git build-essential libgtk2.0-dev pkg-config libavcodec-dev libavformat-dev libswscale-dev python-dev python-numpy libtbb2 libtbb-dev libjpeg-dev libpng-dev libtiff-dev libjasper-dev libdc1394-22-dev 一口气全安装。
+###第二步：下载OpenCV源代码
+GitHub下载：
+切换到用户目录（也可以选择其他文件夹，本文以用户目录~/为例）： cd ~ 下载源码： git clone https://github.com/opencv/opencv.git cd opencv 可以根据需要替换为其他版本号，建议使用最新版： git checkout 4.7.0 OpenCV官网下载：
+若Git速度慢，也可以选择在OpenCV官网下载源码压缩包： 下载完成后将压缩包移到用户目录~/文件夹下，解压文件：
+unzip -q opencv-4.7.0.zip cd opencv-4.7.0 注意，不同版本的文件名不同。
+第三步：编译和安装OpenCV 新建并进入build文件夹：
+mkdir build && cd build 编译OpenCV：
+cmake .. make -j8 安装OpenCV：
+...</p></div><footer class=entry-footer><span title='2023-03-24 10:00:00 +0800 +0800'>三月 24, 2023</span>&nbsp;·&nbsp;1 分钟&nbsp;·&nbsp;Cassius0924</footer><a class=entry-link aria-label="post link to Ubuntu 安装 OpenCV 指南" href=https://blog.cassdev.com/posts/ubuntu%E5%AE%89%E8%A3%85opencv%E6%8C%87%E5%8D%97/></a></article><article class=post-entry><header class=entry-header><h2 class=entry-hint-parent>Ubuntu 安装软件包时遇到 unmet dependencies 的解决方法</h2></header><div class=entry-content><p>Ubuntu 安装软件包时遇到 unmet dependencies 的解决方法 在 Ubuntu 中安装软件包时，有时会遇到 “The following packages have unmet dependencies” 的错误，这通常是由于缺少软件包的依赖项和软件包冲突引起的。
+解决方法 逐个安装缺少的依赖包，直到提示删除冲突的软件包并继续安装。
+示例 例如在安装libvtk7.1-qt时提示如下图所示：
+执行命令：
+sudo apt-get install libvtk7.1:amd64 注意：包名要完整，libvtk7.1:amd64不能少了:amd64
+再次报错：
+继续安装：
+sudo apt-get install libhdf5-openmpi-100:amd64 再次报错：
+继续安装：
+sudo apt-get install libopenmpi2:amd64 又双叒叕报错：
+继续安装：
+sudo apt-get install libhwloc-plugins:amd64 直到提示The following packages will be REMOVED：
+直接回车删除冲突软件包并继续安装即可。
+最后重新安装libvtk7.1：
+sudo apt-get install libvtk7.1-qt</p></div><footer class=entry-footer><span title='2023-03-24 10:00:00 +0800 +0800'>三月 24, 2023</span>&nbsp;·&nbsp;1 分钟&nbsp;·&nbsp;Cassius0924</footer><a class=entry-link aria-label="post link to Ubuntu 安装软件包时遇到 unmet dependencies 的解决方法" href=https://blog.cassdev.com/posts/ubuntu%E5%AE%89%E8%A3%85%E8%BD%AF%E4%BB%B6%E5%8C%85%E6%97%B6%E9%81%87%E5%88%B0unmet-dependencies%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95/></a></article><article class=post-entry><header class=entry-header><h2 class=entry-hint-parent>apt autoremove 误删依赖包后自救指南</h2></header><div class=entry-content><p>apt autoremove 误删依赖包后自救指南 在使用 Ubuntu 系统的过程中，我们常常需要使用 apt 命令来安装、升级和删除软件包。其中，apt autoremove 命令可以自动删除无用的依赖包，以释放硬盘空间。然而，有时候我们会不小心误删了一些必要的依赖包，导致某些程序无法正常运行。
+方法一：手动查看历史记录（推荐） 查看APT历史日志
+sudo vim /var/log/apt/history.log 直接输入大写G，跳转到最后一行，找到相应时间的Remove内容。
+若删除的包较少可以逐个apt install。若包较多可以使用正则表达式，具体操作如下。
+复制所有被删除的包名
+如果你的VIM开启了行号显示，请先临时禁用行号，目的是避免复制到多余的空格。
+禁用行号，在命令模式下输入以下命令：
+:set nonumber 先复制你所有的删除的包，即Remove后的内容。
+开启行号：
+:set number 输入:q退出VIM。
+利用正则表达式处理包名
+执行以下命令，用正则表达式删去版本信息和逗号：
+echo "粘贴在这" | sed 's/([^()]*)[,]*//g' 复制输出的内容。
+执行安装命令
+一口气全安装即可：
+sudo apt install "粘贴在这" 方法二：使用 aptitude 进行恢复 aptitude 是一款强大的包管理器，它可以自动解决依赖关系，并且可以清晰地显示出哪些包被删除、哪些包被保留。因此，我们可以使用 aptitude 来恢复误删的依赖包。
+首先，我们需要安装 aptitude：
+sudo apt-get install aptitude 然后，使用以下命令来查看被删除的软件包：
+sudo aptitude search '~c' 接下来，使用以下命令来恢复被删除的软件包：
+sudo aptitude install &lt;package-name></p></div><footer class=entry-footer><span title='2023-03-24 00:00:00 +0000 UTC'>三月 24, 2023</span>&nbsp;·&nbsp;1 分钟&nbsp;·&nbsp;Cassius0924</footer><a class=entry-link aria-label="post link to apt autoremove 误删依赖包后自救指南" href=https://blog.cassdev.com/posts/apt-autoremove-%E8%AF%AF%E5%88%A0%E4%BE%9D%E8%B5%96%E5%8C%85%E5%90%8E%E8%87%AA%E6%95%91%E6%8C%87%E5%8D%97/></a></article><article class=post-entry><header class=entry-header><h2 class=entry-hint-parent></h2></header><div class=entry-content><p>C# Protobuf 接收数据并解析数据 在流里读出数据后，需要将数据包大小缩短成有效大小，即 bytesRead 长度。
+下面是 C# 端接收并解析数据的示例代码：
+private void ReceiveMessage() { stream = client.GetStream(); int bytesRead; while (isKeepReading) { if (stream.CanRead) { buffer = new byte[client.ReceiveBufferSize]; bytesRead = stream.Read(buffer, 0, client.ReceiveBufferSize); if (bytesRead > 0) { MemoryStream protoStream = new MemoryStream(buffer,0, bytesRead); Cas.Proto.DataMessage dataMessage = Cas.Proto.DataMessage.Parser.ParseFrom(protoStream); switch (dataMessage.Type) { case DataMessage.Types.Type.Mesh: Debug.Log("Mesh类型"); break; default: break; } } } } }</p></div><footer class=entry-footer>1 分钟</footer><a class=entry-link aria-label="post link to " href=https://blog.cassdev.com/posts/c%23-protobuf-%E6%8E%A5%E6%94%B6%E6%95%B0%E6%8D%AE%E5%B9%B6%E8%A7%A3%E6%9E%90%E6%95%B0%E6%8D%AE/></a></article><article class=post-entry><header class=entry-header><h2 class=entry-hint-parent></h2></header><div class=entry-content><p>C++ delete ptr 和 ptr = nullptr 的区别 delete ptr delete ptr 是释放 ptr 所指向的对象资源，而 ptr 依然存在，且依然指向那片内存地址。
+ptr = nullptr ptr = nullptr 是将 ptr 指向空指针，和其所指向的对象没关系。
+试着实现一个 unique_ptr template &lt;typename T> class UniquePtr { private: T *_ptr; public: // 默认构造 UniquePtr() : _ptr(nullptr) { } explicit UniquePtr(T *ptr) : _ptr(ptr) { } ~UniquePtr() { delete _ptr; // 无需置 nullptr，因为析构函数会被调用，_ptr 会被销毁 // 置空无意义 } // 拷贝构造 删除 UniquePtr(const UniquePtr &) = delete; UniquePtr &amp;operator=(const UniquePtr &) = delete; // 移动构造 UniquePtr(UniquePtr &&amp;p) noexcept : _ptr(p._ptr) { // 至于这里为什么不需要 delete _ptr // 是因为这是移动构造函数，是个构造函数！_ptr 本来就没有资源 p._ptr = nullptr; } UniquePtr &amp;operator=(UniquePtr &&amp;p) noexcept { if (p != *this) { delete _ptr; // 第一步，释放当前资源 _ptr = p._ptr; // 第二步，将当前指针指向新的资源 p._ptr = nullptr; // 第三步，将原来的指针置空 } return *this; } T *get() const { // 返回指针 return _ptr; } T *operator->() const { // 返回指针 return _ptr; } T &amp;operator*() const { // 解引用 return *_ptr; } T *release() { // 这里不能 delete _ptr // 因为 release 只是解除 UniquePtr 对资源的所有权，但资源还是存在的 T *tmp = _ptr; _ptr = nullptr; return tmp; } void reset(T *newptr = nullptr) { if (_ptr != newptr) { delete _ptr; // 释放当前资源 _ptr = newptr; // 指向新资源 // 这里不需要置空 newptr // 是否置空 new ptr 由用户决定 } } }; UniquePtr &amp;operator=(UniquePtr &&amp;p) 移动赋值运算符的原理如下图：
+...</p></div><footer class=entry-footer>1 分钟</footer><a class=entry-link aria-label="post link to " href=https://blog.cassdev.com/posts/c++-delete-ptr-%E5%92%8C-ptr--nullptr-%E7%9A%84%E5%8C%BA%E5%88%AB/></a></article><article class=post-entry><header class=entry-header><h2 class=entry-hint-parent></h2></header><div class=entry-content><p>C++ STL 常用容器和迭代器学习笔记 常用容器 序列容器
+vector: 动态数组，随机插入/删除 O(n)，随机访问 O(1)，尾插 O(1)
+array: 静态数组，不支持插入/删除，随机访问 O(1)
+deque: 双端队列，头尾插入/删除 O(1)，随机访问 O(1)，中间插入/删除 O(n)
+list: 双向链表，插入/删除 O(1)，不支持随机访问
+forward_list: 单向链表，插入/删除 O(1)，不支持随机访问
+关联容器（底层实现为 红黑树 ）
+set: 有序集合，插入/删除/查找 O(logn)
+map: 有序映射，插入/删除/查找 O(logn)
+multiset: 有序多重集合，插入/删除/查找 O(logn)
+multimap: 有序多重映射，插入/删除/查找 O(logn)
+无序容器（底层实现为 哈希表 ）
+unordered_set: 无序集合，插入/删除/查找 O(1)
+unordered_map: 无序映射，插入/删除/查找 O(1)
+unordered_multiset: 无序多重集合，插入/删除/查找 O(1)
+unordered_multimap: 无序多重映射，插入/删除/查找 O(1)
+容器适配器
+stack: 栈，后进先出，只能在栈顶插入/删除元素
+queue: 队列，先进先出，只能在队尾插入，在队头删除元素
+priority_queue: 优先队列，元素按照一定规则排序，每次取出的是最大/最小元素，底层实现为堆
+vector #include &lt;iostream> #include &lt;vector> using namespace std; // vector使用示例 int main() { vector&lt;int> vec = {1, 2, 3, 4, 5}; // 尾部插入元素：复杂度为O(1) vec.push_back(6); // 尾部删除元素：复杂度为O(1) vec.pop_back(); // 随机插入和删除元素：复杂度为O(n) vec.insert(vec.begin() + 1, 3); vec.erase(vec.begin() + 1); // vector的大小 cout &lt;&lt; vec.size() &lt;&lt; endl; // 获取vector的容量 cout &lt;&lt; vec.capacity() &lt;&lt; endl; // 判断vector是否为空 cout &lt;&lt; vec.empty() &lt;&lt; endl; // 获取vector的第一个元素和最后一个元素 cout &lt;&lt; vec.front() &lt;&lt; endl; cout &lt;&lt; vec.back() &lt;&lt; endl; // 访问指定位置的元素 cout &lt;&lt; vec[2] &lt;&lt; endl; cout &lt;&lt; vec.at(2) &lt;&lt; endl; // at函数会检查索引是否越界，更安全 vector&lt;int> vec2 = {7, 8, 9, 10}; vec.swap(vec2); // 交换两个vector的元素 // 清空vector vec.clear(); } vector 常用的成员函数：
+...</p></div><footer class=entry-footer>7 分钟</footer><a class=entry-link aria-label="post link to " href=https://blog.cassdev.com/posts/c++-stl-%E5%B8%B8%E7%94%A8%E5%AE%B9%E5%99%A8%E5%92%8C%E8%BF%AD%E4%BB%A3%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/></a></article><article class=post-entry><header class=entry-header><h2 class=entry-hint-parent></h2></header><div class=entry-content><p>C++ 中位运算的妙用：与运算和或运算的合并标志位 当我们处理程序中的多个标志位时，将它们合并成一个整数是一种常见的技巧。这种做法不仅有助于提高代码的可读性，还使得对多个标志位进行操作更为方便。
+在C++中，可以使用按位或（|）运算符来实现这一功能。
+合并标志位的基本思想 在C++中，合并标志位的基本思想是将多个标志位的二进制表示中的相应位进行按位或运算，形成一个包含所有标志位信息的整数。这样，就能够用一个整数表示多个不同的状态或选项。
+代码示例 #include &lt;iostream> int main() { // 定义三个标志位 const int FLAG_A = 0b0001; const int FLAG_B = 0b0010; const int FLAG_C = 0b0100; // 合并标志位 int flags = FLAG_A | FLAG_C; // 检查是否设置了某个标志位 if (flags & FLAG_A) { // True std::cout &lt;&lt; "FLAG_A is set." &lt;&lt; std::endl; } if (flags & FLAG_B) { // False std::cout &lt;&lt; "FLAG_B is set." &lt;&lt; std::endl; } if (flags & FLAG_C) { // True std::cout &lt;&lt; "FLAG_C is set." &lt;&lt; std::endl; } return 0; } 在这个示例中，首先定义了三个标志位 FLAG_A、FLAG_B 和 FLAG_C，它们分别对应二进制的 0001、0010 和 0100。然后，使用 | 运算符将 FLAG_A 和 FLAG_C 合并成 flags。
+接下来，使用按位与运算符 & 来检查 flags 中是否设置了每个标志位。如果某个标志位被设置，相应的条件语句将会执行。
+优点与用途 可读性提高： 将多个标志位合并成一个整数可以提高代码的可读性。通过使用有意义的常量名称，可以更清晰地了解整数表示的含义。 便于操作： 合并后的整数可以方便地进行各种按位操作，如按位与、按位或等，而无需单独处理每个标志位。 节省内存： 在某些情况下，将多个标志位合并成一个整数可能节省内存，特别是当标志位数量较多时。 在实际编码中，合并标志位是一种常见的编程技巧，适用于需要处理多个二进制状态的情况。这种技术不仅简化了代码，还使得代码更易维护和扩展。
+...</p></div><footer class=entry-footer>1 分钟</footer><a class=entry-link aria-label="post link to " href=https://blog.cassdev.com/posts/c++-%E4%B8%AD%E4%BD%8D%E8%BF%90%E7%AE%97%E7%9A%84%E5%A6%99%E7%94%A8%E4%B8%8E%E8%BF%90%E7%AE%97%E5%92%8C%E6%88%96%E8%BF%90%E7%AE%97%E7%9A%84%E5%90%88%E5%B9%B6%E6%A0%87%E5%BF%97%E4%BD%8D/></a></article><article class=post-entry><header class=entry-header><h2 class=entry-hint-parent></h2></header><div class=entry-content><p>C++ 内存模型学习笔记 C++ 内存模型从上（高地址）到下（低地址）可以分为以下几个部分：
+栈区：由编译器自动分配释放，存放函数的参数值、局部变量的值等。
+堆区：由程序员分配释放，若程序员不释放，程序结束时可能由操作系统回收。
+全局/静态区：分为 .data 段（全局初始化区）和 .bss 段（全局未初始化区），.data 段存放 已初始化 了的全局变量和静态变量，.bss 段存放 未初始化 的变量。
+常量区：就是 .rodata 段，存放常量。
+代码区：存放函数体的代码。</p></div><footer class=entry-footer>1 分钟</footer><a class=entry-link aria-label="post link to " href=https://blog.cassdev.com/posts/c++-%E5%86%85%E5%AD%98%E6%A8%A1%E5%9E%8B%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/></a></article><article class=post-entry><header class=entry-header><h2 class=entry-hint-parent></h2></header><div class=entry-content><p>C++ 多态学习笔记 C++ 的多态性是面向对象程序设计的三大特性之一（封装、继承、多态），它允许将子类对象赋值给父类对象，从而实现基类指针指向子类对象，实现基类指针调用子类对象的成员函数。
+C++ 的多态性主要有两种实现方式：静态多态和动态多态。
+静态多态：通过函数重载和模板实现。
+动态多态：通过虚函数实现。
+静态多态 函数重载 函数重载是指在同一个作用域内，可以定义 多个名称相同 但 参数列表不同 的函数。注意，不能用 返回值类型 来区分重载函数。
+int add(int a, int b) { return a + b; } double add(double a, double b) { return a + b; } double add(double a, double b, double c) { return a + b + c; } [!NOTE]
+编译过程
+预处理：将源文件中的头文件展开，处理宏定义，删除注释等；
+对应命令：g++ -E main.cpp -o main.i；
+编译：进行词法分析、语法分析、语义分析，接着 生成汇编代码 ；
+词法分析：分析源代码中的关键字、标识符、常量等是否合法；
+语法分析：分析源代码中的语法结构是否合法；
+语义分析：分析源代码中的语义是否合法；
+对应命令：g++ -S main.i -o main.s；
+汇编：将 汇编代码 转换为 目标文件 ，即将汇编代码翻译成机器指令；
+对应命令：g++ -c main.s -o main.o；
+链接：将 目标文件 和 库文件 链接成 可执行文件 ；
+静态链接：将库文件的代码和目标文件的代码合并成一个可执行文件；
+动态链接：将库文件的代码和目标文件的代码分开，运行时再动态链接；
+对应命令：g++ main.o -o main。
+函数重载的原理是通过 函数名修饰 实现的，即在编译阶段，编译器会根据函数名和参数列表生成一个唯一的函数名。
+...</p></div><footer class=entry-footer>2 分钟</footer><a class=entry-link aria-label="post link to " href=https://blog.cassdev.com/posts/c++-%E5%A4%9A%E6%80%81%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/></a></article><footer class=page-footer><nav class=pagination><a class=prev href=https://blog.cassdev.com/page/2/>«&nbsp;上一页&nbsp;2/8
+</a><a class=next href=https://blog.cassdev.com/page/4/>下一页&nbsp;4/8&nbsp;»</a></nav></footer></main><footer class=footer><span>Copyright © 2025-2025 Cassius0924. All rights reserved.</span> ·
+<span>Powered by
+<a href=https://gohugo.io/ rel="noopener noreferrer" target=_blank>Hugo</a> &
+<a href=https://github.com/adityatelange/hugo-PaperMod/ rel=noopener target=_blank>PaperMod</a></span></footer><a href=#top aria-label="go to top" title="Go to Top (Alt + G)" class=top-link id=top-link accesskey=g><svg viewBox="0 0 12 6" fill="currentColor"><path d="M12 6H0l6-6z"/></svg>
+</a><script>let menu=document.getElementById("menu");menu&&(menu.scrollLeft=localStorage.getItem("menu-scroll-position"),menu.onscroll=function(){localStorage.setItem("menu-scroll-position",menu.scrollLeft)}),document.querySelectorAll('a[href^="#"]').forEach(e=>{e.addEventListener("click",function(e){e.preventDefault();var t=this.getAttribute("href").substr(1);window.matchMedia("(prefers-reduced-motion: reduce)").matches?document.querySelector(`[id='${decodeURIComponent(t)}']`).scrollIntoView():document.querySelector(`[id='${decodeURIComponent(t)}']`).scrollIntoView({behavior:"smooth"}),t==="top"?history.replaceState(null,null," "):history.pushState(null,null,`#${t}`)})})</script><script>var mybutton=document.getElementById("top-link");window.onscroll=function(){document.body.scrollTop>800||document.documentElement.scrollTop>800?(mybutton.style.visibility="visible",mybutton.style.opacity="1"):(mybutton.style.visibility="hidden",mybutton.style.opacity="0")}</script><script>document.getElementById("theme-toggle").addEventListener("click",()=>{document.body.className.includes("dark")?(document.body.classList.remove("dark"),localStorage.setItem("pref-theme","light")):(document.body.classList.add("dark"),localStorage.setItem("pref-theme","dark"))})</script></body></html>

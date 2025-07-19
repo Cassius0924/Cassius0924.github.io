@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Protobuf on Cassius0924 的博客</title>
+    <link>https://blog.cassdev.com/tags/protobuf/</link>
+    <description>Recent content in Protobuf on Cassius0924 的博客</description>
+    <generator>Hugo -- 0.148.1</generator>
+    <language>zh-CN</language>
+    <copyright>Copyright © 2025-2025 Cassius0924. All rights reserved.</copyright>
+    <lastBuildDate>Mon, 12 Jun 2023 10:00:00 +0800</lastBuildDate>
+    <atom:link href="https://blog.cassdev.com/tags/protobuf/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Ubuntu 安装 Protobuf 指南</title>
+      <link>https://blog.cassdev.com/posts/ubuntu-%E5%AE%89%E8%A3%85-protobuf/</link>
+      <pubDate>Mon, 12 Jun 2023 10:00:00 +0800</pubDate>
+      <guid>https://blog.cassdev.com/posts/ubuntu-%E5%AE%89%E8%A3%85-protobuf/</guid>
+      <description>本指南将介绍如何在 Ubuntu 上安装 Protobuf。</description>
+    </item>
+  </channel>
+</rss>

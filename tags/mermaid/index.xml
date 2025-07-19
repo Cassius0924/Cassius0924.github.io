@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Mermaid on Cassius0924 的博客</title>
+    <link>https://blog.cassdev.com/tags/mermaid/</link>
+    <description>Recent content in Mermaid on Cassius0924 的博客</description>
+    <generator>Hugo -- 0.148.1</generator>
+    <language>zh-CN</language>
+    <copyright>Copyright © 2025-2025 Cassius0924. All rights reserved.</copyright>
+    <lastBuildDate>Fri, 24 Mar 2023 10:00:00 +0800</lastBuildDate>
+    <atom:link href="https://blog.cassdev.com/tags/mermaid/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Jetson nano 安装 Azure Kinect DK 指南</title>
+      <link>https://blog.cassdev.com/posts/mermaid%E6%8A%9B%E5%BC%83%E7%94%BB%E5%9B%BE%E6%8B%A5%E6%8A%B1%E7%A0%81%E5%9B%BE/</link>
+      <pubDate>Fri, 24 Mar 2023 10:00:00 +0800</pubDate>
+      <guid>https://blog.cassdev.com/posts/mermaid%E6%8A%9B%E5%BC%83%E7%94%BB%E5%9B%BE%E6%8B%A5%E6%8A%B1%E7%A0%81%E5%9B%BE/</guid>
+      <description>Mermaid 是一个可以让你通过代码来绘制流程图、序列图、甘特图等各种图表的工具。</description>
+    </item>
+  </channel>
+</rss>

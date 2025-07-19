@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>ROS on Cassius0924 的博客</title>
+    <link>https://blog.cassdev.com/tags/ros/</link>
+    <description>Recent content in ROS on Cassius0924 的博客</description>
+    <generator>Hugo -- 0.148.1</generator>
+    <language>zh-CN</language>
+    <copyright>Copyright © 2025-2025 Cassius0924. All rights reserved.</copyright>
+    <lastBuildDate>Tue, 28 Mar 2023 10:00:00 +0800</lastBuildDate>
+    <atom:link href="https://blog.cassdev.com/tags/ros/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>找不到 catkin_init_workspace 命令的解决方法</title>
+      <link>https://blog.cassdev.com/posts/%E6%89%BE%E4%B8%8D%E5%88%B0%E5%91%BD%E4%BB%A4-catkin_init_workspace-%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95/</link>
+      <pubDate>Tue, 28 Mar 2023 10:00:00 +0800</pubDate>
+      <guid>https://blog.cassdev.com/posts/%E6%89%BE%E4%B8%8D%E5%88%B0%E5%91%BD%E4%BB%A4-catkin_init_workspace-%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95/</guid>
+      <description>本文旨在解决找不到 catkin_init_workspace 命令的问题。</description>
+    </item>
+  </channel>
+</rss>
