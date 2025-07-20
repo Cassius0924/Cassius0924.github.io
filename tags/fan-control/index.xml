@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Fan Control on Cassius0924 的博客</title>
+    <link>https://blog.cassdev.com/tags/fan-control/</link>
+    <description>Recent content in Fan Control on Cassius0924 的博客</description>
+    <generator>Hugo -- 0.148.1</generator>
+    <language>zh-CN</language>
+    <copyright>Copyright © 2025-2025 Cassius0924. All rights reserved.</copyright>
+    <lastBuildDate>Sun, 16 Jun 2024 11:20:31 +0800</lastBuildDate>
+    <atom:link href="https://blog.cassdev.com/tags/fan-control/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Google Coral Dev Board 修改风扇转动温度阈值指南</title>
+      <link>https://blog.cassdev.com/posts/google-coral-dev-board-%E4%BF%AE%E6%94%B9%E9%A3%8E%E6%89%87%E8%BD%AC%E5%8A%A8%E6%B8%A9%E5%BA%A6%E9%98%88%E5%80%BC%E6%8C%87%E5%8D%97/</link>
+      <pubDate>Sun, 16 Jun 2024 11:20:31 +0800</pubDate>
+      <guid>https://blog.cassdev.com/posts/google-coral-dev-board-%E4%BF%AE%E6%94%B9%E9%A3%8E%E6%89%87%E8%BD%AC%E5%8A%A8%E6%B8%A9%E5%BA%A6%E9%98%88%E5%80%BC%E6%8C%87%E5%8D%97/</guid>
+      <description>&lt;p&gt;Google Coral Dev Board 是一款功能强大的开发板，可用于构建机器学习应用程序。该板配备了 Edge TPU，这是一款专门用于机器学习任务的加速器。Edge TPU 非常高效，但它也可能会产生热量。如果温度过高，Edge TPU 可能会降频或关闭。&lt;/p&gt;
+&lt;h2 id=&#34;查看目前-tpu-温度&#34;&gt;查看目前 TPU 温度&lt;/h2&gt;&lt;p&gt;使用命令查看目前开发板核心 TPU 的温度，输出温度为1000倍的摄氏度。&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;cat /sys/class/thermal/thermal_zone0/temp
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;如输出&lt;code&gt;54000&lt;/code&gt;，则代表当前温度为54摄氏度。&lt;/p&gt;
+&lt;h2 id=&#34;修改散热器温度阈值&#34;&gt;修改散热器温度阈值&lt;/h2&gt;&lt;p&gt;禁用热管理：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nb&#34;&gt;echo&lt;/span&gt; &lt;span class=&#34;s2&#34;&gt;&amp;#34;disabled&amp;#34;&lt;/span&gt; &amp;gt; /sys/devices/virtual/thermal/thermal_zone0/mode
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;修改散热器温度阈值为50摄氏度&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nb&#34;&gt;echo&lt;/span&gt; &lt;span class=&#34;m&#34;&gt;50000&lt;/span&gt; &amp;gt; /sys/devices/platform/gpio_fan/hwmon/hwmon0/fan1_target
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</description>
+    </item>
+  </channel>
+</rss>

@@ -31,24 +31,1032 @@
       <description></description>
     </item>
     <item>
+      <title>Syntax Highlighting</title>
+      <link>https://blog.cassdev.com/tags/syntax-highlighting/</link>
+      <pubDate>Sun, 16 Mar 2025 15:47:58 +0800</pubDate>
+      <guid>https://blog.cassdev.com/tags/syntax-highlighting/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>TextMate</title>
+      <link>https://blog.cassdev.com/tags/textmate/</link>
+      <pubDate>Sun, 16 Mar 2025 15:47:58 +0800</pubDate>
+      <guid>https://blog.cassdev.com/tags/textmate/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Tutorial</title>
+      <link>https://blog.cassdev.com/tags/tutorial/</link>
+      <pubDate>Sun, 16 Mar 2025 15:47:58 +0800</pubDate>
+      <guid>https://blog.cassdev.com/tags/tutorial/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>VSCode</title>
+      <link>https://blog.cassdev.com/tags/vscode/</link>
+      <pubDate>Sun, 16 Mar 2025 15:47:58 +0800</pubDate>
+      <guid>https://blog.cassdev.com/tags/vscode/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Epoll</title>
+      <link>https://blog.cassdev.com/tags/epoll/</link>
+      <pubDate>Sun, 30 Jun 2024 15:31:40 +0800</pubDate>
+      <guid>https://blog.cassdev.com/tags/epoll/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Kernel</title>
+      <link>https://blog.cassdev.com/tags/kernel/</link>
+      <pubDate>Sun, 30 Jun 2024 15:31:40 +0800</pubDate>
+      <guid>https://blog.cassdev.com/tags/kernel/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Linux</title>
+      <link>https://blog.cassdev.com/tags/linux/</link>
+      <pubDate>Sun, 30 Jun 2024 15:31:40 +0800</pubDate>
+      <guid>https://blog.cassdev.com/tags/linux/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Notes</title>
+      <link>https://blog.cassdev.com/tags/notes/</link>
+      <pubDate>Sun, 30 Jun 2024 15:31:40 +0800</pubDate>
+      <guid>https://blog.cassdev.com/tags/notes/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Socket</title>
+      <link>https://blog.cassdev.com/tags/socket/</link>
+      <pubDate>Sun, 30 Jun 2024 15:31:40 +0800</pubDate>
+      <guid>https://blog.cassdev.com/tags/socket/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Source Code</title>
+      <link>https://blog.cassdev.com/tags/source-code/</link>
+      <pubDate>Sun, 30 Jun 2024 15:31:40 +0800</pubDate>
+      <guid>https://blog.cassdev.com/tags/source-code/</guid>
+      <description></description>
+    </item>
+    <item>
       <title>C&#43;&#43;</title>
       <link>https://blog.cassdev.com/tags/c&#43;&#43;/</link>
-      <pubDate>Mon, 15 Jan 2024 10:00:00 +0800</pubDate>
+      <pubDate>Sat, 29 Jun 2024 16:44:14 +0800</pubDate>
       <guid>https://blog.cassdev.com/tags/c&#43;&#43;/</guid>
       <description></description>
     </item>
     <item>
-      <title>编程技巧</title>
-      <link>https://blog.cassdev.com/tags/%E7%BC%96%E7%A8%8B%E6%8A%80%E5%B7%A7/</link>
-      <pubDate>Mon, 15 Jan 2024 10:00:00 +0800</pubDate>
-      <guid>https://blog.cassdev.com/tags/%E7%BC%96%E7%A8%8B%E6%8A%80%E5%B7%A7/</guid>
+      <title>Concurrency</title>
+      <link>https://blog.cassdev.com/tags/concurrency/</link>
+      <pubDate>Sat, 29 Jun 2024 16:44:14 +0800</pubDate>
+      <guid>https://blog.cassdev.com/tags/concurrency/</guid>
       <description></description>
     </item>
     <item>
-      <title>设计模式</title>
-      <link>https://blog.cassdev.com/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/</link>
+      <title>Memory Model</title>
+      <link>https://blog.cassdev.com/tags/memory-model/</link>
+      <pubDate>Sat, 29 Jun 2024 16:44:14 +0800</pubDate>
+      <guid>https://blog.cassdev.com/tags/memory-model/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Delete</title>
+      <link>https://blog.cassdev.com/tags/delete/</link>
+      <pubDate>Sat, 29 Jun 2024 14:42:02 +0800</pubDate>
+      <guid>https://blog.cassdev.com/tags/delete/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>MemoryManagement</title>
+      <link>https://blog.cassdev.com/tags/memorymanagement/</link>
+      <pubDate>Sat, 29 Jun 2024 14:42:02 +0800</pubDate>
+      <guid>https://blog.cassdev.com/tags/memorymanagement/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Nullptr</title>
+      <link>https://blog.cassdev.com/tags/nullptr/</link>
+      <pubDate>Sat, 29 Jun 2024 14:42:02 +0800</pubDate>
+      <guid>https://blog.cassdev.com/tags/nullptr/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Pointer</title>
+      <link>https://blog.cassdev.com/tags/pointer/</link>
+      <pubDate>Sat, 29 Jun 2024 14:42:02 +0800</pubDate>
+      <guid>https://blog.cassdev.com/tags/pointer/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Algorithm</title>
+      <link>https://blog.cassdev.com/tags/algorithm/</link>
+      <pubDate>Sat, 29 Jun 2024 10:16:12 +0800</pubDate>
+      <guid>https://blog.cassdev.com/tags/algorithm/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Data Structure</title>
+      <link>https://blog.cassdev.com/tags/data-structure/</link>
+      <pubDate>Sat, 29 Jun 2024 10:16:12 +0800</pubDate>
+      <guid>https://blog.cassdev.com/tags/data-structure/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Hash Collision</title>
+      <link>https://blog.cassdev.com/tags/hash-collision/</link>
+      <pubDate>Sat, 29 Jun 2024 10:16:12 +0800</pubDate>
+      <guid>https://blog.cassdev.com/tags/hash-collision/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Hashing</title>
+      <link>https://blog.cassdev.com/tags/hashing/</link>
+      <pubDate>Sat, 29 Jun 2024 10:16:12 +0800</pubDate>
+      <guid>https://blog.cassdev.com/tags/hashing/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>STL</title>
+      <link>https://blog.cassdev.com/tags/stl/</link>
+      <pubDate>Fri, 28 Jun 2024 19:50:50 +0800</pubDate>
+      <guid>https://blog.cassdev.com/tags/stl/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Memory Management</title>
+      <link>https://blog.cassdev.com/tags/memory-management/</link>
+      <pubDate>Fri, 28 Jun 2024 10:26:35 +0800</pubDate>
+      <guid>https://blog.cassdev.com/tags/memory-management/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Object</title>
+      <link>https://blog.cassdev.com/tags/object/</link>
+      <pubDate>Fri, 28 Jun 2024 10:26:35 +0800</pubDate>
+      <guid>https://blog.cassdev.com/tags/object/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>OOP</title>
+      <link>https://blog.cassdev.com/tags/oop/</link>
+      <pubDate>Thu, 27 Jun 2024 22:52:10 +0800</pubDate>
+      <guid>https://blog.cassdev.com/tags/oop/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Polymorphism</title>
+      <link>https://blog.cassdev.com/tags/polymorphism/</link>
+      <pubDate>Thu, 27 Jun 2024 22:52:10 +0800</pubDate>
+      <guid>https://blog.cassdev.com/tags/polymorphism/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>HTTP</title>
+      <link>https://blog.cassdev.com/tags/http/</link>
+      <pubDate>Thu, 27 Jun 2024 20:12:42 +0800</pubDate>
+      <guid>https://blog.cassdev.com/tags/http/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Network</title>
+      <link>https://blog.cassdev.com/tags/network/</link>
+      <pubDate>Thu, 27 Jun 2024 20:12:42 +0800</pubDate>
+      <guid>https://blog.cassdev.com/tags/network/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Optimization</title>
+      <link>https://blog.cassdev.com/tags/optimization/</link>
+      <pubDate>Thu, 27 Jun 2024 20:12:42 +0800</pubDate>
+      <guid>https://blog.cassdev.com/tags/optimization/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Protocol</title>
+      <link>https://blog.cassdev.com/tags/protocol/</link>
+      <pubDate>Thu, 27 Jun 2024 20:12:42 +0800</pubDate>
+      <guid>https://blog.cassdev.com/tags/protocol/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Web</title>
+      <link>https://blog.cassdev.com/tags/web/</link>
+      <pubDate>Thu, 27 Jun 2024 20:12:42 +0800</pubDate>
+      <guid>https://blog.cassdev.com/tags/web/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Congestion Control</title>
+      <link>https://blog.cassdev.com/tags/congestion-control/</link>
+      <pubDate>Thu, 27 Jun 2024 13:54:31 +0800</pubDate>
+      <guid>https://blog.cassdev.com/tags/congestion-control/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>TCP</title>
+      <link>https://blog.cassdev.com/tags/tcp/</link>
+      <pubDate>Thu, 27 Jun 2024 13:54:31 +0800</pubDate>
+      <guid>https://blog.cassdev.com/tags/tcp/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Smart Pointer</title>
+      <link>https://blog.cassdev.com/tags/smart-pointer/</link>
+      <pubDate>Wed, 26 Jun 2024 17:24:42 +0800</pubDate>
+      <guid>https://blog.cassdev.com/tags/smart-pointer/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Architecture</title>
+      <link>https://blog.cassdev.com/tags/architecture/</link>
+      <pubDate>Wed, 26 Jun 2024 15:40:01 +0800</pubDate>
+      <guid>https://blog.cassdev.com/tags/architecture/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Performance</title>
+      <link>https://blog.cassdev.com/tags/performance/</link>
+      <pubDate>Wed, 26 Jun 2024 15:40:01 +0800</pubDate>
+      <guid>https://blog.cassdev.com/tags/performance/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Redis</title>
+      <link>https://blog.cassdev.com/tags/redis/</link>
+      <pubDate>Wed, 26 Jun 2024 15:40:01 +0800</pubDate>
+      <guid>https://blog.cassdev.com/tags/redis/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Single-Threaded</title>
+      <link>https://blog.cassdev.com/tags/single-threaded/</link>
+      <pubDate>Wed, 26 Jun 2024 15:40:01 +0800</pubDate>
+      <guid>https://blog.cassdev.com/tags/single-threaded/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Heap Sort</title>
+      <link>https://blog.cassdev.com/tags/heap-sort/</link>
+      <pubDate>Wed, 26 Jun 2024 10:20:13 +0800</pubDate>
+      <guid>https://blog.cassdev.com/tags/heap-sort/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>JavaScript</title>
+      <link>https://blog.cassdev.com/tags/javascript/</link>
+      <pubDate>Wed, 26 Jun 2024 10:20:13 +0800</pubDate>
+      <guid>https://blog.cassdev.com/tags/javascript/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Best Practice</title>
+      <link>https://blog.cassdev.com/tags/best-practice/</link>
+      <pubDate>Tue, 25 Jun 2024 22:41:04 +0800</pubDate>
+      <guid>https://blog.cassdev.com/tags/best-practice/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Operator Overloading</title>
+      <link>https://blog.cassdev.com/tags/operator-overloading/</link>
+      <pubDate>Tue, 25 Jun 2024 22:41:04 +0800</pubDate>
+      <guid>https://blog.cassdev.com/tags/operator-overloading/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Reference</title>
+      <link>https://blog.cassdev.com/tags/reference/</link>
+      <pubDate>Tue, 25 Jun 2024 22:41:04 +0800</pubDate>
+      <guid>https://blog.cassdev.com/tags/reference/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Friend Function</title>
+      <link>https://blog.cassdev.com/tags/friend-function/</link>
+      <pubDate>Tue, 25 Jun 2024 21:35:40 +0800</pubDate>
+      <guid>https://blog.cassdev.com/tags/friend-function/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Asynchronous I/O</title>
+      <link>https://blog.cassdev.com/tags/asynchronous-i/o/</link>
+      <pubDate>Mon, 24 Jun 2024 21:36:55 +0800</pubDate>
+      <guid>https://blog.cassdev.com/tags/asynchronous-i/o/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>IO Multiplexing</title>
+      <link>https://blog.cassdev.com/tags/io-multiplexing/</link>
+      <pubDate>Mon, 24 Jun 2024 21:36:55 +0800</pubDate>
+      <guid>https://blog.cassdev.com/tags/io-multiplexing/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Network Programming</title>
+      <link>https://blog.cassdev.com/tags/network-programming/</link>
+      <pubDate>Mon, 24 Jun 2024 21:36:55 +0800</pubDate>
+      <guid>https://blog.cassdev.com/tags/network-programming/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>CI/CD</title>
+      <link>https://blog.cassdev.com/tags/ci/cd/</link>
+      <pubDate>Mon, 17 Jun 2024 21:11:04 +0800</pubDate>
+      <guid>https://blog.cassdev.com/tags/ci/cd/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Deployment</title>
+      <link>https://blog.cassdev.com/tags/deployment/</link>
+      <pubDate>Mon, 17 Jun 2024 21:11:04 +0800</pubDate>
+      <guid>https://blog.cassdev.com/tags/deployment/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>GitHub Actions</title>
+      <link>https://blog.cassdev.com/tags/github-actions/</link>
+      <pubDate>Mon, 17 Jun 2024 21:11:04 +0800</pubDate>
+      <guid>https://blog.cassdev.com/tags/github-actions/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>GitHub Pages</title>
+      <link>https://blog.cassdev.com/tags/github-pages/</link>
+      <pubDate>Mon, 17 Jun 2024 21:11:04 +0800</pubDate>
+      <guid>https://blog.cassdev.com/tags/github-pages/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>MkDocs</title>
+      <link>https://blog.cassdev.com/tags/mkdocs/</link>
+      <pubDate>Mon, 17 Jun 2024 21:11:04 +0800</pubDate>
+      <guid>https://blog.cassdev.com/tags/mkdocs/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>CMake</title>
+      <link>https://blog.cassdev.com/tags/cmake/</link>
+      <pubDate>Sun, 16 Jun 2024 19:13:10 +0800</pubDate>
+      <guid>https://blog.cassdev.com/tags/cmake/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Encoding</title>
+      <link>https://blog.cassdev.com/tags/encoding/</link>
+      <pubDate>Sun, 16 Jun 2024 19:13:10 +0800</pubDate>
+      <guid>https://blog.cassdev.com/tags/encoding/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Font</title>
+      <link>https://blog.cassdev.com/tags/font/</link>
+      <pubDate>Sun, 16 Jun 2024 19:13:10 +0800</pubDate>
+      <guid>https://blog.cassdev.com/tags/font/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>JetBrains Mono</title>
+      <link>https://blog.cassdev.com/tags/jetbrains-mono/</link>
+      <pubDate>Sun, 16 Jun 2024 19:13:10 +0800</pubDate>
+      <guid>https://blog.cassdev.com/tags/jetbrains-mono/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>MacOS</title>
+      <link>https://blog.cassdev.com/tags/macos/</link>
+      <pubDate>Sun, 16 Jun 2024 19:13:10 +0800</pubDate>
+      <guid>https://blog.cassdev.com/tags/macos/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Troubleshooting</title>
+      <link>https://blog.cassdev.com/tags/troubleshooting/</link>
+      <pubDate>Sun, 16 Jun 2024 19:13:10 +0800</pubDate>
+      <guid>https://blog.cassdev.com/tags/troubleshooting/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Windows</title>
+      <link>https://blog.cassdev.com/tags/windows/</link>
+      <pubDate>Sun, 16 Jun 2024 19:13:10 +0800</pubDate>
+      <guid>https://blog.cassdev.com/tags/windows/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>3D Reconstruction</title>
+      <link>https://blog.cassdev.com/tags/3d-reconstruction/</link>
+      <pubDate>Sun, 16 Jun 2024 11:20:31 +0800</pubDate>
+      <guid>https://blog.cassdev.com/tags/3d-reconstruction/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>ARM</title>
+      <link>https://blog.cassdev.com/tags/arm/</link>
+      <pubDate>Sun, 16 Jun 2024 11:20:31 +0800</pubDate>
+      <guid>https://blog.cassdev.com/tags/arm/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Auto Mount</title>
+      <link>https://blog.cassdev.com/tags/auto-mount/</link>
+      <pubDate>Sun, 16 Jun 2024 11:20:31 +0800</pubDate>
+      <guid>https://blog.cassdev.com/tags/auto-mount/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Automation</title>
+      <link>https://blog.cassdev.com/tags/automation/</link>
+      <pubDate>Sun, 16 Jun 2024 11:20:31 +0800</pubDate>
+      <guid>https://blog.cassdev.com/tags/automation/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Automator</title>
+      <link>https://blog.cassdev.com/tags/automator/</link>
+      <pubDate>Sun, 16 Jun 2024 11:20:31 +0800</pubDate>
+      <guid>https://blog.cassdev.com/tags/automator/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Bash</title>
+      <link>https://blog.cassdev.com/tags/bash/</link>
+      <pubDate>Sun, 16 Jun 2024 11:20:31 +0800</pubDate>
+      <guid>https://blog.cassdev.com/tags/bash/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Bitwise Operations</title>
+      <link>https://blog.cassdev.com/tags/bitwise-operations/</link>
+      <pubDate>Sun, 16 Jun 2024 11:20:31 +0800</pubDate>
+      <guid>https://blog.cassdev.com/tags/bitwise-operations/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>BLE</title>
+      <link>https://blog.cassdev.com/tags/ble/</link>
+      <pubDate>Sun, 16 Jun 2024 11:20:31 +0800</pubDate>
+      <guid>https://blog.cassdev.com/tags/ble/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Bluetooth</title>
+      <link>https://blog.cassdev.com/tags/bluetooth/</link>
+      <pubDate>Sun, 16 Jun 2024 11:20:31 +0800</pubDate>
+      <guid>https://blog.cassdev.com/tags/bluetooth/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Boost</title>
+      <link>https://blog.cassdev.com/tags/boost/</link>
+      <pubDate>Sun, 16 Jun 2024 11:20:31 +0800</pubDate>
+      <guid>https://blog.cassdev.com/tags/boost/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>C#</title>
+      <link>https://blog.cassdev.com/tags/c%23/</link>
+      <pubDate>Sun, 16 Jun 2024 11:20:31 +0800</pubDate>
+      <guid>https://blog.cassdev.com/tags/c%23/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>ClangFormat</title>
+      <link>https://blog.cassdev.com/tags/clangformat/</link>
+      <pubDate>Sun, 16 Jun 2024 11:20:31 +0800</pubDate>
+      <guid>https://blog.cassdev.com/tags/clangformat/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>ClashX</title>
+      <link>https://blog.cassdev.com/tags/clashx/</link>
+      <pubDate>Sun, 16 Jun 2024 11:20:31 +0800</pubDate>
+      <guid>https://blog.cassdev.com/tags/clashx/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>CLI</title>
+      <link>https://blog.cassdev.com/tags/cli/</link>
+      <pubDate>Sun, 16 Jun 2024 11:20:31 +0800</pubDate>
+      <guid>https://blog.cassdev.com/tags/cli/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Clipboard</title>
+      <link>https://blog.cassdev.com/tags/clipboard/</link>
+      <pubDate>Sun, 16 Jun 2024 11:20:31 +0800</pubDate>
+      <guid>https://blog.cassdev.com/tags/clipboard/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Code Formatting</title>
+      <link>https://blog.cassdev.com/tags/code-formatting/</link>
+      <pubDate>Sun, 16 Jun 2024 11:20:31 +0800</pubDate>
+      <guid>https://blog.cassdev.com/tags/code-formatting/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Computer Vision</title>
+      <link>https://blog.cassdev.com/tags/computer-vision/</link>
+      <pubDate>Sun, 16 Jun 2024 11:20:31 +0800</pubDate>
+      <guid>https://blog.cassdev.com/tags/computer-vision/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Configuration</title>
+      <link>https://blog.cassdev.com/tags/configuration/</link>
+      <pubDate>Sun, 16 Jun 2024 11:20:31 +0800</pubDate>
+      <guid>https://blog.cassdev.com/tags/configuration/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>CUDA</title>
+      <link>https://blog.cassdev.com/tags/cuda/</link>
+      <pubDate>Sun, 16 Jun 2024 11:20:31 +0800</pubDate>
+      <guid>https://blog.cassdev.com/tags/cuda/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Data Parsing</title>
+      <link>https://blog.cassdev.com/tags/data-parsing/</link>
+      <pubDate>Sun, 16 Jun 2024 11:20:31 +0800</pubDate>
+      <guid>https://blog.cassdev.com/tags/data-parsing/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Deep Learning</title>
+      <link>https://blog.cassdev.com/tags/deep-learning/</link>
+      <pubDate>Sun, 16 Jun 2024 11:20:31 +0800</pubDate>
+      <guid>https://blog.cassdev.com/tags/deep-learning/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Edge TPU</title>
+      <link>https://blog.cassdev.com/tags/edge-tpu/</link>
+      <pubDate>Sun, 16 Jun 2024 11:20:31 +0800</pubDate>
+      <guid>https://blog.cassdev.com/tags/edge-tpu/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Extension</title>
+      <link>https://blog.cassdev.com/tags/extension/</link>
+      <pubDate>Sun, 16 Jun 2024 11:20:31 +0800</pubDate>
+      <guid>https://blog.cassdev.com/tags/extension/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Fan Control</title>
+      <link>https://blog.cassdev.com/tags/fan-control/</link>
+      <pubDate>Sun, 16 Jun 2024 11:20:31 +0800</pubDate>
+      <guid>https://blog.cassdev.com/tags/fan-control/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Filesystem</title>
+      <link>https://blog.cassdev.com/tags/filesystem/</link>
+      <pubDate>Sun, 16 Jun 2024 11:20:31 +0800</pubDate>
+      <guid>https://blog.cassdev.com/tags/filesystem/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Flash</title>
+      <link>https://blog.cassdev.com/tags/flash/</link>
+      <pubDate>Sun, 16 Jun 2024 11:20:31 +0800</pubDate>
+      <guid>https://blog.cassdev.com/tags/flash/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>FRP</title>
+      <link>https://blog.cassdev.com/tags/frp/</link>
+      <pubDate>Sun, 16 Jun 2024 11:20:31 +0800</pubDate>
+      <guid>https://blog.cassdev.com/tags/frp/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Fstab</title>
+      <link>https://blog.cassdev.com/tags/fstab/</link>
+      <pubDate>Sun, 16 Jun 2024 11:20:31 +0800</pubDate>
+      <guid>https://blog.cassdev.com/tags/fstab/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Google Coral</title>
+      <link>https://blog.cassdev.com/tags/google-coral/</link>
+      <pubDate>Sun, 16 Jun 2024 11:20:31 +0800</pubDate>
+      <guid>https://blog.cassdev.com/tags/google-coral/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>HammerSpoon</title>
+      <link>https://blog.cassdev.com/tags/hammerspoon/</link>
+      <pubDate>Sun, 16 Jun 2024 11:20:31 +0800</pubDate>
+      <guid>https://blog.cassdev.com/tags/hammerspoon/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>HoloLens</title>
+      <link>https://blog.cassdev.com/tags/hololens/</link>
+      <pubDate>Sun, 16 Jun 2024 11:20:31 +0800</pubDate>
+      <guid>https://blog.cassdev.com/tags/hololens/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Installation</title>
+      <link>https://blog.cassdev.com/tags/installation/</link>
+      <pubDate>Sun, 16 Jun 2024 11:20:31 +0800</pubDate>
+      <guid>https://blog.cassdev.com/tags/installation/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>IntelliSense</title>
+      <link>https://blog.cassdev.com/tags/intellisense/</link>
+      <pubDate>Sun, 16 Jun 2024 11:20:31 +0800</pubDate>
+      <guid>https://blog.cassdev.com/tags/intellisense/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>ITerm2</title>
+      <link>https://blog.cassdev.com/tags/iterm2/</link>
+      <pubDate>Sun, 16 Jun 2024 11:20:31 +0800</pubDate>
+      <guid>https://blog.cassdev.com/tags/iterm2/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>JetPack</title>
+      <link>https://blog.cassdev.com/tags/jetpack/</link>
+      <pubDate>Sun, 16 Jun 2024 11:20:31 +0800</pubDate>
+      <guid>https://blog.cassdev.com/tags/jetpack/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Jetson</title>
+      <link>https://blog.cassdev.com/tags/jetson/</link>
+      <pubDate>Sun, 16 Jun 2024 11:20:31 +0800</pubDate>
+      <guid>https://blog.cassdev.com/tags/jetson/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Jtop</title>
+      <link>https://blog.cassdev.com/tags/jtop/</link>
+      <pubDate>Sun, 16 Jun 2024 11:20:31 +0800</pubDate>
+      <guid>https://blog.cassdev.com/tags/jtop/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Kinect</title>
+      <link>https://blog.cassdev.com/tags/kinect/</link>
+      <pubDate>Sun, 16 Jun 2024 11:20:31 +0800</pubDate>
+      <guid>https://blog.cassdev.com/tags/kinect/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>L2CAP</title>
+      <link>https://blog.cassdev.com/tags/l2cap/</link>
+      <pubDate>Sun, 16 Jun 2024 11:20:31 +0800</pubDate>
+      <guid>https://blog.cassdev.com/tags/l2cap/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Lua</title>
+      <link>https://blog.cassdev.com/tags/lua/</link>
+      <pubDate>Sun, 16 Jun 2024 11:20:31 +0800</pubDate>
+      <guid>https://blog.cassdev.com/tags/lua/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Mendel Linux</title>
+      <link>https://blog.cassdev.com/tags/mendel-linux/</link>
+      <pubDate>Sun, 16 Jun 2024 11:20:31 +0800</pubDate>
+      <guid>https://blog.cassdev.com/tags/mendel-linux/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Mesh</title>
+      <link>https://blog.cassdev.com/tags/mesh/</link>
+      <pubDate>Sun, 16 Jun 2024 11:20:31 +0800</pubDate>
+      <guid>https://blog.cassdev.com/tags/mesh/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>MR</title>
+      <link>https://blog.cassdev.com/tags/mr/</link>
+      <pubDate>Sun, 16 Jun 2024 11:20:31 +0800</pubDate>
+      <guid>https://blog.cassdev.com/tags/mr/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>NAT Traversal</title>
+      <link>https://blog.cassdev.com/tags/nat-traversal/</link>
+      <pubDate>Sun, 16 Jun 2024 11:20:31 +0800</pubDate>
+      <guid>https://blog.cassdev.com/tags/nat-traversal/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Neovim</title>
+      <link>https://blog.cassdev.com/tags/neovim/</link>
+      <pubDate>Sun, 16 Jun 2024 11:20:31 +0800</pubDate>
+      <guid>https://blog.cassdev.com/tags/neovim/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Networking</title>
+      <link>https://blog.cassdev.com/tags/networking/</link>
+      <pubDate>Sun, 16 Jun 2024 11:20:31 +0800</pubDate>
+      <guid>https://blog.cassdev.com/tags/networking/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Object Detection</title>
+      <link>https://blog.cassdev.com/tags/object-detection/</link>
+      <pubDate>Sun, 16 Jun 2024 11:20:31 +0800</pubDate>
+      <guid>https://blog.cassdev.com/tags/object-detection/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Open3D</title>
+      <link>https://blog.cassdev.com/tags/open3d/</link>
+      <pubDate>Sun, 16 Jun 2024 11:20:31 +0800</pubDate>
+      <guid>https://blog.cassdev.com/tags/open3d/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Open3D-ML</title>
+      <link>https://blog.cassdev.com/tags/open3d-ml/</link>
+      <pubDate>Sun, 16 Jun 2024 11:20:31 +0800</pubDate>
+      <guid>https://blog.cassdev.com/tags/open3d-ml/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Pipe</title>
+      <link>https://blog.cassdev.com/tags/pipe/</link>
+      <pubDate>Sun, 16 Jun 2024 11:20:31 +0800</pubDate>
+      <guid>https://blog.cassdev.com/tags/pipe/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Plugins</title>
+      <link>https://blog.cassdev.com/tags/plugins/</link>
+      <pubDate>Sun, 16 Jun 2024 11:20:31 +0800</pubDate>
+      <guid>https://blog.cassdev.com/tags/plugins/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Point Cloud</title>
+      <link>https://blog.cassdev.com/tags/point-cloud/</link>
+      <pubDate>Sun, 16 Jun 2024 11:20:31 +0800</pubDate>
+      <guid>https://blog.cassdev.com/tags/point-cloud/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Precision</title>
+      <link>https://blog.cassdev.com/tags/precision/</link>
+      <pubDate>Sun, 16 Jun 2024 11:20:31 +0800</pubDate>
+      <guid>https://blog.cassdev.com/tags/precision/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Productivity</title>
+      <link>https://blog.cassdev.com/tags/productivity/</link>
+      <pubDate>Sun, 16 Jun 2024 11:20:31 +0800</pubDate>
+      <guid>https://blog.cassdev.com/tags/productivity/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Protobuf</title>
+      <link>https://blog.cassdev.com/tags/protobuf/</link>
+      <pubDate>Sun, 16 Jun 2024 11:20:31 +0800</pubDate>
+      <guid>https://blog.cassdev.com/tags/protobuf/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Proxy</title>
+      <link>https://blog.cassdev.com/tags/proxy/</link>
+      <pubDate>Sun, 16 Jun 2024 11:20:31 +0800</pubDate>
+      <guid>https://blog.cassdev.com/tags/proxy/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Python</title>
+      <link>https://blog.cassdev.com/tags/python/</link>
+      <pubDate>Sun, 16 Jun 2024 11:20:31 +0800</pubDate>
+      <guid>https://blog.cassdev.com/tags/python/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>PyTorch</title>
+      <link>https://blog.cassdev.com/tags/pytorch/</link>
+      <pubDate>Sun, 16 Jun 2024 11:20:31 +0800</pubDate>
+      <guid>https://blog.cassdev.com/tags/pytorch/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Recall</title>
+      <link>https://blog.cassdev.com/tags/recall/</link>
+      <pubDate>Sun, 16 Jun 2024 11:20:31 +0800</pubDate>
+      <guid>https://blog.cassdev.com/tags/recall/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Redirect</title>
+      <link>https://blog.cassdev.com/tags/redirect/</link>
+      <pubDate>Sun, 16 Jun 2024 11:20:31 +0800</pubDate>
+      <guid>https://blog.cassdev.com/tags/redirect/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Remote Development</title>
+      <link>https://blog.cassdev.com/tags/remote-development/</link>
+      <pubDate>Sun, 16 Jun 2024 11:20:31 +0800</pubDate>
+      <guid>https://blog.cassdev.com/tags/remote-development/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Reverse Proxy</title>
+      <link>https://blog.cassdev.com/tags/reverse-proxy/</link>
+      <pubDate>Sun, 16 Jun 2024 11:20:31 +0800</pubDate>
+      <guid>https://blog.cassdev.com/tags/reverse-proxy/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Scripting</title>
+      <link>https://blog.cassdev.com/tags/scripting/</link>
+      <pubDate>Sun, 16 Jun 2024 11:20:31 +0800</pubDate>
+      <guid>https://blog.cassdev.com/tags/scripting/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Serialization</title>
+      <link>https://blog.cassdev.com/tags/serialization/</link>
+      <pubDate>Sun, 16 Jun 2024 11:20:31 +0800</pubDate>
+      <guid>https://blog.cassdev.com/tags/serialization/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Shell</title>
+      <link>https://blog.cassdev.com/tags/shell/</link>
+      <pubDate>Sun, 16 Jun 2024 11:20:31 +0800</pubDate>
+      <guid>https://blog.cassdev.com/tags/shell/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Shortcut</title>
+      <link>https://blog.cassdev.com/tags/shortcut/</link>
+      <pubDate>Sun, 16 Jun 2024 11:20:31 +0800</pubDate>
+      <guid>https://blog.cassdev.com/tags/shortcut/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>SMS</title>
+      <link>https://blog.cassdev.com/tags/sms/</link>
+      <pubDate>Sun, 16 Jun 2024 11:20:31 +0800</pubDate>
+      <guid>https://blog.cassdev.com/tags/sms/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>SSD</title>
+      <link>https://blog.cassdev.com/tags/ssd/</link>
+      <pubDate>Sun, 16 Jun 2024 11:20:31 +0800</pubDate>
+      <guid>https://blog.cassdev.com/tags/ssd/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>SSH</title>
+      <link>https://blog.cassdev.com/tags/ssh/</link>
+      <pubDate>Sun, 16 Jun 2024 11:20:31 +0800</pubDate>
+      <guid>https://blog.cassdev.com/tags/ssh/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Standard I/O</title>
+      <link>https://blog.cassdev.com/tags/standard-i/o/</link>
+      <pubDate>Sun, 16 Jun 2024 11:20:31 +0800</pubDate>
+      <guid>https://blog.cassdev.com/tags/standard-i/o/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>System Monitor</title>
+      <link>https://blog.cassdev.com/tags/system-monitor/</link>
+      <pubDate>Sun, 16 Jun 2024 11:20:31 +0800</pubDate>
+      <guid>https://blog.cassdev.com/tags/system-monitor/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Temperature</title>
+      <link>https://blog.cassdev.com/tags/temperature/</link>
+      <pubDate>Sun, 16 Jun 2024 11:20:31 +0800</pubDate>
+      <guid>https://blog.cassdev.com/tags/temperature/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Terminal</title>
+      <link>https://blog.cassdev.com/tags/terminal/</link>
+      <pubDate>Sun, 16 Jun 2024 11:20:31 +0800</pubDate>
+      <guid>https://blog.cassdev.com/tags/terminal/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Thesis</title>
+      <link>https://blog.cassdev.com/tags/thesis/</link>
+      <pubDate>Sun, 16 Jun 2024 11:20:31 +0800</pubDate>
+      <guid>https://blog.cassdev.com/tags/thesis/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Transformation Matrix</title>
+      <link>https://blog.cassdev.com/tags/transformation-matrix/</link>
+      <pubDate>Sun, 16 Jun 2024 11:20:31 +0800</pubDate>
+      <guid>https://blog.cassdev.com/tags/transformation-matrix/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Translation</title>
+      <link>https://blog.cassdev.com/tags/translation/</link>
+      <pubDate>Sun, 16 Jun 2024 11:20:31 +0800</pubDate>
+      <guid>https://blog.cassdev.com/tags/translation/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Typesetting</title>
+      <link>https://blog.cassdev.com/tags/typesetting/</link>
+      <pubDate>Sun, 16 Jun 2024 11:20:31 +0800</pubDate>
+      <guid>https://blog.cassdev.com/tags/typesetting/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Ubuntu</title>
+      <link>https://blog.cassdev.com/tags/ubuntu/</link>
+      <pubDate>Sun, 16 Jun 2024 11:20:31 +0800</pubDate>
+      <guid>https://blog.cassdev.com/tags/ubuntu/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Unity</title>
+      <link>https://blog.cassdev.com/tags/unity/</link>
+      <pubDate>Sun, 16 Jun 2024 11:20:31 +0800</pubDate>
+      <guid>https://blog.cassdev.com/tags/unity/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Upgrade</title>
+      <link>https://blog.cassdev.com/tags/upgrade/</link>
+      <pubDate>Sun, 16 Jun 2024 11:20:31 +0800</pubDate>
+      <guid>https://blog.cassdev.com/tags/upgrade/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Verification Code</title>
+      <link>https://blog.cassdev.com/tags/verification-code/</link>
+      <pubDate>Sun, 16 Jun 2024 11:20:31 +0800</pubDate>
+      <guid>https://blog.cassdev.com/tags/verification-code/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Visualization</title>
+      <link>https://blog.cassdev.com/tags/visualization/</link>
+      <pubDate>Sun, 16 Jun 2024 11:20:31 +0800</pubDate>
+      <guid>https://blog.cassdev.com/tags/visualization/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Word</title>
+      <link>https://blog.cassdev.com/tags/word/</link>
+      <pubDate>Sun, 16 Jun 2024 11:20:31 +0800</pubDate>
+      <guid>https://blog.cassdev.com/tags/word/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>X11 Forwarding</title>
+      <link>https://blog.cassdev.com/tags/x11-forwarding/</link>
+      <pubDate>Sun, 16 Jun 2024 11:20:31 +0800</pubDate>
+      <guid>https://blog.cassdev.com/tags/x11-forwarding/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>YOLO</title>
+      <link>https://blog.cassdev.com/tags/yolo/</link>
+      <pubDate>Sun, 16 Jun 2024 11:20:31 +0800</pubDate>
+      <guid>https://blog.cassdev.com/tags/yolo/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>AssignmentOperator</title>
+      <link>https://blog.cassdev.com/tags/assignmentoperator/</link>
       <pubDate>Mon, 15 Jan 2024 10:00:00 +0800</pubDate>
-      <guid>https://blog.cassdev.com/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/</guid>
+      <guid>https://blog.cassdev.com/tags/assignmentoperator/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>CopyAndSwap</title>
+      <link>https://blog.cassdev.com/tags/copyandswap/</link>
+      <pubDate>Mon, 15 Jan 2024 10:00:00 +0800</pubDate>
+      <guid>https://blog.cassdev.com/tags/copyandswap/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Idioms</title>
+      <link>https://blog.cassdev.com/tags/idioms/</link>
+      <pubDate>Mon, 15 Jan 2024 10:00:00 +0800</pubDate>
+      <guid>https://blog.cassdev.com/tags/idioms/</guid>
       <description></description>
     </item>
     <item>
@@ -59,52 +1067,17 @@
       <description></description>
     </item>
     <item>
-      <title>Jetson</title>
-      <link>https://blog.cassdev.com/tags/jetson/</link>
-      <pubDate>Wed, 14 Jun 2023 10:00:00 +0800</pubDate>
-      <guid>https://blog.cassdev.com/tags/jetson/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Linux</title>
-      <link>https://blog.cassdev.com/tags/linux/</link>
-      <pubDate>Wed, 14 Jun 2023 10:00:00 +0800</pubDate>
-      <guid>https://blog.cassdev.com/tags/linux/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Ubuntu</title>
-      <link>https://blog.cassdev.com/tags/ubuntu/</link>
-      <pubDate>Wed, 14 Jun 2023 10:00:00 +0800</pubDate>
-      <guid>https://blog.cassdev.com/tags/ubuntu/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Protobuf</title>
-      <link>https://blog.cassdev.com/tags/protobuf/</link>
-      <pubDate>Mon, 12 Jun 2023 10:00:00 +0800</pubDate>
-      <guid>https://blog.cassdev.com/tags/protobuf/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Open3D</title>
-      <link>https://blog.cassdev.com/tags/open3d/</link>
-      <pubDate>Fri, 09 Jun 2023 10:00:00 +0800</pubDate>
-      <guid>https://blog.cassdev.com/tags/open3d/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>C Sharp</title>
-      <link>https://blog.cassdev.com/tags/c-sharp/</link>
+      <title>NuGet</title>
+      <link>https://blog.cassdev.com/tags/nuget/</link>
       <pubDate>Thu, 01 Jun 2023 10:00:00 +0800</pubDate>
-      <guid>https://blog.cassdev.com/tags/c-sharp/</guid>
+      <guid>https://blog.cassdev.com/tags/nuget/</guid>
       <description></description>
     </item>
     <item>
-      <title>Unity</title>
-      <link>https://blog.cassdev.com/tags/unity/</link>
+      <title>Package Management</title>
+      <link>https://blog.cassdev.com/tags/package-management/</link>
       <pubDate>Thu, 01 Jun 2023 10:00:00 +0800</pubDate>
-      <guid>https://blog.cassdev.com/tags/unity/</guid>
+      <guid>https://blog.cassdev.com/tags/package-management/</guid>
       <description></description>
     </item>
     <item>
@@ -115,31 +1088,24 @@
       <description></description>
     </item>
     <item>
-      <title>JavaScript</title>
-      <link>https://blog.cassdev.com/tags/javascript/</link>
-      <pubDate>Fri, 21 Apr 2023 10:00:00 +0800</pubDate>
-      <guid>https://blog.cassdev.com/tags/javascript/</guid>
+      <title>App Store</title>
+      <link>https://blog.cassdev.com/tags/app-store/</link>
+      <pubDate>Fri, 14 Apr 2023 10:00:00 +0800</pubDate>
+      <guid>https://blog.cassdev.com/tags/app-store/</guid>
       <description></description>
     </item>
     <item>
-      <title>CLI</title>
-      <link>https://blog.cassdev.com/tags/cli/</link>
+      <title>Language</title>
+      <link>https://blog.cassdev.com/tags/language/</link>
       <pubDate>Fri, 14 Apr 2023 10:00:00 +0800</pubDate>
-      <guid>https://blog.cassdev.com/tags/cli/</guid>
+      <guid>https://blog.cassdev.com/tags/language/</guid>
       <description></description>
     </item>
     <item>
-      <title>MacOS</title>
-      <link>https://blog.cassdev.com/tags/macos/</link>
+      <title>Maps</title>
+      <link>https://blog.cassdev.com/tags/maps/</link>
       <pubDate>Fri, 14 Apr 2023 10:00:00 +0800</pubDate>
-      <guid>https://blog.cassdev.com/tags/macos/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Network</title>
-      <link>https://blog.cassdev.com/tags/network/</link>
-      <pubDate>Fri, 14 Apr 2023 10:00:00 +0800</pubDate>
-      <guid>https://blog.cassdev.com/tags/network/</guid>
+      <guid>https://blog.cassdev.com/tags/maps/</guid>
       <description></description>
     </item>
     <item>
@@ -164,10 +1130,17 @@
       <description></description>
     </item>
     <item>
-      <title>Point Cloud</title>
-      <link>https://blog.cassdev.com/tags/point-cloud/</link>
-      <pubDate>Mon, 10 Apr 2023 10:00:00 +0800</pubDate>
-      <guid>https://blog.cassdev.com/tags/point-cloud/</guid>
+      <title>AI</title>
+      <link>https://blog.cassdev.com/tags/ai/</link>
+      <pubDate>Sat, 08 Apr 2023 10:00:00 +0800</pubDate>
+      <guid>https://blog.cassdev.com/tags/ai/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Bing</title>
+      <link>https://blog.cassdev.com/tags/bing/</link>
+      <pubDate>Sat, 08 Apr 2023 10:00:00 +0800</pubDate>
+      <guid>https://blog.cassdev.com/tags/bing/</guid>
       <description></description>
     </item>
     <item>
@@ -175,27 +1148,6 @@
       <link>https://blog.cassdev.com/tags/chrome/</link>
       <pubDate>Sat, 08 Apr 2023 10:00:00 +0800</pubDate>
       <guid>https://blog.cassdev.com/tags/chrome/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Chrome Extension</title>
-      <link>https://blog.cassdev.com/tags/chrome-extension/</link>
-      <pubDate>Sat, 08 Apr 2023 10:00:00 +0800</pubDate>
-      <guid>https://blog.cassdev.com/tags/chrome-extension/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Kinect</title>
-      <link>https://blog.cassdev.com/tags/kinect/</link>
-      <pubDate>Sat, 08 Apr 2023 10:00:00 +0800</pubDate>
-      <guid>https://blog.cassdev.com/tags/kinect/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>New Bing</title>
-      <link>https://blog.cassdev.com/tags/new-bing/</link>
-      <pubDate>Sat, 08 Apr 2023 10:00:00 +0800</pubDate>
-      <guid>https://blog.cassdev.com/tags/new-bing/</guid>
       <description></description>
     </item>
     <item>
@@ -213,10 +1165,10 @@
       <description></description>
     </item>
     <item>
-      <title>SSH</title>
-      <link>https://blog.cassdev.com/tags/ssh/</link>
-      <pubDate>Tue, 28 Mar 2023 10:00:00 +0800</pubDate>
-      <guid>https://blog.cassdev.com/tags/ssh/</guid>
+      <title>Apt</title>
+      <link>https://blog.cassdev.com/tags/apt/</link>
+      <pubDate>Fri, 24 Mar 2023 10:00:00 +0800</pubDate>
+      <guid>https://blog.cassdev.com/tags/apt/</guid>
       <description></description>
     </item>
     <item>
@@ -227,6 +1179,13 @@
       <description></description>
     </item>
     <item>
+      <title>Diagram as Code</title>
+      <link>https://blog.cassdev.com/tags/diagram-as-code/</link>
+      <pubDate>Fri, 24 Mar 2023 10:00:00 +0800</pubDate>
+      <guid>https://blog.cassdev.com/tags/diagram-as-code/</guid>
+      <description></description>
+    </item>
+    <item>
       <title>Docker</title>
       <link>https://blog.cassdev.com/tags/docker/</link>
       <pubDate>Fri, 24 Mar 2023 10:00:00 +0800</pubDate>
@@ -234,10 +1193,17 @@
       <description></description>
     </item>
     <item>
-      <title>Google</title>
-      <link>https://blog.cassdev.com/tags/google/</link>
+      <title>Git</title>
+      <link>https://blog.cassdev.com/tags/git/</link>
       <pubDate>Fri, 24 Mar 2023 10:00:00 +0800</pubDate>
-      <guid>https://blog.cassdev.com/tags/google/</guid>
+      <guid>https://blog.cassdev.com/tags/git/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Google Search</title>
+      <link>https://blog.cassdev.com/tags/google-search/</link>
+      <pubDate>Fri, 24 Mar 2023 10:00:00 +0800</pubDate>
+      <guid>https://blog.cassdev.com/tags/google-search/</guid>
       <description></description>
     </item>
     <item>
@@ -283,24 +1249,31 @@
       <description></description>
     </item>
     <item>
-      <title>博客</title>
-      <link>https://blog.cassdev.com/tags/%E5%8D%9A%E5%AE%A2/</link>
+      <title>Search Engine</title>
+      <link>https://blog.cassdev.com/tags/search-engine/</link>
       <pubDate>Fri, 24 Mar 2023 10:00:00 +0800</pubDate>
-      <guid>https://blog.cassdev.com/tags/%E5%8D%9A%E5%AE%A2/</guid>
+      <guid>https://blog.cassdev.com/tags/search-engine/</guid>
       <description></description>
     </item>
     <item>
-      <title>部署</title>
-      <link>https://blog.cassdev.com/tags/%E9%83%A8%E7%BD%B2/</link>
+      <title>Static Site</title>
+      <link>https://blog.cassdev.com/tags/static-site/</link>
       <pubDate>Fri, 24 Mar 2023 10:00:00 +0800</pubDate>
-      <guid>https://blog.cassdev.com/tags/%E9%83%A8%E7%BD%B2/</guid>
+      <guid>https://blog.cassdev.com/tags/static-site/</guid>
       <description></description>
     </item>
     <item>
-      <title>Shell</title>
-      <link>https://blog.cassdev.com/tags/shell/</link>
-      <pubDate>Fri, 24 Mar 2023 00:00:00 +0000</pubDate>
-      <guid>https://blog.cassdev.com/tags/shell/</guid>
+      <title>Tips</title>
+      <link>https://blog.cassdev.com/tags/tips/</link>
+      <pubDate>Fri, 24 Mar 2023 10:00:00 +0800</pubDate>
+      <guid>https://blog.cassdev.com/tags/tips/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Tricks</title>
+      <link>https://blog.cassdev.com/tags/tricks/</link>
+      <pubDate>Fri, 24 Mar 2023 10:00:00 +0800</pubDate>
+      <guid>https://blog.cassdev.com/tags/tricks/</guid>
       <description></description>
     </item>
   </channel>

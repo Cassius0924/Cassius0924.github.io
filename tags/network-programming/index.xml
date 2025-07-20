@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Network Programming on Cassius0924 的博客</title>
+    <link>https://blog.cassdev.com/tags/network-programming/</link>
+    <description>Recent content in Network Programming on Cassius0924 的博客</description>
+    <generator>Hugo -- 0.148.1</generator>
+    <language>zh-CN</language>
+    <copyright>Copyright © 2025-2025 Cassius0924. All rights reserved.</copyright>
+    <lastBuildDate>Mon, 24 Jun 2024 21:36:55 +0800</lastBuildDate>
+    <atom:link href="https://blog.cassdev.com/tags/network-programming/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Socket 编程之 IO 多路复用学习笔记</title>
+      <link>https://blog.cassdev.com/posts/socket-%E7%BC%96%E7%A8%8B%E4%B9%8B-io-%E5%A4%9A%E8%B7%AF%E5%A4%8D%E7%94%A8%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</link>
+      <pubDate>Mon, 24 Jun 2024 21:36:55 +0800</pubDate>
+      <guid>https://blog.cassdev.com/posts/socket-%E7%BC%96%E7%A8%8B%E4%B9%8B-io-%E5%A4%9A%E8%B7%AF%E5%A4%8D%E7%94%A8%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</guid>
+      <description>&lt;h2 id=&#34;什么是-io-多路复用&#34;&gt;什么是 IO 多路复用？&lt;/h2&gt;&lt;h3 id=&#34;阻塞-io-与-非阻塞-io&#34;&gt;阻塞 IO 与 非阻塞 IO&lt;/h3&gt;&lt;p&gt;我们先了解一下阻塞 IO，阻塞 IO 是指应用程序在读写数据时，如果没有数据可读或者写，应用程序会一直 &lt;strong&gt;阻塞在那里&lt;/strong&gt; ，直到有数据可读或者写。&lt;/p&gt;
+&lt;p&gt;与它相反的是非阻塞 IO，是指应用程序在读写数据时，无论是否有数据可读写，都 &lt;strong&gt;立即返回&lt;/strong&gt; ，若没有数据可读写将会返回一个错误码，通过不断轮询来检查是否有数据可读或者写。&lt;/p&gt;
+&lt;h3 id=&#34;io-多路复用&#34;&gt;IO 多路复用&lt;/h3&gt;&lt;p&gt;由于 Scoket 默认是阻塞 IO，所以很多初学者在处理多个连接时，会为每个连接创建一个线程来处理，但这样做会引起 CPU 的上下文切换，降低系统的性能。&lt;/p&gt;
+&lt;p&gt;有一种更“优雅”的方式，那就是 IO 多路复用，也称为事件驱动模型（Event-driven IO）。IO 多路复用是指内核一旦发现进程指定的一个或者多个 IO 事件已经就绪，就通知该进程。IO 多路复用模型中，只需要一个线程就可以同时处理多个连接。&lt;/p&gt;
+&lt;p&gt;通俗易懂的说，IO 多路复用就是将多个 IO 事件交给内核，内核帮我们监听这些 IO 事件，当有 IO 事件就绪时，内核会通知我们，我们只需要处理就绪的 IO 事件即可。&lt;/p&gt;
+&lt;h2 id=&#34;io-多路复用的优点&#34;&gt;IO 多路复用的优点&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;一个线程可以同时处理多个连接，减少线程的创建和销毁&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;降低了系统开销，提高了系统的并发性能&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;io-多路复用的实现方式&#34;&gt;IO 多路复用的实现方式&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;select&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;poll&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;epoll (Linux)&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;kqueue (FreeBSD)&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;IOCP（Windows）&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;其中 epoll 是 Linux 下的 IO 多路复用机制，kqueue 是 FreeBSD（macOS 就属于 FreeBSD）下的 IO 多路复用机制。&lt;/p&gt;
+&lt;p&gt;下面的伪代码是 IO 多路复用的最基本实现方式：&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

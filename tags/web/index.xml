@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Web on Cassius0924 的博客</title>
+    <link>https://blog.cassdev.com/tags/web/</link>
+    <description>Recent content in Web on Cassius0924 的博客</description>
+    <generator>Hugo -- 0.148.1</generator>
+    <language>zh-CN</language>
+    <copyright>Copyright © 2025-2025 Cassius0924. All rights reserved.</copyright>
+    <lastBuildDate>Thu, 27 Jun 2024 20:12:42 +0800</lastBuildDate>
+    <atom:link href="https://blog.cassdev.com/tags/web/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>HTTP 协议版本变化学习笔记</title>
+      <link>https://blog.cassdev.com/posts/http-%E5%8D%8F%E8%AE%AE%E7%89%88%E6%9C%AC%E5%8F%98%E5%8C%96%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</link>
+      <pubDate>Thu, 27 Jun 2024 20:12:42 +0800</pubDate>
+      <guid>https://blog.cassdev.com/posts/http-%E5%8D%8F%E8%AE%AE%E7%89%88%E6%9C%AC%E5%8F%98%E5%8C%96%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</guid>
+      <description>&lt;p&gt;互联网发展至今，HTTP 协议已经发展了多个版本，分别为 &lt;code&gt;HTTP/1.0&lt;/code&gt;、&lt;code&gt;HTTP/1.1&lt;/code&gt;、&lt;code&gt;HTTP/2.0&lt;/code&gt;、&lt;code&gt;HTTP/3.0&lt;/code&gt;，本文将对这几个版本的变化进行学习笔记。&lt;/p&gt;
+&lt;p&gt;&lt;img alt=&#34;HTTP 协议层&#34; loading=&#34;lazy&#34; src=&#34;https://s2.loli.net/2024/06/27/6KE87inXyFe4DbW.png&#34;&gt;&lt;/p&gt;
+&lt;h2 id=&#34;http10&#34;&gt;HTTP/1.0&lt;/h2&gt;&lt;p&gt;HTTP/1.0 是最早的 HTTP 协议版本，它的特点是：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;每次请求都会建立一个新的 TCP 连接，请求结束后立即断开连接。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;每个请求都会包含完整的请求头和请求体。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;不支持持久连接，每次请求都需要重新建立连接。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;不支持管道化，即同一个连接中不能同时发送多个请求。&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id=&#34;http11&#34;&gt;HTTP/1.1&lt;/h2&gt;&lt;p&gt;HTTP/1.1 是对 HTTP/1.0 的改进，它的特点是：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;支持持久连接（Keep-Alive），即同一个连接可以发送多个请求。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;支持管道化，即同一个连接中可以同时发送多个请求。但是，由于 HTTP/1.1 中的管道化存在队头阻塞问题，所以很少被使用。默认为关闭状态，并且大多数浏览器也不支持。 &lt;strong&gt;所以我们认为 HTTP/1.1 不支持管道化&lt;/strong&gt; 。&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;HTTP/1.1 的缺点：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;队头阻塞问题：如果一个请求响应时间过长，那么后面的请求就会被阻塞。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;明文传输：HTTP/1.1 的数据传输是纯文本且未加密的，容易被窃听。比如状态码 &lt;code&gt;200&lt;/code&gt; 会被分为 &lt;code&gt;2&lt;/code&gt;、&lt;code&gt;0&lt;/code&gt;、&lt;code&gt;0&lt;/code&gt; 三个字节传输。这点会在 HTTP/2.0 中得到改进。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;头部冗余：每次请求都需要携带完整的请求头，头部信息冗余。&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;&lt;img loading=&#34;lazy&#34;&gt;&lt;/p&gt;
+&lt;h2 id=&#34;https&#34;&gt;HTTPS&lt;/h2&gt;&lt;p&gt;在讲述 HTTP/2.0 之前，我们先来了解一下 HTTPS。&lt;/p&gt;
+&lt;p&gt;HTTPS 是在 HTTP 的基础上加入了 SSL/TLS 加密层，使得数据传输更加安全。HTTPS 的特点是：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;数据加密：HTTPS 使用 SSL/TLS 加密传输数据，保证数据传输的安全性。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;身份认证：HTTPS 使用证书机制对服务器和客户端进行身份认证，防止中间人攻击。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;数据完整性：HTTPS 使用数字签名对数据进行完整性校验，防止数据被篡改。&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;加密方式：对称加密、非对称加密、数字签名。&lt;/p&gt;
+&lt;p&gt;通信前使用非对称加密协商对称加密的密钥，通信过程使用对称加密传输数据，保证数据传输的安全性。&lt;/p&gt;
+&lt;p&gt;&lt;img alt=&#34;HTTPS&#34; loading=&#34;lazy&#34; src=&#34;https://s2.loli.net/2024/06/27/wcztbDYBevjP26L.png&#34;&gt;&lt;/p&gt;
+&lt;h2 id=&#34;http20&#34;&gt;HTTP/2.0&lt;/h2&gt;&lt;p&gt;HTTP/2.0 是对 HTTP/1.1 的重大升级，它的特点是：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;头部压缩：HTTP/2.0 使用 HPACK 算法对头部进行压缩，如果请求头中包含相同的字段，只需要发送一次，后续请求只需要发送索引，接着从静态表或动态表中获取对应的值。解决了 HTTP/1.1 中头部冗余的问题。&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

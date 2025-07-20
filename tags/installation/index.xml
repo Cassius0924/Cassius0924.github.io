@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Installation on Cassius0924 的博客</title>
+    <link>https://blog.cassdev.com/tags/installation/</link>
+    <description>Recent content in Installation on Cassius0924 的博客</description>
+    <generator>Hugo -- 0.148.1</generator>
+    <language>zh-CN</language>
+    <copyright>Copyright © 2025-2025 Cassius0924. All rights reserved.</copyright>
+    <lastBuildDate>Sun, 16 Jun 2024 11:20:31 +0800</lastBuildDate>
+    <atom:link href="https://blog.cassdev.com/tags/installation/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Jetson nano 安装 Jtop 和 Jtop 使用指南</title>
+      <link>https://blog.cassdev.com/posts/jetson-nano-%E5%AE%89%E8%A3%85-jtop-%E5%92%8C-jtop-%E4%BD%BF%E7%94%A8%E6%8C%87%E5%8D%97/</link>
+      <pubDate>Sun, 16 Jun 2024 11:20:31 +0800</pubDate>
+      <guid>https://blog.cassdev.com/posts/jetson-nano-%E5%AE%89%E8%A3%85-jtop-%E5%92%8C-jtop-%E4%BD%BF%E7%94%A8%E6%8C%87%E5%8D%97/</guid>
+      <description>&lt;p&gt;本文将为你介绍 Jtop，它是一个基于 Python 的系统监控工具。Jtop 通过终端界面展示系统资源的使用情况，包括 CPU、内存、磁盘、网络等。本文将详细介绍 Jtop 各个面板的作用和功能。&lt;/p&gt;
+&lt;h2 id=&#34;安装&#34;&gt;安装&lt;/h2&gt;&lt;p&gt;先安装&lt;code&gt;pip3&lt;/code&gt;&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;sudo apt install python3-pip
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Jtop 可以通过 pip 来安装，您可以通过以下命令来安装：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;sudo pip3 install -U jetson-stats
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;使用&#34;&gt;使用&lt;/h2&gt;&lt;p&gt;在终端中输入以下命令来启动 Jtop：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;jtop
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;在 Jtop 启动后，您可以使用键盘的左右箭头来选择面板，使用 Tab 键来切换到不同的面板，使用 Ctrl + C 命令来退出 Jtop。&lt;/p&gt;
+&lt;h2 id=&#34;面板介绍&#34;&gt;面板介绍&lt;/h2&gt;&lt;h3 id=&#34;all-面板&#34;&gt;ALL 面板&lt;/h3&gt;&lt;p&gt;ALL 面板简要展示了主板的各种信息，包括 CPU、GPU、内存、磁盘、风扇以及关于 jetson_clocks、NVPmodel 等的信息。&lt;/p&gt;
+&lt;h3 id=&#34;gpu-面板&#34;&gt;GPU 面板&lt;/h3&gt;&lt;p&gt;GPU 面板主要展示了系统 GPU 的使用情况。在 GPU 面板中，您可以看到系统当前的 GPU 利用率、GPU 温度、GPU 风扇转速、 GPU 内存使用情况等信息。同时，您也可以查看各个进程对 GPU 的使用情况。&lt;/p&gt;
+&lt;h3 id=&#34;cpu-面板&#34;&gt;CPU 面板&lt;/h3&gt;&lt;p&gt;CPU 面板主要展示了系统 CPU 的使用情况。在 CPU 面板中，您可以看到系统当前的 CPU 利用率、每个 CPU 核心的利用率、以及各个进程的 CPU 使用情况。您可以使用键盘上下箭头来选择进程，使用回车键来查看进程详情。&lt;/p&gt;
+&lt;h3 id=&#34;mem-面板&#34;&gt;MEM 面板&lt;/h3&gt;&lt;p&gt;内存面板主要展示了系统内存的使用情况。在内存面板中，您可以看到系统当前的内存利用率、总内存、可用内存、已经使用的内存等信息。同时，您也可以查看各个进程的内存使用情况。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Jetson Xavier NX (ARM) 使用 PyTorch 安装 Open3D-ML 指南</title>
+      <link>https://blog.cassdev.com/posts/jetson-xavier-nx-arm-%E4%BD%BF%E7%94%A8-pytorch-%E5%AE%89%E8%A3%85-open3d-ml-%E6%8C%87%E5%8D%97/</link>
+      <pubDate>Sun, 16 Jun 2024 11:20:31 +0800</pubDate>
+      <guid>https://blog.cassdev.com/posts/jetson-xavier-nx-arm-%E4%BD%BF%E7%94%A8-pytorch-%E5%AE%89%E8%A3%85-open3d-ml-%E6%8C%87%E5%8D%97/</guid>
+      <description>&lt;p&gt;由于 Jetson 为 ARM64 (aarch64) 的系统架构，所以不能用&lt;code&gt; pip install&lt;/code&gt; 直接安装，需要通过源码编译。&lt;/p&gt;
+&lt;h2 id=&#34;升级系统-jetpack&#34;&gt;升级系统 JetPack&lt;/h2&gt;&lt;p&gt;由于 Open3D-ML 目前只支持 CUDA 10.0 以及 CUDA 11.*，并且  JetPack 的 CUDA 开发环境只有10.2、11.4以及12.2，所以我们只能选择 CUDA 11.4 进行安装。&lt;/p&gt;
+&lt;p&gt;使用 &lt;code&gt;jtop&lt;/code&gt;命令查看 JetPack 版本。如果 Jetson 系统的 JetPack 低于 5.1.2 则需要通过 SDK Manager 升级到 JetPack 5.1.2。&lt;/p&gt;
+&lt;p&gt;如果你的系统已经是 JetPack 5.1.2 那我也推荐你通过 SDK Manager 重新安装一遍，排除难以发现的错误。&lt;/p&gt;
+&lt;p&gt;详细指南参考文章[Jetson Xavier NX 升级或重新安装 JetPack 指南]。&lt;/p&gt;
+&lt;h2 id=&#34;安装-pytorch&#34;&gt;安装 PyTorch&lt;/h2&gt;&lt;p&gt;安装教程参考文章[Jetson Xavier NX 安装 CUDA 支持的 Pytorch 指南]。&lt;/p&gt;
+&lt;p&gt;注意，PyTorch 的 CUDA 支持版本需要和 Open3D-ML 的一致，同为 CUDA 11.4。否则与最后安装 Open3D-ML 的时候会报错：&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Jetson Xavier NX 安装 CUDA 支持的 PyTorch 指南</title>
+      <link>https://blog.cassdev.com/posts/jetson-xavier-nx-%E5%AE%89%E8%A3%85-cuda-%E6%94%AF%E6%8C%81%E7%9A%84-pytorch-%E6%8C%87%E5%8D%97/</link>
+      <pubDate>Sun, 16 Jun 2024 11:20:31 +0800</pubDate>
+      <guid>https://blog.cassdev.com/posts/jetson-xavier-nx-%E5%AE%89%E8%A3%85-cuda-%E6%94%AF%E6%8C%81%E7%9A%84-pytorch-%E6%8C%87%E5%8D%97/</guid>
+      <description>&lt;p&gt;本指南将帮助开发者完成在 Jetson Xavier NX 上安装 CUDA 支持的 PyTorch。&lt;/p&gt;
+&lt;h2 id=&#34;安装方法&#34;&gt;安装方法&lt;/h2&gt;&lt;p&gt;在 Jetson 上安装 Pytorch 只有两种方法。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;一种是直接安装他人已经编译好的 PyTorch 轮子；&lt;/li&gt;
+&lt;li&gt;一种是自己从头开始开始构建 PyTorch 轮子并且安装。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;使用轮子安装&#34;&gt;使用轮子安装&lt;/h2&gt;&lt;p&gt;可以从我的 &lt;a href=&#34;https://github.com/Cassius0924/JetsonPytorch/&#34;&gt;GitHub 仓库&lt;/a&gt; 直接下载我编译好的 PyTorch 轮子（torch-1.13.0-cuda-11.4-python-3.8-aarch64）。&lt;/p&gt;
+&lt;p&gt;安装前先确保 python 版本为 PyTorch 轮子对应的 Python 3.8。&lt;/p&gt;
+&lt;p&gt;下载完毕后使用&lt;code&gt;pip install&lt;/code&gt;安装：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;sudo -H pip install torch-1.13.0a0+git7c98e70-cp38-cp38-linux_aarch64.whl
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;如果你以前安装过 torch 的其他版本，则需要添加&lt;code&gt;--force-reinstall&lt;/code&gt;覆盖安装。&lt;/p&gt;
+&lt;p&gt;其他低于 CUDA 11 的 PyTorch 轮子可以在 &lt;a href=&#34;https://github.com/Qengineering/PyTorch-Jetson-Nano&#34;&gt;Qengineering 的 GitHub 仓库&lt;/a&gt; 寻找。&lt;/p&gt;
+&lt;h2 id=&#34;编译源码安装&#34;&gt;编译源码安装&lt;/h2&gt;&lt;p&gt;接下来说一下重点，自己从源码构建轮子并安装。自行构建需要花费数个小时的时间。&lt;/p&gt;
+&lt;p&gt;PyTroch 1.11.0 以及以上版本只能在 Ubuntu 20.04 上安装。&lt;/p&gt;
+&lt;h3 id=&#34;安装依赖&#34;&gt;安装依赖&lt;/h3&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;sudo apt-get update
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;sudo apt-get upgrade
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;sudo apt-get install ninja-build git cmake 
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;sudo apt-get install libjpeg-dev libopenmpi-dev libomp-dev ccache libopenblas-dev libblas-dev libeigen3-dev
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;sudo pip3 install -U --user wheel mock pillow
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;sudo -H pip3 install testresources &lt;span class=&#34;nv&#34;&gt;setuptools&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;==&lt;/span&gt;58.3.0 scikit-build
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;下载源码&#34;&gt;下载源码&lt;/h3&gt;&lt;p&gt;请克隆自己需要的 PyTorch 版本，修改&lt;code&gt;-b&lt;/code&gt;后的版本参数。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Jetson Xavier NX 升级或重新安装 JetPack 指南</title>
+      <link>https://blog.cassdev.com/posts/jetson-xavier-nx-%E5%8D%87%E7%BA%A7%E6%88%96%E9%87%8D%E6%96%B0%E5%AE%89%E8%A3%85-jetpack-%E6%8C%87%E5%8D%97/</link>
+      <pubDate>Sun, 16 Jun 2024 11:20:31 +0800</pubDate>
+      <guid>https://blog.cassdev.com/posts/jetson-xavier-nx-%E5%8D%87%E7%BA%A7%E6%88%96%E9%87%8D%E6%96%B0%E5%AE%89%E8%A3%85-jetpack-%E6%8C%87%E5%8D%97/</guid>
+      <description>&lt;h2 id=&#34;前提&#34;&gt;前提&lt;/h2&gt;&lt;p&gt;你需要拥有一台 x86 架构（非ARM64）的 Ubuntu 主机。&lt;/p&gt;
+&lt;h2 id=&#34;下载安装-sdk-manager&#34;&gt;下载安装 SDK Manager&lt;/h2&gt;&lt;h3 id=&#34;下载&#34;&gt;下载&lt;/h3&gt;&lt;p&gt;在 &lt;a href=&#34;https://developer.nvidia.com/sdk-manager&#34;&gt;Nvidia SDK Manager&lt;/a&gt; 官网下载，下载自己系统对应的 .deb 或 .rpm 安装包。&lt;/p&gt;
+&lt;p&gt;下载之前需要注册 Nvidia 开发者帐号，SDK Manager 也需要开发者帐号才能使用。&lt;/p&gt;
+&lt;h3 id=&#34;安装&#34;&gt;安装&lt;/h3&gt;&lt;p&gt;Ubuntu 系统使用 apt 安装刚刚下载的 .deb 文件：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;sudo apt install ./sdkmanager_&lt;span class=&#34;o&#34;&gt;[&lt;/span&gt;version&lt;span class=&#34;o&#34;&gt;]&lt;/span&gt;-&lt;span class=&#34;o&#34;&gt;[&lt;/span&gt;build&lt;span class=&#34;o&#34;&gt;]&lt;/span&gt;_amd64.deb
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;CentOS 8.0 和 8.2 系统使用 dnf 安装 .rpm 文件：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;sudo dnf install ./sdkmanager_&lt;span class=&#34;o&#34;&gt;[&lt;/span&gt;version&lt;span class=&#34;o&#34;&gt;]&lt;/span&gt;-&lt;span class=&#34;o&#34;&gt;[&lt;/span&gt;build&lt;span class=&#34;o&#34;&gt;]&lt;/span&gt;.x86_64.rpm
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;CentOS 7.6 使用 yum 安装：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;sudo yum install ./sdkmanager_&lt;span class=&#34;o&#34;&gt;[&lt;/span&gt;version&lt;span class=&#34;o&#34;&gt;]&lt;/span&gt;-&lt;span class=&#34;o&#34;&gt;[&lt;/span&gt;build&lt;span class=&#34;o&#34;&gt;]&lt;/span&gt;.x86_64.rpm
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;启动-sdk-manager&#34;&gt;启动 SDK Manager&lt;/h2&gt;&lt;p&gt;在终端使用命令启动 SDK Manager：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;sdkmanager
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;启动后需要登录 Nvidia 开发者帐号。&lt;/p&gt;
+&lt;p&gt;&lt;img alt=&#34;SDK Manager Login&#34; loading=&#34;lazy&#34; src=&#34;https://s2.loli.net/2023/10/13/Za4GUdmqTVO2lij.png&#34;&gt;&lt;/p&gt;
+&lt;h2 id=&#34;安装-jetpack&#34;&gt;安装 JetPack&lt;/h2&gt;&lt;h3 id=&#34;连接-jetson&#34;&gt;连接 Jetson&lt;/h3&gt;&lt;p&gt;先将 Jetson 与 SDK Manager 主机使用 USB to Micro-USB 数据线相连接。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Linux Boost.Python3 安装以及 CMake 配置指南</title>
+      <link>https://blog.cassdev.com/posts/linux-boost.python3-%E5%AE%89%E8%A3%85%E4%BB%A5%E5%8F%8A-cmake-%E9%85%8D%E7%BD%AE%E6%8C%87%E5%8D%97/</link>
+      <pubDate>Sun, 16 Jun 2024 11:20:31 +0800</pubDate>
+      <guid>https://blog.cassdev.com/posts/linux-boost.python3-%E5%AE%89%E8%A3%85%E4%BB%A5%E5%8F%8A-cmake-%E9%85%8D%E7%BD%AE%E6%8C%87%E5%8D%97/</guid>
+      <description>&lt;h2 id=&#34;下载boost&#34;&gt;下载Boost&lt;/h2&gt;&lt;p&gt;前往&lt;a href=&#34;https://www.boost.org/&#34;&gt;Boost官网&lt;/a&gt;下载源码压缩包。&lt;/p&gt;
+&lt;p&gt;或通过 &lt;code&gt;wget&lt;/code&gt; 下载 1.83 版本：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;wget https://boostorg.jfrog.io/artifactory/main/release/1.83.0/source/boost_1_83_0.7z
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;下载完毕后，解压 7z 压缩包&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;7z x boost_1_83_0.7z
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;编译安装&#34;&gt;编译安装&lt;/h2&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nb&#34;&gt;cd&lt;/span&gt; boost_1_83_0
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;./bootstrap.sh --with-python&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;/root/.virtualenvs/ETRS/bin/python3 --with-python-version&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;3.8 --with-libraries&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;all 
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;code&gt;--with-python&lt;/code&gt; 的路径可以通过 &lt;code&gt;which python3&lt;/code&gt; 查看。&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;--with-python-version&lt;/code&gt; 的版本号可以通过 &lt;code&gt;python3 --version&lt;/code&gt; 查看，注意这里需要填成 &lt;code&gt;3.x&lt;/code&gt; 格式 ，而不是 &lt;code&gt;3.y.z&lt;/code&gt;，省略最后的版本号。&lt;/p&gt;
+&lt;p&gt;运行完以上命令后，需要修改 &lt;code&gt;project-config&lt;/code&gt; 配置文件。&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;vim project-config.jam
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;修改第 21行，在双引号里添加两个路径，分别是当前 Python 版本的 include 路径和 lib 路径。&lt;/p&gt;
+&lt;p&gt;&lt;img alt=&#34;CleanShot 2023-11-11 at 20.44.10@2x&#34; loading=&#34;lazy&#34; src=&#34;https://s2.loli.net/2023/11/11/gKp5WhZYdrC1XAN.png&#34;&gt;&lt;/p&gt;
+&lt;p&gt;Python 的 include 路径和 lib 路径可以通过下面的 Python 代码查看：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;kn&#34;&gt;import&lt;/span&gt; &lt;span class=&#34;nn&#34;&gt;sysconfig&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;sysconfig&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;get_path&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s1&#34;&gt;&amp;#39;include&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;		&lt;span class=&#34;c1&#34;&gt;# 查看 include 路径&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;sysconfig&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;get_path&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s1&#34;&gt;&amp;#39;stdlib&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;		&lt;span class=&#34;c1&#34;&gt;# 查看 lib 路径&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;开始编译：&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Ubuntu Neovim 安装和配置指南</title>
+      <link>https://blog.cassdev.com/posts/ubuntu-neovim-%E5%AE%89%E8%A3%85%E5%92%8C%E9%85%8D%E7%BD%AE%E6%8C%87%E5%8D%97/</link>
+      <pubDate>Sun, 16 Jun 2024 11:20:31 +0800</pubDate>
+      <guid>https://blog.cassdev.com/posts/ubuntu-neovim-%E5%AE%89%E8%A3%85%E5%92%8C%E9%85%8D%E7%BD%AE%E6%8C%87%E5%8D%97/</guid>
+      <description>&lt;h2 id=&#34;安装&#34;&gt;安装&lt;/h2&gt;&lt;p&gt;不建议使用&lt;code&gt;apt&lt;/code&gt;安装，因为&lt;code&gt;apt&lt;/code&gt;安装的版本总是不是最新版。一些neovim插件依赖于高版本的neovim，因此使用apt安装可能会导致一些插件无法正常使用。&lt;/p&gt;
+&lt;p&gt;下面介绍安装最新版neovim的方法。&lt;/p&gt;
+&lt;p&gt;下载安装压缩包：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;wget https://github.com/neovim/neovim/releases/latest/download/nvim-linux64.tar.gz
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;安装：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;tar xzvf nvim-linux64.tar.gz
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;cp ./nvim-linux64/bin/nvim /usr/bin/
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;测试：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;nvim -v
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;img alt=&#34;CleanShot 2023-12-31 at 15.15.57@2x&#34; loading=&#34;lazy&#34; src=&#34;https://s2.loli.net/2023/12/31/SlKxdfWtwNFCOzy.png&#34;&gt;&lt;/p&gt;
+&lt;h2 id=&#34;nvim配置&#34;&gt;nvim配置&lt;/h2&gt;&lt;h3 id=&#34;核心配置&#34;&gt;核心配置&lt;/h3&gt;&lt;p&gt;配置 nvim 需要先创建配置文件的文件夹。&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nb&#34;&gt;cd&lt;/span&gt; ~
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;mkdir -r .config/nvim
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nb&#34;&gt;cd&lt;/span&gt; .config/nvim
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;nvim 使用 lua 语言作为配置文件语言，新建 init.lua，该文件是 nvim 的配置的入口。&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;touch init.lua
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;模块化配置&#34;&gt;模块化配置&lt;/h3&gt;&lt;p&gt;nvim 支持模块化配置，所以可以在 nvim 文件夹下创建多个配置模块：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;mkdir -r lua/core
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nb&#34;&gt;cd&lt;/span&gt; lua/core
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;core 文件夹存放 nvim 的核心配置，例如 nvim 基础配置（options.lua）和快捷键配置（keymaps）：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;touch options.lua keymaps.lua
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;此时，neovim 的配置文件结构如下所示：&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;~
+`--.config
+   `-- nvim
+       |-- init.lua
+       |-- lua
+       |   |-- core
+       |   |   |-- keymaps.lua
+       |   |   `-- options.lua
+       |   `-- plugins
+       |       `-- plugins-setup.lua
+       `-- plugin
+           `-- packer_compiled.lua
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;回到 init.lua 文件，在 init.lua 中调用刚刚新建的两个模块：&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Jetson nano 安装 PCL 指南</title>
+      <link>https://blog.cassdev.com/posts/jetson-nano-%E5%AE%89%E8%A3%85-pcl-%E6%8C%87%E5%8D%97/</link>
+      <pubDate>Fri, 24 Mar 2023 10:00:00 +0800</pubDate>
+      <guid>https://blog.cassdev.com/posts/jetson-nano-%E5%AE%89%E8%A3%85-pcl-%E6%8C%87%E5%8D%97/</guid>
+      <description>本指南帮助 ARM64 架构的 Jetson Nano 安装 PCL。</description>
+    </item>
+    <item>
+      <title>Ubuntu 安装 OpenCV 指南</title>
+      <link>https://blog.cassdev.com/posts/ubuntu%E5%AE%89%E8%A3%85opencv%E6%8C%87%E5%8D%97/</link>
+      <pubDate>Fri, 24 Mar 2023 10:00:00 +0800</pubDate>
+      <guid>https://blog.cassdev.com/posts/ubuntu%E5%AE%89%E8%A3%85opencv%E6%8C%87%E5%8D%97/</guid>
+      <description>本文是一个简单易用的Ubuntu安装OpenCV的指南，帮助用户轻松完成OpenCV的安装和配置。</description>
+    </item>
+  </channel>
+</rss>

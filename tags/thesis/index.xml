@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Thesis on Cassius0924 的博客</title>
+    <link>https://blog.cassdev.com/tags/thesis/</link>
+    <description>Recent content in Thesis on Cassius0924 的博客</description>
+    <generator>Hugo -- 0.148.1</generator>
+    <language>zh-CN</language>
+    <copyright>Copyright © 2025-2025 Cassius0924. All rights reserved.</copyright>
+    <lastBuildDate>Sun, 16 Jun 2024 11:20:31 +0800</lastBuildDate>
+    <atom:link href="https://blog.cassdev.com/tags/thesis/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>macOS Word 设置论文排版指南</title>
+      <link>https://blog.cassdev.com/posts/macos-word-%E8%AE%BE%E7%BD%AE%E8%AE%BA%E6%96%87%E6%8E%92%E7%89%88%E6%8C%87%E5%8D%97/</link>
+      <pubDate>Sun, 16 Jun 2024 11:20:31 +0800</pubDate>
+      <guid>https://blog.cassdev.com/posts/macos-word-%E8%AE%BE%E7%BD%AE%E8%AE%BA%E6%96%87%E6%8E%92%E7%89%88%E6%8C%87%E5%8D%97/</guid>
+      <description>&lt;h2 id=&#34;正文&#34;&gt;正文&lt;/h2&gt;&lt;p&gt;字体大小默认12，两端对齐，1.5倍行距。字体类型选择 Latin 文字，将字体改成 Times New Roman，再将字体类型改成 Asian 亚洲文字，将字体改成 SimHei（黑体）。&lt;/p&gt;
+&lt;p&gt;&lt;img alt=&#34;CleanShot 2023-10-22 at 21.46.45@2x&#34; loading=&#34;lazy&#34; src=&#34;https://s2.loli.net/2023/10/22/hzB69WHcKSLDYdT.png&#34;&gt;&lt;/p&gt;
+&lt;h2 id=&#34;带首行缩进的正文&#34;&gt;带首行缩进的正文&lt;/h2&gt;&lt;p&gt;打开样式面板，点击 New Style。&lt;/p&gt;
+&lt;p&gt;&lt;img alt=&#34;CleanShot 2023-11-29 at 19.45.34@2x&#34; loading=&#34;lazy&#34; src=&#34;https://s2.loli.net/2023/11/29/TacpfhOd6IuNqzJ.png&#34;&gt;&lt;/p&gt;
+&lt;p&gt;输入样式名称“Indent”，继承于 Normal 样式。&lt;/p&gt;
+&lt;p&gt;&lt;img alt=&#34;CleanShot 2023-11-29 at 19.46.56@2x&#34; loading=&#34;lazy&#34; src=&#34;https://s2.loli.net/2023/11/29/ynCkXH7jRTfrBce.png&#34;&gt;&lt;/p&gt;
+&lt;p&gt;左下角选择 Paragraph 面板，将 Special 改成 First line，后面填 0.86cm。&lt;/p&gt;
+&lt;p&gt;&lt;img alt=&#34;CleanShot 2023-10-22 at 21.54.02@2x&#34; loading=&#34;lazy&#34; src=&#34;https://s2.loli.net/2023/10/22/bmk8YnCLD17cBKH.png&#34;&gt;&lt;/p&gt;
+&lt;h2 id=&#34;各级标题&#34;&gt;各级标题&lt;/h2&gt;&lt;h3 id=&#34;一级标题&#34;&gt;一级标题&lt;/h3&gt;&lt;p&gt;打开 Heading 1 一级标题的设置。&lt;/p&gt;
+&lt;p&gt;&lt;img alt=&#34;CleanShot 2023-10-22 at 21.31.53@2x&#34; loading=&#34;lazy&#34; src=&#34;https://s2.loli.net/2023/10/22/IhjbkadGzHcfZoO.png&#34;&gt;&lt;/p&gt;
+&lt;p&gt;字体大小默认16，加粗，黑色，居中对齐，1.5倍行距。字体类型选择 Latin 文字，将字体改成 Times New Roman，再将字体类型改成 Asian 亚洲文字，将字体改成 SimHei（黑体）。&lt;/p&gt;
+&lt;p&gt;&lt;img alt=&#34;CleanShot 2023-10-22 at 20.43.56@2x&#34; loading=&#34;lazy&#34; src=&#34;https://s2.loli.net/2023/10/22/6WeTgSpLbyVMClD.png&#34;&gt;&lt;/p&gt;
+&lt;p&gt;左下角选择 Paragraph 面板，将 Special 改成 none，取消继承于正文样式（Normal）的值。&lt;/p&gt;
+&lt;p&gt;&lt;img alt=&#34;CleanShot 2023-11-29 at 19.04.12@2x&#34; loading=&#34;lazy&#34; src=&#34;https://s2.loli.net/2023/11/29/l7spaX1t8oTMv6E.png&#34;&gt;&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

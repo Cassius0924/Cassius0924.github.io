@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Boost on Cassius0924 的博客</title>
+    <link>https://blog.cassdev.com/tags/boost/</link>
+    <description>Recent content in Boost on Cassius0924 的博客</description>
+    <generator>Hugo -- 0.148.1</generator>
+    <language>zh-CN</language>
+    <copyright>Copyright © 2025-2025 Cassius0924. All rights reserved.</copyright>
+    <lastBuildDate>Sun, 16 Jun 2024 11:20:31 +0800</lastBuildDate>
+    <atom:link href="https://blog.cassdev.com/tags/boost/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Linux Boost.Python3 安装以及 CMake 配置指南</title>
+      <link>https://blog.cassdev.com/posts/linux-boost.python3-%E5%AE%89%E8%A3%85%E4%BB%A5%E5%8F%8A-cmake-%E9%85%8D%E7%BD%AE%E6%8C%87%E5%8D%97/</link>
+      <pubDate>Sun, 16 Jun 2024 11:20:31 +0800</pubDate>
+      <guid>https://blog.cassdev.com/posts/linux-boost.python3-%E5%AE%89%E8%A3%85%E4%BB%A5%E5%8F%8A-cmake-%E9%85%8D%E7%BD%AE%E6%8C%87%E5%8D%97/</guid>
+      <description>&lt;h2 id=&#34;下载boost&#34;&gt;下载Boost&lt;/h2&gt;&lt;p&gt;前往&lt;a href=&#34;https://www.boost.org/&#34;&gt;Boost官网&lt;/a&gt;下载源码压缩包。&lt;/p&gt;
+&lt;p&gt;或通过 &lt;code&gt;wget&lt;/code&gt; 下载 1.83 版本：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;wget https://boostorg.jfrog.io/artifactory/main/release/1.83.0/source/boost_1_83_0.7z
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;下载完毕后，解压 7z 压缩包&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;7z x boost_1_83_0.7z
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;编译安装&#34;&gt;编译安装&lt;/h2&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nb&#34;&gt;cd&lt;/span&gt; boost_1_83_0
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;./bootstrap.sh --with-python&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;/root/.virtualenvs/ETRS/bin/python3 --with-python-version&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;3.8 --with-libraries&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;all 
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;code&gt;--with-python&lt;/code&gt; 的路径可以通过 &lt;code&gt;which python3&lt;/code&gt; 查看。&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;--with-python-version&lt;/code&gt; 的版本号可以通过 &lt;code&gt;python3 --version&lt;/code&gt; 查看，注意这里需要填成 &lt;code&gt;3.x&lt;/code&gt; 格式 ，而不是 &lt;code&gt;3.y.z&lt;/code&gt;，省略最后的版本号。&lt;/p&gt;
+&lt;p&gt;运行完以上命令后，需要修改 &lt;code&gt;project-config&lt;/code&gt; 配置文件。&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;vim project-config.jam
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;修改第 21行，在双引号里添加两个路径，分别是当前 Python 版本的 include 路径和 lib 路径。&lt;/p&gt;
+&lt;p&gt;&lt;img alt=&#34;CleanShot 2023-11-11 at 20.44.10@2x&#34; loading=&#34;lazy&#34; src=&#34;https://s2.loli.net/2023/11/11/gKp5WhZYdrC1XAN.png&#34;&gt;&lt;/p&gt;
+&lt;p&gt;Python 的 include 路径和 lib 路径可以通过下面的 Python 代码查看：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;kn&#34;&gt;import&lt;/span&gt; &lt;span class=&#34;nn&#34;&gt;sysconfig&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;sysconfig&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;get_path&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s1&#34;&gt;&amp;#39;include&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;		&lt;span class=&#34;c1&#34;&gt;# 查看 include 路径&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;sysconfig&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;get_path&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s1&#34;&gt;&amp;#39;stdlib&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;		&lt;span class=&#34;c1&#34;&gt;# 查看 lib 路径&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;开始编译：&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

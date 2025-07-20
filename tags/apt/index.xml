@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Apt on Cassius0924 的博客</title>
+    <link>https://blog.cassdev.com/tags/apt/</link>
+    <description>Recent content in Apt on Cassius0924 的博客</description>
+    <generator>Hugo -- 0.148.1</generator>
+    <language>zh-CN</language>
+    <copyright>Copyright © 2025-2025 Cassius0924. All rights reserved.</copyright>
+    <lastBuildDate>Fri, 24 Mar 2023 10:00:00 +0800</lastBuildDate>
+    <atom:link href="https://blog.cassdev.com/tags/apt/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Ubuntu 安装软件包时遇到 unmet dependencies 的解决方法</title>
+      <link>https://blog.cassdev.com/posts/ubuntu%E5%AE%89%E8%A3%85%E8%BD%AF%E4%BB%B6%E5%8C%85%E6%97%B6%E9%81%87%E5%88%B0unmet-dependencies%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95/</link>
+      <pubDate>Fri, 24 Mar 2023 10:00:00 +0800</pubDate>
+      <guid>https://blog.cassdev.com/posts/ubuntu%E5%AE%89%E8%A3%85%E8%BD%AF%E4%BB%B6%E5%8C%85%E6%97%B6%E9%81%87%E5%88%B0unmet-dependencies%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95/</guid>
+      <description>本文旨在解决Ubuntu用户遇到“The following packages have unmet dependencies”错误的问题</description>
+    </item>
+    <item>
+      <title>apt autoremove 误删依赖包后自救指南</title>
+      <link>https://blog.cassdev.com/posts/apt-autoremove-%E8%AF%AF%E5%88%A0%E4%BE%9D%E8%B5%96%E5%8C%85%E5%90%8E%E8%87%AA%E6%95%91%E6%8C%87%E5%8D%97/</link>
+      <pubDate>Fri, 24 Mar 2023 00:00:00 +0000</pubDate>
+      <guid>https://blog.cassdev.com/posts/apt-autoremove-%E8%AF%AF%E5%88%A0%E4%BE%9D%E8%B5%96%E5%8C%85%E5%90%8E%E8%87%AA%E6%95%91%E6%8C%87%E5%8D%97/</guid>
+      <description>apt autoremove后程序不能用了？别慌，跟着教程一步一步来。</description>
+    </item>
+  </channel>
+</rss>

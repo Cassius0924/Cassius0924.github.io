@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Bash on Cassius0924 的博客</title>
+    <link>https://blog.cassdev.com/tags/bash/</link>
+    <description>Recent content in Bash on Cassius0924 的博客</description>
+    <generator>Hugo -- 0.148.1</generator>
+    <language>zh-CN</language>
+    <copyright>Copyright © 2025-2025 Cassius0924. All rights reserved.</copyright>
+    <lastBuildDate>Sun, 16 Jun 2024 11:20:31 +0800</lastBuildDate>
+    <atom:link href="https://blog.cassdev.com/tags/bash/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Linux 批量修改文件名指南</title>
+      <link>https://blog.cassdev.com/posts/linux-%E6%89%B9%E9%87%8F%E4%BF%AE%E6%94%B9%E6%96%87%E4%BB%B6%E5%90%8D%E6%8C%87%E5%8D%97/</link>
+      <pubDate>Sun, 16 Jun 2024 11:20:31 +0800</pubDate>
+      <guid>https://blog.cassdev.com/posts/linux-%E6%89%B9%E9%87%8F%E4%BF%AE%E6%94%B9%E6%96%87%E4%BB%B6%E5%90%8D%E6%8C%87%E5%8D%97/</guid>
+      <description>&lt;p&gt;使用 bash 脚本，先创建一个 .sh 结尾的脚本：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-vim&#34; data-lang=&#34;vim&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nx&#34;&gt;vim&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;rename&lt;/span&gt;.&lt;span class=&#34;nx&#34;&gt;sh&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;以下是示例 bash 脚本内容，作用是将 /path/to/dir 目录下所有包含冒号&lt;code&gt;:&lt;/code&gt;的文件名，将冒号替换为减号。&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;# !/bin/bash&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;find /path/to/dir -type f -name &lt;span class=&#34;s1&#34;&gt;&amp;#39;*:*&amp;#39;&lt;/span&gt; -exec bash -c &lt;span class=&#34;s1&#34;&gt;&amp;#39;mv &amp;#34;$0&amp;#34; &amp;#34;${0//:/-}&amp;#34;&amp;#39;&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;{}&lt;/span&gt; &lt;span class=&#34;se&#34;&gt;\;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;代码解释&#34;&gt;代码解释&lt;/h2&gt;&lt;h3 id=&#34;使用find查找需要更改的文件&#34;&gt;使用&lt;code&gt;find&lt;/code&gt;查找需要更改的文件&lt;/h3&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;find /path/to/dir -type f -name &lt;span class=&#34;s1&#34;&gt;&amp;#39;*:*&amp;#39;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;/path/to/dir&lt;/code&gt; 应该替换为包含你要修改文件名的文件夹的实际路径。&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;-type f&lt;/code&gt; 表示只查找普通文件，而不包括目录。&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;-name &#39;*:*&#39;&lt;/code&gt; 是一个查找条件，用于匹配包含冒号的文件名。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;使用mv和bash执行文件名更改&#34;&gt;使用&lt;code&gt;mv&lt;/code&gt;和&lt;code&gt;bash&lt;/code&gt;执行文件名更改&lt;/h3&gt;&lt;p&gt;一旦找到需要更改的文件，可以使用&lt;code&gt;mv&lt;/code&gt;命令结合&lt;code&gt;bash&lt;/code&gt;来执行文件名更改操作。&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;find /path/to/dir -type f -name &lt;span class=&#34;s1&#34;&gt;&amp;#39;*:*&amp;#39;&lt;/span&gt; -exec bash -c &lt;span class=&#34;s1&#34;&gt;&amp;#39;mv &amp;#34;$0&amp;#34; &amp;#34;${0//:/-}&amp;#34;&amp;#39;&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;{}&lt;/span&gt; &lt;span class=&#34;se&#34;&gt;\;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;这个命令中的 &lt;code&gt;-exec&lt;/code&gt; 标志用于在&lt;code&gt;find&lt;/code&gt;查找到的每个文件上执行指定的命令。&lt;code&gt;bash -c&lt;/code&gt;之后的部分将执行文件名更改操作。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;mv &amp;quot;$0&amp;quot; &amp;quot;${0//:/-}&amp;quot;&lt;/code&gt; 使用&lt;code&gt;mv&lt;/code&gt;命令将文件名中的冒号替换为减号。&lt;code&gt;${0//:/-}&lt;/code&gt; 部分是一个bash子shell，其中的&lt;code&gt;${0}&lt;/code&gt;表示当前文件名，&lt;code&gt;//&lt;/code&gt;后跟着&lt;code&gt;:&lt;/code&gt;和&lt;code&gt;-&lt;/code&gt;是用来替换的正则表达式。&lt;/li&gt;
+&lt;/ul&gt;</description>
+    </item>
+  </channel>
+</rss>

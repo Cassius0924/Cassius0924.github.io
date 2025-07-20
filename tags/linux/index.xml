@@ -7,8 +7,215 @@
     <generator>Hugo -- 0.148.1</generator>
     <language>zh-CN</language>
     <copyright>Copyright © 2025-2025 Cassius0924. All rights reserved.</copyright>
-    <lastBuildDate>Wed, 14 Jun 2023 10:00:00 +0800</lastBuildDate>
+    <lastBuildDate>Sun, 30 Jun 2024 15:31:40 +0800</lastBuildDate>
     <atom:link href="https://blog.cassdev.com/tags/linux/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Socket 编程之 epoll 源码分析学习笔记</title>
+      <link>https://blog.cassdev.com/posts/socket-%E7%BC%96%E7%A8%8B%E4%B9%8B-epoll-%E6%BA%90%E7%A0%81%E5%88%86%E6%9E%90%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</link>
+      <pubDate>Sun, 30 Jun 2024 15:31:40 +0800</pubDate>
+      <guid>https://blog.cassdev.com/posts/socket-%E7%BC%96%E7%A8%8B%E4%B9%8B-epoll-%E6%BA%90%E7%A0%81%E5%88%86%E6%9E%90%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</guid>
+      <description>&lt;p&gt;本文基于 Linux 6.9 内核源码进行分析。&lt;/p&gt;
+&lt;h2 id=&#34;几个数据结构&#34;&gt;几个数据结构&lt;/h2&gt;&lt;p&gt;&lt;img alt=&#34;数据结构&#34; loading=&#34;lazy&#34; src=&#34;https://s2.loli.net/2024/06/30/fPingVOd2YcEFUX.jpg&#34;&gt;&lt;/p&gt;
+&lt;h3 id=&#34;eventpoll&#34;&gt;eventpoll&lt;/h3&gt;&lt;p&gt;这是 epoll 的主要数据结构，它用于存储 epoll 的相关信息，包括等待队列、就绪队列、红黑树等。&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-c&#34; data-lang=&#34;c&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;k&#34;&gt;struct&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;eventpoll&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;	&lt;span class=&#34;kt&#34;&gt;wait_queue_head_t&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;wq&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;       &lt;span class=&#34;c1&#34;&gt;// epoll 的等待队列：用于存储等待的进程/线程，指向等待队列头
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;	&lt;span class=&#34;kt&#34;&gt;wait_queue_head_t&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;poll_wait&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;&lt;span class=&#34;c1&#34;&gt;// 这个 poll_wait 等待队列只有在 epoll 嵌套的情况下才会用到
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;	&lt;span class=&#34;k&#34;&gt;struct&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;list_head&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;rdllist&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;   &lt;span class=&#34;c1&#34;&gt;// 就绪队列：用于存储就绪的 fd，指向就绪队列头
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;	&lt;span class=&#34;k&#34;&gt;struct&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;rb_root_cached&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;rbr&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;  &lt;span class=&#34;c1&#34;&gt;// 红黑树：用于存储所有的 fd，指向红黑树根节点
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;	&lt;span class=&#34;k&#34;&gt;struct&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;wakeup_source&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;*&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;ws&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;   &lt;span class=&#34;c1&#34;&gt;// 一个唤醒源，用于唤醒进程
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;};&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;epitem&#34;&gt;epitem&lt;/h3&gt;&lt;p&gt;epitem 的作用是将 fd、就绪队列、红黑树节点等信息封装在一起。&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-c&#34; data-lang=&#34;c&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;k&#34;&gt;struct&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;epitem&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;k&#34;&gt;union&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        &lt;span class=&#34;k&#34;&gt;struct&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;rb_node&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;rbn&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;     &lt;span class=&#34;c1&#34;&gt;// 红黑树节点，用于存储 fd，指向红黑树节点
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;        &lt;span class=&#34;k&#34;&gt;struct&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;rcu_head&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;rcu&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;    &lt;span class=&#34;c1&#34;&gt;// 用于释放 epitem
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;    &lt;span class=&#34;p&#34;&gt;};&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;k&#34;&gt;struct&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;list_head&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;rdllink&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;   &lt;span class=&#34;c1&#34;&gt;// 就绪队列节点，用于存储就绪的 fd，指向就绪队列节点
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;k&#34;&gt;struct&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;eventpoll&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;*&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;ep&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;       &lt;span class=&#34;c1&#34;&gt;// 指向 eventpoll
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;k&#34;&gt;struct&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;epoll_filefd&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;ffd&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;    &lt;span class=&#34;c1&#34;&gt;// epoll 文件描述符
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;k&#34;&gt;struct&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;wakeup_source&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;*&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;ws&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;   &lt;span class=&#34;c1&#34;&gt;// 一个唤醒源，用于唤醒进程
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;k&#34;&gt;struct&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;epoll_event&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;event&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;   &lt;span class=&#34;c1&#34;&gt;// 监听的事件
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;};&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;ep_pqueue&#34;&gt;ep_pqueue&lt;/h3&gt;&lt;p&gt;给 poll 队列封装的结构体，用于存储 poll_table 和 epitem。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Windows Socket API 和 Linux Socket API</title>
+      <link>https://blog.cassdev.com/posts/windows-socket-api-%E5%92%8C-linux-socket-api/</link>
+      <pubDate>Sun, 16 Jun 2024 19:13:10 +0800</pubDate>
+      <guid>https://blog.cassdev.com/posts/windows-socket-api-%E5%92%8C-linux-socket-api/</guid>
+      <description>&lt;p&gt;本文章主要介绍 Windows 下和 Linux 下的 Socket 编程区别，即 Windows Socket API 和 Linux Socket API 的区别。&lt;/p&gt;
+&lt;h2 id=&#34;头文件&#34;&gt;头文件&lt;/h2&gt;&lt;p&gt;Windows 环境下的 Socket 编程需要以下头文件:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;&amp;lt;WinSock2.h&amp;gt;&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;&amp;lt;WS2tcpip.h&amp;gt;&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+    &lt;div class=&#34;admonition note&#34;&gt;
+      &lt;div class=&#34;admonition-header&#34;&gt;&lt;svg xmlns=&#34;http://www.w3.org/2000/svg&#34; viewBox=&#34;0 0 576 512&#34;&gt;&lt;path d=&#34;M0 64C0 28.7 28.7 0 64 0L224 0l0 128c0 17.7 14.3 32 32 32l128 0 0 125.7-86.8 86.8c-10.3 10.3-17.5 23.1-21 37.2l-18.7 74.9c-2.3 9.2-1.8 18.8 1.3 27.5L64 512c-35.3 0-64-28.7-64-64L0 64zm384 64l-128 0L256 0 384 128zM549.8 235.7l14.4 14.4c15.6 15.6 15.6 40.9 0 56.6l-29.4 29.4-71-71 29.4-29.4c15.6-15.6 40.9-15.6 56.6 0zM311.9 417L441.1 287.8l71 71L382.9 487.9c-4.1 4.1-9.2 7-14.9 8.4l-60.1 15c-5.5 1.4-11.2-.2-15.2-4.2s-5.6-9.7-4.2-15.2l15-60.1c1.4-5.6 4.3-10.8 8.4-14.9z&#34;/&gt;&lt;/svg&gt;
+        &lt;span&gt;笔记&lt;/span&gt;
+      &lt;/div&gt;
+      &lt;div class=&#34;admonition-content&#34;&gt;
+        &lt;p&gt;如果使用 MSVC 编译器，那么还需要使用预处理指令 &lt;code&gt;#pragma comment(lib, &amp;quot;Ws2_32.lib&amp;quot;)&lt;/code&gt; 来链接 &lt;code&gt;Ws2_32.lib&lt;/code&gt; 库。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Linux Boost.Python3 安装以及 CMake 配置指南</title>
+      <link>https://blog.cassdev.com/posts/linux-boost.python3-%E5%AE%89%E8%A3%85%E4%BB%A5%E5%8F%8A-cmake-%E9%85%8D%E7%BD%AE%E6%8C%87%E5%8D%97/</link>
+      <pubDate>Sun, 16 Jun 2024 11:20:31 +0800</pubDate>
+      <guid>https://blog.cassdev.com/posts/linux-boost.python3-%E5%AE%89%E8%A3%85%E4%BB%A5%E5%8F%8A-cmake-%E9%85%8D%E7%BD%AE%E6%8C%87%E5%8D%97/</guid>
+      <description>&lt;h2 id=&#34;下载boost&#34;&gt;下载Boost&lt;/h2&gt;&lt;p&gt;前往&lt;a href=&#34;https://www.boost.org/&#34;&gt;Boost官网&lt;/a&gt;下载源码压缩包。&lt;/p&gt;
+&lt;p&gt;或通过 &lt;code&gt;wget&lt;/code&gt; 下载 1.83 版本：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;wget https://boostorg.jfrog.io/artifactory/main/release/1.83.0/source/boost_1_83_0.7z
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;下载完毕后，解压 7z 压缩包&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;7z x boost_1_83_0.7z
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;编译安装&#34;&gt;编译安装&lt;/h2&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nb&#34;&gt;cd&lt;/span&gt; boost_1_83_0
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;./bootstrap.sh --with-python&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;/root/.virtualenvs/ETRS/bin/python3 --with-python-version&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;3.8 --with-libraries&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;all 
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;code&gt;--with-python&lt;/code&gt; 的路径可以通过 &lt;code&gt;which python3&lt;/code&gt; 查看。&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;--with-python-version&lt;/code&gt; 的版本号可以通过 &lt;code&gt;python3 --version&lt;/code&gt; 查看，注意这里需要填成 &lt;code&gt;3.x&lt;/code&gt; 格式 ，而不是 &lt;code&gt;3.y.z&lt;/code&gt;，省略最后的版本号。&lt;/p&gt;
+&lt;p&gt;运行完以上命令后，需要修改 &lt;code&gt;project-config&lt;/code&gt; 配置文件。&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;vim project-config.jam
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;修改第 21行，在双引号里添加两个路径，分别是当前 Python 版本的 include 路径和 lib 路径。&lt;/p&gt;
+&lt;p&gt;&lt;img alt=&#34;CleanShot 2023-11-11 at 20.44.10@2x&#34; loading=&#34;lazy&#34; src=&#34;https://s2.loli.net/2023/11/11/gKp5WhZYdrC1XAN.png&#34;&gt;&lt;/p&gt;
+&lt;p&gt;Python 的 include 路径和 lib 路径可以通过下面的 Python 代码查看：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;kn&#34;&gt;import&lt;/span&gt; &lt;span class=&#34;nn&#34;&gt;sysconfig&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;sysconfig&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;get_path&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s1&#34;&gt;&amp;#39;include&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;		&lt;span class=&#34;c1&#34;&gt;# 查看 include 路径&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;sysconfig&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;get_path&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s1&#34;&gt;&amp;#39;stdlib&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;		&lt;span class=&#34;c1&#34;&gt;# 查看 lib 路径&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;开始编译：&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Linux 初探之旅（二）——文件与文件夹的读写</title>
+      <link>https://blog.cassdev.com/posts/linux-%E5%88%9D%E6%8E%A2%E4%B9%8B%E6%97%85%E4%BA%8C%E6%96%87%E4%BB%B6%E4%B8%8E%E6%96%87%E4%BB%B6%E5%A4%B9%E7%9A%84%E8%AF%BB%E5%86%99/</link>
+      <pubDate>Sun, 16 Jun 2024 11:20:31 +0800</pubDate>
+      <guid>https://blog.cassdev.com/posts/linux-%E5%88%9D%E6%8E%A2%E4%B9%8B%E6%97%85%E4%BA%8C%E6%96%87%E4%BB%B6%E4%B8%8E%E6%96%87%E4%BB%B6%E5%A4%B9%E7%9A%84%E8%AF%BB%E5%86%99/</guid>
+      <description>&lt;p&gt;在上一篇文章中，我们学习了Linux中的文件浏览，知道了如何在Linux文件系统中定位文件。本篇文章中，我们将继续深入学习Linux中的文件及目录的读写操作。&lt;/p&gt;
+&lt;h2 id=&#34;读取文件&#34;&gt;读取文件&lt;/h2&gt;&lt;h3 id=&#34;cat-命令读取文件全部内容&#34;&gt;cat 命令：读取文件全部内容&lt;/h3&gt;&lt;p&gt;要读取一个文件的内容，可以使用cat命令，语法为：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;cat 文件名
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;这会将文件的全部内容输出到终端。当文件比较大时，这样的输出会刷屏，不太方便查看。&lt;/p&gt;
+&lt;h3 id=&#34;head-和-tail-命令显示部分内容&#34;&gt;head 和 tail 命令：显示部分内容&lt;/h3&gt;&lt;p&gt;Linux提供了head和tail命令来显示部分内容：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;head - 显示开头部分内容&lt;/li&gt;
+&lt;li&gt;tail - 显示结尾部分内容&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;head和tail可以指定显示的行数，例如：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;head -n &lt;span class=&#34;m&#34;&gt;3&lt;/span&gt; 文件名 &lt;span class=&#34;c1&#34;&gt;# 显示前3行 &lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;tail -n &lt;span class=&#34;m&#34;&gt;5&lt;/span&gt; 文件名 &lt;span class=&#34;c1&#34;&gt;# 显示后5行&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;less-命令分页显示&#34;&gt;less 命令：分页显示&lt;/h3&gt;&lt;p&gt;less命令可以分页方式显示文件内容，可以上下翻阅，是文件查看的首选工具。&lt;/p&gt;
+&lt;p&gt;less可以用方向键上下翻页，也支持各种快捷键，推荐大家阅读less的帮助文档。&lt;/p&gt;
+&lt;h2 id=&#34;写入文件&#34;&gt;写入文件&lt;/h2&gt;&lt;h3 id=&#34;echo-命令输出到文件&#34;&gt;echo 命令：输出到文件&lt;/h3&gt;&lt;p&gt;使用echo命令可以向文件写入内容，语法为：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nb&#34;&gt;echo&lt;/span&gt; &lt;span class=&#34;s2&#34;&gt;&amp;#34;要写入的内容&amp;#34;&lt;/span&gt; &amp;gt; 文件名	
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;这会覆盖文件原有内容。如果要附加内容，使用两个大于号：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nb&#34;&gt;echo&lt;/span&gt; &lt;span class=&#34;s2&#34;&gt;&amp;#34;新增内容&amp;#34;&lt;/span&gt; &amp;gt;&amp;gt; 文件名 
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;文本编辑器vim&#34;&gt;文本编辑器：vim&lt;/h3&gt;&lt;p&gt;对文件进行复杂编辑可以使用文本编辑器，Linux中的常用文本编辑器有vi、emacs、vim和nano等。这里简单介绍vim的使用。&lt;/p&gt;
+&lt;p&gt;使用&lt;code&gt;vim 文件名&lt;/code&gt;可以打开vim编辑器。vim有三种模式，分别是命令模式、插入模式和底线命令模式。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;命令模式：用于导航文件，可以进行复制、粘贴、删除等操作。&lt;/li&gt;
+&lt;li&gt;插入模式：用于输入文本，可以使用键盘输入文本。&lt;/li&gt;
+&lt;li&gt;底线命令模式：用于执行命令，例如保存文件、退出vim等。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;初学者可以先了解以下几个快捷键：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;i&lt;/code&gt; - 进入插入模式&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;ESC&lt;/code&gt; - 从插入模式回到命令模式&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;:w&lt;/code&gt; - 保存文件&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;:q&lt;/code&gt; - 退出vim&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;vim非常强大，建议大家自己练习熟悉其操作。&lt;/p&gt;
+&lt;h2 id=&#34;删除文件和目录&#34;&gt;删除文件和目录&lt;/h2&gt;&lt;h3 id=&#34;rm-命令删除文件&#34;&gt;rm 命令：删除文件&lt;/h3&gt;&lt;p&gt;删除文件使用rm命令：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;rm 文件名
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;rm--r-命令删除目录&#34;&gt;rm -r 命令：删除目录&lt;/h3&gt;&lt;p&gt;如果要删除目录，需要添加-r参数：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;rm -r 目录名
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;这会递归删除目录及其中的所有内容，需要小心使用。&lt;/p&gt;
+&lt;h2 id=&#34;复制和移动文件&#34;&gt;复制和移动文件&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;复制使用cp命令，添加-r参数可以复制目录&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Linux 初探之旅（三）——重定向、标准输入输出和管道</title>
+      <link>https://blog.cassdev.com/posts/linux-%E5%88%9D%E6%8E%A2%E4%B9%8B%E6%97%85%E4%B8%89%E9%87%8D%E5%AE%9A%E5%90%91%E6%A0%87%E5%87%86%E8%BE%93%E5%85%A5%E8%BE%93%E5%87%BA%E5%92%8C%E7%AE%A1%E9%81%93/</link>
+      <pubDate>Sun, 16 Jun 2024 11:20:31 +0800</pubDate>
+      <guid>https://blog.cassdev.com/posts/linux-%E5%88%9D%E6%8E%A2%E4%B9%8B%E6%97%85%E4%B8%89%E9%87%8D%E5%AE%9A%E5%90%91%E6%A0%87%E5%87%86%E8%BE%93%E5%85%A5%E8%BE%93%E5%87%BA%E5%92%8C%E7%AE%A1%E9%81%93/</guid>
+      <description>&lt;h2 id=&#34;标准输入输出&#34;&gt;标准输入输出&lt;/h2&gt;&lt;p&gt;我们先从Linux最基础的交互来讲起，我们究竟是如何和Linux系统内核进行交互的？换句话说，如何通过在按下键盘，就能让系统实现对应的操作的？&lt;/p&gt;
+&lt;p&gt;这一切都离不开它，终端——用户与Linux建立起联系的桥梁。&lt;/p&gt;
+&lt;p&gt;当我们在终端上输入命令的时候，直到我们未按下回车键之前，我们输入的所有内容都储存在终端的缓冲区（Buffer）里。此时我们输入的内容不会被系统所读到，只有在我们按下回车键后，缓冲区里的内容才会被发往 stdin （Standrad input 标准输入），stdin 是 Linux 内核和用户交互的通道。&lt;/p&gt;
+&lt;p&gt;接着，Shell 会介入，它会将 stdin 收到的内容翻译成操作并执行，Shell 译为壳层，与 Kernel（内核）相对应。Shell在外，Kernel在内。例如我们输入&lt;code&gt;ls&lt;/code&gt;，那么 Shell 就会找到 &lt;code&gt;ls&lt;/code&gt; 这条命令对应的二进制文件并执行。&lt;/p&gt;
+&lt;p&gt;执行完命令后，Shell 会将获取到的结果发送到另一条与 stdin 相对应的通道中，即 stdout（Standard output 标准输出）。终端会不间断地从 stdout 里读取内容，然后打印到屏幕上，即我们在终端中看到的输出。&lt;/p&gt;
+&lt;p&gt;总的来说，用户的输入的内容会发往 stdin 并被 Shell 读取，Shell 将找到内容所对应的二进制文件并执行，执行完后 Shell 会将结果发往 stdout 中，及时的显示在屏幕上。这就是一次与 Linux 交互的过程。&lt;/p&gt;
+&lt;p&gt;我们总说，在 Linux 中一切皆为文件，那么 stdin 和 stdout 也不例外，它们也是系统的两个文件。除了 stdin 和 stdout 之外，还有第三条通道 stderr（Standard error 标准错误）。stderr 和 stdout 一样，它们都是用于存储执行结果的地方，区别在于，Shell 执行完命令后，会将正常的结果发往 stdout 里，将错误的结果发往 stderr 里。同样地，stderr 也会被终端所读取，最后显示在屏幕上。&lt;/p&gt;
+&lt;h2 id=&#34;输出重定向&#34;&gt;输出重定向&lt;/h2&gt;&lt;p&gt;理解了标准输入输出后，我们能弄懂重定向的原理了，实际上就是 Shell 执行完命令后不把输出结果存放在 stdout 或 stderr 。而是存放到另一个文件当中。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Linux 批量修改文件名指南</title>
+      <link>https://blog.cassdev.com/posts/linux-%E6%89%B9%E9%87%8F%E4%BF%AE%E6%94%B9%E6%96%87%E4%BB%B6%E5%90%8D%E6%8C%87%E5%8D%97/</link>
+      <pubDate>Sun, 16 Jun 2024 11:20:31 +0800</pubDate>
+      <guid>https://blog.cassdev.com/posts/linux-%E6%89%B9%E9%87%8F%E4%BF%AE%E6%94%B9%E6%96%87%E4%BB%B6%E5%90%8D%E6%8C%87%E5%8D%97/</guid>
+      <description>&lt;p&gt;使用 bash 脚本，先创建一个 .sh 结尾的脚本：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-vim&#34; data-lang=&#34;vim&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nx&#34;&gt;vim&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;rename&lt;/span&gt;.&lt;span class=&#34;nx&#34;&gt;sh&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;以下是示例 bash 脚本内容，作用是将 /path/to/dir 目录下所有包含冒号&lt;code&gt;:&lt;/code&gt;的文件名，将冒号替换为减号。&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;# !/bin/bash&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;find /path/to/dir -type f -name &lt;span class=&#34;s1&#34;&gt;&amp;#39;*:*&amp;#39;&lt;/span&gt; -exec bash -c &lt;span class=&#34;s1&#34;&gt;&amp;#39;mv &amp;#34;$0&amp;#34; &amp;#34;${0//:/-}&amp;#34;&amp;#39;&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;{}&lt;/span&gt; &lt;span class=&#34;se&#34;&gt;\;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;代码解释&#34;&gt;代码解释&lt;/h2&gt;&lt;h3 id=&#34;使用find查找需要更改的文件&#34;&gt;使用&lt;code&gt;find&lt;/code&gt;查找需要更改的文件&lt;/h3&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;find /path/to/dir -type f -name &lt;span class=&#34;s1&#34;&gt;&amp;#39;*:*&amp;#39;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;/path/to/dir&lt;/code&gt; 应该替换为包含你要修改文件名的文件夹的实际路径。&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;-type f&lt;/code&gt; 表示只查找普通文件，而不包括目录。&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;-name &#39;*:*&#39;&lt;/code&gt; 是一个查找条件，用于匹配包含冒号的文件名。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;使用mv和bash执行文件名更改&#34;&gt;使用&lt;code&gt;mv&lt;/code&gt;和&lt;code&gt;bash&lt;/code&gt;执行文件名更改&lt;/h3&gt;&lt;p&gt;一旦找到需要更改的文件，可以使用&lt;code&gt;mv&lt;/code&gt;命令结合&lt;code&gt;bash&lt;/code&gt;来执行文件名更改操作。&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;find /path/to/dir -type f -name &lt;span class=&#34;s1&#34;&gt;&amp;#39;*:*&amp;#39;&lt;/span&gt; -exec bash -c &lt;span class=&#34;s1&#34;&gt;&amp;#39;mv &amp;#34;$0&amp;#34; &amp;#34;${0//:/-}&amp;#34;&amp;#39;&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;{}&lt;/span&gt; &lt;span class=&#34;se&#34;&gt;\;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;这个命令中的 &lt;code&gt;-exec&lt;/code&gt; 标志用于在&lt;code&gt;find&lt;/code&gt;查找到的每个文件上执行指定的命令。&lt;code&gt;bash -c&lt;/code&gt;之后的部分将执行文件名更改操作。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;mv &amp;quot;$0&amp;quot; &amp;quot;${0//:/-}&amp;quot;&lt;/code&gt; 使用&lt;code&gt;mv&lt;/code&gt;命令将文件名中的冒号替换为减号。&lt;code&gt;${0//:/-}&lt;/code&gt; 部分是一个bash子shell，其中的&lt;code&gt;${0}&lt;/code&gt;表示当前文件名，&lt;code&gt;//&lt;/code&gt;后跟着&lt;code&gt;:&lt;/code&gt;和&lt;code&gt;-&lt;/code&gt;是用来替换的正则表达式。&lt;/li&gt;
+&lt;/ul&gt;</description>
+    </item>
+    <item>
+      <title>Ubuntu Neovim 安装和配置指南</title>
+      <link>https://blog.cassdev.com/posts/ubuntu-neovim-%E5%AE%89%E8%A3%85%E5%92%8C%E9%85%8D%E7%BD%AE%E6%8C%87%E5%8D%97/</link>
+      <pubDate>Sun, 16 Jun 2024 11:20:31 +0800</pubDate>
+      <guid>https://blog.cassdev.com/posts/ubuntu-neovim-%E5%AE%89%E8%A3%85%E5%92%8C%E9%85%8D%E7%BD%AE%E6%8C%87%E5%8D%97/</guid>
+      <description>&lt;h2 id=&#34;安装&#34;&gt;安装&lt;/h2&gt;&lt;p&gt;不建议使用&lt;code&gt;apt&lt;/code&gt;安装，因为&lt;code&gt;apt&lt;/code&gt;安装的版本总是不是最新版。一些neovim插件依赖于高版本的neovim，因此使用apt安装可能会导致一些插件无法正常使用。&lt;/p&gt;
+&lt;p&gt;下面介绍安装最新版neovim的方法。&lt;/p&gt;
+&lt;p&gt;下载安装压缩包：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;wget https://github.com/neovim/neovim/releases/latest/download/nvim-linux64.tar.gz
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;安装：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;tar xzvf nvim-linux64.tar.gz
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;cp ./nvim-linux64/bin/nvim /usr/bin/
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;测试：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;nvim -v
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;img alt=&#34;CleanShot 2023-12-31 at 15.15.57@2x&#34; loading=&#34;lazy&#34; src=&#34;https://s2.loli.net/2023/12/31/SlKxdfWtwNFCOzy.png&#34;&gt;&lt;/p&gt;
+&lt;h2 id=&#34;nvim配置&#34;&gt;nvim配置&lt;/h2&gt;&lt;h3 id=&#34;核心配置&#34;&gt;核心配置&lt;/h3&gt;&lt;p&gt;配置 nvim 需要先创建配置文件的文件夹。&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nb&#34;&gt;cd&lt;/span&gt; ~
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;mkdir -r .config/nvim
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nb&#34;&gt;cd&lt;/span&gt; .config/nvim
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;nvim 使用 lua 语言作为配置文件语言，新建 init.lua，该文件是 nvim 的配置的入口。&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;touch init.lua
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;模块化配置&#34;&gt;模块化配置&lt;/h3&gt;&lt;p&gt;nvim 支持模块化配置，所以可以在 nvim 文件夹下创建多个配置模块：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;mkdir -r lua/core
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nb&#34;&gt;cd&lt;/span&gt; lua/core
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;core 文件夹存放 nvim 的核心配置，例如 nvim 基础配置（options.lua）和快捷键配置（keymaps）：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;touch options.lua keymaps.lua
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;此时，neovim 的配置文件结构如下所示：&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;~
+`--.config
+   `-- nvim
+       |-- init.lua
+       |-- lua
+       |   |-- core
+       |   |   |-- keymaps.lua
+       |   |   `-- options.lua
+       |   `-- plugins
+       |       `-- plugins-setup.lua
+       `-- plugin
+           `-- packer_compiled.lua
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;回到 init.lua 文件，在 init.lua 中调用刚刚新建的两个模块：&lt;/p&gt;</description>
+    </item>
     <item>
       <title>Jetson (Ubuntu Arm64) 安装 Bazel</title>
       <link>https://blog.cassdev.com/posts/jetson-ubuntu-arm64-%E5%AE%89%E8%A3%85-bazel/</link>
@@ -29,13 +236,6 @@
       <pubDate>Fri, 09 Jun 2023 10:00:00 +0800</pubDate>
       <guid>https://blog.cassdev.com/posts/%E8%A7%A3%E5%86%B3-open3d-%E5%90%8C%E6%97%B6%E9%93%BE%E6%8E%A5%E5%85%B6%E4%BB%96%E5%BA%93%E6%97%B6%E7%9A%84-undefined-reference-%E9%94%99%E8%AF%AF/</guid>
       <description>本文旨在解决C&#43;&#43; Open3D库与其他库冲突问题。</description>
-    </item>
-    <item>
-      <title>Unity 脚本使用 NuGet 安装解决方案包</title>
-      <link>https://blog.cassdev.com/posts/unity-%E4%BD%BF%E7%94%A8-nuget-%E5%AE%89%E8%A3%85%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88%E5%8C%85/</link>
-      <pubDate>Thu, 01 Jun 2023 10:00:00 +0800</pubDate>
-      <guid>https://blog.cassdev.com/posts/unity-%E4%BD%BF%E7%94%A8-nuget-%E5%AE%89%E8%A3%85%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88%E5%8C%85/</guid>
-      <description> 本文旨在教大家如何在 Unity 中使用 NuGet 安装解决方案包。</description>
     </item>
     <item>
       <title>Linux 命令行网络连接指南</title>
@@ -66,32 +266,11 @@
       <description>本文旨在解决找不到 catkin_init_workspace 命令的问题。</description>
     </item>
     <item>
-      <title>Git 免密登录配置指南</title>
-      <link>https://blog.cassdev.com/posts/git%E5%85%8D%E5%AF%86%E7%99%BB%E5%BD%95%E9%85%8D%E7%BD%AE%E6%8C%87%E5%8D%97/</link>
-      <pubDate>Fri, 24 Mar 2023 10:00:00 +0800</pubDate>
-      <guid>https://blog.cassdev.com/posts/git%E5%85%8D%E5%AF%86%E7%99%BB%E5%BD%95%E9%85%8D%E7%BD%AE%E6%8C%87%E5%8D%97/</guid>
-      <description>这是一个简单教程，旨在帮助大家实现免密SSH登录，省去每次输入用户名和密码的烦恼。</description>
-    </item>
-    <item>
       <title>Jetson nano 安装 Azure Kinect DK 指南</title>
       <link>https://blog.cassdev.com/posts/jetson-nano%E5%AE%89%E8%A3%85azure-kinect-dk%E6%8C%87%E5%8D%97/</link>
       <pubDate>Fri, 24 Mar 2023 10:00:00 +0800</pubDate>
       <guid>https://blog.cassdev.com/posts/jetson-nano%E5%AE%89%E8%A3%85azure-kinect-dk%E6%8C%87%E5%8D%97/</guid>
       <description>这是一个简单教程，旨在帮助大家实现免密SSH登录，省去每次输入用户名和密码的烦恼。</description>
-    </item>
-    <item>
-      <title>Jetson nano 安装 PCL 指南</title>
-      <link>https://blog.cassdev.com/posts/jetson-nano-%E5%AE%89%E8%A3%85-pcl-%E6%8C%87%E5%8D%97/</link>
-      <pubDate>Fri, 24 Mar 2023 10:00:00 +0800</pubDate>
-      <guid>https://blog.cassdev.com/posts/jetson-nano-%E5%AE%89%E8%A3%85-pcl-%E6%8C%87%E5%8D%97/</guid>
-      <description>本指南帮助 ARM64 架构的 Jetson Nano 安装 PCL。</description>
-    </item>
-    <item>
-      <title>Ubuntu 安装 OpenCV 指南</title>
-      <link>https://blog.cassdev.com/posts/ubuntu%E5%AE%89%E8%A3%85opencv%E6%8C%87%E5%8D%97/</link>
-      <pubDate>Fri, 24 Mar 2023 10:00:00 +0800</pubDate>
-      <guid>https://blog.cassdev.com/posts/ubuntu%E5%AE%89%E8%A3%85opencv%E6%8C%87%E5%8D%97/</guid>
-      <description>本文是一个简单易用的Ubuntu安装OpenCV的指南，帮助用户轻松完成OpenCV的安装和配置。</description>
     </item>
     <item>
       <title>Ubuntu 安装软件包时遇到 unmet dependencies 的解决方法</title>

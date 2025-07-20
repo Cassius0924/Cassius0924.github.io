@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Redirect on Cassius0924 的博客</title>
+    <link>https://blog.cassdev.com/tags/redirect/</link>
+    <description>Recent content in Redirect on Cassius0924 的博客</description>
+    <generator>Hugo -- 0.148.1</generator>
+    <language>zh-CN</language>
+    <copyright>Copyright © 2025-2025 Cassius0924. All rights reserved.</copyright>
+    <lastBuildDate>Sun, 16 Jun 2024 11:20:31 +0800</lastBuildDate>
+    <atom:link href="https://blog.cassdev.com/tags/redirect/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Linux 初探之旅（三）——重定向、标准输入输出和管道</title>
+      <link>https://blog.cassdev.com/posts/linux-%E5%88%9D%E6%8E%A2%E4%B9%8B%E6%97%85%E4%B8%89%E9%87%8D%E5%AE%9A%E5%90%91%E6%A0%87%E5%87%86%E8%BE%93%E5%85%A5%E8%BE%93%E5%87%BA%E5%92%8C%E7%AE%A1%E9%81%93/</link>
+      <pubDate>Sun, 16 Jun 2024 11:20:31 +0800</pubDate>
+      <guid>https://blog.cassdev.com/posts/linux-%E5%88%9D%E6%8E%A2%E4%B9%8B%E6%97%85%E4%B8%89%E9%87%8D%E5%AE%9A%E5%90%91%E6%A0%87%E5%87%86%E8%BE%93%E5%85%A5%E8%BE%93%E5%87%BA%E5%92%8C%E7%AE%A1%E9%81%93/</guid>
+      <description>&lt;h2 id=&#34;标准输入输出&#34;&gt;标准输入输出&lt;/h2&gt;&lt;p&gt;我们先从Linux最基础的交互来讲起，我们究竟是如何和Linux系统内核进行交互的？换句话说，如何通过在按下键盘，就能让系统实现对应的操作的？&lt;/p&gt;
+&lt;p&gt;这一切都离不开它，终端——用户与Linux建立起联系的桥梁。&lt;/p&gt;
+&lt;p&gt;当我们在终端上输入命令的时候，直到我们未按下回车键之前，我们输入的所有内容都储存在终端的缓冲区（Buffer）里。此时我们输入的内容不会被系统所读到，只有在我们按下回车键后，缓冲区里的内容才会被发往 stdin （Standrad input 标准输入），stdin 是 Linux 内核和用户交互的通道。&lt;/p&gt;
+&lt;p&gt;接着，Shell 会介入，它会将 stdin 收到的内容翻译成操作并执行，Shell 译为壳层，与 Kernel（内核）相对应。Shell在外，Kernel在内。例如我们输入&lt;code&gt;ls&lt;/code&gt;，那么 Shell 就会找到 &lt;code&gt;ls&lt;/code&gt; 这条命令对应的二进制文件并执行。&lt;/p&gt;
+&lt;p&gt;执行完命令后，Shell 会将获取到的结果发送到另一条与 stdin 相对应的通道中，即 stdout（Standard output 标准输出）。终端会不间断地从 stdout 里读取内容，然后打印到屏幕上，即我们在终端中看到的输出。&lt;/p&gt;
+&lt;p&gt;总的来说，用户的输入的内容会发往 stdin 并被 Shell 读取，Shell 将找到内容所对应的二进制文件并执行，执行完后 Shell 会将结果发往 stdout 中，及时的显示在屏幕上。这就是一次与 Linux 交互的过程。&lt;/p&gt;
+&lt;p&gt;我们总说，在 Linux 中一切皆为文件，那么 stdin 和 stdout 也不例外，它们也是系统的两个文件。除了 stdin 和 stdout 之外，还有第三条通道 stderr（Standard error 标准错误）。stderr 和 stdout 一样，它们都是用于存储执行结果的地方，区别在于，Shell 执行完命令后，会将正常的结果发往 stdout 里，将错误的结果发往 stderr 里。同样地，stderr 也会被终端所读取，最后显示在屏幕上。&lt;/p&gt;
+&lt;h2 id=&#34;输出重定向&#34;&gt;输出重定向&lt;/h2&gt;&lt;p&gt;理解了标准输入输出后，我们能弄懂重定向的原理了，实际上就是 Shell 执行完命令后不把输出结果存放在 stdout 或 stderr 。而是存放到另一个文件当中。&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

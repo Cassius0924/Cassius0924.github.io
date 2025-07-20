@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Jtop on Cassius0924 的博客</title>
+    <link>https://blog.cassdev.com/tags/jtop/</link>
+    <description>Recent content in Jtop on Cassius0924 的博客</description>
+    <generator>Hugo -- 0.148.1</generator>
+    <language>zh-CN</language>
+    <copyright>Copyright © 2025-2025 Cassius0924. All rights reserved.</copyright>
+    <lastBuildDate>Sun, 16 Jun 2024 11:20:31 +0800</lastBuildDate>
+    <atom:link href="https://blog.cassdev.com/tags/jtop/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Jetson nano 安装 Jtop 和 Jtop 使用指南</title>
+      <link>https://blog.cassdev.com/posts/jetson-nano-%E5%AE%89%E8%A3%85-jtop-%E5%92%8C-jtop-%E4%BD%BF%E7%94%A8%E6%8C%87%E5%8D%97/</link>
+      <pubDate>Sun, 16 Jun 2024 11:20:31 +0800</pubDate>
+      <guid>https://blog.cassdev.com/posts/jetson-nano-%E5%AE%89%E8%A3%85-jtop-%E5%92%8C-jtop-%E4%BD%BF%E7%94%A8%E6%8C%87%E5%8D%97/</guid>
+      <description>&lt;p&gt;本文将为你介绍 Jtop，它是一个基于 Python 的系统监控工具。Jtop 通过终端界面展示系统资源的使用情况，包括 CPU、内存、磁盘、网络等。本文将详细介绍 Jtop 各个面板的作用和功能。&lt;/p&gt;
+&lt;h2 id=&#34;安装&#34;&gt;安装&lt;/h2&gt;&lt;p&gt;先安装&lt;code&gt;pip3&lt;/code&gt;&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;sudo apt install python3-pip
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Jtop 可以通过 pip 来安装，您可以通过以下命令来安装：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;sudo pip3 install -U jetson-stats
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;使用&#34;&gt;使用&lt;/h2&gt;&lt;p&gt;在终端中输入以下命令来启动 Jtop：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;jtop
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;在 Jtop 启动后，您可以使用键盘的左右箭头来选择面板，使用 Tab 键来切换到不同的面板，使用 Ctrl + C 命令来退出 Jtop。&lt;/p&gt;
+&lt;h2 id=&#34;面板介绍&#34;&gt;面板介绍&lt;/h2&gt;&lt;h3 id=&#34;all-面板&#34;&gt;ALL 面板&lt;/h3&gt;&lt;p&gt;ALL 面板简要展示了主板的各种信息，包括 CPU、GPU、内存、磁盘、风扇以及关于 jetson_clocks、NVPmodel 等的信息。&lt;/p&gt;
+&lt;h3 id=&#34;gpu-面板&#34;&gt;GPU 面板&lt;/h3&gt;&lt;p&gt;GPU 面板主要展示了系统 GPU 的使用情况。在 GPU 面板中，您可以看到系统当前的 GPU 利用率、GPU 温度、GPU 风扇转速、 GPU 内存使用情况等信息。同时，您也可以查看各个进程对 GPU 的使用情况。&lt;/p&gt;
+&lt;h3 id=&#34;cpu-面板&#34;&gt;CPU 面板&lt;/h3&gt;&lt;p&gt;CPU 面板主要展示了系统 CPU 的使用情况。在 CPU 面板中，您可以看到系统当前的 CPU 利用率、每个 CPU 核心的利用率、以及各个进程的 CPU 使用情况。您可以使用键盘上下箭头来选择进程，使用回车键来查看进程详情。&lt;/p&gt;
+&lt;h3 id=&#34;mem-面板&#34;&gt;MEM 面板&lt;/h3&gt;&lt;p&gt;内存面板主要展示了系统内存的使用情况。在内存面板中，您可以看到系统当前的内存利用率、总内存、可用内存、已经使用的内存等信息。同时，您也可以查看各个进程的内存使用情况。&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

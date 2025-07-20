@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Troubleshooting on Cassius0924 的博客</title>
+    <link>https://blog.cassdev.com/tags/troubleshooting/</link>
+    <description>Recent content in Troubleshooting on Cassius0924 的博客</description>
+    <generator>Hugo -- 0.148.1</generator>
+    <language>zh-CN</language>
+    <copyright>Copyright © 2025-2025 Cassius0924. All rights reserved.</copyright>
+    <lastBuildDate>Sun, 16 Jun 2024 19:13:10 +0800</lastBuildDate>
+    <atom:link href="https://blog.cassdev.com/tags/troubleshooting/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>解决 “warning C4819- 该文件包含不能在当前代码页(936)中表示的字符” 问题指南</title>
+      <link>https://blog.cassdev.com/posts/%E8%A7%A3%E5%86%B3-warning-c4819--%E8%AF%A5%E6%96%87%E4%BB%B6%E5%8C%85%E5%90%AB%E4%B8%8D%E8%83%BD%E5%9C%A8%E5%BD%93%E5%89%8D%E4%BB%A3%E7%A0%81%E9%A1%B5936%E4%B8%AD%E8%A1%A8%E7%A4%BA%E7%9A%84%E5%AD%97%E7%AC%A6-%E9%97%AE%E9%A2%98%E6%8C%87%E5%8D%97/</link>
+      <pubDate>Sun, 16 Jun 2024 19:13:10 +0800</pubDate>
+      <guid>https://blog.cassdev.com/posts/%E8%A7%A3%E5%86%B3-warning-c4819--%E8%AF%A5%E6%96%87%E4%BB%B6%E5%8C%85%E5%90%AB%E4%B8%8D%E8%83%BD%E5%9C%A8%E5%BD%93%E5%89%8D%E4%BB%A3%E7%A0%81%E9%A1%B5936%E4%B8%AD%E8%A1%A8%E7%A4%BA%E7%9A%84%E5%AD%97%E7%AC%A6-%E9%97%AE%E9%A2%98%E6%8C%87%E5%8D%97/</guid>
+      <description>&lt;p&gt;起因是因为我在对我的 C++ 项目进行跨平台适配，从 macOS 平台移植到 Windows 平台时，在使用 Cmake + MSVC 编译后，出现了这个问题。&lt;/p&gt;
+&lt;h2 id=&#34;问题原因&#34;&gt;问题原因&lt;/h2&gt;&lt;p&gt;这是由于 Windows 平台默认使用的是 GBK 编码，而 macOS 平台上使用的是 UTF-8 编码。&lt;/p&gt;
+&lt;h2 id=&#34;解决方法&#34;&gt;解决方法&lt;/h2&gt;&lt;h3 id=&#34;方法一&#34;&gt;方法一&lt;/h3&gt;&lt;p&gt;在 CMakeLists.txt 文件中添加如下代码：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-cmake&#34; data-lang=&#34;cmake&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nb&#34;&gt;add_compile_options&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;$&amp;lt;$&amp;lt;C_COMPILER_ID:MSVC&amp;gt;:/source-charset:utf-8&amp;gt;&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;方法二&#34;&gt;方法二&lt;/h3&gt;&lt;p&gt;在 CMakeLists.txt 文件中添加如下代码：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-cmake&#34; data-lang=&#34;cmake&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nb&#34;&gt;if&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;MSVC&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;err&#34;&gt;&lt;/span&gt;    &lt;span class=&#34;nb&#34;&gt;target_compile_options&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;lt;你的项目名&amp;gt;&lt;/span&gt; &lt;span class=&#34;s&#34;&gt;PRIVATE&lt;/span&gt; &lt;span class=&#34;s2&#34;&gt;&amp;#34;/utf-8&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;err&#34;&gt;&lt;/span&gt;&lt;span class=&#34;nb&#34;&gt;endif&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;()&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</description>
+    </item>
+    <item>
+      <title>HoloLens 应用程序渲染不出 Mesh 面片的解决方法</title>
+      <link>https://blog.cassdev.com/posts/hololens-%E5%BA%94%E7%94%A8%E7%A8%8B%E5%BA%8F%E6%B8%B2%E6%9F%93%E4%B8%8D%E5%87%BA-mesh-%E9%9D%A2%E7%89%87%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95/</link>
+      <pubDate>Sun, 16 Jun 2024 11:20:31 +0800</pubDate>
+      <guid>https://blog.cassdev.com/posts/hololens-%E5%BA%94%E7%94%A8%E7%A8%8B%E5%BA%8F%E6%B8%B2%E6%9F%93%E4%B8%8D%E5%87%BA-mesh-%E9%9D%A2%E7%89%87%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95/</guid>
+      <description>&lt;h2 id=&#34;问题&#34;&gt;问题&lt;/h2&gt;&lt;p&gt;当项目在 Unity 测试 Mesh 面片渲染正常，而打包部署到 HoloLens 后就无法正常显示 Mesh 面片了。&lt;/p&gt;
+&lt;p&gt;失败原因可能出在 Holo 不支持程序代码所用的 Shader 着色器，需要使用 MRTK3 官方提供的 Shader 着色器。&lt;/p&gt;
+&lt;h2 id=&#34;解决方法&#34;&gt;解决方法&lt;/h2&gt;&lt;p&gt;默认前提你的项目已经安装了 MRTK3 开发包。&lt;/p&gt;
+&lt;p&gt;MRTK3 官方可用的彩色 Mesh 着色器为 &lt;code&gt;Mixed Reality Toolkit/Dashed Ray&lt;/code&gt;。&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-C#&#34; data-lang=&#34;C#&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;UnityEngine&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;Mesh&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;mesh&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;new&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;UnityEngine&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;Mesh&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;();&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;mesh&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;indexFormat&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;UnityEngine&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;Rendering&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;IndexFormat&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;UInt32&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;		&lt;span class=&#34;err&#34;&gt;#当面片数量超过&lt;/span&gt;&lt;span class=&#34;m&#34;&gt;65535&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;时需要设置此项&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;GetComponent&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;MeshFilter&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;&amp;gt;().&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;mesh&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;mesh&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;Material&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;material&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;new&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;Material&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;Shader&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;Find&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;Mixed Reality Toolkit/Dashed Ray&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;));&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;GetComponent&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;MeshRenderer&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;&amp;gt;().&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;material&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;material&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</description>
+    </item>
+    <item>
+      <title>SSH 远程连接后解决 No protocol specified 指南</title>
+      <link>https://blog.cassdev.com/posts/ssh-%E8%BF%9C%E7%A8%8B%E8%BF%9E%E6%8E%A5%E5%90%8E%E8%A7%A3%E5%86%B3-no-protocol-specified-%E6%8C%87%E5%8D%97/</link>
+      <pubDate>Sun, 16 Jun 2024 11:20:31 +0800</pubDate>
+      <guid>https://blog.cassdev.com/posts/ssh-%E8%BF%9C%E7%A8%8B%E8%BF%9E%E6%8E%A5%E5%90%8E%E8%A7%A3%E5%86%B3-no-protocol-specified-%E6%8C%87%E5%8D%97/</guid>
+      <description>&lt;p&gt;参考链接：https://unix.stackexchange.com/questions/209746/how-to-resolve-no-protocol-specified-for-su-user&lt;/p&gt;
+&lt;p&gt;&lt;img alt=&#34;CleanShot 2023-09-27 at 02.08.27@2x&#34; loading=&#34;lazy&#34; src=&#34;https://s2.loli.net/2023/09/27/jhPz5KiALJke7NF.png&#34;&gt;&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>解决VScode远程开发C&#43;&#43;项目时无代码提示问题</title>
+      <link>https://blog.cassdev.com/posts/%E8%A7%A3%E5%86%B3vscode%E8%BF%9C%E7%A8%8B%E5%BC%80%E5%8F%91c&#43;&#43;%E9%A1%B9%E7%9B%AE%E6%97%B6%E6%97%A0%E4%BB%A3%E7%A0%81%E6%8F%90%E7%A4%BA%E9%97%AE%E9%A2%98/</link>
+      <pubDate>Sun, 16 Jun 2024 11:20:31 +0800</pubDate>
+      <guid>https://blog.cassdev.com/posts/%E8%A7%A3%E5%86%B3vscode%E8%BF%9C%E7%A8%8B%E5%BC%80%E5%8F%91c&#43;&#43;%E9%A1%B9%E7%9B%AE%E6%97%B6%E6%97%A0%E4%BB%A3%E7%A0%81%E6%8F%90%E7%A4%BA%E9%97%AE%E9%A2%98/</guid>
+      <description>&lt;p&gt;简单粗暴，给本地主机和远程主机都安装上C/C++插件即可。&lt;/p&gt;
+&lt;p&gt;&lt;img alt=&#34;C/C++ Plugin&#34; loading=&#34;lazy&#34; src=&#34;https://s2.loli.net/2023/06/21/eBLlkS63OX2roTV.png&#34;&gt;&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Ubuntu 安装软件包时遇到 unmet dependencies 的解决方法</title>
+      <link>https://blog.cassdev.com/posts/ubuntu%E5%AE%89%E8%A3%85%E8%BD%AF%E4%BB%B6%E5%8C%85%E6%97%B6%E9%81%87%E5%88%B0unmet-dependencies%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95/</link>
+      <pubDate>Fri, 24 Mar 2023 10:00:00 +0800</pubDate>
+      <guid>https://blog.cassdev.com/posts/ubuntu%E5%AE%89%E8%A3%85%E8%BD%AF%E4%BB%B6%E5%8C%85%E6%97%B6%E9%81%87%E5%88%B0unmet-dependencies%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95/</guid>
+      <description>本文旨在解决Ubuntu用户遇到“The following packages have unmet dependencies”错误的问题</description>
+    </item>
+    <item>
+      <title>apt autoremove 误删依赖包后自救指南</title>
+      <link>https://blog.cassdev.com/posts/apt-autoremove-%E8%AF%AF%E5%88%A0%E4%BE%9D%E8%B5%96%E5%8C%85%E5%90%8E%E8%87%AA%E6%95%91%E6%8C%87%E5%8D%97/</link>
+      <pubDate>Fri, 24 Mar 2023 00:00:00 +0000</pubDate>
+      <guid>https://blog.cassdev.com/posts/apt-autoremove-%E8%AF%AF%E5%88%A0%E4%BE%9D%E8%B5%96%E5%8C%85%E5%90%8E%E8%87%AA%E6%95%91%E6%8C%87%E5%8D%97/</guid>
+      <description>apt autoremove后程序不能用了？别慌，跟着教程一步一步来。</description>
+    </item>
+  </channel>
+</rss>

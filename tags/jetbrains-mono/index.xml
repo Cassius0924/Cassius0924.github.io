@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>JetBrains Mono on Cassius0924 的博客</title>
+    <link>https://blog.cassdev.com/tags/jetbrains-mono/</link>
+    <description>Recent content in JetBrains Mono on Cassius0924 的博客</description>
+    <generator>Hugo -- 0.148.1</generator>
+    <language>zh-CN</language>
+    <copyright>Copyright © 2025-2025 Cassius0924. All rights reserved.</copyright>
+    <lastBuildDate>Sun, 16 Jun 2024 19:13:10 +0800</lastBuildDate>
+    <atom:link href="https://blog.cassdev.com/tags/jetbrains-mono/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Windows VSCode 使用 JetBrians Mono 字体</title>
+      <link>https://blog.cassdev.com/posts/windows-vscode-%E4%BD%BF%E7%94%A8-jetbrians-mono-%E5%AD%97%E4%BD%93/</link>
+      <pubDate>Sun, 16 Jun 2024 19:13:10 +0800</pubDate>
+      <guid>https://blog.cassdev.com/posts/windows-vscode-%E4%BD%BF%E7%94%A8-jetbrians-mono-%E5%AD%97%E4%BD%93/</guid>
+      <description>&lt;p&gt;本文主要介绍如何在 Windows 系统下的 Visual Studio Code 中使用 JetBrians Mono 字体。&lt;/p&gt;
+&lt;h2 id=&#34;下载字体&#34;&gt;下载字体&lt;/h2&gt;&lt;p&gt;可能你跟着网上很多教程一样，一上来就在 VS Code 中设置字体，结果发现设置不生效，这是因为你没有安装 JetBrians Mono 字体。&lt;/p&gt;
+&lt;p&gt;JetBrians Mono 字体下载地址：&lt;a href=&#34;https://www.jetbrains.com/lp/mono/&#34;&gt;JetBrainsMono&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id=&#34;安装字体&#34;&gt;安装字体&lt;/h2&gt;&lt;p&gt;下载字体后，解压缩，进入 &lt;code&gt;ttf&lt;/code&gt; 文件夹，找到 &lt;code&gt;JetBrainsMono-Regular.ttf&lt;/code&gt; 文件，双击打开，点击安装即可。当然你也可以全部字体都安装 :)&lt;/p&gt;
+&lt;p&gt;&lt;img alt=&#34;CleanShot 2024-06-02 at 16.22.26@2x&#34; loading=&#34;lazy&#34; src=&#34;https://s2.loli.net/2024/06/02/RG7EY6MqkvHW8Ni.png&#34;&gt;&lt;/p&gt;
+&lt;h2 id=&#34;设置-vs-code&#34;&gt;设置 VS Code&lt;/h2&gt;&lt;p&gt;打开 VS Code 的设置，搜索 &lt;code&gt;editor.fontFamily&lt;/code&gt;，将其值设置为 &lt;code&gt;JetBrains Mono&lt;/code&gt;，如下图所示：&lt;/p&gt;
+&lt;p&gt;&lt;img alt=&#34;CleanShot 2024-06-02 at 16.35.35@2x&#34; loading=&#34;lazy&#34; src=&#34;https://s2.loli.net/2024/06/02/fJlT5nwtE6kG829.png&#34;&gt;&lt;/p&gt;
+&lt;h2 id=&#34;重启-vs-code&#34;&gt;重启 VS Code&lt;/h2&gt;&lt;p&gt;最后一步，重启 VS Code 即可。&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

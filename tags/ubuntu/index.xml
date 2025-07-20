@@ -7,8 +7,96 @@
     <generator>Hugo -- 0.148.1</generator>
     <language>zh-CN</language>
     <copyright>Copyright © 2025-2025 Cassius0924. All rights reserved.</copyright>
-    <lastBuildDate>Wed, 14 Jun 2023 10:00:00 +0800</lastBuildDate>
+    <lastBuildDate>Sun, 16 Jun 2024 11:20:31 +0800</lastBuildDate>
     <atom:link href="https://blog.cassdev.com/tags/ubuntu/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Ubuntu Neovim 安装和配置指南</title>
+      <link>https://blog.cassdev.com/posts/ubuntu-neovim-%E5%AE%89%E8%A3%85%E5%92%8C%E9%85%8D%E7%BD%AE%E6%8C%87%E5%8D%97/</link>
+      <pubDate>Sun, 16 Jun 2024 11:20:31 +0800</pubDate>
+      <guid>https://blog.cassdev.com/posts/ubuntu-neovim-%E5%AE%89%E8%A3%85%E5%92%8C%E9%85%8D%E7%BD%AE%E6%8C%87%E5%8D%97/</guid>
+      <description>&lt;h2 id=&#34;安装&#34;&gt;安装&lt;/h2&gt;&lt;p&gt;不建议使用&lt;code&gt;apt&lt;/code&gt;安装，因为&lt;code&gt;apt&lt;/code&gt;安装的版本总是不是最新版。一些neovim插件依赖于高版本的neovim，因此使用apt安装可能会导致一些插件无法正常使用。&lt;/p&gt;
+&lt;p&gt;下面介绍安装最新版neovim的方法。&lt;/p&gt;
+&lt;p&gt;下载安装压缩包：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;wget https://github.com/neovim/neovim/releases/latest/download/nvim-linux64.tar.gz
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;安装：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;tar xzvf nvim-linux64.tar.gz
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;cp ./nvim-linux64/bin/nvim /usr/bin/
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;测试：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;nvim -v
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;img alt=&#34;CleanShot 2023-12-31 at 15.15.57@2x&#34; loading=&#34;lazy&#34; src=&#34;https://s2.loli.net/2023/12/31/SlKxdfWtwNFCOzy.png&#34;&gt;&lt;/p&gt;
+&lt;h2 id=&#34;nvim配置&#34;&gt;nvim配置&lt;/h2&gt;&lt;h3 id=&#34;核心配置&#34;&gt;核心配置&lt;/h3&gt;&lt;p&gt;配置 nvim 需要先创建配置文件的文件夹。&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nb&#34;&gt;cd&lt;/span&gt; ~
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;mkdir -r .config/nvim
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nb&#34;&gt;cd&lt;/span&gt; .config/nvim
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;nvim 使用 lua 语言作为配置文件语言，新建 init.lua，该文件是 nvim 的配置的入口。&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;touch init.lua
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;模块化配置&#34;&gt;模块化配置&lt;/h3&gt;&lt;p&gt;nvim 支持模块化配置，所以可以在 nvim 文件夹下创建多个配置模块：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;mkdir -r lua/core
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nb&#34;&gt;cd&lt;/span&gt; lua/core
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;core 文件夹存放 nvim 的核心配置，例如 nvim 基础配置（options.lua）和快捷键配置（keymaps）：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;touch options.lua keymaps.lua
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;此时，neovim 的配置文件结构如下所示：&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;~
+`--.config
+   `-- nvim
+       |-- init.lua
+       |-- lua
+       |   |-- core
+       |   |   |-- keymaps.lua
+       |   |   `-- options.lua
+       |   `-- plugins
+       |       `-- plugins-setup.lua
+       `-- plugin
+           `-- packer_compiled.lua
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;回到 init.lua 文件，在 init.lua 中调用刚刚新建的两个模块：&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Ubuntu 配置开机自动挂载三星 T7 固态硬盘指南</title>
+      <link>https://blog.cassdev.com/posts/ubuntu-%E9%85%8D%E7%BD%AE%E5%BC%80%E6%9C%BA%E8%87%AA%E5%8A%A8%E6%8C%82%E8%BD%BD%E4%B8%89%E6%98%9F-t7-%E5%9B%BA%E6%80%81%E7%A1%AC%E7%9B%98%E6%8C%87%E5%8D%97/</link>
+      <pubDate>Sun, 16 Jun 2024 11:20:31 +0800</pubDate>
+      <guid>https://blog.cassdev.com/posts/ubuntu-%E9%85%8D%E7%BD%AE%E5%BC%80%E6%9C%BA%E8%87%AA%E5%8A%A8%E6%8C%82%E8%BD%BD%E4%B8%89%E6%98%9F-t7-%E5%9B%BA%E6%80%81%E7%A1%AC%E7%9B%98%E6%8C%87%E5%8D%97/</guid>
+      <description>&lt;h2 id=&#34;连接硬盘&#34;&gt;连接硬盘&lt;/h2&gt;&lt;p&gt;先将硬盘与主机相连接，然后运行&lt;code&gt;fdisk&lt;/code&gt;命令查看系统的硬盘分区。&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;sudo fdisk -l
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;img alt=&#34;fdisk -l&#34; loading=&#34;lazy&#34; src=&#34;https://s2.loli.net/2023/10/19/kvu6H917eayRX3Y.png&#34;&gt;&lt;/p&gt;
+&lt;p&gt;找到自己连接的硬盘，一般为&lt;code&gt;/dev/sda1&lt;/code&gt;。&lt;/p&gt;
+&lt;h2 id=&#34;查看硬盘uuid&#34;&gt;查看硬盘UUID&lt;/h2&gt;&lt;p&gt;运行命令&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;sudo blkid
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;img alt=&#34;blkid&#34; loading=&#34;lazy&#34; src=&#34;https://s2.loli.net/2023/10/19/WTeys8u3ElFNxf2.png&#34;&gt;&lt;/p&gt;
+&lt;p&gt;找到自己硬盘的 UUID 和 TYPE，记录下它们。三星 T7 硬盘默认为兼容性较好的 exfat 格式。&lt;/p&gt;
+&lt;h2 id=&#34;配置开机自动挂载&#34;&gt;配置开机自动挂载&lt;/h2&gt;&lt;p&gt;接着修改系统&lt;code&gt;/etc/fstab&lt;/code&gt;文件。&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;vim /etc/fstab
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;在文件最后添加一行：&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;UUID=C65A-E9E1 ~/disk exfat defaults,nofail,utf8,dmask=022,fmask=133 0 0
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;内容格式为：&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;UUID=&amp;lt;UUID&amp;gt; &amp;lt;挂载目录&amp;gt; &amp;lt;硬盘格式&amp;gt; &amp;lt;挂载参数&amp;gt; &amp;lt;是否自动备份&amp;gt; &amp;lt;开机是否自检&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;挂载参数中可以设置：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;code&gt;defauls&lt;/code&gt;：默认挂载参数；&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;code&gt;dmask=&lt;/code&gt;：目录的默认权限；&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;code&gt;fmask=&lt;/code&gt;：文件的默认权限；&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;code&gt;uid=&lt;/code&gt;：挂载硬盘的用户id；&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;code&gt;gid=&lt;/code&gt;：挂载硬盘的组id；&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;code&gt;utf8&lt;/code&gt;：字符编码；&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;code&gt;nofail&lt;/code&gt;：错误忽略，如果硬盘不存在依然正常开机。&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;设置完毕后保存并退出文件。&lt;/p&gt;
+&lt;h2 id=&#34;重启-ubuntu&#34;&gt;重启 Ubuntu&lt;/h2&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;sudo reboot
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;重启后将自动挂载硬盘到指定目录。&lt;/p&gt;</description>
+    </item>
     <item>
       <title>Jetson (Ubuntu Arm64) 安装 Bazel</title>
       <link>https://blog.cassdev.com/posts/jetson-ubuntu-arm64-%E5%AE%89%E8%A3%85-bazel/</link>
@@ -29,13 +117,6 @@
       <pubDate>Fri, 24 Mar 2023 10:00:00 +0800</pubDate>
       <guid>https://blog.cassdev.com/posts/jetson-nano%E5%AE%89%E8%A3%85azure-kinect-dk%E6%8C%87%E5%8D%97/</guid>
       <description>这是一个简单教程，旨在帮助大家实现免密SSH登录，省去每次输入用户名和密码的烦恼。</description>
-    </item>
-    <item>
-      <title>Jetson nano 安装 PCL 指南</title>
-      <link>https://blog.cassdev.com/posts/jetson-nano-%E5%AE%89%E8%A3%85-pcl-%E6%8C%87%E5%8D%97/</link>
-      <pubDate>Fri, 24 Mar 2023 10:00:00 +0800</pubDate>
-      <guid>https://blog.cassdev.com/posts/jetson-nano-%E5%AE%89%E8%A3%85-pcl-%E6%8C%87%E5%8D%97/</guid>
-      <description>本指南帮助 ARM64 架构的 Jetson Nano 安装 PCL。</description>
     </item>
     <item>
       <title>Ubuntu 安装 OpenCV 指南</title>

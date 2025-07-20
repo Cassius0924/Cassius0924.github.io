@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>GitHub Pages on Cassius0924 的博客</title>
+    <link>https://blog.cassdev.com/tags/github-pages/</link>
+    <description>Recent content in GitHub Pages on Cassius0924 的博客</description>
+    <generator>Hugo -- 0.148.1</generator>
+    <language>zh-CN</language>
+    <copyright>Copyright © 2025-2025 Cassius0924. All rights reserved.</copyright>
+    <lastBuildDate>Mon, 17 Jun 2024 21:11:04 +0800</lastBuildDate>
+    <atom:link href="https://blog.cassdev.com/tags/github-pages/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>搭建自动化部署的 GitHub.io 个人静态博客指南</title>
+      <link>https://blog.cassdev.com/posts/%E6%90%AD%E5%BB%BA%E8%87%AA%E5%8A%A8%E5%8C%96%E9%83%A8%E7%BD%B2%E7%9A%84-github.io-%E4%B8%AA%E4%BA%BA%E9%9D%99%E6%80%81%E5%8D%9A%E5%AE%A2%E6%8C%87%E5%8D%97/</link>
+      <pubDate>Mon, 17 Jun 2024 21:11:04 +0800</pubDate>
+      <guid>https://blog.cassdev.com/posts/%E6%90%AD%E5%BB%BA%E8%87%AA%E5%8A%A8%E5%8C%96%E9%83%A8%E7%BD%B2%E7%9A%84-github.io-%E4%B8%AA%E4%BA%BA%E9%9D%99%E6%80%81%E5%8D%9A%E5%AE%A2%E6%8C%87%E5%8D%97/</guid>
+      <description>&lt;p&gt;本文章主要介绍如何使用 GitHub Actions 实现基于 MkDocs 的 GitHub.io 个人静态博客的自动化部署。&lt;/p&gt;
+&lt;p&gt;本指南主要分为以下几个部分：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://blog.cassdev.com/posts/%E6%90%AD%E5%BB%BA%E8%87%AA%E5%8A%A8%E5%8C%96%E9%83%A8%E7%BD%B2%E7%9A%84-github.io-%E4%B8%AA%E4%BA%BA%E9%9D%99%E6%80%81%E5%8D%9A%E5%AE%A2%E6%8C%87%E5%8D%97/#%e5%88%9b%e5%bb%ba-github-%e4%bb%93%e5%ba%93&#34;&gt;创建 GitHub 仓库&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://blog.cassdev.com/posts/%E6%90%AD%E5%BB%BA%E8%87%AA%E5%8A%A8%E5%8C%96%E9%83%A8%E7%BD%B2%E7%9A%84-github.io-%E4%B8%AA%E4%BA%BA%E9%9D%99%E6%80%81%E5%8D%9A%E5%AE%A2%E6%8C%87%E5%8D%97/#%e5%88%9b%e5%bb%ba-mkdocs-%e9%a1%b9%e7%9b%ae&#34;&gt;创建 MkDocs 项目&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://blog.cassdev.com/posts/%E6%90%AD%E5%BB%BA%E8%87%AA%E5%8A%A8%E5%8C%96%E9%83%A8%E7%BD%B2%E7%9A%84-github.io-%E4%B8%AA%E4%BA%BA%E9%9D%99%E6%80%81%E5%8D%9A%E5%AE%A2%E6%8C%87%E5%8D%97/#%e9%85%8d%e7%bd%ae-github-actions&#34;&gt;配置 GitHub Actions&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://blog.cassdev.com/posts/%E6%90%AD%E5%BB%BA%E8%87%AA%E5%8A%A8%E5%8C%96%E9%83%A8%E7%BD%B2%E7%9A%84-github.io-%E4%B8%AA%E4%BA%BA%E9%9D%99%E6%80%81%E5%8D%9A%E5%AE%A2%E6%8C%87%E5%8D%97/#%e9%83%a8%e7%bd%b2%e5%88%b0-github-pages&#34;&gt;部署到 GitHub Pages&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;创建-github-仓库&#34;&gt;创建 GitHub 仓库&lt;/h2&gt;&lt;p&gt;由于我们的博客是托管在 GitHub io 上的，所以我们需要一个 GitHub 仓库来存放我们的 MkDocs 博客。&lt;/p&gt;
+&lt;h3 id=&#34;创建仓库&#34;&gt;创建仓库&lt;/h3&gt;&lt;p&gt;首先，我们需要在 GitHub 上创建一个新的仓库，仓库名可以是 &lt;code&gt;&amp;lt;username&amp;gt;.github.io&lt;/code&gt;，其中 &lt;code&gt;&amp;lt;username&amp;gt;&lt;/code&gt; 是你的 GitHub 用户名。&lt;/p&gt;
+&lt;p&gt;&lt;img alt=&#34;创建 GitHub 仓库&#34; loading=&#34;lazy&#34; src=&#34;https://s2.loli.net/2024/06/17/X43nikWmO7hVGrb.png&#34;&gt;&lt;/p&gt;
+&lt;h3 id=&#34;克隆仓库&#34;&gt;克隆仓库&lt;/h3&gt;&lt;p&gt;然后，我们需要将这个仓库克隆到本地：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;git clone &amp;lt;repository-url&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nb&#34;&gt;cd&lt;/span&gt; &amp;lt;repository-name&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;创建-mkdocs-项目&#34;&gt;创建 MkDocs 项目&lt;/h2&gt;&lt;h3 id=&#34;安装-mkdocs&#34;&gt;安装 MkDocs&lt;/h3&gt;&lt;p&gt;MkDocs 是一个 Python 项目使用 pip 安装：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;pip install mkdocs
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;我们需要创建一个 MkDocs 项目，可以使用 MkDocs 官方提供的模板来创建。直接在仓库根目录执行以下命令即可：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;mkdocs new .
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;然后，我们需要安装 MkDocs Material 主题。当然我们也可以选择其他主题，可以在 MkDocs 的 &lt;a href=&#34;https://github.com/mkdocs/mkdocs/wiki/MkDocs-Themes&#34;&gt;WiKi&lt;/a&gt; 查看更多主题。&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

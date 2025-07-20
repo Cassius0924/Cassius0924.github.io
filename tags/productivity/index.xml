@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Productivity on Cassius0924 的博客</title>
+    <link>https://blog.cassdev.com/tags/productivity/</link>
+    <description>Recent content in Productivity on Cassius0924 的博客</description>
+    <generator>Hugo -- 0.148.1</generator>
+    <language>zh-CN</language>
+    <copyright>Copyright © 2025-2025 Cassius0924. All rights reserved.</copyright>
+    <lastBuildDate>Sun, 16 Jun 2024 11:20:31 +0800</lastBuildDate>
+    <atom:link href="https://blog.cassdev.com/tags/productivity/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Cassius0924 的 VSCode 插件</title>
+      <link>https://blog.cassdev.com/posts/cassius0924-%E7%9A%84-vscode-%E6%8F%92%E4%BB%B6/</link>
+      <pubDate>Sun, 16 Jun 2024 11:20:31 +0800</pubDate>
+      <guid>https://blog.cassdev.com/posts/cassius0924-%E7%9A%84-vscode-%E6%8F%92%E4%BB%B6/</guid>
+      <description>&lt;h2 id=&#34;heading&#34;&gt;#&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;.NET Install Tool for Extenstion&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;a&#34;&gt;A&lt;/h2&gt;&lt;h2 id=&#34;b&#34;&gt;B&lt;/h2&gt;&lt;h2 id=&#34;c&#34;&gt;C&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;C/C++&lt;/li&gt;
+&lt;li&gt;C/C++ Extension Pack&lt;/li&gt;
+&lt;li&gt;C/C++ Themes&lt;/li&gt;
+&lt;li&gt;C#&lt;/li&gt;
+&lt;li&gt;C# Dev Kit&lt;/li&gt;
+&lt;li&gt;CMake&lt;/li&gt;
+&lt;li&gt;CMake Language Support&lt;/li&gt;
+&lt;li&gt;Cmake Tools&lt;/li&gt;
+&lt;li&gt;Codelf&lt;/li&gt;
+&lt;li&gt;Code Runner&lt;/li&gt;
+&lt;li&gt;Code Snap&lt;/li&gt;
+&lt;li&gt;Code Together&lt;/li&gt;
+&lt;li&gt;Color Highlight&lt;/li&gt;
+&lt;li&gt;Color Picker&lt;/li&gt;
+&lt;li&gt;CSS Peek&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;d&#34;&gt;D&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;Dev Containers&lt;/li&gt;
+&lt;li&gt;Docker&lt;/li&gt;
+&lt;li&gt;Doxygen Documentation Genertor&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;e&#34;&gt;E&lt;/h2&gt;&lt;h2 id=&#34;f&#34;&gt;F&lt;/h2&gt;&lt;h2 id=&#34;g&#34;&gt;G&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;Git Graph&lt;/li&gt;
+&lt;li&gt;git-commit-plugin&lt;/li&gt;
+&lt;li&gt;GitHub Copilot&lt;/li&gt;
+&lt;li&gt;GitHub Copilot Chat&lt;/li&gt;
+&lt;li&gt;GitHub Copilot Labs&lt;/li&gt;
+&lt;li&gt;GitHub Pull Resquest and Issues&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;h&#34;&gt;H&lt;/h2&gt;&lt;h2 id=&#34;i&#34;&gt;I&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;IntelliCode API Usage Examples&lt;/li&gt;
+&lt;li&gt;IntelliCode for C# Dev Kit&lt;/li&gt;
+&lt;li&gt;IntelliJ IDEA New UI Theme&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;j&#34;&gt;J&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;Jetbrains Fleet Theme&lt;/li&gt;
+&lt;li&gt;JetBrains Icon Theme&lt;/li&gt;
+&lt;li&gt;JetBrains IDE Keymap&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;k&#34;&gt;K&lt;/h2&gt;&lt;h2 id=&#34;l&#34;&gt;L&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;Live Sever&lt;/li&gt;
+&lt;li&gt;Live Share&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;m&#34;&gt;M&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;Markdown Preview Github Styling&lt;/li&gt;
+&lt;li&gt;Markdown Preview Mermaid Support&lt;/li&gt;
+&lt;li&gt;Marp for VS Code&lt;/li&gt;
+&lt;li&gt;MASM&lt;/li&gt;
+&lt;li&gt;masm-code&lt;/li&gt;
+&lt;li&gt;MASM/TASM&lt;/li&gt;
+&lt;li&gt;Material Icon Theme&lt;/li&gt;
+&lt;li&gt;mypy&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;n&#34;&gt;N&lt;/h2&gt;&lt;h2 id=&#34;o&#34;&gt;O&lt;/h2&gt;&lt;h2 id=&#34;p&#34;&gt;P&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;Pylance&lt;/li&gt;
+&lt;li&gt;Python&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;q&#34;&gt;Q&lt;/h2&gt;&lt;h2 id=&#34;r&#34;&gt;R&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;Remote - SSH: Editing Configuration Files&lt;/li&gt;
+&lt;li&gt;Remote - Development&lt;/li&gt;
+&lt;li&gt;Remote Explorer&lt;/li&gt;
+&lt;li&gt;REST API&lt;/li&gt;
+&lt;li&gt;Ruff&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;s&#34;&gt;S&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;Slidev&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;t&#34;&gt;T&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;TODO Highlight v2&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;u&#34;&gt;U&lt;/h2&gt;&lt;h2 id=&#34;v&#34;&gt;V&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;Vim&lt;/li&gt;
+&lt;li&gt;VSCode DOSBox&lt;/li&gt;
+&lt;li&gt;VSCode Git Commit Message&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;w&#34;&gt;W&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;WSL&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;x&#34;&gt;X&lt;/h2&gt;&lt;h2 id=&#34;y&#34;&gt;Y&lt;/h2&gt;&lt;h2 id=&#34;z&#34;&gt;Z&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;Marp for VS Code&lt;/li&gt;
+&lt;/ul&gt;</description>
+    </item>
+  </channel>
+</rss>

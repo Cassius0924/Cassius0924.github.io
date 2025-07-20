@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Visualization on Cassius0924 的博客</title>
+    <link>https://blog.cassdev.com/tags/visualization/</link>
+    <description>Recent content in Visualization on Cassius0924 的博客</description>
+    <generator>Hugo -- 0.148.1</generator>
+    <language>zh-CN</language>
+    <copyright>Copyright © 2025-2025 Cassius0924. All rights reserved.</copyright>
+    <lastBuildDate>Sun, 16 Jun 2024 11:20:31 +0800</lastBuildDate>
+    <atom:link href="https://blog.cassdev.com/tags/visualization/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Kinect 获取数据和可视化</title>
+      <link>https://blog.cassdev.com/posts/kinect-%E8%8E%B7%E5%8F%96%E6%95%B0%E6%8D%AE%E5%92%8C%E5%8F%AF%E8%A7%86%E5%8C%96/</link>
+      <pubDate>Sun, 16 Jun 2024 11:20:31 +0800</pubDate>
+      <guid>https://blog.cassdev.com/posts/kinect-%E8%8E%B7%E5%8F%96%E6%95%B0%E6%8D%AE%E5%92%8C%E5%8F%AF%E8%A7%86%E5%8C%96/</guid>
+      <description>&lt;p&gt;基于 Azure Kinect SDK 和 Open3D 实现灾害现场的三维重建。&lt;/p&gt;
+&lt;p&gt;首先，通过获取 Kinect 的 IMU 数据、捕获彩色图像和深度图像，将图像数据转换为点云数据。
+随后，根据 IMU 数据实现点云的粗配准，使用彩色ICP算法实现点云的精配准。并将点云数据转换为三角网格数据即场景模型数据。
+最后，通过 Protocal Buffers 技术发送给客户端。客户端可在 HoloLens2 上进行智能可视化。&lt;/p&gt;
+&lt;p&gt;然后，我们将点云数据转换为三角网格数据，生成场景模型数据。最后，使用 Protocal Buffers 技术将场景模型数据发送给客户端，实现在 HoloLens2 上进行可视化操作。通过完成以上步骤，我们可以高效地把灾后场景还原为一个准确的三维场景模型，使救援和重建工作变得更为快捷、高效。&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

@@ -7,8 +7,39 @@
     <generator>Hugo -- 0.148.1</generator>
     <language>zh-CN</language>
     <copyright>Copyright © 2025-2025 Cassius0924. All rights reserved.</copyright>
-    <lastBuildDate>Fri, 09 Jun 2023 10:00:00 +0800</lastBuildDate>
+    <lastBuildDate>Sun, 16 Jun 2024 11:20:31 +0800</lastBuildDate>
     <atom:link href="https://blog.cassdev.com/tags/open3d/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Kinect 获取数据和可视化</title>
+      <link>https://blog.cassdev.com/posts/kinect-%E8%8E%B7%E5%8F%96%E6%95%B0%E6%8D%AE%E5%92%8C%E5%8F%AF%E8%A7%86%E5%8C%96/</link>
+      <pubDate>Sun, 16 Jun 2024 11:20:31 +0800</pubDate>
+      <guid>https://blog.cassdev.com/posts/kinect-%E8%8E%B7%E5%8F%96%E6%95%B0%E6%8D%AE%E5%92%8C%E5%8F%AF%E8%A7%86%E5%8C%96/</guid>
+      <description>&lt;p&gt;基于 Azure Kinect SDK 和 Open3D 实现灾害现场的三维重建。&lt;/p&gt;
+&lt;p&gt;首先，通过获取 Kinect 的 IMU 数据、捕获彩色图像和深度图像，将图像数据转换为点云数据。
+随后，根据 IMU 数据实现点云的粗配准，使用彩色ICP算法实现点云的精配准。并将点云数据转换为三角网格数据即场景模型数据。
+最后，通过 Protocal Buffers 技术发送给客户端。客户端可在 HoloLens2 上进行智能可视化。&lt;/p&gt;
+&lt;p&gt;然后，我们将点云数据转换为三角网格数据，生成场景模型数据。最后，使用 Protocal Buffers 技术将场景模型数据发送给客户端，实现在 HoloLens2 上进行可视化操作。通过完成以上步骤，我们可以高效地把灾后场景还原为一个准确的三维场景模型，使救援和重建工作变得更为快捷、高效。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>三维重建笔记——从变换矩阵中提取并分析平移量</title>
+      <link>https://blog.cassdev.com/posts/%E4%B8%89%E7%BB%B4%E9%87%8D%E5%BB%BA%E7%AC%94%E8%AE%B0%E4%BB%8E%E5%8F%98%E6%8D%A2%E7%9F%A9%E9%98%B5%E4%B8%AD%E6%8F%90%E5%8F%96%E5%B9%B6%E5%88%86%E6%9E%90%E5%B9%B3%E7%A7%BB%E9%87%8F/</link>
+      <pubDate>Sun, 16 Jun 2024 11:20:31 +0800</pubDate>
+      <guid>https://blog.cassdev.com/posts/%E4%B8%89%E7%BB%B4%E9%87%8D%E5%BB%BA%E7%AC%94%E8%AE%B0%E4%BB%8E%E5%8F%98%E6%8D%A2%E7%9F%A9%E9%98%B5%E4%B8%AD%E6%8F%90%E5%8F%96%E5%B9%B6%E5%88%86%E6%9E%90%E5%B9%B3%E7%A7%BB%E9%87%8F/</guid>
+      <description>&lt;p&gt;在编写点云变换和姿态估计代码时，我们经常需要从结果的变换矩阵中提取平移信息，并分析平移量的大小，帮助判断结果的准确性。&lt;/p&gt;
+&lt;p&gt;本文将介绍如何从变换矩阵中提取平移向量，并计算其欧几里得长度。&lt;/p&gt;
+&lt;h2 id=&#34;提取平移向量&#34;&gt;提取平移向量&lt;/h2&gt;&lt;p&gt;假设我们通过某种姿态估计算法得到了一个4x4的变换矩阵 result.transformation_ ,其中包含了旋转和平移信息。&lt;/p&gt;
+&lt;p&gt;我们可以通过以下代码提取出平移部分:（以Open3D为例）&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-c++&#34; data-lang=&#34;c++&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;core&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;::&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;Tensor&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;translation&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;result&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;transformation_&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;Slice&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;0&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;0&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;3&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;).&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;Slice&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;3&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;4&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;);&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;code&gt;Slice(0,0,3);&lt;/code&gt;表示从矩阵的第0维(行)，第0行开始，取3行，即前3行；&lt;code&gt;Slice(1,3,4);&lt;/code&gt;表示从矩阵的第1维(列)，第3列开始，取1列，即第4列。
+最后获得一个3x1的平移向量，包含x、y、z三个方向的平移量。&lt;/p&gt;
+&lt;h2 id=&#34;计算欧几里得长度&#34;&gt;计算欧几里得长度&lt;/h2&gt;&lt;p&gt;有了平移向量后,我们可以计算其欧几里得长度,表示平移量的大小:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-c++&#34; data-lang=&#34;c++&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;kt&#34;&gt;double&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;translation_norm&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;std&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;::&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;sqrt&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;((&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;translation&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;*&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;translation&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;).&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;Sum&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;({&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;0&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;}).&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;Item&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&#34;kt&#34;&gt;double&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;&amp;gt;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;());&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;code&gt;std::sqrt&lt;/code&gt;计算平方根，&lt;code&gt;translation * translation&lt;/code&gt; 计算向量每个元素的平方，&lt;code&gt;Sum&lt;/code&gt; 聚合，最终得到平移向量的L2范数，即&lt;strong&gt;欧几里得长度&lt;/strong&gt;。&lt;/p&gt;
+&lt;h2 id=&#34;分析平移量&#34;&gt;分析平移量&lt;/h2&gt;&lt;p&gt;通过提取并计算平移向量的模长，我们可以分析相机或物体的移动距离，以及姿态估计结果的准确性。&lt;/p&gt;
+&lt;p&gt;如果 translation_norm 的值过大，可能表示估计存在误差，需要反复优化算法。&lt;/p&gt;
+&lt;p&gt;设置不同的阈值可以根据实际场景需求，判断平移量是否在允许的范围内。&lt;/p&gt;
+&lt;p&gt;以上是从变换矩阵中提取和利用平移信息的简单示例，可以提供点云变换和姿态估计任务有用的辅助分析。&lt;/p&gt;</description>
+    </item>
     <item>
       <title>解决 Open3D 同时链接其他库时的 Undefined Reference 错误</title>
       <link>https://blog.cassdev.com/posts/%E8%A7%A3%E5%86%B3-open3d-%E5%90%8C%E6%97%B6%E9%93%BE%E6%8E%A5%E5%85%B6%E4%BB%96%E5%BA%93%E6%97%B6%E7%9A%84-undefined-reference-%E9%94%99%E8%AF%AF/</link>

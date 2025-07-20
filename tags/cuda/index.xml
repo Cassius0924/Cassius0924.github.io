@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>CUDA on Cassius0924 的博客</title>
+    <link>https://blog.cassdev.com/tags/cuda/</link>
+    <description>Recent content in CUDA on Cassius0924 的博客</description>
+    <generator>Hugo -- 0.148.1</generator>
+    <language>zh-CN</language>
+    <copyright>Copyright © 2025-2025 Cassius0924. All rights reserved.</copyright>
+    <lastBuildDate>Sun, 16 Jun 2024 11:20:31 +0800</lastBuildDate>
+    <atom:link href="https://blog.cassdev.com/tags/cuda/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Jetson Xavier NX 安装 CUDA 支持的 PyTorch 指南</title>
+      <link>https://blog.cassdev.com/posts/jetson-xavier-nx-%E5%AE%89%E8%A3%85-cuda-%E6%94%AF%E6%8C%81%E7%9A%84-pytorch-%E6%8C%87%E5%8D%97/</link>
+      <pubDate>Sun, 16 Jun 2024 11:20:31 +0800</pubDate>
+      <guid>https://blog.cassdev.com/posts/jetson-xavier-nx-%E5%AE%89%E8%A3%85-cuda-%E6%94%AF%E6%8C%81%E7%9A%84-pytorch-%E6%8C%87%E5%8D%97/</guid>
+      <description>&lt;p&gt;本指南将帮助开发者完成在 Jetson Xavier NX 上安装 CUDA 支持的 PyTorch。&lt;/p&gt;
+&lt;h2 id=&#34;安装方法&#34;&gt;安装方法&lt;/h2&gt;&lt;p&gt;在 Jetson 上安装 Pytorch 只有两种方法。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;一种是直接安装他人已经编译好的 PyTorch 轮子；&lt;/li&gt;
+&lt;li&gt;一种是自己从头开始开始构建 PyTorch 轮子并且安装。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;使用轮子安装&#34;&gt;使用轮子安装&lt;/h2&gt;&lt;p&gt;可以从我的 &lt;a href=&#34;https://github.com/Cassius0924/JetsonPytorch/&#34;&gt;GitHub 仓库&lt;/a&gt; 直接下载我编译好的 PyTorch 轮子（torch-1.13.0-cuda-11.4-python-3.8-aarch64）。&lt;/p&gt;
+&lt;p&gt;安装前先确保 python 版本为 PyTorch 轮子对应的 Python 3.8。&lt;/p&gt;
+&lt;p&gt;下载完毕后使用&lt;code&gt;pip install&lt;/code&gt;安装：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;sudo -H pip install torch-1.13.0a0+git7c98e70-cp38-cp38-linux_aarch64.whl
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;如果你以前安装过 torch 的其他版本，则需要添加&lt;code&gt;--force-reinstall&lt;/code&gt;覆盖安装。&lt;/p&gt;
+&lt;p&gt;其他低于 CUDA 11 的 PyTorch 轮子可以在 &lt;a href=&#34;https://github.com/Qengineering/PyTorch-Jetson-Nano&#34;&gt;Qengineering 的 GitHub 仓库&lt;/a&gt; 寻找。&lt;/p&gt;
+&lt;h2 id=&#34;编译源码安装&#34;&gt;编译源码安装&lt;/h2&gt;&lt;p&gt;接下来说一下重点，自己从源码构建轮子并安装。自行构建需要花费数个小时的时间。&lt;/p&gt;
+&lt;p&gt;PyTroch 1.11.0 以及以上版本只能在 Ubuntu 20.04 上安装。&lt;/p&gt;
+&lt;h3 id=&#34;安装依赖&#34;&gt;安装依赖&lt;/h3&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;sudo apt-get update
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;sudo apt-get upgrade
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;sudo apt-get install ninja-build git cmake 
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;sudo apt-get install libjpeg-dev libopenmpi-dev libomp-dev ccache libopenblas-dev libblas-dev libeigen3-dev
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;sudo pip3 install -U --user wheel mock pillow
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;sudo -H pip3 install testresources &lt;span class=&#34;nv&#34;&gt;setuptools&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;==&lt;/span&gt;58.3.0 scikit-build
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;下载源码&#34;&gt;下载源码&lt;/h3&gt;&lt;p&gt;请克隆自己需要的 PyTorch 版本，修改&lt;code&gt;-b&lt;/code&gt;后的版本参数。&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

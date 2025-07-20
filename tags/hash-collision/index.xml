@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Hash Collision on Cassius0924 的博客</title>
+    <link>https://blog.cassdev.com/tags/hash-collision/</link>
+    <description>Recent content in Hash Collision on Cassius0924 的博客</description>
+    <generator>Hugo -- 0.148.1</generator>
+    <language>zh-CN</language>
+    <copyright>Copyright © 2025-2025 Cassius0924. All rights reserved.</copyright>
+    <lastBuildDate>Sat, 29 Jun 2024 10:16:12 +0800</lastBuildDate>
+    <atom:link href="https://blog.cassdev.com/tags/hash-collision/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>哈希冲突解决方法学习笔记</title>
+      <link>https://blog.cassdev.com/posts/%E5%93%88%E5%B8%8C%E5%86%B2%E7%AA%81%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</link>
+      <pubDate>Sat, 29 Jun 2024 10:16:12 +0800</pubDate>
+      <guid>https://blog.cassdev.com/posts/%E5%93%88%E5%B8%8C%E5%86%B2%E7%AA%81%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</guid>
+      <description>&lt;h2 id=&#34;链地址法&#34;&gt;链地址法&lt;/h2&gt;&lt;p&gt;链地址法也叫做拉链法，它的基本思想是，将哈希表中的每个槽位都指向一个链表，当发生哈希冲突时，将数据插入到链表中。&lt;/p&gt;
+&lt;p&gt;很好理解，如图所示：&lt;/p&gt;
+&lt;p&gt;&lt;img loading=&#34;lazy&#34; src=&#34;https://s2.loli.net/2024/06/29/DUupYdFkvxbCscP.png&#34;&gt;&lt;/p&gt;
+&lt;h2 id=&#34;开放定址法&#34;&gt;开放定址法&lt;/h2&gt;&lt;p&gt;开放定址法是一种解决哈希冲突的方法，它的基本思想是，当发生哈希冲突时，不是将数据直接插入到哈希表中，而是寻找哈希表中的空槽位，将数据插入到空槽位中。&lt;/p&gt;
+&lt;h3 id=&#34;线性探测&#34;&gt;线性探测&lt;/h3&gt;&lt;p&gt;线性探测采用固定步长的线性搜索来进行探测。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;插入元素：通过哈希函数计算桶索引，若发现桶内已有元素，则从冲突位置向后线性遍历（步长通常为 1），直至找到空桶，将元素插入其中。&lt;/li&gt;
+&lt;li&gt;查找元素：若发现哈希冲突，则使用相同步长向后进行线性遍历，直到找到对应元素，返回 value 即可；如果遇到空桶，说明目标元素不在哈希表中，返回 None 。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;注意，我们不能在开放寻址哈希表中直接删除元素。因为删除元素会在数组内产生一个空桶 None ，当查询元素时，线性探测到该空桶就会返回，因此在该空桶之下的元素都无法再被访问到，程序可能误判这些元素不存在。&lt;/p&gt;
+&lt;p&gt;&lt;img loading=&#34;lazy&#34; src=&#34;https://s2.loli.net/2024/06/29/qEIPUWjZ2HNwBbp.png&#34;&gt;&lt;/p&gt;
+&lt;p&gt;为了解决该问题，我们可以采用懒删除（ &lt;em&gt;lazy deletion&lt;/em&gt; ）机制，不直接从哈希表中移除元素，而是利用一个常量 &lt;strong&gt;TOMBSTONE&lt;/strong&gt; 来标记这个桶。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;None&lt;/strong&gt; 和 &lt;strong&gt;TOMBSTONE&lt;/strong&gt; 都代表空桶，都可以放置键值对。线性探测到 TOMBSTONE 时应该继续遍历，因为其之下可能还存在键值对。在线性探测中记录遇到的首个 TOMBSTONE 的索引，并将搜索到的目标元素与该 TOMBSTONE 交换位置，这样可以优化效率。&lt;/p&gt;
+&lt;p&gt;&lt;img loading=&#34;lazy&#34; src=&#34;https://s2.loli.net/2024/06/29/gxJ6SFeRzVZwG25.jpg&#34;&gt;&lt;/p&gt;
+&lt;p&gt;线性探测容易产生 &lt;strong&gt;聚集现象&lt;/strong&gt;，为了缓解这个问题，就有了平方探测和双重散列。&lt;/p&gt;
+&lt;h3 id=&#34;平方探测&#34;&gt;平方探测&lt;/h3&gt;&lt;p&gt;平方探测思想与线性探测类似，不同之处在于探测的步长是平方级别的。即当发生哈希冲突时，探测的步长为 &lt;code&gt;1&lt;/code&gt;，&lt;code&gt;4&lt;/code&gt;，&lt;code&gt;9&lt;/code&gt;，&amp;hellip;步。&lt;/p&gt;
+&lt;p&gt;平方探测可以缓解线性探测的聚集现象，但不能彻底解决。&lt;/p&gt;
+&lt;h3 id=&#34;多次哈希&#34;&gt;多次哈希&lt;/h3&gt;&lt;p&gt;多次哈希的基本思想是，当发生哈希冲突时，尝试其他的哈希函数，直到找到空槽位。&lt;/p&gt;
+&lt;p&gt;与线性探测相比，多次哈希方法不易产生聚集，但多个哈希函数会带来额外的计算量。&lt;/p&gt;
+
+            &lt;link rel=&#34;stylesheet&#34; href=&#34;https://blog.cassdev.com/css/vendors/admonitions.4fd9a0b8ec8899f2ca952048d255a569f433f77dfb3f52f5bc87e7d65cdce449.css&#34; integrity=&#34;sha256-T9mguOyImfLKlSBI0lWlafQz9337P1L1vIfn1lzc5Ek=&#34; crossorigin=&#34;anonymous&#34;&gt;
+    &lt;div class=&#34;admonition warning&#34;&gt;
+      &lt;div class=&#34;admonition-header&#34;&gt;&lt;svg xmlns=&#34;http://www.w3.org/2000/svg&#34; viewBox=&#34;0 0 512 512&#34;&gt;&lt;path d=&#34;M256 32c14.2 0 27.3 7.5 34.5 19.8l216 368c7.3 12.4 7.3 27.7 .2 40.1S486.3 480 472 480L40 480c-14.3 0-27.6-7.7-34.7-20.1s-7-27.8 .2-40.1l216-368C228.7 39.5 241.8 32 256 32zm0 128c-13.3 0-24 10.7-24 24l0 112c0 13.3 10.7 24 24 24s24-10.7 24-24l0-112c0-13.3-10.7-24-24-24zm32 224a32 32 0 1 0 -64 0 32 32 0 1 0 64 0z&#34;/&gt;&lt;/svg&gt;
+        &lt;span&gt;警告&lt;/span&gt;
+      &lt;/div&gt;
+      &lt;div class=&#34;admonition-content&#34;&gt;
+        &lt;p&gt;以上三种方法，线性探测、平方探测和多次哈希哈希表都存在 &lt;strong&gt;不能直接删除元素&lt;/strong&gt; 的问题。&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>ITerm2 on Cassius0924 的博客</title>
+    <link>https://blog.cassdev.com/tags/iterm2/</link>
+    <description>Recent content in ITerm2 on Cassius0924 的博客</description>
+    <generator>Hugo -- 0.148.1</generator>
+    <language>zh-CN</language>
+    <copyright>Copyright © 2025-2025 Cassius0924. All rights reserved.</copyright>
+    <lastBuildDate>Sun, 16 Jun 2024 11:20:31 +0800</lastBuildDate>
+    <atom:link href="https://blog.cassdev.com/tags/iterm2/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>iTerm2 配置失去焦点时保持命令行窗口指南</title>
+      <link>https://blog.cassdev.com/posts/iterm2-%E9%85%8D%E7%BD%AE%E5%A4%B1%E5%8E%BB%E7%84%A6%E7%82%B9%E6%97%B6%E4%BF%9D%E6%8C%81%E5%91%BD%E4%BB%A4%E8%A1%8C%E7%AA%97%E5%8F%A3%E6%8C%87%E5%8D%97/</link>
+      <pubDate>Sun, 16 Jun 2024 11:20:31 +0800</pubDate>
+      <guid>https://blog.cassdev.com/posts/iterm2-%E9%85%8D%E7%BD%AE%E5%A4%B1%E5%8E%BB%E7%84%A6%E7%82%B9%E6%97%B6%E4%BF%9D%E6%8C%81%E5%91%BD%E4%BB%A4%E8%A1%8C%E7%AA%97%E5%8F%A3%E6%8C%87%E5%8D%97/</guid>
+      <description>&lt;h2 id=&#34;配置步骤&#34;&gt;配置步骤&lt;/h2&gt;&lt;p&gt;按下 &lt;code&gt;cmd&lt;/code&gt; + &lt;code&gt;,&lt;/code&gt; 打开 iTerm2 设置，选择 Profiles 面板，切换到 Keys 选项卡，点击 Configure Hotkey Windows。&lt;/p&gt;
+&lt;p&gt;&lt;img alt=&#34;CleanShot 2023-11-10 at 17.09.07@2x&#34; loading=&#34;lazy&#34; src=&#34;https://s2.loli.net/2023/11/10/nyprlVNkUzZuTHj.png&#34;&gt;&lt;/p&gt;
+&lt;p&gt;打勾 Pin hotkey window 选项。&lt;/p&gt;
+&lt;p&gt;&lt;img alt=&#34;CleanShot 2023-11-10 at 17.11.26@2x&#34; loading=&#34;lazy&#34; src=&#34;https://s2.loli.net/2023/11/10/mjWFbGafINvCt6r.png&#34;&gt;&lt;/p&gt;
+&lt;p&gt;大功告成，配置完后鼠标在点击 iTerm2 命令行窗口以外的界面时，命令行窗口就不会自动隐藏了。&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

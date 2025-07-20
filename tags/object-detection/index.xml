@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Object Detection on Cassius0924 的博客</title>
+    <link>https://blog.cassdev.com/tags/object-detection/</link>
+    <description>Recent content in Object Detection on Cassius0924 的博客</description>
+    <generator>Hugo -- 0.148.1</generator>
+    <language>zh-CN</language>
+    <copyright>Copyright © 2025-2025 Cassius0924. All rights reserved.</copyright>
+    <lastBuildDate>Sun, 16 Jun 2024 11:20:31 +0800</lastBuildDate>
+    <atom:link href="https://blog.cassdev.com/tags/object-detection/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>YOLO 目标检测算法学习笔记（二）</title>
+      <link>https://blog.cassdev.com/posts/yolo-%E7%9B%AE%E6%A0%87%E6%A3%80%E6%B5%8B%E7%AE%97%E6%B3%95%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%E4%BA%8C/</link>
+      <pubDate>Sun, 16 Jun 2024 11:20:31 +0800</pubDate>
+      <guid>https://blog.cassdev.com/posts/yolo-%E7%9B%AE%E6%A0%87%E6%A3%80%E6%B5%8B%E7%AE%97%E6%B3%95%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%E4%BA%8C/</guid>
+      <description>&lt;p&gt;可以说，YOLO各代升级的改进点都是提升检测效果mAP和速度FPS。&lt;/p&gt;
+&lt;h2 id=&#34;precision精度与recall召回率&#34;&gt;Precision精度与Recall召回率&lt;/h2&gt;&lt;p&gt;要计算精度与召回率（查全率），我们需要先了解四个值：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;TP（True Positives）&lt;/li&gt;
+&lt;li&gt;FP（False Positives）&lt;/li&gt;
+&lt;li&gt;FN（False Negatives）&lt;/li&gt;
+&lt;li&gt;TN（True Negatives）&lt;/li&gt;
+&lt;/ul&gt;
+&lt;table&gt;
+  &lt;thead&gt;
+      &lt;tr&gt;
+          &lt;th style=&#34;text-align: left&#34;&gt;&lt;/th&gt;
+          &lt;th style=&#34;text-align: left&#34;&gt;相关（Relevant），正类&lt;/th&gt;
+          &lt;th&gt;无关（NonRelevant），负类&lt;/th&gt;
+      &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+      &lt;tr&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;&lt;strong&gt;被检索到（Retrieved）&lt;/strong&gt;&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;TP，正类判定为正类。&lt;/td&gt;
+          &lt;td&gt;FP，负类判定为正类&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;&lt;strong&gt;未被检索到（Not Retrieved）&lt;/strong&gt;&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;FN，正类判定为负类&lt;/td&gt;
+          &lt;td&gt;TN，负类判断为负类&lt;/td&gt;
+      &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h3 id=&#34;记忆方法&#34;&gt;记忆方法&lt;/h3&gt;&lt;p&gt;我们只需要记住这里面的四个单词的中文意思方可推断出四个值的含义。True 正确的、False 错误的、Positives 正类以及 Negatives 负类。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;True Positives（&amp;#x2795;&amp;#x2795;）——正确的判断为正类，即将正类判定为正类。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;False Positives（&amp;#x2796;&amp;#x2795;）——错误的判定为正类，即将负类判定为正类。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;False Negatives（&amp;#x2795;&amp;#x2796;）——错误的判定为负类，即将正类判定为正类。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;True Negatives（&amp;#x2796;&amp;#x2796;）——正确的判定为负类，即将负类判定为负类。&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;计算公式&#34;&gt;计算公式&lt;/h3&gt;&lt;p&gt;$$
+Precision = \frac{TP}{TP+FP}
+$$&lt;/p&gt;
+&lt;p&gt;$$
+Recall = \frac{TP}{TP + FN}
+$$&lt;/p&gt;
+&lt;p&gt;&lt;img alt=&#34;IMG_4784&#34; loading=&#34;lazy&#34; src=&#34;https://s2.loli.net/2023/08/28/DLUk8I91clvCbwd.jpg&#34;&gt;&lt;/p&gt;
+&lt;p&gt;为了方便理解，我画了一个草图，以格子为单位。其中蓝色框代表实际值，橙色框代表预测值。&lt;/p&gt;
+&lt;p&gt;真正的正类（蓝色框内）共20个格子，真正的负类（蓝色框外）共10个格子。判定的正类（橙色框内），判定的负类（橙色框外）&lt;/p&gt;
+&lt;p&gt;TP值（正确的判断为正类），真正的正类与判定的正类的交集，即涂黄色的格子，共9个格子。&lt;/p&gt;
+&lt;p&gt;FP值（错误的判定为正类），真正的负类与判定的正类的交集，即涂绿色的格子，共6个格子。&lt;/p&gt;
+&lt;p&gt;FN值（错误的判定为负类），真正的正类与判定的负类的交集，即涂蓝色的格子，共11个格子。&lt;/p&gt;
+&lt;p&gt;TN值（正确的判定为负类），真正的负类与判定的负类的交集，即涂红色的格子，共4个格子。&lt;/p&gt;
+&lt;h3 id=&#34;例子&#34;&gt;例子&lt;/h3&gt;&lt;p&gt;已知条件：班级总人数100人，其中男生80人，女生20人。
+目标：找出所有的女生。
+结果：从班级中选择了50人，其中20人是女生，还错误的把30名男生挑选出来了。&lt;/p&gt;
+&lt;p&gt;TP = 20; FP = 30; FN = 0; TN = 50&lt;/p&gt;
+&lt;h2 id=&#34;map指标&#34;&gt;mAP指标&lt;/h2&gt;&lt;p&gt;目标检测不可单看精度（Precision）或召回率（Recall），因为两者为此消彼长的关系。所以需要一个新的指标用于综合的衡量目标检测的效果。&lt;/p&gt;
+&lt;p&gt;mAP（mean Average Precision）指标，又名全类平均精度，用于综合衡量目标检测的效果。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>YOLO 目标检测算法学习笔记（三）</title>
+      <link>https://blog.cassdev.com/posts/yolo-%E7%9B%AE%E6%A0%87%E6%A3%80%E6%B5%8B%E7%AE%97%E6%B3%95%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%E4%B8%89/</link>
+      <pubDate>Sun, 16 Jun 2024 11:20:31 +0800</pubDate>
+      <guid>https://blog.cassdev.com/posts/yolo-%E7%9B%AE%E6%A0%87%E6%A3%80%E6%B5%8B%E7%AE%97%E6%B3%95%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%E4%B8%89/</guid>
+      <description>&lt;h2 id=&#34;yolo-v1&#34;&gt;YOLO-V1&lt;/h2&gt;&lt;p&gt;YOLO，全称 You Only Look Once。名字已经说明了一切！&lt;/p&gt;
+&lt;p&gt;YOLO 这是一个经典的 one-stage 方法，把检测问题转换为回归问题，一个CNN就可以搞定。&lt;/p&gt;
+&lt;p&gt;&lt;img alt=&#34;YOLO-V1 mAP&#34; loading=&#34;lazy&#34; src=&#34;https://s2.loli.net/2023/08/30/UHC9IP5gSdZfolr.png&#34;&gt;&lt;/p&gt;
+&lt;p&gt;YOLO 相比于 Faster R-CNN 虽然在 mAP 值上略逊一筹，但其 FPS 值是远远高于 Faster R-CNN 的，因此2016年的时，YOLO爆火。&lt;/p&gt;
+&lt;h2 id=&#34;核心思想&#34;&gt;核心思想&lt;/h2&gt;&lt;p&gt;&lt;img alt=&#34;YOLO 核心思想&#34; loading=&#34;lazy&#34;&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;将输入图像分割成 SxS 个网格（如7x7），每个网格负责检测本身区域是否含有物体。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;每个网格会预测 B 个边界框（在YOLO-V1中，B值等于2），边界框由四个变量表示 x、y、w、h，以及每个边界框的置信度，置信度用 c 表示。置信度表示边界框包含物体的概率。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;过滤掉置信度低的边界框。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;由于整个检测只需要一个前向传播，没有区域提议生成候选框的过程，所以速度非常快。&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;网络架构&#34;&gt;网络架构&lt;/h2&gt;&lt;p&gt;&lt;img alt=&#34;YOLO 网络架构&#34; loading=&#34;lazy&#34;&gt;&lt;/p&gt;
+&lt;p&gt;将输入图像（在YOLO-V1中限制了输入图像的大小）进行通过卷积神经网络进行特征提取，获得 7x7x1024 的特征图，再进入全连接层，得到 1470 个特征，随后 Reshape 成 7x7x30 的特征图。&lt;/p&gt;
+&lt;p&gt;下面解释一下 7x7x30 的含义。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;7x7  表示输入图像最后分割的网格大小。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;30 分为 5+5+20，其中前两个5代表两个边界框的 x、y、w、h和c；最后的20表示当前格子属于数据集中的各个类别的概率。&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;注意，这里三个值都不是固定不变的，会由于YOLO版本的更新和训练数据集的变化而改变。&lt;/p&gt;
+&lt;p&gt;&lt;img alt=&#34;YOLO 网络架构简化&#34; loading=&#34;lazy&#34; src=&#34;https://s2.loli.net/2023/08/30/3iVITLdxk4RA5Hf.png&#34;&gt;&lt;/p&gt;
+&lt;p&gt;总结一下 ，如上图所示，输入图像最后会被分割成许多个网格，每个网格都包含了若干值。&lt;/p&gt;
+&lt;p&gt;S：网格边长；B：预测边界框数量；C：数据集中的类别个数。
+$$
+(S * S) * (B * 5 + C)
+$$&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>YOLO 目标检测算法学习笔记（四）</title>
+      <link>https://blog.cassdev.com/posts/yolo-%E7%9B%AE%E6%A0%87%E6%A3%80%E6%B5%8B%E7%AE%97%E6%B3%95%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%E5%9B%9B/</link>
+      <pubDate>Sun, 16 Jun 2024 11:20:31 +0800</pubDate>
+      <guid>https://blog.cassdev.com/posts/yolo-%E7%9B%AE%E6%A0%87%E6%A3%80%E6%B5%8B%E7%AE%97%E6%B3%95%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%E5%9B%9B/</guid>
+      <description>&lt;h2 id=&#34;yolo-v2&#34;&gt;YOLO-V2&lt;/h2&gt;&lt;p&gt;下图为YOLO-V2相较于YOLO-V1的改进点，以及改进后 mAP 值的变化。&lt;/p&gt;
+&lt;p&gt;&lt;img alt=&#34;YOLO-V2&#34; loading=&#34;lazy&#34; src=&#34;https://s2.loli.net/2023/08/30/CmvK9W1bdpauPtR.png&#34;&gt;&lt;/p&gt;
+&lt;h2 id=&#34;batch-normalization&#34;&gt;Batch Normalization&lt;/h2&gt;&lt;p&gt;V2 版本舍弃了 Dropout，不再有全连接层（Fully connected layers，FC）。每次卷积后都加入 Batch Normalization，对网络的每一层的输入都进行归一化，使收敛更容易。&lt;/p&gt;
+&lt;p&gt;经过 Batch Normalization 处理后的网络会提升2%的mAP值。&lt;/p&gt;
+&lt;p&gt;从现在的角度来看，Batch Normatlization 已经称为卷积神经网络处理必备处理了。&lt;/p&gt;
+&lt;h2 id=&#34;high-resolution-classifier&#34;&gt;High Resolution Classifier&lt;/h2&gt;&lt;p&gt;High Resolution Classifier，即高分辨率分类器，高分辨率分类器。&lt;/p&gt;
+&lt;p&gt;在 V1 版本，训练时用的是224*224分辨率的图片，测试时又使用448*448分辨率的图片，这会导致模型“水土不服”。&lt;/p&gt;
+&lt;p&gt;针对这一问题，V2 版本在模型训练时额外进行了10次448*448的微调。经过微调后，V2 版本的 mAP 值提升了约4%。&lt;/p&gt;
+&lt;h2 id=&#34;convolutional&#34;&gt;Convolutional&lt;/h2&gt;</description>
+    </item>
+    <item>
+      <title>YOLO 目标检测算法学习笔记（一）</title>
+      <link>https://blog.cassdev.com/posts/yolo-%E7%9B%AE%E6%A0%87%E6%A3%80%E6%B5%8B%E7%AE%97%E6%B3%95%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%E4%B8%80/</link>
+      <pubDate>Sun, 16 Jun 2024 11:20:31 +0800</pubDate>
+      <guid>https://blog.cassdev.com/posts/yolo-%E7%9B%AE%E6%A0%87%E6%A3%80%E6%B5%8B%E7%AE%97%E6%B3%95%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%E4%B8%80/</guid>
+      <description>&lt;h2 id=&#34;深度学习经典检测方法&#34;&gt;深度学习经典检测方法&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;one-stage（单阶段）：YOLO系列&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;two-stage（双阶段）：Faster-Rcnn、Mask-Rcnn系列&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;img alt=&#34;深度学习经典检测方法&#34; loading=&#34;lazy&#34; src=&#34;https://s2.loli.net/2023/08/28/mX5t61TwqAR3nHB.png&#34;&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Faster-Rcnn：物体检测开山之作。&lt;/p&gt;&lt;/blockquote&gt;
+&lt;h2 id=&#34;one-stage-单阶段检测&#34;&gt;one-stage 单阶段检测&lt;/h2&gt;&lt;p&gt;优势：速度快，适合做实时检测任务。&lt;/p&gt;
+&lt;p&gt;缺点：效果不佳。&lt;/p&gt;
+&lt;p&gt;&lt;img alt=&#34;one-stage 单阶段检测&#34; loading=&#34;lazy&#34; src=&#34;https://s2.loli.net/2023/08/28/rFkyvMngZcAJPDo.png&#34;&gt;&lt;/p&gt;
+&lt;p&gt;目标检测的两个主要指标：mAP和FPS。&lt;/p&gt;
+&lt;p&gt;mAP：检测效果的综合指标。（mAP值越大效果越好）&lt;/p&gt;
+&lt;h2 id=&#34;two-stage-双阶段检测&#34;&gt;two-stage 双阶段检测&lt;/h2&gt;&lt;p&gt;优势：效果较好。&lt;/p&gt;
+&lt;p&gt;缺点：速度较慢、不适合用于视频流的实时检测。&lt;/p&gt;
+&lt;p&gt;Mask-Rcnn是一个非常实用的通用框架（建议了解）。&lt;/p&gt;
+&lt;p&gt;&lt;img alt=&#34;two-stage 双阶段检测&#34; loading=&#34;lazy&#34; src=&#34;https://s2.loli.net/2023/08/28/qcefLK8pBjFnsMa.png&#34;&gt;&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

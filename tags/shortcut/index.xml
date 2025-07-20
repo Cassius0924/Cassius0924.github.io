@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Shortcut on Cassius0924 的博客</title>
+    <link>https://blog.cassdev.com/tags/shortcut/</link>
+    <description>Recent content in Shortcut on Cassius0924 的博客</description>
+    <generator>Hugo -- 0.148.1</generator>
+    <language>zh-CN</language>
+    <copyright>Copyright © 2025-2025 Cassius0924. All rights reserved.</copyright>
+    <lastBuildDate>Sun, 16 Jun 2024 11:20:31 +0800</lastBuildDate>
+    <atom:link href="https://blog.cassdev.com/tags/shortcut/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>macOS Word 更好的快捷键配置指南</title>
+      <link>https://blog.cassdev.com/posts/macos-word-%E6%9B%B4%E5%A5%BD%E7%9A%84%E5%BF%AB%E6%8D%B7%E9%94%AE%E9%85%8D%E7%BD%AE%E6%8C%87%E5%8D%97/</link>
+      <pubDate>Sun, 16 Jun 2024 11:20:31 +0800</pubDate>
+      <guid>https://blog.cassdev.com/posts/macos-word-%E6%9B%B4%E5%A5%BD%E7%9A%84%E5%BF%AB%E6%8D%B7%E9%94%AE%E9%85%8D%E7%BD%AE%E6%8C%87%E5%8D%97/</guid>
+      <description>&lt;p&gt;Microsoft Word在macOS平台上是一款功能强大的文字处理工具，然而，要使其与macOS原生编辑器更好地无缝切换，合理配置快捷键是至关重要的。本指南将介绍一些新的macOS Word的快捷键，使您能够更高效地编辑文档，同时保持与系统级快捷键的一致性。&lt;/p&gt;
+&lt;table&gt;
+  &lt;thead&gt;
+      &lt;tr&gt;
+          &lt;th style=&#34;text-align: center&#34;&gt;快捷键&lt;/th&gt;
+          &lt;th style=&#34;text-align: left&#34;&gt;Word快捷键名&lt;/th&gt;
+          &lt;th style=&#34;text-align: left&#34;&gt;备注&lt;/th&gt;
+      &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+      &lt;tr&gt;
+          &lt;td style=&#34;text-align: center&#34;&gt;Ctrl + A&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;StartOfLine&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;跳到行首&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td style=&#34;text-align: center&#34;&gt;Ctrl + E&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;EndOfLine&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;跳到行尾&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td style=&#34;text-align: center&#34;&gt;Ctrl + N&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;LineDown&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;下一行&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td style=&#34;text-align: center&#34;&gt;Ctrl + P&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;LineUp&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;上一行&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td style=&#34;text-align: center&#34;&gt;Ctrl + F&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;CharRight&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;下一个字符&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td style=&#34;text-align: center&#34;&gt;Ctrl + B&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;CharLeft&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;上一个字符&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td style=&#34;text-align: center&#34;&gt;Ctrl + J&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;NextPage&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;跳到下一页&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td style=&#34;text-align: center&#34;&gt;Ctrl + K&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;PrevPage&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;跳到上一页&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td style=&#34;text-align: center&#34;&gt;Ctrl + V&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;PasteTextOnly&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;无格式粘贴&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td style=&#34;text-align: center&#34;&gt;Ctrl + H&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;Highlight&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;高亮选中的文字&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td style=&#34;text-align: center&#34;&gt;Ctrl + T&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;TableInsertTable&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;插入表格&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td style=&#34;text-align: center&#34;&gt;Cmd + Shift + F&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;NavPaneSearch&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;高级面板搜索&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td style=&#34;text-align: center&#34;&gt;Option + Return&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;TableInsertRowBelow&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;在表格下方插入一行&lt;/td&gt;
+      &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;</description>
+    </item>
+  </channel>
+</rss>

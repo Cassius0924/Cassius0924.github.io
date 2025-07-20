@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Tricks on Cassius0924 的博客</title>
+    <link>https://blog.cassdev.com/tags/tricks/</link>
+    <description>Recent content in Tricks on Cassius0924 的博客</description>
+    <generator>Hugo -- 0.148.1</generator>
+    <language>zh-CN</language>
+    <copyright>Copyright © 2025-2025 Cassius0924. All rights reserved.</copyright>
+    <lastBuildDate>Fri, 24 Mar 2023 10:00:00 +0800</lastBuildDate>
+    <atom:link href="https://blog.cassdev.com/tags/tricks/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Google 搜索引擎使用技巧</title>
+      <link>https://blog.cassdev.com/posts/google-%E6%90%9C%E7%B4%A2%E5%BC%95%E6%93%8E%E4%BD%BF%E7%94%A8%E6%8A%80%E5%B7%A7/</link>
+      <pubDate>Fri, 24 Mar 2023 10:00:00 +0800</pubDate>
+      <guid>https://blog.cassdev.com/posts/google-%E6%90%9C%E7%B4%A2%E5%BC%95%E6%93%8E%E4%BD%BF%E7%94%A8%E6%8A%80%E5%B7%A7/</guid>
+      <description>本文简单介绍了Google搜索引擎的几种高级搜索用法</description>
+    </item>
+  </channel>
+</rss>

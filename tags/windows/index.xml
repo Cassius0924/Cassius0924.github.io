@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Windows on Cassius0924 的博客</title>
+    <link>https://blog.cassdev.com/tags/windows/</link>
+    <description>Recent content in Windows on Cassius0924 的博客</description>
+    <generator>Hugo -- 0.148.1</generator>
+    <language>zh-CN</language>
+    <copyright>Copyright © 2025-2025 Cassius0924. All rights reserved.</copyright>
+    <lastBuildDate>Sun, 16 Jun 2024 19:13:10 +0800</lastBuildDate>
+    <atom:link href="https://blog.cassdev.com/tags/windows/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Windows Socket API 和 Linux Socket API</title>
+      <link>https://blog.cassdev.com/posts/windows-socket-api-%E5%92%8C-linux-socket-api/</link>
+      <pubDate>Sun, 16 Jun 2024 19:13:10 +0800</pubDate>
+      <guid>https://blog.cassdev.com/posts/windows-socket-api-%E5%92%8C-linux-socket-api/</guid>
+      <description>&lt;p&gt;本文章主要介绍 Windows 下和 Linux 下的 Socket 编程区别，即 Windows Socket API 和 Linux Socket API 的区别。&lt;/p&gt;
+&lt;h2 id=&#34;头文件&#34;&gt;头文件&lt;/h2&gt;&lt;p&gt;Windows 环境下的 Socket 编程需要以下头文件:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;&amp;lt;WinSock2.h&amp;gt;&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;&amp;lt;WS2tcpip.h&amp;gt;&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+    &lt;div class=&#34;admonition note&#34;&gt;
+      &lt;div class=&#34;admonition-header&#34;&gt;&lt;svg xmlns=&#34;http://www.w3.org/2000/svg&#34; viewBox=&#34;0 0 576 512&#34;&gt;&lt;path d=&#34;M0 64C0 28.7 28.7 0 64 0L224 0l0 128c0 17.7 14.3 32 32 32l128 0 0 125.7-86.8 86.8c-10.3 10.3-17.5 23.1-21 37.2l-18.7 74.9c-2.3 9.2-1.8 18.8 1.3 27.5L64 512c-35.3 0-64-28.7-64-64L0 64zm384 64l-128 0L256 0 384 128zM549.8 235.7l14.4 14.4c15.6 15.6 15.6 40.9 0 56.6l-29.4 29.4-71-71 29.4-29.4c15.6-15.6 40.9-15.6 56.6 0zM311.9 417L441.1 287.8l71 71L382.9 487.9c-4.1 4.1-9.2 7-14.9 8.4l-60.1 15c-5.5 1.4-11.2-.2-15.2-4.2s-5.6-9.7-4.2-15.2l15-60.1c1.4-5.6 4.3-10.8 8.4-14.9z&#34;/&gt;&lt;/svg&gt;
+        &lt;span&gt;笔记&lt;/span&gt;
+      &lt;/div&gt;
+      &lt;div class=&#34;admonition-content&#34;&gt;
+        &lt;p&gt;如果使用 MSVC 编译器，那么还需要使用预处理指令 &lt;code&gt;#pragma comment(lib, &amp;quot;Ws2_32.lib&amp;quot;)&lt;/code&gt; 来链接 &lt;code&gt;Ws2_32.lib&lt;/code&gt; 库。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Windows VSCode 使用 JetBrians Mono 字体</title>
+      <link>https://blog.cassdev.com/posts/windows-vscode-%E4%BD%BF%E7%94%A8-jetbrians-mono-%E5%AD%97%E4%BD%93/</link>
+      <pubDate>Sun, 16 Jun 2024 19:13:10 +0800</pubDate>
+      <guid>https://blog.cassdev.com/posts/windows-vscode-%E4%BD%BF%E7%94%A8-jetbrians-mono-%E5%AD%97%E4%BD%93/</guid>
+      <description>&lt;p&gt;本文主要介绍如何在 Windows 系统下的 Visual Studio Code 中使用 JetBrians Mono 字体。&lt;/p&gt;
+&lt;h2 id=&#34;下载字体&#34;&gt;下载字体&lt;/h2&gt;&lt;p&gt;可能你跟着网上很多教程一样，一上来就在 VS Code 中设置字体，结果发现设置不生效，这是因为你没有安装 JetBrians Mono 字体。&lt;/p&gt;
+&lt;p&gt;JetBrians Mono 字体下载地址：&lt;a href=&#34;https://www.jetbrains.com/lp/mono/&#34;&gt;JetBrainsMono&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id=&#34;安装字体&#34;&gt;安装字体&lt;/h2&gt;&lt;p&gt;下载字体后，解压缩，进入 &lt;code&gt;ttf&lt;/code&gt; 文件夹，找到 &lt;code&gt;JetBrainsMono-Regular.ttf&lt;/code&gt; 文件，双击打开，点击安装即可。当然你也可以全部字体都安装 :)&lt;/p&gt;
+&lt;p&gt;&lt;img alt=&#34;CleanShot 2024-06-02 at 16.22.26@2x&#34; loading=&#34;lazy&#34; src=&#34;https://s2.loli.net/2024/06/02/RG7EY6MqkvHW8Ni.png&#34;&gt;&lt;/p&gt;
+&lt;h2 id=&#34;设置-vs-code&#34;&gt;设置 VS Code&lt;/h2&gt;&lt;p&gt;打开 VS Code 的设置，搜索 &lt;code&gt;editor.fontFamily&lt;/code&gt;，将其值设置为 &lt;code&gt;JetBrains Mono&lt;/code&gt;，如下图所示：&lt;/p&gt;
+&lt;p&gt;&lt;img alt=&#34;CleanShot 2024-06-02 at 16.35.35@2x&#34; loading=&#34;lazy&#34; src=&#34;https://s2.loli.net/2024/06/02/fJlT5nwtE6kG829.png&#34;&gt;&lt;/p&gt;
+&lt;h2 id=&#34;重启-vs-code&#34;&gt;重启 VS Code&lt;/h2&gt;&lt;p&gt;最后一步，重启 VS Code 即可。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>解决 “warning C4819- 该文件包含不能在当前代码页(936)中表示的字符” 问题指南</title>
+      <link>https://blog.cassdev.com/posts/%E8%A7%A3%E5%86%B3-warning-c4819--%E8%AF%A5%E6%96%87%E4%BB%B6%E5%8C%85%E5%90%AB%E4%B8%8D%E8%83%BD%E5%9C%A8%E5%BD%93%E5%89%8D%E4%BB%A3%E7%A0%81%E9%A1%B5936%E4%B8%AD%E8%A1%A8%E7%A4%BA%E7%9A%84%E5%AD%97%E7%AC%A6-%E9%97%AE%E9%A2%98%E6%8C%87%E5%8D%97/</link>
+      <pubDate>Sun, 16 Jun 2024 19:13:10 +0800</pubDate>
+      <guid>https://blog.cassdev.com/posts/%E8%A7%A3%E5%86%B3-warning-c4819--%E8%AF%A5%E6%96%87%E4%BB%B6%E5%8C%85%E5%90%AB%E4%B8%8D%E8%83%BD%E5%9C%A8%E5%BD%93%E5%89%8D%E4%BB%A3%E7%A0%81%E9%A1%B5936%E4%B8%AD%E8%A1%A8%E7%A4%BA%E7%9A%84%E5%AD%97%E7%AC%A6-%E9%97%AE%E9%A2%98%E6%8C%87%E5%8D%97/</guid>
+      <description>&lt;p&gt;起因是因为我在对我的 C++ 项目进行跨平台适配，从 macOS 平台移植到 Windows 平台时，在使用 Cmake + MSVC 编译后，出现了这个问题。&lt;/p&gt;
+&lt;h2 id=&#34;问题原因&#34;&gt;问题原因&lt;/h2&gt;&lt;p&gt;这是由于 Windows 平台默认使用的是 GBK 编码，而 macOS 平台上使用的是 UTF-8 编码。&lt;/p&gt;
+&lt;h2 id=&#34;解决方法&#34;&gt;解决方法&lt;/h2&gt;&lt;h3 id=&#34;方法一&#34;&gt;方法一&lt;/h3&gt;&lt;p&gt;在 CMakeLists.txt 文件中添加如下代码：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-cmake&#34; data-lang=&#34;cmake&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nb&#34;&gt;add_compile_options&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;$&amp;lt;$&amp;lt;C_COMPILER_ID:MSVC&amp;gt;:/source-charset:utf-8&amp;gt;&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;方法二&#34;&gt;方法二&lt;/h3&gt;&lt;p&gt;在 CMakeLists.txt 文件中添加如下代码：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-cmake&#34; data-lang=&#34;cmake&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nb&#34;&gt;if&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;MSVC&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;err&#34;&gt;&lt;/span&gt;    &lt;span class=&#34;nb&#34;&gt;target_compile_options&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;lt;你的项目名&amp;gt;&lt;/span&gt; &lt;span class=&#34;s&#34;&gt;PRIVATE&lt;/span&gt; &lt;span class=&#34;s2&#34;&gt;&amp;#34;/utf-8&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;err&#34;&gt;&lt;/span&gt;&lt;span class=&#34;nb&#34;&gt;endif&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;()&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</description>
+    </item>
+  </channel>
+</rss>

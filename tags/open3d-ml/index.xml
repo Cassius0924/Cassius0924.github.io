@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Open3D-ML on Cassius0924 的博客</title>
+    <link>https://blog.cassdev.com/tags/open3d-ml/</link>
+    <description>Recent content in Open3D-ML on Cassius0924 的博客</description>
+    <generator>Hugo -- 0.148.1</generator>
+    <language>zh-CN</language>
+    <copyright>Copyright © 2025-2025 Cassius0924. All rights reserved.</copyright>
+    <lastBuildDate>Sun, 16 Jun 2024 11:20:31 +0800</lastBuildDate>
+    <atom:link href="https://blog.cassdev.com/tags/open3d-ml/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Jetson Xavier NX (ARM) 使用 PyTorch 安装 Open3D-ML 指南</title>
+      <link>https://blog.cassdev.com/posts/jetson-xavier-nx-arm-%E4%BD%BF%E7%94%A8-pytorch-%E5%AE%89%E8%A3%85-open3d-ml-%E6%8C%87%E5%8D%97/</link>
+      <pubDate>Sun, 16 Jun 2024 11:20:31 +0800</pubDate>
+      <guid>https://blog.cassdev.com/posts/jetson-xavier-nx-arm-%E4%BD%BF%E7%94%A8-pytorch-%E5%AE%89%E8%A3%85-open3d-ml-%E6%8C%87%E5%8D%97/</guid>
+      <description>&lt;p&gt;由于 Jetson 为 ARM64 (aarch64) 的系统架构，所以不能用&lt;code&gt; pip install&lt;/code&gt; 直接安装，需要通过源码编译。&lt;/p&gt;
+&lt;h2 id=&#34;升级系统-jetpack&#34;&gt;升级系统 JetPack&lt;/h2&gt;&lt;p&gt;由于 Open3D-ML 目前只支持 CUDA 10.0 以及 CUDA 11.*，并且  JetPack 的 CUDA 开发环境只有10.2、11.4以及12.2，所以我们只能选择 CUDA 11.4 进行安装。&lt;/p&gt;
+&lt;p&gt;使用 &lt;code&gt;jtop&lt;/code&gt;命令查看 JetPack 版本。如果 Jetson 系统的 JetPack 低于 5.1.2 则需要通过 SDK Manager 升级到 JetPack 5.1.2。&lt;/p&gt;
+&lt;p&gt;如果你的系统已经是 JetPack 5.1.2 那我也推荐你通过 SDK Manager 重新安装一遍，排除难以发现的错误。&lt;/p&gt;
+&lt;p&gt;详细指南参考文章[Jetson Xavier NX 升级或重新安装 JetPack 指南]。&lt;/p&gt;
+&lt;h2 id=&#34;安装-pytorch&#34;&gt;安装 PyTorch&lt;/h2&gt;&lt;p&gt;安装教程参考文章[Jetson Xavier NX 安装 CUDA 支持的 Pytorch 指南]。&lt;/p&gt;
+&lt;p&gt;注意，PyTorch 的 CUDA 支持版本需要和 Open3D-ML 的一致，同为 CUDA 11.4。否则与最后安装 Open3D-ML 的时候会报错：&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

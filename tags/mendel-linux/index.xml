@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Mendel Linux on Cassius0924 的博客</title>
+    <link>https://blog.cassdev.com/tags/mendel-linux/</link>
+    <description>Recent content in Mendel Linux on Cassius0924 的博客</description>
+    <generator>Hugo -- 0.148.1</generator>
+    <language>zh-CN</language>
+    <copyright>Copyright © 2025-2025 Cassius0924. All rights reserved.</copyright>
+    <lastBuildDate>Sun, 16 Jun 2024 11:20:31 +0800</lastBuildDate>
+    <atom:link href="https://blog.cassdev.com/tags/mendel-linux/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>macOS 为 Google Coral Dev Board 刷入系统镜像指南</title>
+      <link>https://blog.cassdev.com/posts/macos-%E4%B8%BA-google-coral-dev-board-%E5%88%B7%E5%85%A5%E7%B3%BB%E7%BB%9F%E9%95%9C%E5%83%8F%E6%8C%87%E5%8D%97/</link>
+      <pubDate>Sun, 16 Jun 2024 11:20:31 +0800</pubDate>
+      <guid>https://blog.cassdev.com/posts/macos-%E4%B8%BA-google-coral-dev-board-%E5%88%B7%E5%85%A5%E7%B3%BB%E7%BB%9F%E9%95%9C%E5%83%8F%E6%8C%87%E5%8D%97/</guid>
+      <description>&lt;p&gt;本指南旨在帮助 macOS 开发者为 Google Coral Dev Board （Google Edege TPU） 通过 OTG 刷入 Mendel Linux 系统。&lt;/p&gt;
+&lt;h2 id=&#34;第一步连接到开发板串行控制台&#34;&gt;第一步：连接到开发板串行控制台&lt;/h2&gt;&lt;h3 id=&#34;安装-usb-转-uart-bridge-vcp-驱动程序&#34;&gt;安装 USB 转 UART Bridge VCP 驱动程序&lt;/h3&gt;&lt;p&gt;官方下载地址：&lt;a href=&#34;https://www.silabs.com/developers/usb-to-uart-bridge-vcp-drivers?tab=downloads&#34;&gt;https://www.silabs.com/developers/usb-to-uart-bridge-vcp-drivers?tab=downloads&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt=&#34;CP210x VCP&#34; loading=&#34;lazy&#34; src=&#34;https://s2.loli.net/2023/07/25/5n7sKqk1ValvcFR.png&#34;&gt;&lt;/p&gt;
+&lt;p&gt;下载完成后，双击运行并安装即可。&lt;/p&gt;
+&lt;h3 id=&#34;安装辅助程序&#34;&gt;安装辅助程序&lt;/h3&gt;&lt;p&gt;通过 Homebrew 安装：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;sudo brew install screen fastboot
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;连接开发板&#34;&gt;连接开发板&lt;/h3&gt;&lt;p&gt;先不给开发板供电，使用 micro-B USB 线将 Mac 连接到开发板。连接成功后会开发板会亮起绿色🟩和橙色🟧指示灯。&lt;/p&gt;
+&lt;p&gt;&lt;img alt=&#34;micro USB&#34; loading=&#34;lazy&#34; src=&#34;https://s2.loli.net/2023/07/26/8miISKlWOMy149J.jpg&#34;&gt;&lt;/p&gt;
+&lt;p&gt;随后使用命令查看串口连接是否正常工作：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;ls /dev/cu*
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;连接正常应该会列出&lt;code&gt;/dev/cu.SLAB_USBtoUART&lt;/code&gt;，如下图所示。&lt;/p&gt;
+&lt;p&gt;&lt;img alt=&#34;ls /dev/cu*&#34; loading=&#34;lazy&#34; src=&#34;https://s2.loli.net/2023/07/26/yafnbF9HUe8DQqT.png&#34;&gt;&lt;/p&gt;
+&lt;p&gt;然后使用&lt;code&gt;screen&lt;/code&gt;命令连接开发板串行命令行：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;screen /dev/cu.SLAB_USBtoUART &lt;span class=&#34;m&#34;&gt;115200&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;此时命令行应为空白，因为开发板未供电开机。&lt;/p&gt;
+&lt;h3 id=&#34;给开发板供电&#34;&gt;给开发板供电&lt;/h3&gt;&lt;p&gt;如图所示，将开发板电源插入，电源接口为右边的 USB-C 接口。&lt;/p&gt;
+&lt;p&gt;&lt;img alt=&#34;Power&#34; loading=&#34;lazy&#34; src=&#34;https://s2.loli.net/2023/07/26/sHYdWNjafQCeTwl.jpg&#34;&gt;&lt;/p&gt;
+&lt;p&gt;连接后开发板会亮起电源指示灯并转动风扇。串行命令行则会打印开发板的开机信息：&lt;/p&gt;
+&lt;p&gt;&lt;img alt=&#34;Coral Dev Board power on&#34; loading=&#34;lazy&#34; src=&#34;https://s2.loli.net/2023/07/26/h8JnuNpzWBsG25I.png&#34;&gt;&lt;/p&gt;
+&lt;p&gt;接着在串行命令行输入命令使开发板进入 fastboot 模式：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;fastboot &lt;span class=&#34;m&#34;&gt;0&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;img alt=&#34;fastboot 0&#34; loading=&#34;lazy&#34; src=&#34;https://s2.loli.net/2023/07/26/owkygYAm5JTUxjt.png&#34;&gt;&lt;/p&gt;
+&lt;h2 id=&#34;第二步刷入-mendel-linux-系统&#34;&gt;第二步：刷入 Mendel Linux 系统&lt;/h2&gt;&lt;h3 id=&#34;下载-mendel-linux-系统镜像&#34;&gt;下载 Mendel Linux 系统镜像&lt;/h3&gt;&lt;p&gt;回到 Mac，下载 Mendel Linux 系统镜像，官方下载地址：&lt;a href=&#34;https://coral.ai/software/#mendel-dev-board&#34;&gt;https://coral.ai/software/#mendel-dev-board&lt;/a&gt;&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

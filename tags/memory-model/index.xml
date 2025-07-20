@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Memory Model on Cassius0924 的博客</title>
+    <link>https://blog.cassdev.com/tags/memory-model/</link>
+    <description>Recent content in Memory Model on Cassius0924 的博客</description>
+    <generator>Hugo -- 0.148.1</generator>
+    <language>zh-CN</language>
+    <copyright>Copyright © 2025-2025 Cassius0924. All rights reserved.</copyright>
+    <lastBuildDate>Sat, 29 Jun 2024 16:44:14 +0800</lastBuildDate>
+    <atom:link href="https://blog.cassdev.com/tags/memory-model/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>C&#43;&#43; 内存模型学习笔记</title>
+      <link>https://blog.cassdev.com/posts/c&#43;&#43;-%E5%86%85%E5%AD%98%E6%A8%A1%E5%9E%8B%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</link>
+      <pubDate>Sat, 29 Jun 2024 16:44:14 +0800</pubDate>
+      <guid>https://blog.cassdev.com/posts/c&#43;&#43;-%E5%86%85%E5%AD%98%E6%A8%A1%E5%9E%8B%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</guid>
+      <description>&lt;p&gt;C++ 内存模型从上（高地址）到下（低地址）可以分为以下几个部分：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;栈区&lt;/strong&gt;：由编译器自动分配释放，存放函数的参数值、局部变量的值等。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;堆区&lt;/strong&gt;：由程序员分配释放，若程序员不释放，程序结束时可能由操作系统回收。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;全局/静态区&lt;/strong&gt;：分为 .data 段（全局初始化区）和 .bss 段（全局未初始化区），.data 段存放 &lt;strong&gt;已初始化&lt;/strong&gt; 了的全局变量和静态变量，.bss 段存放 &lt;strong&gt;未初始化&lt;/strong&gt; 的变量。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;常量区&lt;/strong&gt;：就是 .rodata 段，存放常量。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;代码区&lt;/strong&gt;：存放函数体的代码。&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;img loading=&#34;lazy&#34; src=&#34;https://s2.loli.net/2024/06/29/kHdqTj5Y2Fh7Ea4.jpg&#34;&gt;&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

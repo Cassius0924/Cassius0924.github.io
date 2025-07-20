@@ -7,14 +7,99 @@
     <generator>Hugo -- 0.148.1</generator>
     <language>zh-CN</language>
     <copyright>Copyright © 2025-2025 Cassius0924. All rights reserved.</copyright>
-    <lastBuildDate>Fri, 24 Mar 2023 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sun, 16 Jun 2024 11:20:31 +0800</lastBuildDate>
     <atom:link href="https://blog.cassdev.com/tags/shell/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>apt autoremove 误删依赖包后自救指南</title>
-      <link>https://blog.cassdev.com/posts/apt-autoremove-%E8%AF%AF%E5%88%A0%E4%BE%9D%E8%B5%96%E5%8C%85%E5%90%8E%E8%87%AA%E6%95%91%E6%8C%87%E5%8D%97/</link>
-      <pubDate>Fri, 24 Mar 2023 00:00:00 +0000</pubDate>
-      <guid>https://blog.cassdev.com/posts/apt-autoremove-%E8%AF%AF%E5%88%A0%E4%BE%9D%E8%B5%96%E5%8C%85%E5%90%8E%E8%87%AA%E6%95%91%E6%8C%87%E5%8D%97/</guid>
-      <description>apt autoremove后程序不能用了？别慌，跟着教程一步一步来。</description>
+      <title>Linux 初探之旅（二）——文件与文件夹的读写</title>
+      <link>https://blog.cassdev.com/posts/linux-%E5%88%9D%E6%8E%A2%E4%B9%8B%E6%97%85%E4%BA%8C%E6%96%87%E4%BB%B6%E4%B8%8E%E6%96%87%E4%BB%B6%E5%A4%B9%E7%9A%84%E8%AF%BB%E5%86%99/</link>
+      <pubDate>Sun, 16 Jun 2024 11:20:31 +0800</pubDate>
+      <guid>https://blog.cassdev.com/posts/linux-%E5%88%9D%E6%8E%A2%E4%B9%8B%E6%97%85%E4%BA%8C%E6%96%87%E4%BB%B6%E4%B8%8E%E6%96%87%E4%BB%B6%E5%A4%B9%E7%9A%84%E8%AF%BB%E5%86%99/</guid>
+      <description>&lt;p&gt;在上一篇文章中，我们学习了Linux中的文件浏览，知道了如何在Linux文件系统中定位文件。本篇文章中，我们将继续深入学习Linux中的文件及目录的读写操作。&lt;/p&gt;
+&lt;h2 id=&#34;读取文件&#34;&gt;读取文件&lt;/h2&gt;&lt;h3 id=&#34;cat-命令读取文件全部内容&#34;&gt;cat 命令：读取文件全部内容&lt;/h3&gt;&lt;p&gt;要读取一个文件的内容，可以使用cat命令，语法为：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;cat 文件名
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;这会将文件的全部内容输出到终端。当文件比较大时，这样的输出会刷屏，不太方便查看。&lt;/p&gt;
+&lt;h3 id=&#34;head-和-tail-命令显示部分内容&#34;&gt;head 和 tail 命令：显示部分内容&lt;/h3&gt;&lt;p&gt;Linux提供了head和tail命令来显示部分内容：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;head - 显示开头部分内容&lt;/li&gt;
+&lt;li&gt;tail - 显示结尾部分内容&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;head和tail可以指定显示的行数，例如：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;head -n &lt;span class=&#34;m&#34;&gt;3&lt;/span&gt; 文件名 &lt;span class=&#34;c1&#34;&gt;# 显示前3行 &lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;tail -n &lt;span class=&#34;m&#34;&gt;5&lt;/span&gt; 文件名 &lt;span class=&#34;c1&#34;&gt;# 显示后5行&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;less-命令分页显示&#34;&gt;less 命令：分页显示&lt;/h3&gt;&lt;p&gt;less命令可以分页方式显示文件内容，可以上下翻阅，是文件查看的首选工具。&lt;/p&gt;
+&lt;p&gt;less可以用方向键上下翻页，也支持各种快捷键，推荐大家阅读less的帮助文档。&lt;/p&gt;
+&lt;h2 id=&#34;写入文件&#34;&gt;写入文件&lt;/h2&gt;&lt;h3 id=&#34;echo-命令输出到文件&#34;&gt;echo 命令：输出到文件&lt;/h3&gt;&lt;p&gt;使用echo命令可以向文件写入内容，语法为：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nb&#34;&gt;echo&lt;/span&gt; &lt;span class=&#34;s2&#34;&gt;&amp;#34;要写入的内容&amp;#34;&lt;/span&gt; &amp;gt; 文件名	
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;这会覆盖文件原有内容。如果要附加内容，使用两个大于号：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nb&#34;&gt;echo&lt;/span&gt; &lt;span class=&#34;s2&#34;&gt;&amp;#34;新增内容&amp;#34;&lt;/span&gt; &amp;gt;&amp;gt; 文件名 
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;文本编辑器vim&#34;&gt;文本编辑器：vim&lt;/h3&gt;&lt;p&gt;对文件进行复杂编辑可以使用文本编辑器，Linux中的常用文本编辑器有vi、emacs、vim和nano等。这里简单介绍vim的使用。&lt;/p&gt;
+&lt;p&gt;使用&lt;code&gt;vim 文件名&lt;/code&gt;可以打开vim编辑器。vim有三种模式，分别是命令模式、插入模式和底线命令模式。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;命令模式：用于导航文件，可以进行复制、粘贴、删除等操作。&lt;/li&gt;
+&lt;li&gt;插入模式：用于输入文本，可以使用键盘输入文本。&lt;/li&gt;
+&lt;li&gt;底线命令模式：用于执行命令，例如保存文件、退出vim等。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;初学者可以先了解以下几个快捷键：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;i&lt;/code&gt; - 进入插入模式&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;ESC&lt;/code&gt; - 从插入模式回到命令模式&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;:w&lt;/code&gt; - 保存文件&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;:q&lt;/code&gt; - 退出vim&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;vim非常强大，建议大家自己练习熟悉其操作。&lt;/p&gt;
+&lt;h2 id=&#34;删除文件和目录&#34;&gt;删除文件和目录&lt;/h2&gt;&lt;h3 id=&#34;rm-命令删除文件&#34;&gt;rm 命令：删除文件&lt;/h3&gt;&lt;p&gt;删除文件使用rm命令：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;rm 文件名
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;rm--r-命令删除目录&#34;&gt;rm -r 命令：删除目录&lt;/h3&gt;&lt;p&gt;如果要删除目录，需要添加-r参数：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;rm -r 目录名
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;这会递归删除目录及其中的所有内容，需要小心使用。&lt;/p&gt;
+&lt;h2 id=&#34;复制和移动文件&#34;&gt;复制和移动文件&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;复制使用cp命令，添加-r参数可以复制目录&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Linux 初探之旅（三）——重定向、标准输入输出和管道</title>
+      <link>https://blog.cassdev.com/posts/linux-%E5%88%9D%E6%8E%A2%E4%B9%8B%E6%97%85%E4%B8%89%E9%87%8D%E5%AE%9A%E5%90%91%E6%A0%87%E5%87%86%E8%BE%93%E5%85%A5%E8%BE%93%E5%87%BA%E5%92%8C%E7%AE%A1%E9%81%93/</link>
+      <pubDate>Sun, 16 Jun 2024 11:20:31 +0800</pubDate>
+      <guid>https://blog.cassdev.com/posts/linux-%E5%88%9D%E6%8E%A2%E4%B9%8B%E6%97%85%E4%B8%89%E9%87%8D%E5%AE%9A%E5%90%91%E6%A0%87%E5%87%86%E8%BE%93%E5%85%A5%E8%BE%93%E5%87%BA%E5%92%8C%E7%AE%A1%E9%81%93/</guid>
+      <description>&lt;h2 id=&#34;标准输入输出&#34;&gt;标准输入输出&lt;/h2&gt;&lt;p&gt;我们先从Linux最基础的交互来讲起，我们究竟是如何和Linux系统内核进行交互的？换句话说，如何通过在按下键盘，就能让系统实现对应的操作的？&lt;/p&gt;
+&lt;p&gt;这一切都离不开它，终端——用户与Linux建立起联系的桥梁。&lt;/p&gt;
+&lt;p&gt;当我们在终端上输入命令的时候，直到我们未按下回车键之前，我们输入的所有内容都储存在终端的缓冲区（Buffer）里。此时我们输入的内容不会被系统所读到，只有在我们按下回车键后，缓冲区里的内容才会被发往 stdin （Standrad input 标准输入），stdin 是 Linux 内核和用户交互的通道。&lt;/p&gt;
+&lt;p&gt;接着，Shell 会介入，它会将 stdin 收到的内容翻译成操作并执行，Shell 译为壳层，与 Kernel（内核）相对应。Shell在外，Kernel在内。例如我们输入&lt;code&gt;ls&lt;/code&gt;，那么 Shell 就会找到 &lt;code&gt;ls&lt;/code&gt; 这条命令对应的二进制文件并执行。&lt;/p&gt;
+&lt;p&gt;执行完命令后，Shell 会将获取到的结果发送到另一条与 stdin 相对应的通道中，即 stdout（Standard output 标准输出）。终端会不间断地从 stdout 里读取内容，然后打印到屏幕上，即我们在终端中看到的输出。&lt;/p&gt;
+&lt;p&gt;总的来说，用户的输入的内容会发往 stdin 并被 Shell 读取，Shell 将找到内容所对应的二进制文件并执行，执行完后 Shell 会将结果发往 stdout 中，及时的显示在屏幕上。这就是一次与 Linux 交互的过程。&lt;/p&gt;
+&lt;p&gt;我们总说，在 Linux 中一切皆为文件，那么 stdin 和 stdout 也不例外，它们也是系统的两个文件。除了 stdin 和 stdout 之外，还有第三条通道 stderr（Standard error 标准错误）。stderr 和 stdout 一样，它们都是用于存储执行结果的地方，区别在于，Shell 执行完命令后，会将正常的结果发往 stdout 里，将错误的结果发往 stderr 里。同样地，stderr 也会被终端所读取，最后显示在屏幕上。&lt;/p&gt;
+&lt;h2 id=&#34;输出重定向&#34;&gt;输出重定向&lt;/h2&gt;&lt;p&gt;理解了标准输入输出后，我们能弄懂重定向的原理了，实际上就是 Shell 执行完命令后不把输出结果存放在 stdout 或 stderr 。而是存放到另一个文件当中。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Linux 批量修改文件名指南</title>
+      <link>https://blog.cassdev.com/posts/linux-%E6%89%B9%E9%87%8F%E4%BF%AE%E6%94%B9%E6%96%87%E4%BB%B6%E5%90%8D%E6%8C%87%E5%8D%97/</link>
+      <pubDate>Sun, 16 Jun 2024 11:20:31 +0800</pubDate>
+      <guid>https://blog.cassdev.com/posts/linux-%E6%89%B9%E9%87%8F%E4%BF%AE%E6%94%B9%E6%96%87%E4%BB%B6%E5%90%8D%E6%8C%87%E5%8D%97/</guid>
+      <description>&lt;p&gt;使用 bash 脚本，先创建一个 .sh 结尾的脚本：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-vim&#34; data-lang=&#34;vim&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nx&#34;&gt;vim&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;rename&lt;/span&gt;.&lt;span class=&#34;nx&#34;&gt;sh&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;以下是示例 bash 脚本内容，作用是将 /path/to/dir 目录下所有包含冒号&lt;code&gt;:&lt;/code&gt;的文件名，将冒号替换为减号。&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;# !/bin/bash&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;find /path/to/dir -type f -name &lt;span class=&#34;s1&#34;&gt;&amp;#39;*:*&amp;#39;&lt;/span&gt; -exec bash -c &lt;span class=&#34;s1&#34;&gt;&amp;#39;mv &amp;#34;$0&amp;#34; &amp;#34;${0//:/-}&amp;#34;&amp;#39;&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;{}&lt;/span&gt; &lt;span class=&#34;se&#34;&gt;\;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;代码解释&#34;&gt;代码解释&lt;/h2&gt;&lt;h3 id=&#34;使用find查找需要更改的文件&#34;&gt;使用&lt;code&gt;find&lt;/code&gt;查找需要更改的文件&lt;/h3&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;find /path/to/dir -type f -name &lt;span class=&#34;s1&#34;&gt;&amp;#39;*:*&amp;#39;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;/path/to/dir&lt;/code&gt; 应该替换为包含你要修改文件名的文件夹的实际路径。&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;-type f&lt;/code&gt; 表示只查找普通文件，而不包括目录。&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;-name &#39;*:*&#39;&lt;/code&gt; 是一个查找条件，用于匹配包含冒号的文件名。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;使用mv和bash执行文件名更改&#34;&gt;使用&lt;code&gt;mv&lt;/code&gt;和&lt;code&gt;bash&lt;/code&gt;执行文件名更改&lt;/h3&gt;&lt;p&gt;一旦找到需要更改的文件，可以使用&lt;code&gt;mv&lt;/code&gt;命令结合&lt;code&gt;bash&lt;/code&gt;来执行文件名更改操作。&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;find /path/to/dir -type f -name &lt;span class=&#34;s1&#34;&gt;&amp;#39;*:*&amp;#39;&lt;/span&gt; -exec bash -c &lt;span class=&#34;s1&#34;&gt;&amp;#39;mv &amp;#34;$0&amp;#34; &amp;#34;${0//:/-}&amp;#34;&amp;#39;&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;{}&lt;/span&gt; &lt;span class=&#34;se&#34;&gt;\;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;这个命令中的 &lt;code&gt;-exec&lt;/code&gt; 标志用于在&lt;code&gt;find&lt;/code&gt;查找到的每个文件上执行指定的命令。&lt;code&gt;bash -c&lt;/code&gt;之后的部分将执行文件名更改操作。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;mv &amp;quot;$0&amp;quot; &amp;quot;${0//:/-}&amp;quot;&lt;/code&gt; 使用&lt;code&gt;mv&lt;/code&gt;命令将文件名中的冒号替换为减号。&lt;code&gt;${0//:/-}&lt;/code&gt; 部分是一个bash子shell，其中的&lt;code&gt;${0}&lt;/code&gt;表示当前文件名，&lt;code&gt;//&lt;/code&gt;后跟着&lt;code&gt;:&lt;/code&gt;和&lt;code&gt;-&lt;/code&gt;是用来替换的正则表达式。&lt;/li&gt;
+&lt;/ul&gt;</description>
+    </item>
+    <item>
+      <title>Linux 命令行网络连接指南</title>
+      <link>https://blog.cassdev.com/posts/linux-%E5%91%BD%E4%BB%A4%E8%A1%8C%E7%BD%91%E7%BB%9C%E8%BF%9E%E6%8E%A5%E6%8C%87%E5%8D%97/</link>
+      <pubDate>Fri, 14 Apr 2023 10:00:00 +0800</pubDate>
+      <guid>https://blog.cassdev.com/posts/linux-%E5%91%BD%E4%BB%A4%E8%A1%8C%E7%BD%91%E7%BB%9C%E8%BF%9E%E6%8E%A5%E6%8C%87%E5%8D%97/</guid>
+      <description>本文旨在为 Linux 用户介绍提供关于使用命令行连接网络的方法。</description>
     </item>
   </channel>
 </rss>

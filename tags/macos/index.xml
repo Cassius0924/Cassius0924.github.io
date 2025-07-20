@@ -7,8 +7,515 @@
     <generator>Hugo -- 0.148.1</generator>
     <language>zh-CN</language>
     <copyright>Copyright © 2025-2025 Cassius0924. All rights reserved.</copyright>
-    <lastBuildDate>Fri, 14 Apr 2023 10:00:00 +0800</lastBuildDate>
+    <lastBuildDate>Sun, 16 Jun 2024 19:13:10 +0800</lastBuildDate>
     <atom:link href="https://blog.cassdev.com/tags/macos/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>解决 “warning C4819- 该文件包含不能在当前代码页(936)中表示的字符” 问题指南</title>
+      <link>https://blog.cassdev.com/posts/%E8%A7%A3%E5%86%B3-warning-c4819--%E8%AF%A5%E6%96%87%E4%BB%B6%E5%8C%85%E5%90%AB%E4%B8%8D%E8%83%BD%E5%9C%A8%E5%BD%93%E5%89%8D%E4%BB%A3%E7%A0%81%E9%A1%B5936%E4%B8%AD%E8%A1%A8%E7%A4%BA%E7%9A%84%E5%AD%97%E7%AC%A6-%E9%97%AE%E9%A2%98%E6%8C%87%E5%8D%97/</link>
+      <pubDate>Sun, 16 Jun 2024 19:13:10 +0800</pubDate>
+      <guid>https://blog.cassdev.com/posts/%E8%A7%A3%E5%86%B3-warning-c4819--%E8%AF%A5%E6%96%87%E4%BB%B6%E5%8C%85%E5%90%AB%E4%B8%8D%E8%83%BD%E5%9C%A8%E5%BD%93%E5%89%8D%E4%BB%A3%E7%A0%81%E9%A1%B5936%E4%B8%AD%E8%A1%A8%E7%A4%BA%E7%9A%84%E5%AD%97%E7%AC%A6-%E9%97%AE%E9%A2%98%E6%8C%87%E5%8D%97/</guid>
+      <description>&lt;p&gt;起因是因为我在对我的 C++ 项目进行跨平台适配，从 macOS 平台移植到 Windows 平台时，在使用 Cmake + MSVC 编译后，出现了这个问题。&lt;/p&gt;
+&lt;h2 id=&#34;问题原因&#34;&gt;问题原因&lt;/h2&gt;&lt;p&gt;这是由于 Windows 平台默认使用的是 GBK 编码，而 macOS 平台上使用的是 UTF-8 编码。&lt;/p&gt;
+&lt;h2 id=&#34;解决方法&#34;&gt;解决方法&lt;/h2&gt;&lt;h3 id=&#34;方法一&#34;&gt;方法一&lt;/h3&gt;&lt;p&gt;在 CMakeLists.txt 文件中添加如下代码：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-cmake&#34; data-lang=&#34;cmake&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nb&#34;&gt;add_compile_options&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;$&amp;lt;$&amp;lt;C_COMPILER_ID:MSVC&amp;gt;:/source-charset:utf-8&amp;gt;&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;方法二&#34;&gt;方法二&lt;/h3&gt;&lt;p&gt;在 CMakeLists.txt 文件中添加如下代码：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-cmake&#34; data-lang=&#34;cmake&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nb&#34;&gt;if&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;MSVC&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;err&#34;&gt;&lt;/span&gt;    &lt;span class=&#34;nb&#34;&gt;target_compile_options&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;lt;你的项目名&amp;gt;&lt;/span&gt; &lt;span class=&#34;s&#34;&gt;PRIVATE&lt;/span&gt; &lt;span class=&#34;s2&#34;&gt;&amp;#34;/utf-8&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;err&#34;&gt;&lt;/span&gt;&lt;span class=&#34;nb&#34;&gt;endif&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;()&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</description>
+    </item>
+    <item>
+      <title>HammerSpoon 入门指南</title>
+      <link>https://blog.cassdev.com/posts/hammerspoon-%E5%85%A5%E9%97%A8%E6%8C%87%E5%8D%97/</link>
+      <pubDate>Sun, 16 Jun 2024 11:20:31 +0800</pubDate>
+      <guid>https://blog.cassdev.com/posts/hammerspoon-%E5%85%A5%E9%97%A8%E6%8C%87%E5%8D%97/</guid>
+      <description>&lt;h2 id=&#34;介绍&#34;&gt;介绍&lt;/h2&gt;&lt;p&gt;HammerSpoon 这是一款强大的OS X自动化工具。&lt;/p&gt;
+&lt;p&gt;HammerSpoon 本质上就是操作系统和Lua脚本引擎之间的桥梁。&lt;/p&gt;
+&lt;p&gt;HammerSpoon 之所以强大，在于它提供了一系列向用户公开特定系统功能模块的扩展。有了这些扩展，用户便可利用Lua脚本来控制 macOS 的各个方面。&lt;/p&gt;
+&lt;h2 id=&#34;安装&#34;&gt;安装&lt;/h2&gt;&lt;p&gt;建议直接使用 Homebrew 安装。&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;brew install hammerspoon --cask
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;手动安装参考&lt;a href=&#34;https://github.com/Hammerspoon/hammerspoon&#34;&gt;官方 Github&lt;/a&gt;。&lt;/p&gt;
+&lt;h2 id=&#34;参考文档&#34;&gt;参考文档&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.hammerspoon.org/go/&#34;&gt;HammerSpoon 入门指南&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.hammerspoon.org/docs/&#34;&gt;HammerSpoon API 文档&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.hammerspoon.org/faq/&#34;&gt;HammerSpoon 常见问题&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/Hammerspoon/hammerspoon/wiki/Sample-Configurations&#34;&gt;HammerSpoon 配置示例&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;快速开始&#34;&gt;快速开始&lt;/h2&gt;&lt;h3 id=&#34;启动应用&#34;&gt;启动应用&lt;/h3&gt;&lt;p&gt;安装完毕后启动 HammerSpoon，设置中打开辅助功能。&lt;/p&gt;
+&lt;p&gt;&lt;img alt=&#34;HS Preferences&#34; loading=&#34;lazy&#34; src=&#34;https://s2.loli.net/2023/08/06/ZkNiYmXvIRPJ4bs.png&#34;&gt;&lt;/p&gt;
+&lt;p&gt;接着点击 Open Config 打开配置文件。下面开始教程。&lt;/p&gt;
+&lt;h3 id=&#34;hello-world&#34;&gt;Hello World&lt;/h3&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-lua&#34; data-lang=&#34;lua&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;-- Hello World&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;hs.hotkey&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;bind&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;({&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;cmd&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;s2&#34;&gt;&amp;#34;alt&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;s2&#34;&gt;&amp;#34;shift&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;s2&#34;&gt;&amp;#34;ctrl&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;},&lt;/span&gt; &lt;span class=&#34;s2&#34;&gt;&amp;#34;W&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;kr&#34;&gt;function&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;()&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;n&#34;&gt;hs.alert&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;show&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;HammerSpoon is working!&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;kr&#34;&gt;end&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;blockquote&gt;
+&lt;p&gt;每次修改配置文件后都需要点击 Reload Config。&lt;/p&gt;&lt;/blockquote&gt;
+&lt;p&gt;以上代码实现了点击快捷键 &lt;code&gt;command&lt;/code&gt; + &lt;code&gt;option&lt;/code&gt; + &lt;code&gt;shift&lt;/code&gt; + &lt;code&gt;control&lt;/code&gt; + &lt;code&gt;w&lt;/code&gt;，在屏幕中间显示弹窗提示的功能。&lt;/p&gt;
+&lt;p&gt;&lt;img alt=&#34;Hello World&#34; loading=&#34;lazy&#34; src=&#34;https://s2.loli.net/2023/08/06/PR3k6Ty4K5AVIqx.png&#34;&gt;&lt;/p&gt;
+&lt;p&gt;也可以使用 macOS 原生通知形式&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-lua&#34; data-lang=&#34;lua&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;-- Hello World（macOS native notification）&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;hs.hotkey&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;bind&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;({&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;cmd&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;s2&#34;&gt;&amp;#34;alt&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;s2&#34;&gt;&amp;#34;shift&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;s2&#34;&gt;&amp;#34;ctrl&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;},&lt;/span&gt; &lt;span class=&#34;s2&#34;&gt;&amp;#34;Q&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;kr&#34;&gt;function&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;()&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;n&#34;&gt;hs.notify&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;new&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;({&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;title&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;macOS Native Notification&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;informativeText&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;HammerSpoon is working&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;}):&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;send&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;()&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;kr&#34;&gt;end&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;img alt=&#34;macOS native notification&#34; loading=&#34;lazy&#34; src=&#34;https://s2.loli.net/2023/08/06/HwxemCVBGf1KNnh.png&#34;&gt;
+&lt;img alt=&#34;[bg right opacity]&#34; loading=&#34;lazy&#34; src=&#34;https://s2.loli.net/2023/08/06/HwxemCVBGf1KNnh.png&#34;&gt;&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>iTerm2 配置失去焦点时保持命令行窗口指南</title>
+      <link>https://blog.cassdev.com/posts/iterm2-%E9%85%8D%E7%BD%AE%E5%A4%B1%E5%8E%BB%E7%84%A6%E7%82%B9%E6%97%B6%E4%BF%9D%E6%8C%81%E5%91%BD%E4%BB%A4%E8%A1%8C%E7%AA%97%E5%8F%A3%E6%8C%87%E5%8D%97/</link>
+      <pubDate>Sun, 16 Jun 2024 11:20:31 +0800</pubDate>
+      <guid>https://blog.cassdev.com/posts/iterm2-%E9%85%8D%E7%BD%AE%E5%A4%B1%E5%8E%BB%E7%84%A6%E7%82%B9%E6%97%B6%E4%BF%9D%E6%8C%81%E5%91%BD%E4%BB%A4%E8%A1%8C%E7%AA%97%E5%8F%A3%E6%8C%87%E5%8D%97/</guid>
+      <description>&lt;h2 id=&#34;配置步骤&#34;&gt;配置步骤&lt;/h2&gt;&lt;p&gt;按下 &lt;code&gt;cmd&lt;/code&gt; + &lt;code&gt;,&lt;/code&gt; 打开 iTerm2 设置，选择 Profiles 面板，切换到 Keys 选项卡，点击 Configure Hotkey Windows。&lt;/p&gt;
+&lt;p&gt;&lt;img alt=&#34;CleanShot 2023-11-10 at 17.09.07@2x&#34; loading=&#34;lazy&#34; src=&#34;https://s2.loli.net/2023/11/10/nyprlVNkUzZuTHj.png&#34;&gt;&lt;/p&gt;
+&lt;p&gt;打勾 Pin hotkey window 选项。&lt;/p&gt;
+&lt;p&gt;&lt;img alt=&#34;CleanShot 2023-11-10 at 17.11.26@2x&#34; loading=&#34;lazy&#34; src=&#34;https://s2.loli.net/2023/11/10/mjWFbGafINvCt6r.png&#34;&gt;&lt;/p&gt;
+&lt;p&gt;大功告成，配置完后鼠标在点击 iTerm2 命令行窗口以外的界面时，命令行窗口就不会自动隐藏了。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>macOS ClashX Pro 配置指南</title>
+      <link>https://blog.cassdev.com/posts/macos-clashx-pro-%E9%85%8D%E7%BD%AE%E6%8C%87%E5%8D%97/</link>
+      <pubDate>Sun, 16 Jun 2024 11:20:31 +0800</pubDate>
+      <guid>https://blog.cassdev.com/posts/macos-clashx-pro-%E9%85%8D%E7%BD%AE%E6%8C%87%E5%8D%97/</guid>
+      <description>&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;mixed-port: 7890
+
+# Linux 和 macOS 的 redir 代理端口
+redir-port: 7892
+
+# 允许局域网的连接
+allow-lan: true
+
+# 规则模式：Rule（规则） / Global（全局代理）/ Direct（全局直连）
+mode: rule
+
+# 设置日志输出级别 (默认级别：silent，即不输出任何内容，以避免因日志内容过大而导致程序内存溢出）。
+# 5 个级别：silent / info / warning / error / debug。级别越高日志输出量越大，越倾向于调试，若需要请自行开启。
+log-level: info
+# Clash 的 RESTful API
+external-controller: &amp;#39;0.0.0.0:9090&amp;#39;
+
+# RESTful API 的口令
+secret: &amp;#39;&amp;#39;
+
+dns:
+  enable: true
+  ipv6: true
+  listen: &amp;#39;0.0.0.0:53&amp;#39;
+  use-hosts: true
+  enhanced-mode: fake-ip
+  fake-ip-range: 198.18.0.1/16
+  nameserver:
+    - 202.120.224.6
+    - 114.114.114.114
+    - 223.5.5.5
+    - &amp;#39;tcp://223.5.5.5&amp;#39;
+  fallback:
+    - &amp;#39;tls://223.5.5.5:853&amp;#39;
+    - &amp;#39;https://223.5.5.5/dns-query&amp;#39;
+  fallback-filter:
+    geoip: true
+    ipcidr:
+      - 240.0.0.0/4
+# proxy provider start here
+proxy-providers:
+  feiniao:
+    type: http
+    path: ./profiles/feiniao.yaml
+    url: https://apiv1.v27qae.com/flydsubal/c8lr21z6wpiebqqx?clash=1&amp;amp;extend=1
+    interval: 36000
+    health-check:
+      enable: true
+      url: http://www.gstatic.com/generate_204
+      interval: 3600
+  yiyuan:
+    type: http
+    path: ./profiles/yiyuan.yaml
+    url: https://sub1.smallstrawberry.com/api/v1/client/subscribe?token=d6e73f953b6053a3b263b73f9509375d
+    decode-url: true
+    interval: 36000
+    health-check:
+      enable: true
+      url: http://www.gstatic.com/generate_204
+      interval: 3600
+
+
+# proxy provider end
+proxies:
+    # socks5
+  - name: windowsServer
+    type: socks5
+    server: 10.127.78.177
+    port: 7890
+    # username: username
+    # password: password
+    # tls: true
+    # skip-cert-verify: true
+    # udp: true
+
+  # - {name: 🇮🇪 中国-爱尔兰 IPLC C04, server: ir04.cathayroute.com, port: 33400, type: ss, cipher: rc4-md5, password: SRCFiB}
+  # - {name: 🇭🇰 香港 油尖旺御金·国峯 名氣通電訊 C02, server: hkhe02.cathayroute.com, port: 33400, type: ss, cipher: rc4-md5, password: SRCFiB}
+  # - {name: 🇮🇪 中国-爱尔兰 IPLC C03, server: ir03.cathayroute.com, port: 33400, type: ss, cipher: rc4-md5, password: SRCFiB}
+  # - {name: 🇭🇰 香港 油尖旺御金·国峯 名氣通電訊 C09, server: hkhe09.cathayroute.com, port: 33400, type: ss, cipher: rc4-md5, password: SRCFiB}
+  # - {name: 🇨🇳 中国-香港 IEPL Equinix HK8 C 02 1Gbps HBO TVB, server: sg12.cathayroute.com, port: 33400, type: ss, cipher: rc4-md5, password: SRCFiB, udp: true}
+  # - {name: 🇨🇳 中国-爱尔兰 IPLC C05, server: ir05.cathayroute.com, port: 33400, type: ss, cipher: rc4-md5, password: SRCFiB, udp: true}
+  # - {name: 🇨🇳 中国-香港 IPLC Equinix HK2 C 06 1Gbps HBO TVB, server: sg06.cathayroute.com, port: 33400, type: ss, cipher: rc4-md5, password: SRCFiB, udp: true}
+
+proxy-groups:
+  - name: Proxies
+    type: select
+    proxies:
+      - 机场节点
+      - 自动选择
+      - 故障转移
+
+  # - name: 手动节点
+  #   type: select
+  #   proxies:
+  #     - 🇮🇪 中国-爱尔兰 IPLC C04
+  #     - 🇭🇰 香港 油尖旺御金·国峯 名氣通電訊 C02
+  #     - 🇮🇪 中国-爱尔兰 IPLC C03
+  #     - 🇭🇰 香港 油尖旺御金·国峯 名氣通電訊 C09   
+  #     - 🇨🇳 中国-香港 IEPL Equinix HK8 C 02 1Gbps HBO TVB
+  #     - 🇨🇳 中国-爱尔兰 IPLC C05
+  #     - 🇨🇳 中国-香港 IPLC Equinix HK2 C 06 1Gbps HBO TVB
+
+  - name: feiniao
+    type: select
+    use:
+     - feiniao
+
+  - name: yiyuan
+    type: select
+    use:
+     - yiyuan
+
+  - name: 机场节点
+    type: select
+    proxies:
+     - feiniao
+     - yiyuan
+
+
+  - name: 故障转移
+    type: fallback
+    url: &amp;#39;http://www.gstatic.com/generate_204&amp;#39;
+    interval: 7200
+    proxies:
+     - feiniao
+     - yiyuan
+
+  - name: 自动选择
+    type: url-test
+    url: &amp;#39;http://www.gstatic.com/generate_204&amp;#39;
+    interval: 300
+    use:
+      - feiniao
+      - yiyuan
+
+rule-providers:
+  reject:
+    type: http
+    behavior: domain
+    url: &amp;#34;https://cdn.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/reject.txt&amp;#34;
+    path: ./ruleset/reject.yaml
+    interval: 86400
+
+  icloud:
+    type: http
+    behavior: domain
+    url: &amp;#34;https://cdn.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/icloud.txt&amp;#34;
+    path: ./ruleset/icloud.yaml
+    interval: 86400
+
+  apple:
+    type: http
+    behavior: domain
+    url: &amp;#34;https://cdn.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/apple.txt&amp;#34;
+    path: ./ruleset/apple.yaml
+    interval: 86400
+
+  google:
+    type: http
+    behavior: domain
+    url: &amp;#34;https://cdn.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/google.txt&amp;#34;
+    path: ./ruleset/google.yaml
+    interval: 86400
+
+  proxy:
+    type: http
+    behavior: domain
+    url: &amp;#34;https://cdn.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/proxy.txt&amp;#34;
+    path: ./ruleset/proxy.yaml
+    interval: 86400
+
+  direct:
+    type: http
+    behavior: domain
+    url: &amp;#34;https://cdn.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/direct.txt&amp;#34;
+    path: ./ruleset/direct.yaml
+    interval: 86400
+
+  private:
+    type: http
+    behavior: domain
+    url: &amp;#34;https://cdn.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/private.txt&amp;#34;
+    path: ./ruleset/private.yaml
+    interval: 86400
+
+  gfw:
+    type: http
+    behavior: domain
+    url: &amp;#34;https://cdn.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/gfw.txt&amp;#34;
+    path: ./ruleset/gfw.yaml
+    interval: 86400
+
+  tld-not-cn:
+    type: http
+    behavior: domain
+    url: &amp;#34;https://cdn.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/tld-not-cn.txt&amp;#34;
+    path: ./ruleset/tld-not-cn.yaml
+    interval: 86400
+
+  telegramcidr:
+    type: http
+    behavior: ipcidr
+    url: &amp;#34;https://cdn.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/telegramcidr.txt&amp;#34;
+    path: ./ruleset/telegramcidr.yaml
+    interval: 86400
+
+  cncidr:
+    type: http
+    behavior: ipcidr
+    url: &amp;#34;https://cdn.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/cncidr.txt&amp;#34;
+    path: ./ruleset/cncidr.yaml
+    interval: 86400
+
+  lancidr:
+    type: http
+    behavior: ipcidr
+    url: &amp;#34;https://cdn.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/lancidr.txt&amp;#34;
+    path: ./ruleset/lancidr.yaml
+    interval: 86400
+
+  applications:
+    type: http
+    behavior: classical
+    url: &amp;#34;https://cdn.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/applications.txt&amp;#34;
+    path: ./ruleset/applications.yaml
+    interval: 86400
+
+rules:
+  - DOMAIN-SUFFIX,visualstudio.com,DIRECT
+  - DOMAIN-SUFFIX,azure.com,DIRECT
+  - DOMAIN-SUFFIX,vscode.dev,Proxies
+  - RULE-SET,applications,DIRECT
+  - DOMAIN,clash.razord.top,DIRECT
+  - DOMAIN,yacd.haishan.me,DIRECT
+  - RULE-SET,private,DIRECT
+  - RULE-SET,reject,REJECT
+  - RULE-SET,tld-not-cn,Proxies
+  - RULE-SET,gfw,Proxies
+  - RULE-SET,telegramcidr,Proxies
+  - MATCH,DIRECT
+&lt;/code&gt;&lt;/pre&gt;</description>
+    </item>
+    <item>
+      <title>macOS Word 更好的快捷键配置指南</title>
+      <link>https://blog.cassdev.com/posts/macos-word-%E6%9B%B4%E5%A5%BD%E7%9A%84%E5%BF%AB%E6%8D%B7%E9%94%AE%E9%85%8D%E7%BD%AE%E6%8C%87%E5%8D%97/</link>
+      <pubDate>Sun, 16 Jun 2024 11:20:31 +0800</pubDate>
+      <guid>https://blog.cassdev.com/posts/macos-word-%E6%9B%B4%E5%A5%BD%E7%9A%84%E5%BF%AB%E6%8D%B7%E9%94%AE%E9%85%8D%E7%BD%AE%E6%8C%87%E5%8D%97/</guid>
+      <description>&lt;p&gt;Microsoft Word在macOS平台上是一款功能强大的文字处理工具，然而，要使其与macOS原生编辑器更好地无缝切换，合理配置快捷键是至关重要的。本指南将介绍一些新的macOS Word的快捷键，使您能够更高效地编辑文档，同时保持与系统级快捷键的一致性。&lt;/p&gt;
+&lt;table&gt;
+  &lt;thead&gt;
+      &lt;tr&gt;
+          &lt;th style=&#34;text-align: center&#34;&gt;快捷键&lt;/th&gt;
+          &lt;th style=&#34;text-align: left&#34;&gt;Word快捷键名&lt;/th&gt;
+          &lt;th style=&#34;text-align: left&#34;&gt;备注&lt;/th&gt;
+      &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+      &lt;tr&gt;
+          &lt;td style=&#34;text-align: center&#34;&gt;Ctrl + A&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;StartOfLine&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;跳到行首&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td style=&#34;text-align: center&#34;&gt;Ctrl + E&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;EndOfLine&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;跳到行尾&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td style=&#34;text-align: center&#34;&gt;Ctrl + N&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;LineDown&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;下一行&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td style=&#34;text-align: center&#34;&gt;Ctrl + P&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;LineUp&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;上一行&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td style=&#34;text-align: center&#34;&gt;Ctrl + F&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;CharRight&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;下一个字符&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td style=&#34;text-align: center&#34;&gt;Ctrl + B&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;CharLeft&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;上一个字符&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td style=&#34;text-align: center&#34;&gt;Ctrl + J&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;NextPage&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;跳到下一页&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td style=&#34;text-align: center&#34;&gt;Ctrl + K&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;PrevPage&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;跳到上一页&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td style=&#34;text-align: center&#34;&gt;Ctrl + V&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;PasteTextOnly&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;无格式粘贴&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td style=&#34;text-align: center&#34;&gt;Ctrl + H&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;Highlight&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;高亮选中的文字&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td style=&#34;text-align: center&#34;&gt;Ctrl + T&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;TableInsertTable&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;插入表格&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td style=&#34;text-align: center&#34;&gt;Cmd + Shift + F&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;NavPaneSearch&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;高级面板搜索&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td style=&#34;text-align: center&#34;&gt;Option + Return&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;TableInsertRowBelow&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;在表格下方插入一行&lt;/td&gt;
+      &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;</description>
+    </item>
+    <item>
+      <title>macOS Word 设置论文排版指南</title>
+      <link>https://blog.cassdev.com/posts/macos-word-%E8%AE%BE%E7%BD%AE%E8%AE%BA%E6%96%87%E6%8E%92%E7%89%88%E6%8C%87%E5%8D%97/</link>
+      <pubDate>Sun, 16 Jun 2024 11:20:31 +0800</pubDate>
+      <guid>https://blog.cassdev.com/posts/macos-word-%E8%AE%BE%E7%BD%AE%E8%AE%BA%E6%96%87%E6%8E%92%E7%89%88%E6%8C%87%E5%8D%97/</guid>
+      <description>&lt;h2 id=&#34;正文&#34;&gt;正文&lt;/h2&gt;&lt;p&gt;字体大小默认12，两端对齐，1.5倍行距。字体类型选择 Latin 文字，将字体改成 Times New Roman，再将字体类型改成 Asian 亚洲文字，将字体改成 SimHei（黑体）。&lt;/p&gt;
+&lt;p&gt;&lt;img alt=&#34;CleanShot 2023-10-22 at 21.46.45@2x&#34; loading=&#34;lazy&#34; src=&#34;https://s2.loli.net/2023/10/22/hzB69WHcKSLDYdT.png&#34;&gt;&lt;/p&gt;
+&lt;h2 id=&#34;带首行缩进的正文&#34;&gt;带首行缩进的正文&lt;/h2&gt;&lt;p&gt;打开样式面板，点击 New Style。&lt;/p&gt;
+&lt;p&gt;&lt;img alt=&#34;CleanShot 2023-11-29 at 19.45.34@2x&#34; loading=&#34;lazy&#34; src=&#34;https://s2.loli.net/2023/11/29/TacpfhOd6IuNqzJ.png&#34;&gt;&lt;/p&gt;
+&lt;p&gt;输入样式名称“Indent”，继承于 Normal 样式。&lt;/p&gt;
+&lt;p&gt;&lt;img alt=&#34;CleanShot 2023-11-29 at 19.46.56@2x&#34; loading=&#34;lazy&#34; src=&#34;https://s2.loli.net/2023/11/29/ynCkXH7jRTfrBce.png&#34;&gt;&lt;/p&gt;
+&lt;p&gt;左下角选择 Paragraph 面板，将 Special 改成 First line，后面填 0.86cm。&lt;/p&gt;
+&lt;p&gt;&lt;img alt=&#34;CleanShot 2023-10-22 at 21.54.02@2x&#34; loading=&#34;lazy&#34; src=&#34;https://s2.loli.net/2023/10/22/bmk8YnCLD17cBKH.png&#34;&gt;&lt;/p&gt;
+&lt;h2 id=&#34;各级标题&#34;&gt;各级标题&lt;/h2&gt;&lt;h3 id=&#34;一级标题&#34;&gt;一级标题&lt;/h3&gt;&lt;p&gt;打开 Heading 1 一级标题的设置。&lt;/p&gt;
+&lt;p&gt;&lt;img alt=&#34;CleanShot 2023-10-22 at 21.31.53@2x&#34; loading=&#34;lazy&#34; src=&#34;https://s2.loli.net/2023/10/22/IhjbkadGzHcfZoO.png&#34;&gt;&lt;/p&gt;
+&lt;p&gt;字体大小默认16，加粗，黑色，居中对齐，1.5倍行距。字体类型选择 Latin 文字，将字体改成 Times New Roman，再将字体类型改成 Asian 亚洲文字，将字体改成 SimHei（黑体）。&lt;/p&gt;
+&lt;p&gt;&lt;img alt=&#34;CleanShot 2023-10-22 at 20.43.56@2x&#34; loading=&#34;lazy&#34; src=&#34;https://s2.loli.net/2023/10/22/6WeTgSpLbyVMClD.png&#34;&gt;&lt;/p&gt;
+&lt;p&gt;左下角选择 Paragraph 面板，将 Special 改成 none，取消继承于正文样式（Normal）的值。&lt;/p&gt;
+&lt;p&gt;&lt;img alt=&#34;CleanShot 2023-11-29 at 19.04.12@2x&#34; loading=&#34;lazy&#34; src=&#34;https://s2.loli.net/2023/11/29/l7spaX1t8oTMv6E.png&#34;&gt;&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>macOS 设置自动复制消息验证码指南</title>
+      <link>https://blog.cassdev.com/posts/macos-%E8%AE%BE%E7%BD%AE%E8%87%AA%E5%8A%A8%E5%A4%8D%E5%88%B6%E6%B6%88%E6%81%AF%E9%AA%8C%E8%AF%81%E7%A0%81%E6%8C%87%E5%8D%97/</link>
+      <pubDate>Sun, 16 Jun 2024 11:20:31 +0800</pubDate>
+      <guid>https://blog.cassdev.com/posts/macos-%E8%AE%BE%E7%BD%AE%E8%87%AA%E5%8A%A8%E5%A4%8D%E5%88%B6%E6%B6%88%E6%81%AF%E9%AA%8C%E8%AF%81%E7%A0%81%E6%8C%87%E5%8D%97/</guid>
+      <description>&lt;h2 id=&#34;前提&#34;&gt;前提&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;接受短信验证码的 SMI 卡必须在上 iPhone&lt;/li&gt;
+&lt;li&gt;iPhone 和 macOS 须登录同一个 iCloud&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;打开短信转发&#34;&gt;打开短信转发&lt;/h2&gt;&lt;p&gt;打开 iPhone 的设置，找到 Message 短信 App 的设置。&lt;/p&gt;
+&lt;p&gt;&lt;img alt=&#34;IMG_4653&#34; loading=&#34;lazy&#34; src=&#34;https://s2.loli.net/2023/10/30/qHoz7iTwOhpkuW5.png&#34;&gt;&lt;/p&gt;
+&lt;p&gt;往下拉，找到 Text Message Forwarding 短信转发并点击，打开需要被转发的 Mac 电脑。若你有 iPda，也可以顺便转发至 iPad。&lt;/p&gt;
+&lt;p&gt;&lt;img alt=&#34;IMG_4654&#34; loading=&#34;lazy&#34; src=&#34;https://s2.loli.net/2023/10/30/jbnJeSd87K5IRZP.png&#34;&gt;&lt;/p&gt;
+&lt;p&gt;打开 macOS 的 Message 短信应用，按下快捷键 &lt;code&gt;command&lt;/code&gt;+&lt;code&gt;,&lt;/code&gt; 打开设置。打开 iMessage 面板，勾选需要接受的短信来源。&lt;/p&gt;
+&lt;p&gt;&lt;img alt=&#34;CleanShot 2023-10-30 at 10.56.26@2x&#34; loading=&#34;lazy&#34; src=&#34;https://s2.loli.net/2023/10/30/2wzkGOfLyrCbiTQ.png&#34;&gt;&lt;/p&gt;
+&lt;h2 id=&#34;下载-messauto&#34;&gt;下载 MessAuto&lt;/h2&gt;&lt;p&gt;点击跳转 &lt;a href=&#34;https://github.com/LeeeSe/MessAuto&#34;&gt;Github 下载地址&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;下载自己电脑对应的版本，M系列的芯片下载第一个，Intel芯片下载第二个。&lt;/p&gt;
+&lt;p&gt;&lt;img alt=&#34;CleanShot 2023-10-29 at 23.24.22@2x&#34; loading=&#34;lazy&#34; src=&#34;https://s2.loli.net/2023/10/29/UMl8vyE1OsXCQnP.png&#34;&gt;&lt;/p&gt;
+&lt;p&gt;下载完毕后，解压压缩包会直接得到一个名为 MessAuto.app 的应用程序文件，需要将它拖进 Applicatioin 文件夹里。&lt;/p&gt;
+&lt;p&gt;打开 Finder，按下快捷键&lt;code&gt;command&lt;/code&gt;+ &lt;code&gt;T&lt;/code&gt; 创建新的标签页，再按下 &lt;code&gt;command&lt;/code&gt;+&lt;code&gt;shift&lt;/code&gt;+&lt;code&gt;A&lt;/code&gt;打开 Application 应用程序文件夹。&lt;/p&gt;
+&lt;p&gt;回到第一个标签页，将 MessAuto.app 拖到 Application 文件夹下。&lt;/p&gt;
+&lt;p&gt;由于 MessAuto 没有 Apple 的开发者证书，所以 M 系列芯片的电脑不能直接打开无需安装的应用程序，所以需要运行命令：&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>macOS 为 Google Coral Dev Board 刷入系统镜像指南</title>
+      <link>https://blog.cassdev.com/posts/macos-%E4%B8%BA-google-coral-dev-board-%E5%88%B7%E5%85%A5%E7%B3%BB%E7%BB%9F%E9%95%9C%E5%83%8F%E6%8C%87%E5%8D%97/</link>
+      <pubDate>Sun, 16 Jun 2024 11:20:31 +0800</pubDate>
+      <guid>https://blog.cassdev.com/posts/macos-%E4%B8%BA-google-coral-dev-board-%E5%88%B7%E5%85%A5%E7%B3%BB%E7%BB%9F%E9%95%9C%E5%83%8F%E6%8C%87%E5%8D%97/</guid>
+      <description>&lt;p&gt;本指南旨在帮助 macOS 开发者为 Google Coral Dev Board （Google Edege TPU） 通过 OTG 刷入 Mendel Linux 系统。&lt;/p&gt;
+&lt;h2 id=&#34;第一步连接到开发板串行控制台&#34;&gt;第一步：连接到开发板串行控制台&lt;/h2&gt;&lt;h3 id=&#34;安装-usb-转-uart-bridge-vcp-驱动程序&#34;&gt;安装 USB 转 UART Bridge VCP 驱动程序&lt;/h3&gt;&lt;p&gt;官方下载地址：&lt;a href=&#34;https://www.silabs.com/developers/usb-to-uart-bridge-vcp-drivers?tab=downloads&#34;&gt;https://www.silabs.com/developers/usb-to-uart-bridge-vcp-drivers?tab=downloads&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt=&#34;CP210x VCP&#34; loading=&#34;lazy&#34; src=&#34;https://s2.loli.net/2023/07/25/5n7sKqk1ValvcFR.png&#34;&gt;&lt;/p&gt;
+&lt;p&gt;下载完成后，双击运行并安装即可。&lt;/p&gt;
+&lt;h3 id=&#34;安装辅助程序&#34;&gt;安装辅助程序&lt;/h3&gt;&lt;p&gt;通过 Homebrew 安装：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;sudo brew install screen fastboot
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;连接开发板&#34;&gt;连接开发板&lt;/h3&gt;&lt;p&gt;先不给开发板供电，使用 micro-B USB 线将 Mac 连接到开发板。连接成功后会开发板会亮起绿色🟩和橙色🟧指示灯。&lt;/p&gt;
+&lt;p&gt;&lt;img alt=&#34;micro USB&#34; loading=&#34;lazy&#34; src=&#34;https://s2.loli.net/2023/07/26/8miISKlWOMy149J.jpg&#34;&gt;&lt;/p&gt;
+&lt;p&gt;随后使用命令查看串口连接是否正常工作：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;ls /dev/cu*
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;连接正常应该会列出&lt;code&gt;/dev/cu.SLAB_USBtoUART&lt;/code&gt;，如下图所示。&lt;/p&gt;
+&lt;p&gt;&lt;img alt=&#34;ls /dev/cu*&#34; loading=&#34;lazy&#34; src=&#34;https://s2.loli.net/2023/07/26/yafnbF9HUe8DQqT.png&#34;&gt;&lt;/p&gt;
+&lt;p&gt;然后使用&lt;code&gt;screen&lt;/code&gt;命令连接开发板串行命令行：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;screen /dev/cu.SLAB_USBtoUART &lt;span class=&#34;m&#34;&gt;115200&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;此时命令行应为空白，因为开发板未供电开机。&lt;/p&gt;
+&lt;h3 id=&#34;给开发板供电&#34;&gt;给开发板供电&lt;/h3&gt;&lt;p&gt;如图所示，将开发板电源插入，电源接口为右边的 USB-C 接口。&lt;/p&gt;
+&lt;p&gt;&lt;img alt=&#34;Power&#34; loading=&#34;lazy&#34; src=&#34;https://s2.loli.net/2023/07/26/sHYdWNjafQCeTwl.jpg&#34;&gt;&lt;/p&gt;
+&lt;p&gt;连接后开发板会亮起电源指示灯并转动风扇。串行命令行则会打印开发板的开机信息：&lt;/p&gt;
+&lt;p&gt;&lt;img alt=&#34;Coral Dev Board power on&#34; loading=&#34;lazy&#34; src=&#34;https://s2.loli.net/2023/07/26/h8JnuNpzWBsG25I.png&#34;&gt;&lt;/p&gt;
+&lt;p&gt;接着在串行命令行输入命令使开发板进入 fastboot 模式：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;fastboot &lt;span class=&#34;m&#34;&gt;0&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;img alt=&#34;fastboot 0&#34; loading=&#34;lazy&#34; src=&#34;https://s2.loli.net/2023/07/26/owkygYAm5JTUxjt.png&#34;&gt;&lt;/p&gt;
+&lt;h2 id=&#34;第二步刷入-mendel-linux-系统&#34;&gt;第二步：刷入 Mendel Linux 系统&lt;/h2&gt;&lt;h3 id=&#34;下载-mendel-linux-系统镜像&#34;&gt;下载 Mendel Linux 系统镜像&lt;/h3&gt;&lt;p&gt;回到 Mac，下载 Mendel Linux 系统镜像，官方下载地址：&lt;a href=&#34;https://coral.ai/software/#mendel-dev-board&#34;&gt;https://coral.ai/software/#mendel-dev-board&lt;/a&gt;&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>基于 L2CAP 协议的蓝牙 BLE 设备通信指南</title>
+      <link>https://blog.cassdev.com/posts/%E5%9F%BA%E4%BA%8E-l2cap-%E5%8D%8F%E8%AE%AE%E7%9A%84%E8%93%9D%E7%89%99-ble-%E8%AE%BE%E5%A4%87%E9%80%9A%E4%BF%A1%E6%8C%87%E5%8D%97/</link>
+      <pubDate>Sun, 16 Jun 2024 11:20:31 +0800</pubDate>
+      <guid>https://blog.cassdev.com/posts/%E5%9F%BA%E4%BA%8E-l2cap-%E5%8D%8F%E8%AE%AE%E7%9A%84%E8%93%9D%E7%89%99-ble-%E8%AE%BE%E5%A4%87%E9%80%9A%E4%BF%A1%E6%8C%87%E5%8D%97/</guid>
+      <description>&lt;h2 id=&#34;蓝牙-ble-是什么&#34;&gt;蓝牙 BLE 是什么&lt;/h2&gt;&lt;p&gt;蓝牙BLE，即蓝牙低功耗 （Bluetooth Lower Energy）是一种蓝牙通信标准，设计用于短距离通信和低功耗应用。&lt;/p&gt;
+&lt;p&gt;相比经典蓝牙，BLE 更加节能，传输距离更远，连接更快。BLE 主要用于健身设备、医疗设备、家居自动化等场景。&lt;/p&gt;
+&lt;h2 id=&#34;蓝牙-ble-设备的连接&#34;&gt;蓝牙 BLE 设备的连接&lt;/h2&gt;&lt;h2 id=&#34;信道&#34;&gt;信道&lt;/h2&gt;&lt;p&gt;L2CAP的基本概念是信道（Signaling Channel）。信道是个抽象概念，表示两个设备某个协议层之间的通道。每个信道分配一个2字节的信道ID——CID（Channel ID），每个信道功用不同，比如CID=0x0004的信道表示属性协议（Attribute Protocol）专用信道。对于BLE协议，L2CAP共有三个信道ID：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;0x0004 – 属性协议&lt;/li&gt;
+&lt;li&gt;0x0005 – 低功耗信令信道&lt;/li&gt;
+&lt;li&gt;0x0006 – 安全管理协议&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;其他信道则用于经典蓝牙。协议复用可以理解为，不同的协议走不同的信道，互不干扰。&lt;/p&gt;
+&lt;h2 id=&#34;代码&#34;&gt;代码&lt;/h2&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-c++&#34; data-lang=&#34;c++&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;cp&#34;&gt;#define ATT_CID 4;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;cp&#34;&gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;// 创建 L2CAP socket
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;&lt;span class=&#34;kt&#34;&gt;int&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;s&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;socket&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;PF_BLUETOOTH&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;SOCK_SEQPACKET&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;BTPROTO_L2CAP&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;);&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;// 绑定 L2CAP socket
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;&lt;span class=&#34;k&#34;&gt;struct&lt;/span&gt; &lt;span class=&#34;nc&#34;&gt;sockaddr_l2&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;bind_addr&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;0&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;};&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;bind_addr&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;l2_family&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;AF_BLUETOOTH&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;bind_addr&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;l2_cid&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;htobs&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;ATT_CID&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;);&lt;/span&gt; &lt;span class=&#34;c1&#34;&gt;// ATT 信道 CID
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;bdaddr_t&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;any_addr&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;{{&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;0&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;0&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;0&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;0&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;0&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;0&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;}};&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;bacpy&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;&amp;amp;&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;bind_addr&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;l2_bdaddr&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;amp;&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;any_addr&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;);&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;bind_addr&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;l2_bdaddr_type&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;BDADDR_LE_PUBLIC&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;kt&#34;&gt;int&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;err&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;bind&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;s&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;k&#34;&gt;struct&lt;/span&gt; &lt;span class=&#34;nc&#34;&gt;sockaddr&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;*&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;&amp;amp;&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;bind_addr&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;sizeof&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;bind_addr&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;));&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;k&#34;&gt;if&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;err&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;k&#34;&gt;return&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;-&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;// 连接 L2CAP socket
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;&lt;span class=&#34;k&#34;&gt;struct&lt;/span&gt; &lt;span class=&#34;nc&#34;&gt;sockaddr_l2&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;conn_addr&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;0&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;};&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;conn_addr&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;l2_family&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;AF_BLUETOOTH&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;conn_addr&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;l2_cid&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;htobs&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;ATT_CID&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;);&lt;/span&gt; &lt;span class=&#34;c1&#34;&gt;// ATT CID
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;str2ba&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;mac_address&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;c_str&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(),&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;amp;&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;conn_addr&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;l2_bdaddr&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;);&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;conn_addr&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;l2_bdaddr_type&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;BDADDR_LE_PUBLIC&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;err&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;connect&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;s&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;k&#34;&gt;struct&lt;/span&gt; &lt;span class=&#34;nc&#34;&gt;sockaddr&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;*&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;&amp;amp;&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;conn_addr&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;sizeof&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;conn_addr&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;));&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;k&#34;&gt;if&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;err&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;  &lt;span class=&#34;n&#34;&gt;exit&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;-&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;);&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;l2cap-数据包解析&#34;&gt;L2CAP 数据包解析&lt;/h2&gt;&lt;p&gt;L2CAP（Logical Linked Control and Adaptation Protocol 逻辑链路控制与适配协议）工作在链路层,为上层协议提供数据通道。它支持数据分片与重组,确保数据完整可靠地传输。&lt;/p&gt;</description>
+    </item>
     <item>
       <title>MacOS 修改 App Store 和地图软件语言指南</title>
       <link>https://blog.cassdev.com/posts/macos-%E4%BF%AE%E6%94%B9-app-store-%E5%92%8C%E5%9C%B0%E5%9B%BE%E8%BD%AF%E4%BB%B6%E8%AF%AD%E8%A8%80%E6%8C%87%E5%8D%97/</link>

@@ -1,0 +1,188 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>VSCode on Cassius0924 的博客</title>
+    <link>https://blog.cassdev.com/tags/vscode/</link>
+    <description>Recent content in VSCode on Cassius0924 的博客</description>
+    <generator>Hugo -- 0.148.1</generator>
+    <language>zh-CN</language>
+    <copyright>Copyright © 2025-2025 Cassius0924. All rights reserved.</copyright>
+    <lastBuildDate>Sun, 16 Mar 2025 15:47:58 +0800</lastBuildDate>
+    <atom:link href="https://blog.cassdev.com/tags/vscode/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>语法高亮编写指南</title>
+      <link>https://blog.cassdev.com/posts/%E8%AF%AD%E6%B3%95%E9%AB%98%E4%BA%AE%E7%BC%96%E5%86%99%E6%8C%87%E5%8D%97/</link>
+      <pubDate>Sun, 16 Mar 2025 15:47:58 +0800</pubDate>
+      <guid>https://blog.cassdev.com/posts/%E8%AF%AD%E6%B3%95%E9%AB%98%E4%BA%AE%E7%BC%96%E5%86%99%E6%8C%87%E5%8D%97/</guid>
+      <description>&lt;p&gt;语法高亮是指在IDE或编辑器中，对文本进行&lt;strong&gt;分词&lt;/strong&gt;，即将文本拆解为 Token（标记），每个 Token 都有对应的名称（作用域）进行标记。再配合主题样式规则，对不同名称的 Token 的进行&lt;strong&gt;主题化&lt;/strong&gt;，以提高代码的可读性。&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;程序员离不开语法高亮，就像作家离不开标点符号一样。（你可以代入一下使用 txt 文本编辑器写代码的场景）&lt;/p&gt;&lt;/blockquote&gt;
+&lt;p&gt;语法高亮由两个部分组成：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;分词（Tokenization）：将文本拆解为一系列 Token。&lt;/li&gt;
+&lt;li&gt;主题化（Theming）：对 Token 进行样式渲染，如字体颜色、背景色、加粗等。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;我们以 JSON 的语法为例，简单介绍一下语法高亮的过程。&lt;/p&gt;
+&lt;p&gt;首先分词引擎会对 JSON 文本进行分词，下图是将 JSON 文本进行分词后的结果，其中每个矩形所包括的文本都是一个 Token，每个 Token 都有一个作用域名称，例如 &lt;code&gt;null&lt;/code&gt; 对应的是 &lt;code&gt;constant.language.json&lt;/code&gt; 作用域。&lt;/p&gt;
+&lt;p&gt;&lt;img alt=&#34;alt text&#34; loading=&#34;lazy&#34; src=&#34;https://s2.loli.net/2025/03/16/mQydfgXDYCuKPLo.png&#34;&gt;&lt;/p&gt;
+&lt;p&gt;然后主题化引擎会根据 Token 的作用域名称，对 Token 进行样式渲染，例如将 &lt;code&gt;constant.language.json&lt;/code&gt; 作用域映射为蓝色不加粗字体。那么 &lt;code&gt;null&lt;/code&gt; 就会被渲染为蓝色不加粗字体。&lt;/p&gt;
+&lt;p&gt;&lt;img alt=&#34;alt text&#34; loading=&#34;lazy&#34; src=&#34;https://s2.loli.net/2025/03/16/cho7NWLtem1Evgf.png&#34;&gt;&lt;/p&gt;
+&lt;h2 id=&#34;2-分词的实现方式&#34;&gt;2. 分词的实现方式&lt;/h2&gt;&lt;p&gt;目前主流的分词实现方式大致有有以下三种：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;基于&lt;strong&gt;正则表达式&lt;/strong&gt;的分词：Textmate&lt;/li&gt;
+&lt;li&gt;基于&lt;strong&gt;词法分析&lt;/strong&gt;的分词：Highlight.js&lt;/li&gt;
+&lt;li&gt;基于&lt;strong&gt;语法树&lt;/strong&gt;的分词：Tree-sitter&lt;/li&gt;
+&lt;li&gt;(如果有其他，欢迎补充)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;本文只讨论 Textmate 的语法高亮规则编写。&lt;/p&gt;
+&lt;p&gt;Textmate 原是 MacOS 下的一款文本编辑器，其语法高亮规则是基于正则表达式的，但由于其规则简单易懂，且支持多种语言，因此被广泛应用于各种编辑器和IDE中，如 VSCode、Sublime Text 等。JetBrains 的 IDE 也集成了 Textmate Bundle 插件，可以直接导入 Textmate 的语法高亮规则。&lt;/p&gt;
+&lt;p&gt;&lt;img alt=&#34;alt text&#34; loading=&#34;lazy&#34; src=&#34;CleanShot%202025-03-12%20at%2017.23.49@2x.png&#34;&gt;&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Windows VSCode 使用 JetBrians Mono 字体</title>
+      <link>https://blog.cassdev.com/posts/windows-vscode-%E4%BD%BF%E7%94%A8-jetbrians-mono-%E5%AD%97%E4%BD%93/</link>
+      <pubDate>Sun, 16 Jun 2024 19:13:10 +0800</pubDate>
+      <guid>https://blog.cassdev.com/posts/windows-vscode-%E4%BD%BF%E7%94%A8-jetbrians-mono-%E5%AD%97%E4%BD%93/</guid>
+      <description>&lt;p&gt;本文主要介绍如何在 Windows 系统下的 Visual Studio Code 中使用 JetBrians Mono 字体。&lt;/p&gt;
+&lt;h2 id=&#34;下载字体&#34;&gt;下载字体&lt;/h2&gt;&lt;p&gt;可能你跟着网上很多教程一样，一上来就在 VS Code 中设置字体，结果发现设置不生效，这是因为你没有安装 JetBrians Mono 字体。&lt;/p&gt;
+&lt;p&gt;JetBrians Mono 字体下载地址：&lt;a href=&#34;https://www.jetbrains.com/lp/mono/&#34;&gt;JetBrainsMono&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id=&#34;安装字体&#34;&gt;安装字体&lt;/h2&gt;&lt;p&gt;下载字体后，解压缩，进入 &lt;code&gt;ttf&lt;/code&gt; 文件夹，找到 &lt;code&gt;JetBrainsMono-Regular.ttf&lt;/code&gt; 文件，双击打开，点击安装即可。当然你也可以全部字体都安装 :)&lt;/p&gt;
+&lt;p&gt;&lt;img alt=&#34;CleanShot 2024-06-02 at 16.22.26@2x&#34; loading=&#34;lazy&#34; src=&#34;https://s2.loli.net/2024/06/02/RG7EY6MqkvHW8Ni.png&#34;&gt;&lt;/p&gt;
+&lt;h2 id=&#34;设置-vs-code&#34;&gt;设置 VS Code&lt;/h2&gt;&lt;p&gt;打开 VS Code 的设置，搜索 &lt;code&gt;editor.fontFamily&lt;/code&gt;，将其值设置为 &lt;code&gt;JetBrains Mono&lt;/code&gt;，如下图所示：&lt;/p&gt;
+&lt;p&gt;&lt;img alt=&#34;CleanShot 2024-06-02 at 16.35.35@2x&#34; loading=&#34;lazy&#34; src=&#34;https://s2.loli.net/2024/06/02/fJlT5nwtE6kG829.png&#34;&gt;&lt;/p&gt;
+&lt;h2 id=&#34;重启-vs-code&#34;&gt;重启 VS Code&lt;/h2&gt;&lt;p&gt;最后一步，重启 VS Code 即可。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Cassius0924 的 VSCode 插件</title>
+      <link>https://blog.cassdev.com/posts/cassius0924-%E7%9A%84-vscode-%E6%8F%92%E4%BB%B6/</link>
+      <pubDate>Sun, 16 Jun 2024 11:20:31 +0800</pubDate>
+      <guid>https://blog.cassdev.com/posts/cassius0924-%E7%9A%84-vscode-%E6%8F%92%E4%BB%B6/</guid>
+      <description>&lt;h2 id=&#34;heading&#34;&gt;#&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;.NET Install Tool for Extenstion&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;a&#34;&gt;A&lt;/h2&gt;&lt;h2 id=&#34;b&#34;&gt;B&lt;/h2&gt;&lt;h2 id=&#34;c&#34;&gt;C&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;C/C++&lt;/li&gt;
+&lt;li&gt;C/C++ Extension Pack&lt;/li&gt;
+&lt;li&gt;C/C++ Themes&lt;/li&gt;
+&lt;li&gt;C#&lt;/li&gt;
+&lt;li&gt;C# Dev Kit&lt;/li&gt;
+&lt;li&gt;CMake&lt;/li&gt;
+&lt;li&gt;CMake Language Support&lt;/li&gt;
+&lt;li&gt;Cmake Tools&lt;/li&gt;
+&lt;li&gt;Codelf&lt;/li&gt;
+&lt;li&gt;Code Runner&lt;/li&gt;
+&lt;li&gt;Code Snap&lt;/li&gt;
+&lt;li&gt;Code Together&lt;/li&gt;
+&lt;li&gt;Color Highlight&lt;/li&gt;
+&lt;li&gt;Color Picker&lt;/li&gt;
+&lt;li&gt;CSS Peek&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;d&#34;&gt;D&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;Dev Containers&lt;/li&gt;
+&lt;li&gt;Docker&lt;/li&gt;
+&lt;li&gt;Doxygen Documentation Genertor&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;e&#34;&gt;E&lt;/h2&gt;&lt;h2 id=&#34;f&#34;&gt;F&lt;/h2&gt;&lt;h2 id=&#34;g&#34;&gt;G&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;Git Graph&lt;/li&gt;
+&lt;li&gt;git-commit-plugin&lt;/li&gt;
+&lt;li&gt;GitHub Copilot&lt;/li&gt;
+&lt;li&gt;GitHub Copilot Chat&lt;/li&gt;
+&lt;li&gt;GitHub Copilot Labs&lt;/li&gt;
+&lt;li&gt;GitHub Pull Resquest and Issues&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;h&#34;&gt;H&lt;/h2&gt;&lt;h2 id=&#34;i&#34;&gt;I&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;IntelliCode API Usage Examples&lt;/li&gt;
+&lt;li&gt;IntelliCode for C# Dev Kit&lt;/li&gt;
+&lt;li&gt;IntelliJ IDEA New UI Theme&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;j&#34;&gt;J&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;Jetbrains Fleet Theme&lt;/li&gt;
+&lt;li&gt;JetBrains Icon Theme&lt;/li&gt;
+&lt;li&gt;JetBrains IDE Keymap&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;k&#34;&gt;K&lt;/h2&gt;&lt;h2 id=&#34;l&#34;&gt;L&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;Live Sever&lt;/li&gt;
+&lt;li&gt;Live Share&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;m&#34;&gt;M&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;Markdown Preview Github Styling&lt;/li&gt;
+&lt;li&gt;Markdown Preview Mermaid Support&lt;/li&gt;
+&lt;li&gt;Marp for VS Code&lt;/li&gt;
+&lt;li&gt;MASM&lt;/li&gt;
+&lt;li&gt;masm-code&lt;/li&gt;
+&lt;li&gt;MASM/TASM&lt;/li&gt;
+&lt;li&gt;Material Icon Theme&lt;/li&gt;
+&lt;li&gt;mypy&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;n&#34;&gt;N&lt;/h2&gt;&lt;h2 id=&#34;o&#34;&gt;O&lt;/h2&gt;&lt;h2 id=&#34;p&#34;&gt;P&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;Pylance&lt;/li&gt;
+&lt;li&gt;Python&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;q&#34;&gt;Q&lt;/h2&gt;&lt;h2 id=&#34;r&#34;&gt;R&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;Remote - SSH: Editing Configuration Files&lt;/li&gt;
+&lt;li&gt;Remote - Development&lt;/li&gt;
+&lt;li&gt;Remote Explorer&lt;/li&gt;
+&lt;li&gt;REST API&lt;/li&gt;
+&lt;li&gt;Ruff&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;s&#34;&gt;S&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;Slidev&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;t&#34;&gt;T&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;TODO Highlight v2&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;u&#34;&gt;U&lt;/h2&gt;&lt;h2 id=&#34;v&#34;&gt;V&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;Vim&lt;/li&gt;
+&lt;li&gt;VSCode DOSBox&lt;/li&gt;
+&lt;li&gt;VSCode Git Commit Message&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;w&#34;&gt;W&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;WSL&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;x&#34;&gt;X&lt;/h2&gt;&lt;h2 id=&#34;y&#34;&gt;Y&lt;/h2&gt;&lt;h2 id=&#34;z&#34;&gt;Z&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;Marp for VS Code&lt;/li&gt;
+&lt;/ul&gt;</description>
+    </item>
+    <item>
+      <title>VS Code Clang 语法格式化配置</title>
+      <link>https://blog.cassdev.com/posts/vs-code-clang-%E8%AF%AD%E6%B3%95%E6%A0%BC%E5%BC%8F%E5%8C%96%E9%85%8D%E7%BD%AE/</link>
+      <pubDate>Sun, 16 Jun 2024 11:20:31 +0800</pubDate>
+      <guid>https://blog.cassdev.com/posts/vs-code-clang-%E8%AF%AD%E6%B3%95%E6%A0%BC%E5%BC%8F%E5%8C%96%E9%85%8D%E7%BD%AE/</guid>
+      <description>&lt;p&gt;待优化！&lt;/p&gt;
+&lt;p&gt;基于 Visual Studio&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-json&#34; data-lang=&#34;json&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;  &lt;span class=&#34;err&#34;&gt;IndentWidth:&lt;/span&gt; &lt;span class=&#34;err&#34;&gt;4,&lt;/span&gt; 
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;  &lt;span class=&#34;err&#34;&gt;IndentCaseLabels:&lt;/span&gt; &lt;span class=&#34;err&#34;&gt;true,&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;  &lt;span class=&#34;err&#34;&gt;ColumnLimit:&lt;/span&gt; &lt;span class=&#34;err&#34;&gt;120,&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;  &lt;span class=&#34;err&#34;&gt;NamespaceIndentation:&lt;/span&gt; &lt;span class=&#34;err&#34;&gt;All,&lt;/span&gt; 
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;  &lt;span class=&#34;err&#34;&gt;IndentAccessModifiers:&lt;/span&gt; &lt;span class=&#34;err&#34;&gt;false,&lt;/span&gt; 
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;  &lt;span class=&#34;err&#34;&gt;AccessModifierOffset:&lt;/span&gt; &lt;span class=&#34;err&#34;&gt;-4,&lt;/span&gt; 
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;  &lt;span class=&#34;err&#34;&gt;AlignTrailingComments:&lt;/span&gt; &lt;span class=&#34;err&#34;&gt;true,&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;  &lt;span class=&#34;err&#34;&gt;AlwaysBreakTemplateDeclarations:&lt;/span&gt; &lt;span class=&#34;err&#34;&gt;true&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;ul&gt;
+&lt;li&gt;IndentWidth: 缩进4格&lt;/li&gt;
+&lt;li&gt;&lt;/li&gt;
+&lt;/ul&gt;</description>
+    </item>
+    <item>
+      <title>VS Code 设置网络代理指南</title>
+      <link>https://blog.cassdev.com/posts/vs-code-%E8%AE%BE%E7%BD%AE%E7%BD%91%E7%BB%9C%E4%BB%A3%E7%90%86%E6%8C%87%E5%8D%97/</link>
+      <pubDate>Sun, 16 Jun 2024 11:20:31 +0800</pubDate>
+      <guid>https://blog.cassdev.com/posts/vs-code-%E8%AE%BE%E7%BD%AE%E7%BD%91%E7%BB%9C%E4%BB%A3%E7%90%86%E6%8C%87%E5%8D%97/</guid>
+      <description>&lt;p&gt;当你使用 VS Code 时，有时你可能需要配置网络代理来访问特定的网络资源（魔法）。&lt;/p&gt;
+&lt;p&gt;例如在局域网远程开发时使用 GitHub Copilot Chat 插件并且远程主机无魔法时就可以进行配置网络代理。&lt;/p&gt;
+&lt;h2 id=&#34;配置教程&#34;&gt;配置教程&lt;/h2&gt;&lt;p&gt;打开设置，搜索 proxy 找到 Http: Proxy，填入代理地址即可。&lt;/p&gt;
+&lt;p&gt;&lt;img alt=&#34;VSCode Proxy&#34; loading=&#34;lazy&#34; src=&#34;https://s2.loli.net/2023/06/30/tQqCS5XvzgmLbFK.png&#34;&gt;&lt;/p&gt;
+&lt;p&gt;注意在远程开发时只能设置远程主机的Http代理，无法设置 VS Code 本机的网络代理。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>解决VScode远程开发C&#43;&#43;项目时无代码提示问题</title>
+      <link>https://blog.cassdev.com/posts/%E8%A7%A3%E5%86%B3vscode%E8%BF%9C%E7%A8%8B%E5%BC%80%E5%8F%91c&#43;&#43;%E9%A1%B9%E7%9B%AE%E6%97%B6%E6%97%A0%E4%BB%A3%E7%A0%81%E6%8F%90%E7%A4%BA%E9%97%AE%E9%A2%98/</link>
+      <pubDate>Sun, 16 Jun 2024 11:20:31 +0800</pubDate>
+      <guid>https://blog.cassdev.com/posts/%E8%A7%A3%E5%86%B3vscode%E8%BF%9C%E7%A8%8B%E5%BC%80%E5%8F%91c&#43;&#43;%E9%A1%B9%E7%9B%AE%E6%97%B6%E6%97%A0%E4%BB%A3%E7%A0%81%E6%8F%90%E7%A4%BA%E9%97%AE%E9%A2%98/</guid>
+      <description>&lt;p&gt;简单粗暴，给本地主机和远程主机都安装上C/C++插件即可。&lt;/p&gt;
+&lt;p&gt;&lt;img alt=&#34;C/C++ Plugin&#34; loading=&#34;lazy&#34; src=&#34;https://s2.loli.net/2023/06/21/eBLlkS63OX2roTV.png&#34;&gt;&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>
