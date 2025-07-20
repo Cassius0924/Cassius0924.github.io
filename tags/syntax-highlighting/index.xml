@@ -7,36 +7,14 @@
     <generator>Hugo -- 0.148.1</generator>
     <language>zh-CN</language>
     <copyright>Copyright © 2025-2025 Cassius0924. All rights reserved.</copyright>
-    <lastBuildDate>Sun, 16 Mar 2025 15:47:58 +0800</lastBuildDate>
+    <lastBuildDate>Sun, 20 Jul 2025 15:47:58 +0800</lastBuildDate>
     <atom:link href="https://blog.cassdev.com/tags/syntax-highlighting/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>语法高亮编写指南</title>
+      <title>浅析 Textmate 语法高亮规则运行机制</title>
       <link>https://blog.cassdev.com/posts/%E8%AF%AD%E6%B3%95%E9%AB%98%E4%BA%AE%E7%BC%96%E5%86%99%E6%8C%87%E5%8D%97/</link>
-      <pubDate>Sun, 16 Mar 2025 15:47:58 +0800</pubDate>
+      <pubDate>Sun, 20 Jul 2025 15:47:58 +0800</pubDate>
       <guid>https://blog.cassdev.com/posts/%E8%AF%AD%E6%B3%95%E9%AB%98%E4%BA%AE%E7%BC%96%E5%86%99%E6%8C%87%E5%8D%97/</guid>
-      <description>&lt;p&gt;语法高亮是指在IDE或编辑器中，对文本进行&lt;strong&gt;分词&lt;/strong&gt;，即将文本拆解为 Token（标记），每个 Token 都有对应的名称（作用域）进行标记。再配合主题样式规则，对不同名称的 Token 的进行&lt;strong&gt;主题化&lt;/strong&gt;，以提高代码的可读性。&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;程序员离不开语法高亮，就像作家离不开标点符号一样。（你可以代入一下使用 txt 文本编辑器写代码的场景）&lt;/p&gt;&lt;/blockquote&gt;
-&lt;p&gt;语法高亮由两个部分组成：&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;分词（Tokenization）：将文本拆解为一系列 Token。&lt;/li&gt;
-&lt;li&gt;主题化（Theming）：对 Token 进行样式渲染，如字体颜色、背景色、加粗等。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;我们以 JSON 的语法为例，简单介绍一下语法高亮的过程。&lt;/p&gt;
-&lt;p&gt;首先分词引擎会对 JSON 文本进行分词，下图是将 JSON 文本进行分词后的结果，其中每个矩形所包括的文本都是一个 Token，每个 Token 都有一个作用域名称，例如 &lt;code&gt;null&lt;/code&gt; 对应的是 &lt;code&gt;constant.language.json&lt;/code&gt; 作用域。&lt;/p&gt;
-&lt;p&gt;&lt;img alt=&#34;alt text&#34; loading=&#34;lazy&#34; src=&#34;https://s2.loli.net/2025/03/16/mQydfgXDYCuKPLo.png&#34;&gt;&lt;/p&gt;
-&lt;p&gt;然后主题化引擎会根据 Token 的作用域名称，对 Token 进行样式渲染，例如将 &lt;code&gt;constant.language.json&lt;/code&gt; 作用域映射为蓝色不加粗字体。那么 &lt;code&gt;null&lt;/code&gt; 就会被渲染为蓝色不加粗字体。&lt;/p&gt;
-&lt;p&gt;&lt;img alt=&#34;alt text&#34; loading=&#34;lazy&#34; src=&#34;https://s2.loli.net/2025/03/16/cho7NWLtem1Evgf.png&#34;&gt;&lt;/p&gt;
-&lt;h2 id=&#34;2-分词的实现方式&#34;&gt;2. 分词的实现方式&lt;/h2&gt;&lt;p&gt;目前主流的分词实现方式大致有有以下三种：&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;基于&lt;strong&gt;正则表达式&lt;/strong&gt;的分词：Textmate&lt;/li&gt;
-&lt;li&gt;基于&lt;strong&gt;词法分析&lt;/strong&gt;的分词：Highlight.js&lt;/li&gt;
-&lt;li&gt;基于&lt;strong&gt;语法树&lt;/strong&gt;的分词：Tree-sitter&lt;/li&gt;
-&lt;li&gt;(如果有其他，欢迎补充)&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;本文只讨论 Textmate 的语法高亮规则编写。&lt;/p&gt;
-&lt;p&gt;Textmate 原是 MacOS 下的一款文本编辑器，其语法高亮规则是基于正则表达式的，但由于其规则简单易懂，且支持多种语言，因此被广泛应用于各种编辑器和IDE中，如 VSCode、Sublime Text 等。JetBrains 的 IDE 也集成了 Textmate Bundle 插件，可以直接导入 Textmate 的语法高亮规则。&lt;/p&gt;
-&lt;p&gt;&lt;img alt=&#34;alt text&#34; loading=&#34;lazy&#34; src=&#34;CleanShot%202025-03-12%20at%2017.23.49@2x.png&#34;&gt;&lt;/p&gt;</description>
+      <description>浅析 Textmate 语法高亮规则运行机制，了解其分词和主题化的工作原理</description>
     </item>
   </channel>
 </rss>

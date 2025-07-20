@@ -7,8 +7,29 @@
     <generator>Hugo -- 0.148.1</generator>
     <language>zh-CN</language>
     <copyright>Copyright © 2025-2025 Cassius0924. All rights reserved.</copyright>
-    <lastBuildDate>Sat, 19 Jul 2025 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sun, 20 Jul 2025 15:47:58 +0800</lastBuildDate>
     <atom:link href="https://blog.cassdev.com/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Syntax Highlighting</title>
+      <link>https://blog.cassdev.com/tags/syntax-highlighting/</link>
+      <pubDate>Sun, 20 Jul 2025 15:47:58 +0800</pubDate>
+      <guid>https://blog.cassdev.com/tags/syntax-highlighting/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>TextMate</title>
+      <link>https://blog.cassdev.com/tags/textmate/</link>
+      <pubDate>Sun, 20 Jul 2025 15:47:58 +0800</pubDate>
+      <guid>https://blog.cassdev.com/tags/textmate/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>VSCode</title>
+      <link>https://blog.cassdev.com/tags/vscode/</link>
+      <pubDate>Sun, 20 Jul 2025 15:47:58 +0800</pubDate>
+      <guid>https://blog.cassdev.com/tags/vscode/</guid>
+      <description></description>
+    </item>
     <item>
       <title>Editor</title>
       <link>https://blog.cassdev.com/tags/editor/</link>
@@ -28,34 +49,6 @@
       <link>https://blog.cassdev.com/tags/vim/</link>
       <pubDate>Sat, 19 Jul 2025 00:00:00 +0000</pubDate>
       <guid>https://blog.cassdev.com/tags/vim/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Syntax Highlighting</title>
-      <link>https://blog.cassdev.com/tags/syntax-highlighting/</link>
-      <pubDate>Sun, 16 Mar 2025 15:47:58 +0800</pubDate>
-      <guid>https://blog.cassdev.com/tags/syntax-highlighting/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>TextMate</title>
-      <link>https://blog.cassdev.com/tags/textmate/</link>
-      <pubDate>Sun, 16 Mar 2025 15:47:58 +0800</pubDate>
-      <guid>https://blog.cassdev.com/tags/textmate/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Tutorial</title>
-      <link>https://blog.cassdev.com/tags/tutorial/</link>
-      <pubDate>Sun, 16 Mar 2025 15:47:58 +0800</pubDate>
-      <guid>https://blog.cassdev.com/tags/tutorial/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>VSCode</title>
-      <link>https://blog.cassdev.com/tags/vscode/</link>
-      <pubDate>Sun, 16 Mar 2025 15:47:58 +0800</pubDate>
-      <guid>https://blog.cassdev.com/tags/vscode/</guid>
       <description></description>
     </item>
     <item>
@@ -392,6 +385,13 @@
       <link>https://blog.cassdev.com/tags/mkdocs/</link>
       <pubDate>Mon, 17 Jun 2024 21:11:04 +0800</pubDate>
       <guid>https://blog.cassdev.com/tags/mkdocs/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Tutorial</title>
+      <link>https://blog.cassdev.com/tags/tutorial/</link>
+      <pubDate>Mon, 17 Jun 2024 21:11:04 +0800</pubDate>
+      <guid>https://blog.cassdev.com/tags/tutorial/</guid>
       <description></description>
     </item>
     <item>
