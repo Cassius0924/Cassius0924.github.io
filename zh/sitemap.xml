@@ -2,8 +2,11 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>https://blog.cassdev.com/tags/ai/</loc>
+    <lastmod>2025-07-29T00:00:00+00:00</lastmod>
+  </url><url>
     <loc>https://blog.cassdev.com/</loc>
-    <lastmod>2025-07-20T15:47:58+08:00</lastmod>
+    <lastmod>2025-07-29T00:00:00+00:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en-US"
@@ -15,14 +18,20 @@
                 href="https://blog.cassdev.com/"
                 />
   </url><url>
-    <loc>https://blog.cassdev.com/posts/</loc>
-    <lastmod>2025-07-20T15:47:58+08:00</lastmod>
+    <loc>https://blog.cassdev.com/tags/json/</loc>
+    <lastmod>2025-07-29T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://blog.cassdev.com/tags/syntax-highlighting/</loc>
-    <lastmod>2025-07-20T15:47:58+08:00</lastmod>
+    <loc>https://blog.cassdev.com/tags/llm/</loc>
+    <lastmod>2025-07-29T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://blog.cassdev.com/posts/llm-param-response-format/</loc>
+    <lastmod>2025-07-29T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://blog.cassdev.com/posts/</loc>
+    <lastmod>2025-07-29T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://blog.cassdev.com/tags/</loc>
-    <lastmod>2025-07-20T15:47:58+08:00</lastmod>
+    <lastmod>2025-07-29T00:00:00+00:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en-US"
@@ -33,6 +42,9 @@
                 hreflang="zh-CN"
                 href="https://blog.cassdev.com/tags/"
                 />
+  </url><url>
+    <loc>https://blog.cassdev.com/tags/syntax-highlighting/</loc>
+    <lastmod>2025-07-20T15:47:58+08:00</lastmod>
   </url><url>
     <loc>https://blog.cassdev.com/tags/textmate/</loc>
     <lastmod>2025-07-20T15:47:58+08:00</lastmod>
@@ -721,9 +733,6 @@
   </url><url>
     <loc>https://blog.cassdev.com/posts/%E5%9F%BA%E4%BA%8E-open3d-c&#43;&#43;-%E7%89%88%E5%AE%9E%E7%8E%B0%E7%82%B9%E4%BA%91%E6%95%B0%E6%8D%AE%E7%9A%84%E9%85%8D%E5%87%86%E5%92%8C%E7%9B%B8%E5%8A%A0/</loc>
     <lastmod>2023-04-10T10:00:00+08:00</lastmod>
-  </url><url>
-    <loc>https://blog.cassdev.com/tags/ai/</loc>
-    <lastmod>2023-04-08T10:00:00+08:00</lastmod>
   </url><url>
     <loc>https://blog.cassdev.com/tags/bing/</loc>
     <lastmod>2023-04-08T10:00:00+08:00</lastmod>

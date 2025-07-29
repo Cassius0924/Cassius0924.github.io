@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>LLM on Cassius0924 的博客</title>
+    <link>https://blog.cassdev.com/tags/llm/</link>
+    <description>Recent content in LLM on Cassius0924 的博客</description>
+    <generator>Hugo -- 0.148.2</generator>
+    <language>zh-CN</language>
+    <copyright>Copyright © 2025-2025 Cassius0924. All rights reserved.</copyright>
+    <lastBuildDate>Tue, 29 Jul 2025 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://blog.cassdev.com/tags/llm/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>LLM 参数之 Response Format</title>
+      <link>https://blog.cassdev.com/posts/llm-param-response-format/</link>
+      <pubDate>Tue, 29 Jul 2025 00:00:00 +0000</pubDate>
+      <guid>https://blog.cassdev.com/posts/llm-param-response-format/</guid>
+      <description>深入探讨 LLM 的 Response Format 参数，如何确保生成内容符合预期格式。</description>
+    </item>
+  </channel>
+</rss>
