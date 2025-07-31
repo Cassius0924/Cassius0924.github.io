@@ -15,7 +15,7 @@ author: 'Cassius0924'
 
 如果想让 LLM 输出 JSON 格式的内容，大家第一反应会是什么？可能大多数人和我一样，直接在提示词中写上"请输出 JSON 格式的内容，格式为 { "key": "value" }"。但其实，这种方式并不是最优的。
 
-从之前我们也了解到了，LLM 的输出是一个概率性的文本补全器。单纯依靠提示词工程来控制 LLM 的输出格式并不可靠。用自然语言去描述一个复杂的 JSON 结构本就不易，再加上当提示词很长时，LLM 的注意力可能会分散，这些因素都容易导致它输出不符合预期的格式，甚至根本不输出 JSON。
+从之前我们也了解到了，LLM 的输出是一个**概率性**的文本补全器。单纯依靠提示词工程来控制 LLM 的输出格式并不可靠。用自然语言去描述一个**复杂的 JSON 结构**本就不易，再加上当提示词很长时，LLM 的**注意力可能会分散**，这些因素都容易导致它输出不符合预期的格式，甚至根本不输出 JSON。
 
 具体来说，这种方式可能会遇到以下三个主要问题：
 
@@ -25,7 +25,7 @@ author: 'Cassius0924'
 
 3. **内容幻觉**：模型可能"幻觉"出指令中未要求的字段，或遗漏必要的字段，破坏了数据模式的一致性。
 
-让 LLM 生成符合预期的 JSON 格式内容的最佳实践是使用 `response_format` 参数。这个参数允许我们直接指定输出的格式，确保 LLM 生成的内容符合预期的结构和语法。
+让 LLM 生成符合预期的 JSON 格式内容的最佳实践是使用 `response_format` 参数，在程序算法的层面上去干预 LLM 的输出格式。这个参数允许我们让 LLM 进行**结构化内容**输出，确保 LLM 生成的内容符合预期的结构和语法。
 
 ## Response Format 参数
 
@@ -61,9 +61,9 @@ author: 'Cassius0924'
 Linear 层 → Logits 原始分数 → Softmax 层 → 概率 -> token 采样 -> 输出
 ```
 
-在 Transformer 生成每个词（token）的过程中，模型首先通过 Linear 层计算出每个可能词的原始分数（Logits），然后通过 Softmax 层将这些分数转换为概率分布。接下来，模型会根据这个概率分布进行采样，选择概率最高的词作为输出。
+在 Transformer 生成每个词（token）的过程中，LLM 首先通过 Linear 层计算出每个可能词的原始分数（logits），然后通过 Softmax 层将这些分数转换为概率分布。接下来，LLM 会根据这个概率分布进行随机采样。
 
-如果使用了 `response_format` 参数，模型会对 Logits 原始分数进行一轮处理，这个过程交给了 LogitsProcessor 来完成。加上 LogitsProcessor 后，Transformer 的生成流程变为：
+如果使用了 `response_format` 参数，LLM 会对 Logits 原始分数进行一轮处理，这个过程交给了 LogitsProcessor 来完成。加上 LogitsProcessor 后，Transformer 的生成流程变为：
 
 ```
 Linear 层 → Logits 原始分数 → Logits 处理器 -> 处理后的 Logits 分数 → Softmax 层 → 概率 -> token 采样 -> 输出
@@ -76,7 +76,7 @@ Linear 层 → Logits 原始分数 → Logits 处理器 -> 处理后的 Logits �
 
 这里用大家更熟悉的正则表达式来举例说明，在应用了 `response_format` 参数后，LLM 输出 token 的过程如下：
 
-1. **Logits 计算**：Transformer 的 Linear 层为词汇表中的每个候选 token 计算出原始分数（Logits）。
+1. **Logits 计算**：Transformer 的 Linear 层为词汇表中的每个候选 token 计算出原始分数（logits）。
 2. **约束过滤**：LogitsProcessor 根据预定义的正则表达式对这些分数进行筛选，将候选 token 分为两类：符合格式要求的"合法 token"和不符合要求的"非法 token"。
 3. **分数调整**：LogitsProcessor 保持合法 token 的原始分数不变，但将所有非法 token 的分数设置为负无穷（-∞）。
 4. **概率归一化**：Softmax 层处理调整后的分数。由于非法 token 的分数为 -∞，经过指数函数和归一化后，它们的概率会趋近于 0。
