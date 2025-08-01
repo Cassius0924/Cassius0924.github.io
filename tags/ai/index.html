@@ -11,14 +11,13 @@
 混入无关文本：模型可能在 JSON 对象前后添加对话式的"口水话"，如"好的，这是您要的 JSON：…"，这给后续的程序化解析带来了困难。
 结构性错误：生成的 JSON 可能存在语法错误，例如缺少逗号、括号不匹配或引号使用不当，导致解析失败。
 内容幻觉：模型可能"幻觉"出指令中未要求的字段，或遗漏必要的字段，破坏了数据模式的一致性。
-让 LLM 生成符合预期的 JSON 格式内容的最佳实践是使用 response_format 参数。这个参数允许我们直接指定输出的格式，确保 LLM 生成的内容符合预期的结构和语法。
+让 LLM 生成符合预期的 JSON 格式内容的最佳实践是使用 response_format 参数，在程序算法的层面上去干预 LLM 的输出格式。这个参数允许我们让 LLM 进行结构化内容输出，确保 LLM 生成的内容符合预期的结构和语法。
 Response Format 参数response_format 参数在绝大多数现代 LLM API 中都可用，允许开发者指定模型输出的格式。
 DeepSeek API Response Format
 OpenAI API Response Format
 DouBao API Response Format
 通过这个参数，我们可以明确要求 LLM 生成特定格式的内容，如 JSON 对象、纯文本或符合 JSON Schema 的数据结构。
 response_format 参数支持以下三个模式：
-模式 描述 备注 text 生成纯文本内容。适用于需要自然语言回复的场景。 默认模式，不会对输出格式进行约束。 json_object 生成 JSON 对象。适用于需要结构化数据的场景。 早期的 JSON 模式，只能保证输出为 JSON 格式，但不能 JSON 结构符合预期 json_schema 生成符合指定 JSON Schema 的 JSON 对象。适用于需要严格数据格式的场景。 结构化输出模式，这是官方推荐的模式，可以确保输出的 JSON 符合预定义的结构和类型约束。 使用 json_schema 模式时，需编写符合 JSON Schema 规范的模式定义，点击即刻学习 JSON Schema :)
 ...</p></div><footer class=entry-footer><span title='2025-07-29 00:00:00 +0000 UTC'>2025年07月29日</span>&nbsp;·&nbsp;3 分钟&nbsp;·&nbsp;Cassius0924</footer><a class=entry-link aria-label="post link to LLM 参数之 Response Format" href=https://blog.cassdev.com/posts/llm-param-response-format/></a></article><article class="post-entry tag-entry"><header class=entry-header><h2 class=entry-hint-parent>在 Chrome 中解锁 New Bing（Bing AI）</h2></header><div class=entry-content><p>本文旨在帮助大家在 Chrome 中使用 New Bing（Bing AI）。
 前几周，New Bing 的申请已经全面开放，无需等待，直接即可通过申请。但微软限制了 New Bing 只能在自家的 Edge 浏览器使用，对于我这种万年 Chrome 玩家就很苦恼，不习惯 Edge。
 前提 你得能科学上网；
