@@ -47,9 +47,12 @@ author: 'Cassius0924'
 | `json_object` | 生成 JSON 对象。适用于需要结构化数据的场景。 | 早期的 JSON 模式，只能保证输出为 JSON 格式，但不能 JSON 结构符合预期 |
 | `json_schema` | 生成符合指定 JSON Schema 的 JSON 对象。适用于需要严格数据格式的场景。 | 结构化输出模式，这是官方推荐的模式，可以确保输出的 JSON 符合预定义的结构和类型约束。 |
 
-使用 `json_schema` 模式时，需编写符合 JSON Schema 规范的模式定义，点击即刻学习 [JSON Schema](https://json-schema.apifox.cn/) :)
+> 使用 `json_schema` 模式时，需编写符合 JSON Schema 规范的模式定义，点击即刻学习 [JSON Schema](https://json-schema.apifox.cn/) :)
 
-## 底层原理
+`json_object` 和 `json_schema` 的差别，前者会能够保证输出为 JSON 格式，但具体字段和类型需要通过 Prompt 来引导。后者则可以通过 JSON Schema 来定义输出 JSON 的结构和类型，Prompt 只需要关注任务本身，而不需要关心格式。
+
+
+## 工作原理
 
 我们都知道，Transformer 是大多数现代 LLM 的基础架构。但 `response_format` 参数并不作用于 Transformer 模型的内部，而是在其生成流程中加入了一个约束步骤。这个约束步骤发生在 Transformer 的 Linear 层之后、Softmax 层之前。
 

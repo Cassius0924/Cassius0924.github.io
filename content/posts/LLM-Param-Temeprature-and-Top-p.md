@@ -165,6 +165,19 @@ Softmax 函数能够反映出 logits 的差异程度。而 logits 除以 tempera
 在实际业务中，作为 LLM 应用层开发者的我们不只有 All in **Prompt Engineering** 这条路来提升模型表现，也可以利用 temperature 这类采样参数进行精细化调控。像 LangChain、Eino 等框架，都提供了调整 temperature、top_p 等参数的能力（详见[文档](https://www.cloudwego.io/docs/eino/core_modules/components/chat_model_guide/#common-options)）。
 在构建多 Agent 系统时，我们要对每个 Agent 的职责进行明确划分，并对其采样参数进行**量身定制**，做到控制 Agent 的输出风格和内容质量。
 
+其他常用参数
+除了以上，大语言模型的 API 还提供了其他一些的参数：
+- max_tokens: 控制生成文本的最大长度（以 token 计）。这是一个非常实用的参数，可以用来防止模型生成过长的、不必要的文本，同时也能帮助控制 API 的成本。
+  - 高max_tokens：LLM 输出长度⬆︎
+  - 低max_tokens：LLM 输出长度⬇︎
+- presence_penalty: 存在惩罚。通过对已经出现过的 token 施加惩罚，来鼓励模型引入新的话题和概念，降低重复性。数值越高，模型越倾向于谈论新内容。
+  - 高 presence_penalty（p -> 2）：多元化⬆︎，重复度⬇︎
+  - 低 presence_penalty（p -> -2）：多元化⬇︎，重复度⬆︎
+- frequency_penalty: 频率惩罚。与存在惩罚类似，但它是根据 token 出现的频率来施加惩罚的。一个词出现的次数越多，受到的惩罚就越大，这能有效减少模型重复使用相同的词语。
+  - 高 presence_penalty（p -> 2）：多元化⬆︎，重复度⬇︎
+  - 低 presence_penalty（p -> -2）：多元化⬇︎，重复度⬆︎
+- stop (或 stop_sequences): 指定一个或多个字符串序列。当模型生成这些序列时，会立即停止输出。这对于控制生成内容的结束点非常有用，比如在生成列表或对话时。
+
 ## 参考
 
 - [https://www.mdrk.io/temperature-samplig-in-ai/](https://www.mdrk.io/temperature-samplig-in-ai/)
