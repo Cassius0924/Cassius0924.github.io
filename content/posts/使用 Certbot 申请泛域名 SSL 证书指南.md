@@ -3,6 +3,8 @@ date: '2026-01-28T20:23:00+08:00'
 draft: false
 title: "使用 Certbot 申请泛域名 SSL 证书指南"
 description: '介绍如何使用 Certbot 申请和配置泛域名 SSL 证书的步骤。'
+author: Cassius0924
+tags: ["Certbot", "SSL 证书", "泛域名"]
 ---
 
 # 使用 Certbot 申请泛域名 SSL 证书指南
