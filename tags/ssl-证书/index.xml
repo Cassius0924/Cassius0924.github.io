@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>SSL 证书 on Cassius0924 的博客</title>
+    <link>https://blog.cassdev.com/tags/ssl-%E8%AF%81%E4%B9%A6/</link>
+    <description>Recent content in SSL 证书 on Cassius0924 的博客</description>
+    <generator>Hugo -- 0.148.2</generator>
+    <language>zh-CN</language>
+    <copyright>Copyright © 2025-2025 Cassius0924. All rights reserved.</copyright>
+    <lastBuildDate>Wed, 28 Jan 2026 20:23:00 +0800</lastBuildDate>
+    <atom:link href="https://blog.cassdev.com/tags/ssl-%E8%AF%81%E4%B9%A6/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>使用 Certbot 申请泛域名 SSL 证书指南</title>
+      <link>https://blog.cassdev.com/posts/%E4%BD%BF%E7%94%A8-certbot-%E7%94%B3%E8%AF%B7%E6%B3%9B%E5%9F%9F%E5%90%8D-ssl-%E8%AF%81%E4%B9%A6%E6%8C%87%E5%8D%97/</link>
+      <pubDate>Wed, 28 Jan 2026 20:23:00 +0800</pubDate>
+      <guid>https://blog.cassdev.com/posts/%E4%BD%BF%E7%94%A8-certbot-%E7%94%B3%E8%AF%B7%E6%B3%9B%E5%9F%9F%E5%90%8D-ssl-%E8%AF%81%E4%B9%A6%E6%8C%87%E5%8D%97/</guid>
+      <description>介绍如何使用 Certbot 申请和配置泛域名 SSL 证书的步骤。</description>
+    </item>
+  </channel>
+</rss>
