@@ -20,7 +20,25 @@ sudo apt install "粘贴在这" 方法二：使用 aptitude 进行恢复aptitude
 首先，我们需要安装 aptitude：
 sudo apt-get install aptitude 然后，使用以下命令来查看被删除的软件包：
 sudo aptitude search '~c' 接下来，使用以下命令来恢复被删除的软件包：
-sudo aptitude install &lt;package-name></p></div><footer class=entry-footer><span title='2023-03-24 00:00:00 +0000 UTC'>2023年03月24日</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Cassius0924</footer><a class=entry-link aria-label="post link to apt autoremove 误删依赖包后自救指南" href=https://blog.cassdev.com/posts/apt-autoremove-%E8%AF%AF%E5%88%A0%E4%BE%9D%E8%B5%96%E5%8C%85%E5%90%8E%E8%87%AA%E6%95%91%E6%8C%87%E5%8D%97/></a></article><article class=post-entry><header class=entry-header><h2 class=entry-hint-parent></h2></header><div class=entry-content><p>tags: [“Homepage”, “Blog”, “Open Source”, “Go”, “WeChat”, “GitHub”]</p></div><footer class=entry-footer>1 min</footer><a class=entry-link aria-label="post link to " href=https://blog.cassdev.com/posts/%E4%B8%BB%E9%A1%B5/></a></article><footer class=page-footer><nav class=pagination><a class=prev href=https://blog.cassdev.com/posts/page/8/>«&nbsp;« 上一页&nbsp;8/9</a></nav></footer></main><footer class=footer><span>Copyright © 2025-2025 Cassius0924. All rights reserved.</span> ·
+sudo aptitude install &lt;package-name></p></div><footer class=entry-footer><span title='2023-03-24 00:00:00 +0000 UTC'>2023年03月24日</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Cassius0924</footer><a class=entry-link aria-label="post link to apt autoremove 误删依赖包后自救指南" href=https://blog.cassdev.com/posts/apt-autoremove-%E8%AF%AF%E5%88%A0%E4%BE%9D%E8%B5%96%E5%8C%85%E5%90%8E%E8%87%AA%E6%95%91%E6%8C%87%E5%8D%97/></a></article><article class=post-entry><header class=entry-header><h2 class=entry-hint-parent></h2></header><div class=entry-content><p>tags: [“Homepage”, “Blog”, “Open Source”, “Go”, “WeChat”, “GitHub”]</p></div><footer class=entry-footer>1 min</footer><a class=entry-link aria-label="post link to " href=https://blog.cassdev.com/posts/%E4%B8%BB%E9%A1%B5/></a></article><article class=post-entry><header class=entry-header><h2 class=entry-hint-parent></h2></header><div class=entry-content><p>systemd 是现代 Linux 发行版中广泛使用的初始化系统和服务管理器。它不仅提供了强大的功能来管理系统服务，还允许用户轻松地配置和管理自启动服务。
+systemd 中的字母 d 表示（daemon）守护进程，相信学过操作系统的同学都知道守护进程是指在后台运行的进程。
+systemd 作为守护进程管理器，负责启动、停止和管理系统中的各种服务。
+systemd 操作命令systemctlsystemctl（system control）是 systemd 的主要命令行工具。它用于检查和控制 systemd 系统和服务管理器的状态。
+刷新配置文件
+sudo systemctl daemon-reload 但你修改了服务的配置文件后，需要运行这个命令来让 systemd 重新加载配置文件。否则 systemd 不会识别你的更改。
+启动服务
+sudo systemctl start &lt;service_name> 这个命令用于启动指定的服务，当系统重启后，服务不会自动启动。
+停止服务
+sudo systemctl stop &lt;service_name> 这个命令用于停止指定的服务。
+重启服务
+sudo systemctl restart &lt;service_name> 这个命令用于重启指定的服务。
+重新加载服务配置
+sudo systemctl reload &lt;service_name> 这个命令用于重新加载指定服务的配置，而不停止服务。它与 restart 的区别在于，reload 不会中断服务的运行，适用于支持热加载配置的服务。
+查看服务状态
+sudo systemctl status &lt;service_name> 这个命令用于查看指定服务的当前状态。
+启用服务自启动
+sudo systemctl enable &lt;service_name> 这个命令用于使指定的服务在系统启动时自动启动。但是不会立即启动服务，如果想立即启动服务，可以加上 --now 选项： sudo systemctl enable --now &lt;service_name>
+...</p></div><footer class=entry-footer>2 min</footer><a class=entry-link aria-label="post link to " href=https://blog.cassdev.com/posts/%E4%BD%BF%E7%94%A8-systemd-%E4%BC%98%E9%9B%85%E7%9A%84%E7%AE%A1%E7%90%86%E8%87%AA%E5%90%AF%E5%8A%A8%E6%9C%8D%E5%8A%A1/></a></article><footer class=page-footer><nav class=pagination><a class=prev href=https://blog.cassdev.com/posts/page/8/>«&nbsp;« 上一页&nbsp;8/9</a></nav></footer></main><footer class=footer><span>Copyright © 2025-2025 Cassius0924. All rights reserved.</span> ·
 <span>Powered by
 <a href=https://gohugo.io/ rel="noopener noreferrer" target=_blank>Hugo</a> &
 <a href=https://github.com/adityatelange/hugo-PaperMod/ rel=noopener target=_blank>PaperMod</a></span></footer><a href=#top aria-label="go to top" title="Go to Top (Alt + G)" class=top-link id=top-link accesskey=g><svg viewBox="0 0 12 6" fill="currentColor"><path d="M12 6H0l6-6z"/></svg>
