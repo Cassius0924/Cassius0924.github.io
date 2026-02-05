@@ -7,8 +7,29 @@
     <generator>Hugo -- 0.148.2</generator>
     <language>zh-CN</language>
     <copyright>Copyright © 2025-2025 Cassius0924. All rights reserved.</copyright>
-    <lastBuildDate>Mon, 15 Jan 2024 10:00:00 +0800</lastBuildDate>
+    <lastBuildDate>Mon, 02 Feb 2026 18:47:58 +0800</lastBuildDate>
     <atom:link href="https://blog.cassdev.com/categories/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Guide</title>
+      <link>https://blog.cassdev.com/categories/guide/</link>
+      <pubDate>Mon, 02 Feb 2026 18:47:58 +0800</pubDate>
+      <guid>https://blog.cassdev.com/categories/guide/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>MacOS</title>
+      <link>https://blog.cassdev.com/categories/macos/</link>
+      <pubDate>Mon, 02 Feb 2026 18:47:58 +0800</pubDate>
+      <guid>https://blog.cassdev.com/categories/macos/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Raspberry Pi</title>
+      <link>https://blog.cassdev.com/categories/raspberry-pi/</link>
+      <pubDate>Mon, 02 Feb 2026 18:47:58 +0800</pubDate>
+      <guid>https://blog.cassdev.com/categories/raspberry-pi/</guid>
+      <description></description>
+    </item>
     <item>
       <title>C&#43;&#43;</title>
       <link>https://blog.cassdev.com/categories/c&#43;&#43;/</link>
