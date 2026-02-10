@@ -25,7 +25,7 @@ systemd 中的字母 d 表示 **（daemon）守护进程**，相信学过操作�
 
 systemctl（system control）是 systemd 的主要命令行工具。它用于检查和控制 systemd 系统和服务管理器的状态。
 
-- 刷新配置文件
+- **刷新配置文件**
 
     ```bash
     sudo systemctl daemon-reload
@@ -33,7 +33,7 @@ systemctl（system control）是 systemd 的主要命令行工具。它用于检
 
     但你修改了服务的配置文件后，需要运行这个命令来让 systemd 重新加载配置文件。否则 systemd 不会识别你的更改。
 
-- 启动服务
+- **启动服务**
 
     ```bash
     sudo systemctl start <service_name>
@@ -41,7 +41,7 @@ systemctl（system control）是 systemd 的主要命令行工具。它用于检
 
     这个命令用于启动指定的服务，当系统重启后，服务不会自动启动。
 
-- 停止服务
+- **停止服务**
 
     ```bash
     sudo systemctl stop <service_name>
@@ -49,7 +49,7 @@ systemctl（system control）是 systemd 的主要命令行工具。它用于检
 
     这个命令用于停止指定的服务。
 
-- 重启服务
+- **重启服务**
 
     ```bash
     sudo systemctl restart <service_name>
@@ -57,7 +57,7 @@ systemctl（system control）是 systemd 的主要命令行工具。它用于检
 
     这个命令用于重启指定的服务。
 
-- 重新加载服务配置
+- **重新加载服务配置**
 
     ```bash
     sudo systemctl reload <service_name>
@@ -65,7 +65,7 @@ systemctl（system control）是 systemd 的主要命令行工具。它用于检
 
     这个命令用于重新加载指定服务的配置，而不停止服务。它与 `restart` 的区别在于，`reload` 不会中断服务的运行，适用于支持热加载配置的服务。
 
-- 查看服务状态
+- **查看服务状态**
 
     ```bash
     sudo systemctl status <service_name>
@@ -73,7 +73,7 @@ systemctl（system control）是 systemd 的主要命令行工具。它用于检
 
     这个命令用于查看指定服务的当前状态。
 
-- 启用服务自启动
+- **启用服务自启动**
 
     ```bash
     sudo systemctl enable <service_name>
@@ -81,7 +81,7 @@ systemctl（system control）是 systemd 的主要命令行工具。它用于检
 
     这个命令用于使指定的服务在系统启动时自动启动。但是不会立即启动服务，如果想立即启动服务，可以加上 `--now` 选项： `sudo systemctl enable --now <service_name>`
 
-- 禁用服务自启动
+- **禁用服务自启动**
 
     ```bash
     sudo systemctl disable <service_name>
@@ -89,7 +89,7 @@ systemctl（system control）是 systemd 的主要命令行工具。它用于检
 
     这个命令用于禁止指定的服务在系统启动时自动启动。
 
-- 查询服务是否启用自启动
+- **查询服务是否启用自启动**
 
     ```bash
     sudo systemctl is-enabled <service_name>
@@ -97,7 +97,7 @@ systemctl（system control）是 systemd 的主要命令行工具。它用于检
 
     这个命令用于检查指定的服务是否设置为自启动。
 
-- 注销服务
+- **注销服务**
 
     ```bash
     sudo systemctl mask <service_name>
@@ -105,7 +105,7 @@ systemctl（system control）是 systemd 的主要命令行工具。它用于检
 
     这个命令用于禁止指定的服务被启动，包括手动启动和自动启动。应用场景如：某些服务存在安全隐患时，可以使用该命令彻底禁止其运行。
 
-- 取消注销服务
+- **取消注销服务**
 
     ```bash
     sudo systemctl unmask <service_name>
@@ -113,7 +113,7 @@ systemctl（system control）是 systemd 的主要命令行工具。它用于检
 
     这个命令用于取消对指定服务的禁止启动设置。
 
-- 查看所有正在运行的服务
+- **查看所有正在运行的服务**
 
     ```bash
     sudo systemctl list-units --type=service --state=running
@@ -125,7 +125,7 @@ systemctl（system control）是 systemd 的主要命令行工具。它用于检
 
 journalctl 是 systemd 的日志查看工具。它用于查看和管理由 systemd 记录的日志信息。
 
-- 查看指定服务的日志
+- **查看指定服务的日志**
 
     ```bash
     sudo journalctl -u <service_name>
@@ -147,7 +147,7 @@ journalctl 是 systemd 的日志查看工具。它用于查看和管理由 syste
 
 systemd-analyze 是 systemd 的性能分析工具。它用于分析系统启动时间和服务启动时间。
 
-- 查看系统启动时间
+- **查看系统启动时间**
 
     ```bash
     systemd-analyze
@@ -155,7 +155,7 @@ systemd-analyze 是 systemd 的性能分析工具。它用于分析系统启动�
 
     这个命令显示系统启动所花费的总时间以及内核、initrd 和用户空间的时间。
 
-- 查看各个服务的启动时间
+- **查看各个服务的启动时间**
 
     ```bash
     systemd-analyze blame
@@ -163,7 +163,7 @@ systemd-analyze 是 systemd 的性能分析工具。它用于分析系统启动�
 
     这个命令列出所有服务及其启动时间，按时间长短排序，帮助识别启动缓慢的服务。
 
-- 查看启动过程的可视化图表
+- **查看启动过程的可视化图表**
 
     ```bash
     systemd-analyze plot > boot.svg
@@ -295,3 +295,97 @@ sudo systemctl enable --now example
 
 这样，每次系统启动时，`example` 服务都会自动启动。查看日志的话可以使用 `sudo journalctl -u example -f`。
 
+## 日志相关
+
+我通常会设置日志最大大小，防止日志把我的小水桶服务器塞满了。
+
+这个配置文件位于 `/etc/systemd/journald.conf`
+
+```ini
+[Journal]
+# 设置日志最大大小为 500M
+SystemMaxUse=500M
+# 设置日志保留时间为 2 周
+MaxRetentionSec=2week
+# 启用压缩以节省空间
+Compress=yes
+```
+
+下面详细介绍一下可配置的参数：
+
+1. **存储策略**
+
+    | 参数名 | 含义 | 选项 | 备注 |
+    | --- | --- | --- | --- |
+    | **Storage** | 日志存储位置 | `auto`、`persistent`、`volatile`、`none` | `auto`：自动选择存储位置。<br>`persistent`：存储在 `/var/log/journal/`。<br>`volatile`：存储在 `/run/log/journal/`（重启后丢失）。<br>`none`：不存储日志。 |
+    | **Compress** | 启用日志压缩 | `yes`、`no` | 启用后，日志会被压缩以节省空间。可以节省磁盘空间，建议开启。 |
+    | **Seal** | 启用日志完整性保护 | `yes`、`no` | 启用后，日志文件会被加密签名以防篡改。一般只有在高安全需求环境下才需要开启。 |
+    | **SplitMode** | 日志拆分模式 | `uid`、`none` | `uid`：按用户 ID 拆分日志文件。<br>`none`：不拆分日志文件，这样所有用户的日志就会混在一起。 |
+
+2. **磁盘占用限制**
+
+    | 参数名 | 含义 | 备注 |
+    | --- | --- | --- |
+    | **SystemMaxUse** | 系统日志最大占用空间 | 定义系统日志文件的最大总大小。超过后会删除旧日志。 |
+    | **SystemKeepFree** | 系统日志保留空间 | 定义系统日志文件保留的最小可用空间。 |
+    | **SystemMaxFileSize** | 单个系统日志文件最大大小 | 定义单个系统日志文件的最大大小。 |
+    | **SystemMaxFiles** | 系统日志文件最大数量 | 定义系统日志文件的最大数量。 |
+
+    单位可以是 `K`（千字节）、`M`（兆字节）、`G`（千兆字节）等。
+
+3. **内存占用限制**
+
+    这部分配置决定了日志文件在内存中的限制。 逻辑同上，只是把 System 换成了 Runtime。
+
+    | 参数名 | 含义 | 备注 |
+    | --- | --- | --- |
+    | **RuntimeMaxUse** | 运行时日志最大占用空间 | 定义运行时日志文件的最大总大小。超过后会删除旧日志。 |
+    | **RuntimeKeepFree** | 运行时日志保留空间 | 定义运行时日志文件保留的最小可用空间。 |
+    | **RuntimeMaxFileSize** | 单个运行时日志文件最大大小 | 定义单个运行时日志文件的最大大小。 |
+    | **RuntimeMaxFiles** | 运行时日志文件最大数量 | 定义运行时日志文件的最大数量。 |
+
+4. **速率限制**
+
+    | 参数名 | 含义 | 备注 |
+    | --- | --- | --- |
+    | **RateLimitIntervalSec** | 速率限制时间间隔 | 定义日志速率限制的时间窗口。 |
+    | **RateLimitBurst** | 速率限制突发值 | 定义在时间窗口内允许的最大日志条数。超过后会丢弃日志。 |
+
+    这两个参数是一对，简单来说就是在 RateLimitIntervalSec 时间内，允许最多 RateLimitBurst 条日志记录，超过的日志会被丢弃，直到下一个时间窗口开始。
+
+    RateLimitIntervalSec 的默认值是 30s，单位可以是 s（秒）、m（分钟）、h（小时）等。RateLimitBurst 的默认值是 10000 条。
+
+    作用是防止某个服务疯狂输出日志（例如报错，或死循环 log），瞬间写满磁盘或沾满 CPU。
+
+5. **时间轮转与同步**
+
+    | 参数名 | 含义 | 备注 |
+    | --- | --- | --- |
+    | **SyncIntervalSec** | 日志同步间隔 | 定义日志数据从内存同步到磁盘的时间间隔。journald 会先把日志写到内存中，然后定期同步到磁盘。减少磁盘 I/O 压力。 |
+    | **MaxRetentionSec** | 最大保留时间 | 定义日志文件的最大保留时间，超过后会被删除。 |
+    | **MaxFileSec** | 单个日志文件最大时间 | 定义单个日志文件的最大时间长度，超过后会创建新文件。 |
+
+6. **转发配置**
+
+    Journald 收集到日志后，可以转发给其他地方。
+
+    | 参数名 | 含义 | 选项 | 备注 |
+    | --- | --- | --- | --- |
+    | **ForwardToSyslog** | 是否转发到 syslog | `yes`、`no` | 是否将日志转发到传统的 syslog 系统。 |
+    | **ForwardToKMsg** | 是否转发到内核日志缓冲区 | `yes`、`no` | 一般不开。 |
+    | **ForwardToConsole** | 是否转发到控制台 | `yes`、 `no` | 一般不开。 |
+    | **ForwardToWall** | 是否转发到所有登录用户终端 | `yes`、`no` | 只要有 `Emerg` 级别的日志，就会广播到所有登录用户的终端。 |
+
+7. **其他配置**
+
+    | 参数名 | 含义 | 备注 |
+    | --- | --- | --- |
+    | **TTYPath** | 控制台设备路径 | 定义日志输出的控制台设备路径。默认是 `/dev/console`。 |
+    | **MaxLevelStore** | 存储的最大日志级别 | 定义存储到磁盘的最大日志级别。 |
+    | **MaxLevelSyslog** | 转发到 syslog 的最大日志级别 | 定义转发到 syslog 的最大日志级别。 |
+    | **MaxLevelKMsg** | 转发到内核日志缓冲区的最大日志级别 | 定义转发到内核日志缓冲区的最大日志级别。 |
+    | **MaxLevelConsole** | 转发到控制台的最大日志级别 | 定义转发到控制台的最大日志级别。 |
+    | **MaxLevelWall** | 转发到所有登录用户终端的最大日志级别 | 定义转发到所有登录用户终端的最大日志级别。 |
+    | **LineMax** | 单行日志最大长度 | 定义单行日志的最大长度，超过后会被截断。默认是 48K 字节。 |
+    | **ReadKMsg** | 读取内核消息缓冲区 | 定义是否读取内核消息缓冲区的日志。默认是 `yes`。 |
+    | **Audit** | 审计日志支持 | 定义是否启用审计日志支持。默认是 `no`。 |
