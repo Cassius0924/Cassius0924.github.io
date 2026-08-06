@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Google Coral on Cassius0924 的博客</title>
+    <link>https://blog.cassdev.com/tags/google-coral/</link>
+    <description>Recent content in Google Coral on Cassius0924 的博客</description>
+    <generator>Hugo -- 0.148.2</generator>
+    <language>zh-CN</language>
+    <copyright>Copyright © 2025-2026 Cassius0924. All rights reserved.</copyright>
+    <lastBuildDate>Sun, 16 Jun 2024 11:20:31 +0800</lastBuildDate>
+    <atom:link href="https://blog.cassdev.com/tags/google-coral/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Google Coral Dev Board 修改风扇转动温度阈值指南</title>
+      <link>https://blog.cassdev.com/posts/google-coral-dev-board-%E4%BF%AE%E6%94%B9%E9%A3%8E%E6%89%87%E8%BD%AC%E5%8A%A8%E6%B8%A9%E5%BA%A6%E9%98%88%E5%80%BC%E6%8C%87%E5%8D%97/</link>
+      <pubDate>Sun, 16 Jun 2024 11:20:31 +0800</pubDate>
+      <guid>https://blog.cassdev.com/posts/google-coral-dev-board-%E4%BF%AE%E6%94%B9%E9%A3%8E%E6%89%87%E8%BD%AC%E5%8A%A8%E6%B8%A9%E5%BA%A6%E9%98%88%E5%80%BC%E6%8C%87%E5%8D%97/</guid>
+      <description>&lt;p&gt;Google Coral Dev Board 是一款功能强大的开发板，可用于构建机器学习应用程序。该板配备了 Edge TPU，这是一款专门用于机器学习任务的加速器。Edge TPU 非常高效，但它也可能会产生热量。如果温度过高，Edge TPU 可能会降频或关闭。&lt;/p&gt;
+&lt;h2 id=&#34;查看目前-tpu-温度&#34;&gt;查看目前 TPU 温度&lt;/h2&gt;&lt;p&gt;使用命令查看目前开发板核心 TPU 的温度，输出温度为1000倍的摄氏度。&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;cat /sys/class/thermal/thermal_zone0/temp
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;如输出&lt;code&gt;54000&lt;/code&gt;，则代表当前温度为54摄氏度。&lt;/p&gt;
+&lt;h2 id=&#34;修改散热器温度阈值&#34;&gt;修改散热器温度阈值&lt;/h2&gt;&lt;p&gt;禁用热管理：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nb&#34;&gt;echo&lt;/span&gt; &lt;span class=&#34;s2&#34;&gt;&amp;#34;disabled&amp;#34;&lt;/span&gt; &amp;gt; /sys/devices/virtual/thermal/thermal_zone0/mode
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;修改散热器温度阈值为50摄氏度&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nb&#34;&gt;echo&lt;/span&gt; &lt;span class=&#34;m&#34;&gt;50000&lt;/span&gt; &amp;gt; /sys/devices/platform/gpio_fan/hwmon/hwmon0/fan1_target
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</description>
+    </item>
+    <item>
+      <title>macOS 为 Google Coral Dev Board 刷入系统镜像指南</title>
+      <link>https://blog.cassdev.com/posts/macos-%E4%B8%BA-google-coral-dev-board-%E5%88%B7%E5%85%A5%E7%B3%BB%E7%BB%9F%E9%95%9C%E5%83%8F%E6%8C%87%E5%8D%97/</link>
+      <pubDate>Sun, 16 Jun 2024 11:20:31 +0800</pubDate>
+      <guid>https://blog.cassdev.com/posts/macos-%E4%B8%BA-google-coral-dev-board-%E5%88%B7%E5%85%A5%E7%B3%BB%E7%BB%9F%E9%95%9C%E5%83%8F%E6%8C%87%E5%8D%97/</guid>
+      <description>&lt;p&gt;本指南旨在帮助 macOS 开发者为 Google Coral Dev Board （Google Edege TPU） 通过 OTG 刷入 Mendel Linux 系统。&lt;/p&gt;
+&lt;h2 id=&#34;第一步连接到开发板串行控制台&#34;&gt;第一步：连接到开发板串行控制台&lt;/h2&gt;&lt;h3 id=&#34;安装-usb-转-uart-bridge-vcp-驱动程序&#34;&gt;安装 USB 转 UART Bridge VCP 驱动程序&lt;/h3&gt;&lt;p&gt;官方下载地址：&lt;a href=&#34;https://www.silabs.com/developers/usb-to-uart-bridge-vcp-drivers?tab=downloads&#34;&gt;https://www.silabs.com/developers/usb-to-uart-bridge-vcp-drivers?tab=downloads&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt=&#34;CP210x VCP&#34; loading=&#34;lazy&#34; src=&#34;https://s2.loli.net/2023/07/25/5n7sKqk1ValvcFR.png&#34;&gt;&lt;/p&gt;
+&lt;p&gt;下载完成后，双击运行并安装即可。&lt;/p&gt;
+&lt;h3 id=&#34;安装辅助程序&#34;&gt;安装辅助程序&lt;/h3&gt;&lt;p&gt;通过 Homebrew 安装：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;sudo brew install screen fastboot
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;连接开发板&#34;&gt;连接开发板&lt;/h3&gt;&lt;p&gt;先不给开发板供电，使用 micro-B USB 线将 Mac 连接到开发板。连接成功后会开发板会亮起绿色🟩和橙色🟧指示灯。&lt;/p&gt;
+&lt;p&gt;&lt;img alt=&#34;micro USB&#34; loading=&#34;lazy&#34; src=&#34;https://s2.loli.net/2023/07/26/8miISKlWOMy149J.jpg&#34;&gt;&lt;/p&gt;
+&lt;p&gt;随后使用命令查看串口连接是否正常工作：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;ls /dev/cu*
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;连接正常应该会列出&lt;code&gt;/dev/cu.SLAB_USBtoUART&lt;/code&gt;，如下图所示。&lt;/p&gt;
+&lt;p&gt;&lt;img alt=&#34;ls /dev/cu*&#34; loading=&#34;lazy&#34; src=&#34;https://s2.loli.net/2023/07/26/yafnbF9HUe8DQqT.png&#34;&gt;&lt;/p&gt;
+&lt;p&gt;然后使用&lt;code&gt;screen&lt;/code&gt;命令连接开发板串行命令行：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;screen /dev/cu.SLAB_USBtoUART &lt;span class=&#34;m&#34;&gt;115200&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;此时命令行应为空白，因为开发板未供电开机。&lt;/p&gt;
+&lt;h3 id=&#34;给开发板供电&#34;&gt;给开发板供电&lt;/h3&gt;&lt;p&gt;如图所示，将开发板电源插入，电源接口为右边的 USB-C 接口。&lt;/p&gt;
+&lt;p&gt;&lt;img alt=&#34;Power&#34; loading=&#34;lazy&#34; src=&#34;https://s2.loli.net/2023/07/26/sHYdWNjafQCeTwl.jpg&#34;&gt;&lt;/p&gt;
+&lt;p&gt;连接后开发板会亮起电源指示灯并转动风扇。串行命令行则会打印开发板的开机信息：&lt;/p&gt;
+&lt;p&gt;&lt;img alt=&#34;Coral Dev Board power on&#34; loading=&#34;lazy&#34; src=&#34;https://s2.loli.net/2023/07/26/h8JnuNpzWBsG25I.png&#34;&gt;&lt;/p&gt;
+&lt;p&gt;接着在串行命令行输入命令使开发板进入 fastboot 模式：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;fastboot &lt;span class=&#34;m&#34;&gt;0&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;img alt=&#34;fastboot 0&#34; loading=&#34;lazy&#34; src=&#34;https://s2.loli.net/2023/07/26/owkygYAm5JTUxjt.png&#34;&gt;&lt;/p&gt;
+&lt;h2 id=&#34;第二步刷入-mendel-linux-系统&#34;&gt;第二步：刷入 Mendel Linux 系统&lt;/h2&gt;&lt;h3 id=&#34;下载-mendel-linux-系统镜像&#34;&gt;下载 Mendel Linux 系统镜像&lt;/h3&gt;&lt;p&gt;回到 Mac，下载 Mendel Linux 系统镜像，官方下载地址：&lt;a href=&#34;https://coral.ai/software/#mendel-dev-board&#34;&gt;https://coral.ai/software/#mendel-dev-board&lt;/a&gt;&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

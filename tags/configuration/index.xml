@@ -1,0 +1,506 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Configuration on Cassius0924 的博客</title>
+    <link>https://blog.cassdev.com/tags/configuration/</link>
+    <description>Recent content in Configuration on Cassius0924 的博客</description>
+    <generator>Hugo -- 0.148.2</generator>
+    <language>zh-CN</language>
+    <copyright>Copyright © 2025-2026 Cassius0924. All rights reserved.</copyright>
+    <lastBuildDate>Sun, 16 Jun 2024 11:20:31 +0800</lastBuildDate>
+    <atom:link href="https://blog.cassdev.com/tags/configuration/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>iTerm2 配置失去焦点时保持命令行窗口指南</title>
+      <link>https://blog.cassdev.com/posts/iterm2-%E9%85%8D%E7%BD%AE%E5%A4%B1%E5%8E%BB%E7%84%A6%E7%82%B9%E6%97%B6%E4%BF%9D%E6%8C%81%E5%91%BD%E4%BB%A4%E8%A1%8C%E7%AA%97%E5%8F%A3%E6%8C%87%E5%8D%97/</link>
+      <pubDate>Sun, 16 Jun 2024 11:20:31 +0800</pubDate>
+      <guid>https://blog.cassdev.com/posts/iterm2-%E9%85%8D%E7%BD%AE%E5%A4%B1%E5%8E%BB%E7%84%A6%E7%82%B9%E6%97%B6%E4%BF%9D%E6%8C%81%E5%91%BD%E4%BB%A4%E8%A1%8C%E7%AA%97%E5%8F%A3%E6%8C%87%E5%8D%97/</guid>
+      <description>&lt;h2 id=&#34;配置步骤&#34;&gt;配置步骤&lt;/h2&gt;&lt;p&gt;按下 &lt;code&gt;cmd&lt;/code&gt; + &lt;code&gt;,&lt;/code&gt; 打开 iTerm2 设置，选择 Profiles 面板，切换到 Keys 选项卡，点击 Configure Hotkey Windows。&lt;/p&gt;
+&lt;p&gt;&lt;img alt=&#34;CleanShot 2023-11-10 at 17.09.07@2x&#34; loading=&#34;lazy&#34; src=&#34;https://s2.loli.net/2023/11/10/nyprlVNkUzZuTHj.png&#34;&gt;&lt;/p&gt;
+&lt;p&gt;打勾 Pin hotkey window 选项。&lt;/p&gt;
+&lt;p&gt;&lt;img alt=&#34;CleanShot 2023-11-10 at 17.11.26@2x&#34; loading=&#34;lazy&#34; src=&#34;https://s2.loli.net/2023/11/10/mjWFbGafINvCt6r.png&#34;&gt;&lt;/p&gt;
+&lt;p&gt;大功告成，配置完后鼠标在点击 iTerm2 命令行窗口以外的界面时，命令行窗口就不会自动隐藏了。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Linux Boost.Python3 安装以及 CMake 配置指南</title>
+      <link>https://blog.cassdev.com/posts/linux-boost.python3-%E5%AE%89%E8%A3%85%E4%BB%A5%E5%8F%8A-cmake-%E9%85%8D%E7%BD%AE%E6%8C%87%E5%8D%97/</link>
+      <pubDate>Sun, 16 Jun 2024 11:20:31 +0800</pubDate>
+      <guid>https://blog.cassdev.com/posts/linux-boost.python3-%E5%AE%89%E8%A3%85%E4%BB%A5%E5%8F%8A-cmake-%E9%85%8D%E7%BD%AE%E6%8C%87%E5%8D%97/</guid>
+      <description>&lt;h2 id=&#34;下载boost&#34;&gt;下载Boost&lt;/h2&gt;&lt;p&gt;前往&lt;a href=&#34;https://www.boost.org/&#34;&gt;Boost官网&lt;/a&gt;下载源码压缩包。&lt;/p&gt;
+&lt;p&gt;或通过 &lt;code&gt;wget&lt;/code&gt; 下载 1.83 版本：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;wget https://boostorg.jfrog.io/artifactory/main/release/1.83.0/source/boost_1_83_0.7z
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;下载完毕后，解压 7z 压缩包&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;7z x boost_1_83_0.7z
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;编译安装&#34;&gt;编译安装&lt;/h2&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nb&#34;&gt;cd&lt;/span&gt; boost_1_83_0
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;./bootstrap.sh --with-python&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;/root/.virtualenvs/ETRS/bin/python3 --with-python-version&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;3.8 --with-libraries&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;all 
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;code&gt;--with-python&lt;/code&gt; 的路径可以通过 &lt;code&gt;which python3&lt;/code&gt; 查看。&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;--with-python-version&lt;/code&gt; 的版本号可以通过 &lt;code&gt;python3 --version&lt;/code&gt; 查看，注意这里需要填成 &lt;code&gt;3.x&lt;/code&gt; 格式 ，而不是 &lt;code&gt;3.y.z&lt;/code&gt;，省略最后的版本号。&lt;/p&gt;
+&lt;p&gt;运行完以上命令后，需要修改 &lt;code&gt;project-config&lt;/code&gt; 配置文件。&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;vim project-config.jam
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;修改第 21行，在双引号里添加两个路径，分别是当前 Python 版本的 include 路径和 lib 路径。&lt;/p&gt;
+&lt;p&gt;&lt;img alt=&#34;CleanShot 2023-11-11 at 20.44.10@2x&#34; loading=&#34;lazy&#34; src=&#34;https://s2.loli.net/2023/11/11/gKp5WhZYdrC1XAN.png&#34;&gt;&lt;/p&gt;
+&lt;p&gt;Python 的 include 路径和 lib 路径可以通过下面的 Python 代码查看：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;kn&#34;&gt;import&lt;/span&gt; &lt;span class=&#34;nn&#34;&gt;sysconfig&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;sysconfig&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;get_path&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s1&#34;&gt;&amp;#39;include&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;		&lt;span class=&#34;c1&#34;&gt;# 查看 include 路径&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;sysconfig&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;get_path&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s1&#34;&gt;&amp;#39;stdlib&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;		&lt;span class=&#34;c1&#34;&gt;# 查看 lib 路径&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;开始编译：&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>macOS ClashX Pro 配置指南</title>
+      <link>https://blog.cassdev.com/posts/macos-clashx-pro-%E9%85%8D%E7%BD%AE%E6%8C%87%E5%8D%97/</link>
+      <pubDate>Sun, 16 Jun 2024 11:20:31 +0800</pubDate>
+      <guid>https://blog.cassdev.com/posts/macos-clashx-pro-%E9%85%8D%E7%BD%AE%E6%8C%87%E5%8D%97/</guid>
+      <description>&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;mixed-port: 7890
+
+# Linux 和 macOS 的 redir 代理端口
+redir-port: 7892
+
+# 允许局域网的连接
+allow-lan: true
+
+# 规则模式：Rule（规则） / Global（全局代理）/ Direct（全局直连）
+mode: rule
+
+# 设置日志输出级别 (默认级别：silent，即不输出任何内容，以避免因日志内容过大而导致程序内存溢出）。
+# 5 个级别：silent / info / warning / error / debug。级别越高日志输出量越大，越倾向于调试，若需要请自行开启。
+log-level: info
+# Clash 的 RESTful API
+external-controller: &amp;#39;0.0.0.0:9090&amp;#39;
+
+# RESTful API 的口令
+secret: &amp;#39;&amp;#39;
+
+dns:
+  enable: true
+  ipv6: true
+  listen: &amp;#39;0.0.0.0:53&amp;#39;
+  use-hosts: true
+  enhanced-mode: fake-ip
+  fake-ip-range: 198.18.0.1/16
+  nameserver:
+    - 202.120.224.6
+    - 114.114.114.114
+    - 223.5.5.5
+    - &amp;#39;tcp://223.5.5.5&amp;#39;
+  fallback:
+    - &amp;#39;tls://223.5.5.5:853&amp;#39;
+    - &amp;#39;https://223.5.5.5/dns-query&amp;#39;
+  fallback-filter:
+    geoip: true
+    ipcidr:
+      - 240.0.0.0/4
+# proxy provider start here
+proxy-providers:
+  feiniao:
+    type: http
+    path: ./profiles/feiniao.yaml
+    url: https://apiv1.v27qae.com/flydsubal/c8lr21z6wpiebqqx?clash=1&amp;amp;extend=1
+    interval: 36000
+    health-check:
+      enable: true
+      url: http://www.gstatic.com/generate_204
+      interval: 3600
+  yiyuan:
+    type: http
+    path: ./profiles/yiyuan.yaml
+    url: https://sub1.smallstrawberry.com/api/v1/client/subscribe?token=d6e73f953b6053a3b263b73f9509375d
+    decode-url: true
+    interval: 36000
+    health-check:
+      enable: true
+      url: http://www.gstatic.com/generate_204
+      interval: 3600
+
+
+# proxy provider end
+proxies:
+    # socks5
+  - name: windowsServer
+    type: socks5
+    server: 10.127.78.177
+    port: 7890
+    # username: username
+    # password: password
+    # tls: true
+    # skip-cert-verify: true
+    # udp: true
+
+  # - {name: 🇮🇪 中国-爱尔兰 IPLC C04, server: ir04.cathayroute.com, port: 33400, type: ss, cipher: rc4-md5, password: SRCFiB}
+  # - {name: 🇭🇰 香港 油尖旺御金·国峯 名氣通電訊 C02, server: hkhe02.cathayroute.com, port: 33400, type: ss, cipher: rc4-md5, password: SRCFiB}
+  # - {name: 🇮🇪 中国-爱尔兰 IPLC C03, server: ir03.cathayroute.com, port: 33400, type: ss, cipher: rc4-md5, password: SRCFiB}
+  # - {name: 🇭🇰 香港 油尖旺御金·国峯 名氣通電訊 C09, server: hkhe09.cathayroute.com, port: 33400, type: ss, cipher: rc4-md5, password: SRCFiB}
+  # - {name: 🇨🇳 中国-香港 IEPL Equinix HK8 C 02 1Gbps HBO TVB, server: sg12.cathayroute.com, port: 33400, type: ss, cipher: rc4-md5, password: SRCFiB, udp: true}
+  # - {name: 🇨🇳 中国-爱尔兰 IPLC C05, server: ir05.cathayroute.com, port: 33400, type: ss, cipher: rc4-md5, password: SRCFiB, udp: true}
+  # - {name: 🇨🇳 中国-香港 IPLC Equinix HK2 C 06 1Gbps HBO TVB, server: sg06.cathayroute.com, port: 33400, type: ss, cipher: rc4-md5, password: SRCFiB, udp: true}
+
+proxy-groups:
+  - name: Proxies
+    type: select
+    proxies:
+      - 机场节点
+      - 自动选择
+      - 故障转移
+
+  # - name: 手动节点
+  #   type: select
+  #   proxies:
+  #     - 🇮🇪 中国-爱尔兰 IPLC C04
+  #     - 🇭🇰 香港 油尖旺御金·国峯 名氣通電訊 C02
+  #     - 🇮🇪 中国-爱尔兰 IPLC C03
+  #     - 🇭🇰 香港 油尖旺御金·国峯 名氣通電訊 C09   
+  #     - 🇨🇳 中国-香港 IEPL Equinix HK8 C 02 1Gbps HBO TVB
+  #     - 🇨🇳 中国-爱尔兰 IPLC C05
+  #     - 🇨🇳 中国-香港 IPLC Equinix HK2 C 06 1Gbps HBO TVB
+
+  - name: feiniao
+    type: select
+    use:
+     - feiniao
+
+  - name: yiyuan
+    type: select
+    use:
+     - yiyuan
+
+  - name: 机场节点
+    type: select
+    proxies:
+     - feiniao
+     - yiyuan
+
+
+  - name: 故障转移
+    type: fallback
+    url: &amp;#39;http://www.gstatic.com/generate_204&amp;#39;
+    interval: 7200
+    proxies:
+     - feiniao
+     - yiyuan
+
+  - name: 自动选择
+    type: url-test
+    url: &amp;#39;http://www.gstatic.com/generate_204&amp;#39;
+    interval: 300
+    use:
+      - feiniao
+      - yiyuan
+
+rule-providers:
+  reject:
+    type: http
+    behavior: domain
+    url: &amp;#34;https://cdn.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/reject.txt&amp;#34;
+    path: ./ruleset/reject.yaml
+    interval: 86400
+
+  icloud:
+    type: http
+    behavior: domain
+    url: &amp;#34;https://cdn.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/icloud.txt&amp;#34;
+    path: ./ruleset/icloud.yaml
+    interval: 86400
+
+  apple:
+    type: http
+    behavior: domain
+    url: &amp;#34;https://cdn.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/apple.txt&amp;#34;
+    path: ./ruleset/apple.yaml
+    interval: 86400
+
+  google:
+    type: http
+    behavior: domain
+    url: &amp;#34;https://cdn.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/google.txt&amp;#34;
+    path: ./ruleset/google.yaml
+    interval: 86400
+
+  proxy:
+    type: http
+    behavior: domain
+    url: &amp;#34;https://cdn.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/proxy.txt&amp;#34;
+    path: ./ruleset/proxy.yaml
+    interval: 86400
+
+  direct:
+    type: http
+    behavior: domain
+    url: &amp;#34;https://cdn.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/direct.txt&amp;#34;
+    path: ./ruleset/direct.yaml
+    interval: 86400
+
+  private:
+    type: http
+    behavior: domain
+    url: &amp;#34;https://cdn.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/private.txt&amp;#34;
+    path: ./ruleset/private.yaml
+    interval: 86400
+
+  gfw:
+    type: http
+    behavior: domain
+    url: &amp;#34;https://cdn.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/gfw.txt&amp;#34;
+    path: ./ruleset/gfw.yaml
+    interval: 86400
+
+  tld-not-cn:
+    type: http
+    behavior: domain
+    url: &amp;#34;https://cdn.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/tld-not-cn.txt&amp;#34;
+    path: ./ruleset/tld-not-cn.yaml
+    interval: 86400
+
+  telegramcidr:
+    type: http
+    behavior: ipcidr
+    url: &amp;#34;https://cdn.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/telegramcidr.txt&amp;#34;
+    path: ./ruleset/telegramcidr.yaml
+    interval: 86400
+
+  cncidr:
+    type: http
+    behavior: ipcidr
+    url: &amp;#34;https://cdn.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/cncidr.txt&amp;#34;
+    path: ./ruleset/cncidr.yaml
+    interval: 86400
+
+  lancidr:
+    type: http
+    behavior: ipcidr
+    url: &amp;#34;https://cdn.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/lancidr.txt&amp;#34;
+    path: ./ruleset/lancidr.yaml
+    interval: 86400
+
+  applications:
+    type: http
+    behavior: classical
+    url: &amp;#34;https://cdn.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/applications.txt&amp;#34;
+    path: ./ruleset/applications.yaml
+    interval: 86400
+
+rules:
+  - DOMAIN-SUFFIX,visualstudio.com,DIRECT
+  - DOMAIN-SUFFIX,azure.com,DIRECT
+  - DOMAIN-SUFFIX,vscode.dev,Proxies
+  - RULE-SET,applications,DIRECT
+  - DOMAIN,clash.razord.top,DIRECT
+  - DOMAIN,yacd.haishan.me,DIRECT
+  - RULE-SET,private,DIRECT
+  - RULE-SET,reject,REJECT
+  - RULE-SET,tld-not-cn,Proxies
+  - RULE-SET,gfw,Proxies
+  - RULE-SET,telegramcidr,Proxies
+  - MATCH,DIRECT
+&lt;/code&gt;&lt;/pre&gt;</description>
+    </item>
+    <item>
+      <title>macOS Word 更好的快捷键配置指南</title>
+      <link>https://blog.cassdev.com/posts/macos-word-%E6%9B%B4%E5%A5%BD%E7%9A%84%E5%BF%AB%E6%8D%B7%E9%94%AE%E9%85%8D%E7%BD%AE%E6%8C%87%E5%8D%97/</link>
+      <pubDate>Sun, 16 Jun 2024 11:20:31 +0800</pubDate>
+      <guid>https://blog.cassdev.com/posts/macos-word-%E6%9B%B4%E5%A5%BD%E7%9A%84%E5%BF%AB%E6%8D%B7%E9%94%AE%E9%85%8D%E7%BD%AE%E6%8C%87%E5%8D%97/</guid>
+      <description>&lt;p&gt;Microsoft Word在macOS平台上是一款功能强大的文字处理工具，然而，要使其与macOS原生编辑器更好地无缝切换，合理配置快捷键是至关重要的。本指南将介绍一些新的macOS Word的快捷键，使您能够更高效地编辑文档，同时保持与系统级快捷键的一致性。&lt;/p&gt;
+&lt;table&gt;
+  &lt;thead&gt;
+      &lt;tr&gt;
+          &lt;th style=&#34;text-align: center&#34;&gt;快捷键&lt;/th&gt;
+          &lt;th style=&#34;text-align: left&#34;&gt;Word快捷键名&lt;/th&gt;
+          &lt;th style=&#34;text-align: left&#34;&gt;备注&lt;/th&gt;
+      &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+      &lt;tr&gt;
+          &lt;td style=&#34;text-align: center&#34;&gt;Ctrl + A&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;StartOfLine&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;跳到行首&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td style=&#34;text-align: center&#34;&gt;Ctrl + E&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;EndOfLine&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;跳到行尾&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td style=&#34;text-align: center&#34;&gt;Ctrl + N&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;LineDown&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;下一行&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td style=&#34;text-align: center&#34;&gt;Ctrl + P&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;LineUp&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;上一行&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td style=&#34;text-align: center&#34;&gt;Ctrl + F&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;CharRight&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;下一个字符&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td style=&#34;text-align: center&#34;&gt;Ctrl + B&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;CharLeft&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;上一个字符&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td style=&#34;text-align: center&#34;&gt;Ctrl + J&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;NextPage&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;跳到下一页&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td style=&#34;text-align: center&#34;&gt;Ctrl + K&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;PrevPage&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;跳到上一页&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td style=&#34;text-align: center&#34;&gt;Ctrl + V&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;PasteTextOnly&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;无格式粘贴&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td style=&#34;text-align: center&#34;&gt;Ctrl + H&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;Highlight&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;高亮选中的文字&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td style=&#34;text-align: center&#34;&gt;Ctrl + T&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;TableInsertTable&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;插入表格&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td style=&#34;text-align: center&#34;&gt;Cmd + Shift + F&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;NavPaneSearch&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;高级面板搜索&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td style=&#34;text-align: center&#34;&gt;Option + Return&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;TableInsertRowBelow&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;在表格下方插入一行&lt;/td&gt;
+      &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;</description>
+    </item>
+    <item>
+      <title>Ubuntu Neovim 安装和配置指南</title>
+      <link>https://blog.cassdev.com/posts/ubuntu-neovim-%E5%AE%89%E8%A3%85%E5%92%8C%E9%85%8D%E7%BD%AE%E6%8C%87%E5%8D%97/</link>
+      <pubDate>Sun, 16 Jun 2024 11:20:31 +0800</pubDate>
+      <guid>https://blog.cassdev.com/posts/ubuntu-neovim-%E5%AE%89%E8%A3%85%E5%92%8C%E9%85%8D%E7%BD%AE%E6%8C%87%E5%8D%97/</guid>
+      <description>&lt;h2 id=&#34;安装&#34;&gt;安装&lt;/h2&gt;&lt;p&gt;不建议使用&lt;code&gt;apt&lt;/code&gt;安装，因为&lt;code&gt;apt&lt;/code&gt;安装的版本总是不是最新版。一些neovim插件依赖于高版本的neovim，因此使用apt安装可能会导致一些插件无法正常使用。&lt;/p&gt;
+&lt;p&gt;下面介绍安装最新版neovim的方法。&lt;/p&gt;
+&lt;p&gt;下载安装压缩包：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;wget https://github.com/neovim/neovim/releases/latest/download/nvim-linux64.tar.gz
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;安装：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;tar xzvf nvim-linux64.tar.gz
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;cp ./nvim-linux64/bin/nvim /usr/bin/
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;测试：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;nvim -v
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;img alt=&#34;CleanShot 2023-12-31 at 15.15.57@2x&#34; loading=&#34;lazy&#34; src=&#34;https://s2.loli.net/2023/12/31/SlKxdfWtwNFCOzy.png&#34;&gt;&lt;/p&gt;
+&lt;h2 id=&#34;nvim配置&#34;&gt;nvim配置&lt;/h2&gt;&lt;h3 id=&#34;核心配置&#34;&gt;核心配置&lt;/h3&gt;&lt;p&gt;配置 nvim 需要先创建配置文件的文件夹。&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nb&#34;&gt;cd&lt;/span&gt; ~
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;mkdir -r .config/nvim
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nb&#34;&gt;cd&lt;/span&gt; .config/nvim
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;nvim 使用 lua 语言作为配置文件语言，新建 init.lua，该文件是 nvim 的配置的入口。&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;touch init.lua
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;模块化配置&#34;&gt;模块化配置&lt;/h3&gt;&lt;p&gt;nvim 支持模块化配置，所以可以在 nvim 文件夹下创建多个配置模块：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;mkdir -r lua/core
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nb&#34;&gt;cd&lt;/span&gt; lua/core
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;core 文件夹存放 nvim 的核心配置，例如 nvim 基础配置（options.lua）和快捷键配置（keymaps）：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;touch options.lua keymaps.lua
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;此时，neovim 的配置文件结构如下所示：&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;~
+`--.config
+   `-- nvim
+       |-- init.lua
+       |-- lua
+       |   |-- core
+       |   |   |-- keymaps.lua
+       |   |   `-- options.lua
+       |   `-- plugins
+       |       `-- plugins-setup.lua
+       `-- plugin
+           `-- packer_compiled.lua
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;回到 init.lua 文件，在 init.lua 中调用刚刚新建的两个模块：&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Ubuntu 配置开机自动挂载三星 T7 固态硬盘指南</title>
+      <link>https://blog.cassdev.com/posts/ubuntu-%E9%85%8D%E7%BD%AE%E5%BC%80%E6%9C%BA%E8%87%AA%E5%8A%A8%E6%8C%82%E8%BD%BD%E4%B8%89%E6%98%9F-t7-%E5%9B%BA%E6%80%81%E7%A1%AC%E7%9B%98%E6%8C%87%E5%8D%97/</link>
+      <pubDate>Sun, 16 Jun 2024 11:20:31 +0800</pubDate>
+      <guid>https://blog.cassdev.com/posts/ubuntu-%E9%85%8D%E7%BD%AE%E5%BC%80%E6%9C%BA%E8%87%AA%E5%8A%A8%E6%8C%82%E8%BD%BD%E4%B8%89%E6%98%9F-t7-%E5%9B%BA%E6%80%81%E7%A1%AC%E7%9B%98%E6%8C%87%E5%8D%97/</guid>
+      <description>&lt;h2 id=&#34;连接硬盘&#34;&gt;连接硬盘&lt;/h2&gt;&lt;p&gt;先将硬盘与主机相连接，然后运行&lt;code&gt;fdisk&lt;/code&gt;命令查看系统的硬盘分区。&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;sudo fdisk -l
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;img alt=&#34;fdisk -l&#34; loading=&#34;lazy&#34; src=&#34;https://s2.loli.net/2023/10/19/kvu6H917eayRX3Y.png&#34;&gt;&lt;/p&gt;
+&lt;p&gt;找到自己连接的硬盘，一般为&lt;code&gt;/dev/sda1&lt;/code&gt;。&lt;/p&gt;
+&lt;h2 id=&#34;查看硬盘uuid&#34;&gt;查看硬盘UUID&lt;/h2&gt;&lt;p&gt;运行命令&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;sudo blkid
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;img alt=&#34;blkid&#34; loading=&#34;lazy&#34; src=&#34;https://s2.loli.net/2023/10/19/WTeys8u3ElFNxf2.png&#34;&gt;&lt;/p&gt;
+&lt;p&gt;找到自己硬盘的 UUID 和 TYPE，记录下它们。三星 T7 硬盘默认为兼容性较好的 exfat 格式。&lt;/p&gt;
+&lt;h2 id=&#34;配置开机自动挂载&#34;&gt;配置开机自动挂载&lt;/h2&gt;&lt;p&gt;接着修改系统&lt;code&gt;/etc/fstab&lt;/code&gt;文件。&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;vim /etc/fstab
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;在文件最后添加一行：&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;UUID=C65A-E9E1 ~/disk exfat defaults,nofail,utf8,dmask=022,fmask=133 0 0
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;内容格式为：&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;UUID=&amp;lt;UUID&amp;gt; &amp;lt;挂载目录&amp;gt; &amp;lt;硬盘格式&amp;gt; &amp;lt;挂载参数&amp;gt; &amp;lt;是否自动备份&amp;gt; &amp;lt;开机是否自检&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;挂载参数中可以设置：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;code&gt;defauls&lt;/code&gt;：默认挂载参数；&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;code&gt;dmask=&lt;/code&gt;：目录的默认权限；&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;code&gt;fmask=&lt;/code&gt;：文件的默认权限；&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;code&gt;uid=&lt;/code&gt;：挂载硬盘的用户id；&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;code&gt;gid=&lt;/code&gt;：挂载硬盘的组id；&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;code&gt;utf8&lt;/code&gt;：字符编码；&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;code&gt;nofail&lt;/code&gt;：错误忽略，如果硬盘不存在依然正常开机。&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;设置完毕后保存并退出文件。&lt;/p&gt;
+&lt;h2 id=&#34;重启-ubuntu&#34;&gt;重启 Ubuntu&lt;/h2&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;sudo reboot
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;重启后将自动挂载硬盘到指定目录。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>VS Code Clang 语法格式化配置</title>
+      <link>https://blog.cassdev.com/posts/vs-code-clang-%E8%AF%AD%E6%B3%95%E6%A0%BC%E5%BC%8F%E5%8C%96%E9%85%8D%E7%BD%AE/</link>
+      <pubDate>Sun, 16 Jun 2024 11:20:31 +0800</pubDate>
+      <guid>https://blog.cassdev.com/posts/vs-code-clang-%E8%AF%AD%E6%B3%95%E6%A0%BC%E5%BC%8F%E5%8C%96%E9%85%8D%E7%BD%AE/</guid>
+      <description>&lt;p&gt;待优化！&lt;/p&gt;
+&lt;p&gt;基于 Visual Studio&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-json&#34; data-lang=&#34;json&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;  &lt;span class=&#34;err&#34;&gt;IndentWidth:&lt;/span&gt; &lt;span class=&#34;err&#34;&gt;4,&lt;/span&gt; 
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;  &lt;span class=&#34;err&#34;&gt;IndentCaseLabels:&lt;/span&gt; &lt;span class=&#34;err&#34;&gt;true,&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;  &lt;span class=&#34;err&#34;&gt;ColumnLimit:&lt;/span&gt; &lt;span class=&#34;err&#34;&gt;120,&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;  &lt;span class=&#34;err&#34;&gt;NamespaceIndentation:&lt;/span&gt; &lt;span class=&#34;err&#34;&gt;All,&lt;/span&gt; 
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;  &lt;span class=&#34;err&#34;&gt;IndentAccessModifiers:&lt;/span&gt; &lt;span class=&#34;err&#34;&gt;false,&lt;/span&gt; 
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;  &lt;span class=&#34;err&#34;&gt;AccessModifierOffset:&lt;/span&gt; &lt;span class=&#34;err&#34;&gt;-4,&lt;/span&gt; 
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;  &lt;span class=&#34;err&#34;&gt;AlignTrailingComments:&lt;/span&gt; &lt;span class=&#34;err&#34;&gt;true,&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;  &lt;span class=&#34;err&#34;&gt;AlwaysBreakTemplateDeclarations:&lt;/span&gt; &lt;span class=&#34;err&#34;&gt;true&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;ul&gt;
+&lt;li&gt;IndentWidth: 缩进4格&lt;/li&gt;
+&lt;li&gt;&lt;/li&gt;
+&lt;/ul&gt;</description>
+    </item>
+    <item>
+      <title>VS Code 设置网络代理指南</title>
+      <link>https://blog.cassdev.com/posts/vs-code-%E8%AE%BE%E7%BD%AE%E7%BD%91%E7%BB%9C%E4%BB%A3%E7%90%86%E6%8C%87%E5%8D%97/</link>
+      <pubDate>Sun, 16 Jun 2024 11:20:31 +0800</pubDate>
+      <guid>https://blog.cassdev.com/posts/vs-code-%E8%AE%BE%E7%BD%AE%E7%BD%91%E7%BB%9C%E4%BB%A3%E7%90%86%E6%8C%87%E5%8D%97/</guid>
+      <description>&lt;p&gt;当你使用 VS Code 时，有时你可能需要配置网络代理来访问特定的网络资源（魔法）。&lt;/p&gt;
+&lt;p&gt;例如在局域网远程开发时使用 GitHub Copilot Chat 插件并且远程主机无魔法时就可以进行配置网络代理。&lt;/p&gt;
+&lt;h2 id=&#34;配置教程&#34;&gt;配置教程&lt;/h2&gt;&lt;p&gt;打开设置，搜索 proxy 找到 Http: Proxy，填入代理地址即可。&lt;/p&gt;
+&lt;p&gt;&lt;img alt=&#34;VSCode Proxy&#34; loading=&#34;lazy&#34; src=&#34;https://s2.loli.net/2023/06/30/tQqCS5XvzgmLbFK.png&#34;&gt;&lt;/p&gt;
+&lt;p&gt;注意在远程开发时只能设置远程主机的Http代理，无法设置 VS Code 本机的网络代理。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>MacOS 修改 App Store 和地图软件语言指南</title>
+      <link>https://blog.cassdev.com/posts/macos-%E4%BF%AE%E6%94%B9-app-store-%E5%92%8C%E5%9C%B0%E5%9B%BE%E8%BD%AF%E4%BB%B6%E8%AF%AD%E8%A8%80%E6%8C%87%E5%8D%97/</link>
+      <pubDate>Fri, 14 Apr 2023 10:00:00 +0800</pubDate>
+      <guid>https://blog.cassdev.com/posts/macos-%E4%BF%AE%E6%94%B9-app-store-%E5%92%8C%E5%9C%B0%E5%9B%BE%E8%BD%AF%E4%BB%B6%E8%AF%AD%E8%A8%80%E6%8C%87%E5%8D%97/</guid>
+      <description>本文提供了一种简单的方法，让您能够修改 App Store 和 Maps 的语言设置。</description>
+    </item>
+  </channel>
+</rss>
