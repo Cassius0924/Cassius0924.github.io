@@ -144,3 +144,8 @@
 .dark .markdown-alert.markdown-alert-caution .markdown-alert-title {
     color: #f85149;
 }
+
+/* 保持正文图片的固有宽高比：宽度被内容区压缩时，高度同步缩放 */
+.post-content img {
+    height: auto;
+}
